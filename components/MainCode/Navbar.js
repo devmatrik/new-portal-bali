@@ -3,12 +3,53 @@
 // import { Disclosure } from '@headlessui/react';
 // import { getCsrfToken, useSession, signIn, signOut, getSession } from "next-auth/react"
 import { React } from "react";
+// import styles from '/styles/Navbar.module.css';
+import Image from 'next/image';
 
 
 export default function Navbar(props) {
     return (
    <>
-   <div className="top-header-area">
+   <body>
+   <section id="main">
+      <nav>
+        <div className="logo">
+          <a href="/algorskol1.png">Oscar - LogRocket</a>
+        </div>
+        
+        <ul className="menu">
+          <li><a href="#next">Hello</a></li>
+          <li><a href="#">Hola</a></li>
+          <li><a href="#">Hallo</a></li>
+        </ul>
+      </nav>
+      <video src="images/video.mp4" muted autoPlay loop></video>
+      {/* <div className="overlay"></div> */}
+      <div className="main-text">
+        <h2>Lets go for a walk...</h2>
+        <h1>...On the Moon</h1>
+        <p>This demo shows a video background with an overlay.</p>
+
+        <a href="#" className="btn">Letss go!</a>
+      </div>
+    </section>
+
+    <section id="next">
+      <div className="container">
+        <h2>Next Section</h2>
+        <h3>
+          The gradient blends in with the background color of this section
+        </h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel suscipit
+          iste ducimus minus qui error debitis exercitationem laboriosam dicta
+          facilis!
+        </p>
+      </div>
+    </section>
+
+   </body>
+   {/* <div className="top-header-area bg-white">
     <div className="container">
       <div className="row align-items-center">
         <div className="col-lg-6">
@@ -31,19 +72,21 @@ export default function Navbar(props) {
         </div>
       </div>
     </div>
-  </div>
+  </div> */}
   {/* End Top Header Area */}
+  
   {/* Start Navbar Area */}
-  <div className="navbar-area">
+  {/* <div className="navbar-area">
     <div className="main-responsive-nav">
       <div className="container">
         <div className="main-responsive-menu">
           <div className="logo">
             <a href="index.html">
-             
-              <img
-                src="img/logo-elingbali-70.png"
+              <Image
+                src=""
                 className="white-logo"
+                width={100}
+                height={100}
                 alt="image"
               />
             </a>
@@ -53,11 +96,13 @@ export default function Navbar(props) {
     </div>
     <div className="main-navbar">
       <div className="container">
-        <nav className="navbar navbar-expand-md navbar-light">
+        <nav className="navbar navbar-expand-md navbar">
           <a className="navbar-brand" href="index.html">
-            <img
-              src="img/logo-elingbali-70.png"
+            <Image
+              src=""
               className="white-logo"
+              width={100}
+              height={100}
               alt="image"
             />
           </a>
@@ -169,7 +214,7 @@ export default function Navbar(props) {
                 </a>
               </li>
             </ul>
-            {/* s */}
+            
           </div>
         </nav>
       </div>
@@ -203,7 +248,7 @@ export default function Navbar(props) {
         </div>
       </div>
     </div>
-  </div>
+  </div> */}
    </>
   )
 }
