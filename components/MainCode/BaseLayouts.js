@@ -46,7 +46,7 @@ export default function BaseLayouts(props) {
     <Navbar ></Navbar>
     <Konten></Konten>
     
-    <Script src="js/jquery.min.js"></Script>
+    {/* <Script src="js/jquery.min.js"></Script>
     <Script src="js/popper.min.js"></Script>
     <Script src="js/bootstrap.min.js"></Script>
     <Script src="js/jquery.meanmenu.js"></Script>
@@ -54,10 +54,10 @@ export default function BaseLayouts(props) {
     <Script src="js/jquery.magnific-popup.min.js"></Script>
     <Script src="js/nice-select.min.js"></Script>
     <Script src="js/jquery.ajaxchimp.min.js"></Script>
-    <Script src="js/form-validator.min.js"></Script>
+    <Script src="js/form-validator.min.js"></Script> */}
     {/* <Script src="js/contact-form-script.js"></Script> */}
-    <Script src="js/wow.min.js"></Script>
-    <Script src="js/main.js"></Script>
+    {/* <Script src="js/wow.min.js"></Script>
+    <Script src="js/main.js"></Script> */}
 
     </div>
   )

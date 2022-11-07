@@ -42,7 +42,7 @@ export default function Navbar(props) {
             <a href="index.html">
              
               <img
-                src="img/logo-new-45.png"
+                src="img/logo-elingbali-70.png"
                 className="white-logo"
                 alt="image"
               />
@@ -56,7 +56,7 @@ export default function Navbar(props) {
         <nav className="navbar navbar-expand-md navbar-light">
           <a className="navbar-brand" href="index.html">
             <img
-              src="img/logo-new-45.png"
+              src="img/logo-elingbali-70.png"
               className="white-logo"
               alt="image"
             />
