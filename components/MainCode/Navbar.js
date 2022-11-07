@@ -14,13 +14,20 @@ export default function Navbar(props) {
    <section id="main">
       <nav>
         <div className="logo">
-          <a href="/algorskol1.png">Oscar - LogRocket</a>
+          <Image src="/img/logo2.png" width={110} height={110} alt="" />
         </div>
         
         <ul className="menu">
-          <li><a href="#next">Hello</a></li>
-          <li><a href="#">Hola</a></li>
-          <li><a href="#">Hallo</a></li>
+          <li><a href="#next">Wisata</a></li>
+          <li><a href="#">Public Service</a></li>
+          <li><a href="#">Event</a></li>
+          <li><a href="#">Traffic</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Infographic</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Transportation Route</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Download</a></li>
         </ul>
       </nav>
       <video src="images/video.mp4" muted autoPlay loop></video>
