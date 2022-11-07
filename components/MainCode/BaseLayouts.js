@@ -30,7 +30,7 @@ export default function BaseLayouts(props) {
         {/* Owl Carousel Default CSS */}
         <link rel="stylesheet" href="css/owl.theme.default.min.css" />
         {/* Magnific Popup CSS */}
-        <link rel="stylesheet" href="css/magnific-popup.min.css" />
+        {/* <link rel="stylesheet" href="css/magnific-popup.min.css" /> */}
         {/* Nice Select CSS */}
         <link rel="stylesheet" href="css/nice-select.min.css" />
         {/* Style CSS */}
@@ -55,7 +55,7 @@ export default function BaseLayouts(props) {
     <Script src="js/nice-select.min.js"></Script>
     <Script src="js/jquery.ajaxchimp.min.js"></Script>
     <Script src="js/form-validator.min.js"></Script>
-    <Script src="js/contact-form-script.js"></Script>
+    {/* <Script src="js/contact-form-script.js"></Script> */}
     <Script src="js/wow.min.js"></Script>
     <Script src="js/main.js"></Script>
 
