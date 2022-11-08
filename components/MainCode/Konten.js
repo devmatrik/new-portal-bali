@@ -8,7 +8,7 @@ import { React } from "react";
 export default function Konten(props) {
 return (
    <>
-   <section className="main-news-area">
+          <section className="main-news-area">
             <div className="container">
               <div className="row">
                 <div className="col-lg-8">
@@ -17,7 +17,7 @@ return (
                       <img src="img/main-news/main-news-1.jpg" alt="image" />
                     </a>
                     <div className="news-content">
-                      {/* <div class="tag">National</div> */}
+                      
                       <h3>
                         <a href="detail.html">
                           Smart City Bali, Teknologi apa yang dipakai disana?
@@ -38,7 +38,7 @@ return (
                       <img src="img/main-news/main-news-2.jpg" alt="image" />
                     </a>
                     <div className="news-content">
-                      {/* <div class="tag">National</div> */}
+                      
                       <h3 style={{ fontSize: 20 }}>
                         <a href="detail.html">
                           Jepun Bali, Jaringan Elektronik Policing untuk Bali
@@ -55,7 +55,7 @@ return (
                       <img src="img/main-news/main-news-2.jpg" alt="image" />
                     </a>
                     <div className="news-content">
-                      {/* <div class="tag">National</div> */}
+                      
                       <h3 style={{ fontSize: 20 }}>
                         <a href="detail.html">Smart City Bali</a>
                       </h3>
@@ -67,7 +67,7 @@ return (
             </div>
           </section>
 
-          <section className="team-area pt-30">
+          {/* <section className="team-area pt-30">
             <div className="container">
               <div className="section-title">
                 <h2>Explore Bali</h2>
@@ -187,15 +187,17 @@ return (
                 </div>
               </div>
             </div>
-          </section>
+          </section> */}
 
           <section className="default-news-area">
             <div className="container">
               <div className="politics-news">
-                <div className="section-title">
+
+                {/* <div className="section-title">
                   <h2>Upcoming Events</h2>
-                </div>
-                <div className="row">
+                </div> */}
+
+                {/* <div className="row">
                   <div className="main-news-slides owl-carousel owl-theme">
                     <div className="news-slider-item" style={{ borderRadius: 10 }}>
                       <a href="#">
@@ -271,16 +273,18 @@ return (
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="health-news ptb-50">
+                </div> */}
+
+                {/* <div className="health-news ptb-50">
                   <div className="section-title">
                     <h2>Public Transportaion Route</h2>
                   </div>
                   <div className="about-image" style={{ borderRadius: 8 }}>
                     <img src="img/about.jpg" alt="image" />
                   </div>
-                </div>
-                <div className="tech-news pb-50">
+                </div> */}
+
+                {/* <div className="tech-news pb-50">
                   <div className="section-title">
                     <h2>Blog</h2>
                   </div>
@@ -344,15 +348,16 @@ return (
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
+
               </div>
             </div>
           </section>
 
-          <section className="footer-area pt-100 pb-70">
+          <section className="footer-area">
             <div className="container">
               <div className="row">
-                <div className="col-lg-4 col-md-3">
+                {/* <div className="col-lg-4 col-md-3">
                   <div className="single-footer-widget">
                     <a href="#">
                       <img src="img/logo-smart-city-200.png" alt="image" />
@@ -381,8 +386,9 @@ return (
                       </li>
                     </ul>
                   </div>
-                </div>
-                <div className="col-lg-4 col-md-4">
+                </div> */}
+
+                {/* <div className="col-lg-4 col-md-4">
                   <div className="single-footer-widget">
                     <h2>Smart City Bali</h2>
                     <ul className="useful-links-list">
@@ -400,8 +406,9 @@ return (
                       </li>
                     </ul>
                   </div>
-                </div>
-                <div className="col-lg-4 col-md-4">
+                </div> */}
+
+                {/* <div className="col-lg-4 col-md-4">
                   <div className="single-footer-widget">
                     <h2>Contact Us</h2>
                     <ul className="useful-links-list">
@@ -428,20 +435,55 @@ return (
                       </li>
                     </ul>
                   </div>
-                </div>
+                </div> */}
+
               </div>
             </div>
           </section>
 
           <div className="copyright-area">
             <div className="container">
-              <div className="copyright-area-content">
-                <p>
-                  Copyright © , by
-                  <a href="https://envytheme.com/" target="_blank">
-                    Jepun Bali Developer
-                  </a>
-                </p>
+              <div className="row row-cols-2">
+                <div className="copyright-area-content">
+                <div className="col-lg-4 col-md-3">
+                  <div className="single-footer-widget">
+                    {/* <a href="#">
+                      <img src="img/logo-smart-city-200.png" alt="image" />
+                    </a> */}
+                    <ul className="social mt-5">
+                      {/* <p>Find us on social media :</p> */}
+                      <li>
+                        <a href="#" className="facebook" target="_blank">
+                          <i className="bx bxl-facebook" />
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="twitter" target="_blank">
+                          <i className="bx bxl-instagram" />
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="linkedin" target="_blank">
+                          <i className="bx bxl-twitter" />
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="linkedin" target="_blank">
+                          <i className="bx bxl-youtube" />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                </div>
+                <div className="copyright-area-content">
+                  <p>
+                    Copyright © ,  
+                    <a href="https://www.elingbali.com/">
+                      Jepun Bali Developer
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
