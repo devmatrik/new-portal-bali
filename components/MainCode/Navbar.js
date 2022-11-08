@@ -18,6 +18,11 @@ export default function Navbar(props) {
         </div>
         
         <ul className="menu">
+          <li className="nav-item">
+            <a href="index.html" className="nav-link active">
+              Home
+            </a>
+          </li>
           <li><a href="#next">Wisata</a></li>
           <li><a href="#">Public Service</a></li>
           <li><a href="#">Event</a></li>
@@ -32,16 +37,64 @@ export default function Navbar(props) {
       </nav>
       <video src="images/video.mp4" muted autoPlay loop></video>
       {/* <div className="overlay"></div> */}
-      <div className="main-text">
-        <h2>Lets go for a walk...</h2>
-        <h1>...On the Moon</h1>
-        <p>This demo shows a video background with an overlay.</p>
-
-        <a href="#" className="btn">Letss go!</a>
-      </div>
+              {/* <div className="row">
+                <div className="col-lg-8">
+                  <div className="single-main-news" style={{ borderRadius: 10 }}>
+                    <a href="detail.html">
+                      <img src="img/main-news/main-news-1.jpg" alt="image" />
+                    </a>
+                    <div className="news-content">
+                      
+                      <h3>
+                        <a href="detail.html">
+                          Smart City Bali, Teknologi apa yang dipakai disana?
+                        </a>
+                      </h3>
+                      <span>
+                        <a href="detail.html">Walters</a> / 28 September, 2022
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-4">
+                  <div
+                    className="single-main-news-inner mb-4"
+                    style={{ borderRadius: 8 }}
+                  >
+                    <a href="detail.html">
+                      <img src="img/main-news/main-news-2.jpg" alt="image" />
+                    </a>
+                    <div className="news-content">
+                      
+                      <h3 style={{ fontSize: 20 }}>
+                        <a href="detail.html">
+                          Jepun Bali, Jaringan Elektronik Policing untuk Bali
+                        </a>
+                      </h3>
+                      <span>28 September, 2022</span>
+                    </div>
+                  </div>
+                  <div
+                    className="single-main-news-inner mb-5"
+                    style={{ borderRadius: 8 }}
+                  >
+                    <a href="detail.html">
+                      <img src="img/main-news/main-news-2.jpg" alt="image" />
+                    </a>
+                    <div className="news-content">
+                      
+                      <h3 style={{ fontSize: 20 }}>
+                        <a href="detail.html">Smart City Bali</a>
+                      </h3>
+                      <span>28 September, 2022</span>
+                    </div>
+                  </div>
+                </div>
+              </div> */}
+      
     </section>
 
-    <section id="next">
+    {/* <section id="next">
       <div className="container">
         <h2>Next Section</h2>
         <h3>
@@ -53,7 +106,7 @@ export default function Navbar(props) {
           facilis!
         </p>
       </div>
-    </section>
+    </section> */}
 
    </body>
    {/* <div className="top-header-area bg-white">
@@ -83,7 +136,7 @@ export default function Navbar(props) {
   {/* End Top Header Area */}
   
   {/* Start Navbar Area */}
-  {/* <div className="navbar-area">
+  <div className="navbar-area">
     <div className="main-responsive-nav">
       <div className="container">
         <div className="main-responsive-menu">
@@ -106,10 +159,10 @@ export default function Navbar(props) {
         <nav className="navbar navbar-expand-md navbar">
           <a className="navbar-brand" href="index.html">
             <Image
-              src=""
+              src="/img/logo2.png"
               className="white-logo"
-              width={100}
-              height={100}
+              width={110}
+              height={110}
               alt="image"
             />
           </a>
@@ -255,7 +308,7 @@ export default function Navbar(props) {
         </div>
       </div>
     </div>
-  </div> */}
+  </div>
    </>
   )
 }
