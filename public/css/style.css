@@ -7255,14 +7255,14 @@ nav ul li a {
   display: flex;
   font-size: 1rem;
   font-weight: 600;
-  color: #e0ffff;
+  color: #000000;
   transition: 0.1s;
 }
 nav ul li a:hover,
 .main-text a:hover {
   background: #ff661f;
   border-radius: 3px;
-  color: #fff;
+  color: #000000;
 }
 #main {
   width: 100%;

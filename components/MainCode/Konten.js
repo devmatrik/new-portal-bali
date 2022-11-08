@@ -382,7 +382,8 @@ return (
                     </ul>
                   </div>
                 </div>
-                <div className="col-lg-4 col-md-4">
+
+                {/* <div className="col-lg-4 col-md-4">
                   <div className="single-footer-widget">
                     <h2>Smart City Bali</h2>
                     <ul className="useful-links-list">
@@ -400,8 +401,9 @@ return (
                       </li>
                     </ul>
                   </div>
-                </div>
-                <div className="col-lg-4 col-md-4">
+                </div> */}
+
+                {/* <div className="col-lg-4 col-md-4">
                   <div className="single-footer-widget">
                     <h2>Contact Us</h2>
                     <ul className="useful-links-list">
@@ -428,7 +430,8 @@ return (
                       </li>
                     </ul>
                   </div>
-                </div>
+                </div> */}
+
               </div>
             </div>
           </section>
@@ -437,8 +440,8 @@ return (
             <div className="container">
               <div className="copyright-area-content">
                 <p>
-                  Copyright © , by
-                  <a href="https://envytheme.com/" target="_blank">
+                  Copyright © ,  
+                  <a href="https://www.elingbali.com/">
                     Jepun Bali Developer
                   </a>
                 </p>
