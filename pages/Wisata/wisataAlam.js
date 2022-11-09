@@ -1,20 +1,18 @@
-// import { Button, Avatar } from 'antd';
-// import { StorageApi } from "../MainCode/MainImport"
-// import { Disclosure } from '@headlessui/react';
-// import { getCsrfToken, useSession, signIn, signOut, getSession } from "next-auth/react"
-import { React } from "react";
+import React from 'react'
+import Image from 'next/image'
+import BaseLayouts from '../../components/MainCode/BaseLayouts'
 
-
-export default function Konten(props) {
-return (
-   <>
-          <section className="main-news-area">
+function wisataAlam() {
+  return (
+    <div>
+        <BaseLayouts>
+        <section className="main-news-area">
             <div className="container">
               <div className="row">
                 <div className="col-lg-8">
                   <div className="single-main-news" style={{ borderRadius: 10 }}>
                     <a href="detail.html">
-                      <img src="img/main-news/main-news-1.jpg" alt="image" />
+                      {/* <Image src="/img/main-news/main-news-1.jpg" width={100} height={100} alt="image" /> */}
                     </a>
                     <div className="news-content">
                       
@@ -35,7 +33,7 @@ return (
                     style={{ borderRadius: 8 }}
                   >
                     <a href="detail.html">
-                      <img src="img/main-news/main-news-2.jpg" alt="image" />
+                      {/* <Image src="img/main-news/main-news-2.jpg" width={100} heigh={100} alt="image" /> */}
                     </a>
                     <div className="news-content">
                       
@@ -52,7 +50,7 @@ return (
                     style={{ borderRadius: 8 }}
                   >
                     <a href="detail.html">
-                      <img src="img/main-news/main-news-2.jpg" alt="image" />
+                      {/* <Image src="/img/main-news/main-news-2.jpg" width={100} alt="image" /> */}
                     </a>
                     <div className="news-content">
                       
@@ -441,17 +439,15 @@ return (
             </div>
           </section>
 
-          <div className="copyright-area">
+          {/* <div className="copyright-area">
             <div className="container">
               <div className="row row-cols-2">
                 <div className="copyright-area-content">
                 <div className="col-lg-4 col-md-3">
                   <div className="single-footer-widget">
-                    {/* <a href="#">
-                      <img src="img/logo-smart-city-200.png" alt="image" />
-                    </a> */}
+                    
                     <ul className="social mt-5">
-                      {/* <p>Find us on social media :</p> */}
+                      
                       <li>
                         <a href="#" className="facebook" target="_blank">
                           <i className="bx bxl-facebook" />
@@ -486,11 +482,14 @@ return (
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="go-top">
             <i className="bx bx-up-arrow-alt" />
           </div>
-   </>
+          </BaseLayouts>
+    </div>
   )
 }
+
+export default wisataAlam

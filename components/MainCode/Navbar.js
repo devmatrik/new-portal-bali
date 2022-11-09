@@ -5,6 +5,7 @@
 import { React } from "react";
 // import styles from '/styles/Navbar.module.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 export default function Navbar(props) {
@@ -41,8 +42,10 @@ export default function Navbar(props) {
               <div className="logo">
                 <a href="index.html">
                   
-                  <img
-                  src="img/logo2.png"
+                  <Image
+                  src="/img/logo2.png"
+                  width={100}
+                  height={100}
                   className="white-logo"
                   alt="image"
                 />
@@ -56,8 +59,10 @@ export default function Navbar(props) {
             <nav className="navbar navbar-expand-md navbar-light">
               <a className="navbar-brand" href="index.html">
                
-                <img
-                  src="img/logo2.png"
+                <Image
+                  src="/img/logo2.png"
+                  width={100}
+                  height={100}
                   className="white-logo"
                   alt="image"
                 />
@@ -68,7 +73,7 @@ export default function Navbar(props) {
               >
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                    <a href="index.html" className="nav-link active">
+                    <a href="/localhost:3000" className="nav-link active">
                       Home
                     </a>
                   </li>
@@ -79,9 +84,9 @@ export default function Navbar(props) {
                     </a>
                     <ul className="dropdown-menu">
                       <li className="nav-item ">
-                        <a href="wisata-alam.html" className="nav-link">
-                          Wisata Alam
-                        </a>
+                        <Link className="nav-link" href="/Wisata/wisataAlam">
+                            Wisata Alam
+                        </Link>
                       </li>
                       <li className="nav-item">
                         <a href="wisata-kuliner.html" className="nav-link">
@@ -254,16 +259,10 @@ export default function Navbar(props) {
           </div>
         </div>
       </div>
-
-      <video src="images/video.mp4" muted autoPlay loop></video>
-     
-      
+      <video src="/images/video.mp4" muted autoPlay loop></video>
     </section>
-
+    {props.children}
    
-
-   
-  
   {/* Start Navbar Area */}
   {/* <div className="navbar-area">
     <div className="main-responsive-nav">
