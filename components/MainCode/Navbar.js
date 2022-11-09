@@ -14,7 +14,7 @@ export default function Navbar(props) {
    <section id="main">
       {/* <nav>
         <div className="logo">
-          <Image src="/img/logo2.png" width={110} height={110} alt="" />
+          <Image src="/images/logo2.png" width={110} height={110} alt="" />
         </div>
         
         <ul className="menu">
@@ -43,7 +43,7 @@ export default function Navbar(props) {
                 <a href="index.html">
                   
                   <Image
-                  src="/img/logo2.png"
+                  src="/images/logo2.png"
                   width={100}
                   height={100}
                   className="white-logo"
@@ -60,7 +60,7 @@ export default function Navbar(props) {
               <a className="navbar-brand" href="index.html">
                
                 <Image
-                  src="/img/logo2.png"
+                  src="/images/logo2.png"
                   width={100}
                   height={100}
                   className="white-logo"

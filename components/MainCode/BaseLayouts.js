@@ -1,12 +1,13 @@
 import React from 'react'
 import Head from 'next/head'
 import Navbar from './Navbar'
+import Footer from './Footer'
 // import Konten from './Konten'
 // import { useRouter } from "next/router";
 
 export default function BaseLayouts(props) {
   return (
-    <div className="first:w-full min-h-screen bg-white flex flex-row">
+    <div className="first:w-full min-h-screen flex flex-row">
       <Head>
         <title>Portal Smartcity Bali</title>
         {/* Required meta tags */}
@@ -24,6 +25,10 @@ export default function BaseLayouts(props) {
     <Navbar>
       {props.children}
     </Navbar>
+
+    <Footer>
+      
+    </Footer>
     
     {/* <Konten></Konten> */}
 
