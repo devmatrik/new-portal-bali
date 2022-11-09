@@ -3,7 +3,6 @@
 // import { Disclosure } from '@headlessui/react';
 // import { getCsrfToken, useSession, signIn, signOut, getSession } from "next-auth/react"
 import { React } from "react";
-// import styles from '/styles/Navbar.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -171,12 +170,12 @@ export default function Navbar(props) {
                     </a>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
-                        <a href="weekly-report.html" className="nav-link">
+                        <a href="/Infographic/weeklyTraffictReport" className="nav-link">
                           Weekly Traffic Report
                         </a>
                       </li>
                       <li className="nav-item">
-                        <a href="monthly-report.html" className="nav-link">
+                        <a href="/monthlyTraffictReport" className="nav-link">
                           Monthly Traffic Report
                         </a>
                       </li>
@@ -189,7 +188,7 @@ export default function Navbar(props) {
                     </a>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
-                        <a href="foto-kegiatan.html" className="nav-link">
+                        <a href="/fotokegiatan" className="nav-link">
                           Foto Kegiatan
                         </a>
                       </li>

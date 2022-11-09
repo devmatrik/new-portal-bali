@@ -16,13 +16,12 @@ export default function Home() {
       <section className="main-news-area ">
         <div className="container">
           <div className="row">
-            <div className="col-lg-8">
-              <div className="single-main-news" style={{ borderRadius: 10 }}>
+            <div className="col-lg-6">
+              {/* <div className="single-main-news" style={{ borderRadius: 10 }}>
                 <a href="detail.html">
                   <img src="/images/main-news/main-news-1.jpg" alt="image" />
                 </a>
                 <div className="news-content">
-                  {/* <div class="tag">National</div> */}
                   <h3>
                     <a href="detail.html">
                       Smart City Bali, Teknologi apa yang dipakai disana?
@@ -32,9 +31,39 @@ export default function Home() {
                     <a href="detail.html">Walters</a> / 28 September, 2022
                   </span>
                 </div>
+              </div> */}
+              <div className="row">
+                <div className="col-lg-6">
+                  <div className="single-team-box">
+                    <div className="image">
+                      <a href="wisata-alam.html">
+                        <img src="/images/team/team-2.jpg" alt="image" />
+                      </a>
+                    </div>
+                    <div className="content">
+                      <h3 style={{ fontSize: 14 }}>
+                        <a href="wisata-alam.html">Wisata Alam</a>
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-6">
+                  <div className="single-team-box">
+                    <div className="image">
+                      <a href="wisata-kuliner.html">
+                        <img src="/images/team/team-2.jpg" alt="image" />
+                      </a>
+                    </div>
+                    <div className="content">
+                      <h3 style={{ fontSize: 14 }}>
+                        <a href="wisata-kuliner.html">Kuliner Tradisional</a>
+                      </h3>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-3">
               <div
                 className="single-main-news-inner mb-4"
                 style={{ borderRadius: 8 }}
@@ -68,12 +97,93 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            <div className="col-lg-3">
+              <aside class="widget-area">
+                <section class="widget widget_latest_news_thumb">
+                  <h3 class="widget-title">New Event</h3>
+                    <article class="item">
+                      <a href="#" class="thumb">
+                        <span class="fullimage cover bg1" role="img"></span>
+                      </a>
+                      <div class="info">
+                        <h4 class="title usmall"><a href="#">Negotiations on a peace agreement between the two countries</a></h4>
+                        <span>28 September, 2022</span>
+                      </div>
+                    </article>
+                    <article class="item">
+                      <a href="#" class="thumb">
+                        <span class="fullimage cover bg2" role="img"></span>
+                      </a>
+                      <div class="info">
+                        <h4 class="title usmall"><a href="#">Love songs helped me through heartbreak</a></h4>
+                        <span>28 September, 2022</span>
+                      </div>
+                    </article>
+                    <article class="item">
+                      <a href="#" class="thumb">
+                        <span class="fullimage cover bg3" role="img"></span>
+                      </a>
+                      <div class="info">
+                        <h4 class="title usmall"><a href="#">This movement aims to establish women rights</a></h4>
+                        <span>28 September, 2022</span>
+                      </div>
+                    </article>
+                </section>
+                  {/* <section class="widget widget_stay_connected">
+                                <h3 class="widget-title">Stay connected</h3>
+                                
+                                <ul class="stay-connected-list">
+                                    <li>
+                                        <a href="#">
+                                            <i class='bx bxl-facebook'></i>
+                                            120,345 Fans
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="twitter">
+                                            <i class='bx bxl-twitter'></i>
+                                            25,321 Followers
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="linkedin">
+                                            <i class='bx bxl-linkedin'></i>
+                                            7,519 Connect
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="youtube">
+                                            <i class='bx bxl-youtube'></i>
+                                            101,545 Subscribers
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="instagram">
+                                            <i class='bx bxl-instagram'></i>
+                                            10,129 Followers
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="wifi">
+                                            <i class='bx bx-wifi'></i>
+                                            952 Subscribers
+                                        </a>
+                                    </li>
+                                </ul>
+                  </section> */}
+              </aside>
+            </div>
           </div>
         </div>
       </section>
       {/* End Main News Area */}
       {/* Start Team Area */}
-      <section className="team-area pt-30">
+      {/* <section className="team-area pt-30">
         <div className="container">
           <div className="section-title">
             <h2>Explore Bali</h2>
@@ -193,10 +303,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* End Team Area */}
       {/* Start Default News Area */}
-      <section className="default-news-area">
+      {/* <section className="default-news-area">
         <div className="container">
           <div className="politics-news">
             <div className="section-title">
@@ -354,7 +464,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* End Default News Area */}
       {/* Start Copy Right Area */}
       

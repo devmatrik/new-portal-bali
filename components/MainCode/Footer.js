@@ -44,8 +44,7 @@ export default function Navbar(props) {
             <div className='col-md-6'>
                <div className="copyright-area-content">
                 <p>
-                  Copyright © , by
-                  <a href="https://envytheme.com/" target="_blank">
+                  Copyright © , <a href="https://elingbali.com">
                     Eling Bali Developer
                   </a>
                 </p>
