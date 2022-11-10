@@ -148,7 +148,7 @@ export default function Home() {
                 style={{ borderRadius: 8 }}
               >
                 <a href="detail.html">
-                  <img src="/images/main-news/main-news-2.jpg" alt="image" />
+                  <img src="/images/jepun.png" alt="image" />
                 </a>
                 <div className="news-content">
                   {/* <div class="tag">National</div> */}

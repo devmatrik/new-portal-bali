@@ -1,9 +1,12 @@
 import React from 'react'
+import BaseLayouts from '../components/MainCode/BaseLayouts'
 
-function News() {
+export default function News() {
   return (
-    <div>News</div>
+    <>
+      <BaseLayouts>
+        
+      </BaseLayouts>
+    </>
   )
 }
-
-export default News
