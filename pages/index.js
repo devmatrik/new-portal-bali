@@ -4,6 +4,8 @@ import Image from 'next/image'
 import {
   BaseLayouts
 } from '../components/MainCode/MainImport'
+import Carousel from 'react-bootstrap/Carousel';
+
 
 export default function Home() {
   const konten = {
@@ -17,51 +19,128 @@ export default function Home() {
         <div className="container">
           <div className="row">
             <div className="col-lg-6">
-              {/* <div className="single-main-news" style={{ borderRadius: 10 }}>
-                <a href="detail.html">
-                  <img src="/images/main-news/main-news-1.jpg" alt="image" />
-                </a>
-                <div className="news-content">
-                  <h3>
-                    <a href="detail.html">
-                      Smart City Bali, Teknologi apa yang dipakai disana?
-                    </a>
-                  </h3>
-                  <span>
-                    <a href="detail.html">Walters</a> / 28 September, 2022
-                  </span>
-                </div>
-              </div> */}
-              <div className="row">
-                <div className="col-lg-6">
-                  <div className="single-team-box">
-                    <div className="image">
-                      <a href="wisata-alam.html">
-                        <img src="/images/team/team-2.jpg" alt="image" />
-                      </a>
+              <Carousel>
+                <Carousel.Item>
+                  <div className="row">
+                    <div className="col-lg-6">
+                      <div className="single-team-box">
+                        <div className="image">
+                          <a href="wisata-alam.html">
+                            <img src="/images/_wisata-alam.png" alt="image" />
+                          </a>
+                        </div>
+                        <div className="content">
+                          <h3 style={{ fontSize: 14 }}>
+                            <a href="wisata-alam.html">Wisata Alam</a>
+                          </h3>
+                        </div>
+                      </div>
                     </div>
-                    <div className="content">
-                      <h3 style={{ fontSize: 14 }}>
-                        <a href="wisata-alam.html">Wisata Alam</a>
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-6">
-                  <div className="single-team-box">
-                    <div className="image">
-                      <a href="wisata-kuliner.html">
-                        <img src="/images/team/team-2.jpg" alt="image" />
-                      </a>
-                    </div>
-                    <div className="content">
-                      <h3 style={{ fontSize: 14 }}>
-                        <a href="wisata-kuliner.html">Kuliner Tradisional</a>
-                      </h3>
+                    <div className="col-lg-6">
+                      <div className="single-team-box">
+                        <div className="image">
+                          <a href="wisata-kuliner.html">
+                            <img src="/images/_kuliner-tradisional.png" alt="image" />
+                          </a>
+                        </div>
+                        <div className="content">
+                          <h3 style={{ fontSize: 14 }}>
+                            <a href="wisata-kuliner.html">Kuliner Tradisional</a>
+                          </h3>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <div className="row">
+                    <div className="col-lg-6">
+                        <div className="single-team-box">
+                            <div className="image">
+                                <a href="wisata-adat.html">
+                                    <img src="/images/_adat & budaya.png" alt="image" />
+                                </a>
+                            </div>
+                            <div className="content">
+                                <h3 style={{ fontSize: 14 }}>
+                                  <a href="wisata-adat.html">Adat & Budaya</a>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-6">
+                        <div className="single-team-box">
+                            <div className="image">
+                                <a href="rekreasi.html">
+                                    <img src="/images/_rekreasi.png" alt="image" />
+                                </a>
+                            </div>
+                            <div className="content">
+                                <h3 style={{ fontSize: 14 }}>
+                                  <a href="rekreasi.html">Tempat Rekreasi</a>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <div className="row">
+                    <div className="col-lg-6">
+                      <div className="single-team-box">
+                        <div className="image">
+                          <a href="oleh-oleh.html">
+                            <img src="/images/_oleholeh.png" alt="image" />
+                          </a>
+                          </div>
+                          <div className="content">
+                            <h3 style={{ fontSize: 14 }}><a href="oleh-oleh.html">Oleh- Oleh Khas</a></h3>
+                          </div>
+                      </div>
+                    </div>
+                    <div className="col-lg-6">
+                      <div className="single-team-box">
+                        <div className="image">
+                          <a href="travel-agensi.html">
+                            <img src="/images/_travel.png" alt="image" />
+                          </a>
+                        </div>
+                        <div className="content">
+                          <h3 style={{ fontSize: 14 }}><a href="travel-agensi.html">Travel Agensi</a></h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <div className="row">
+                    <div className="col-lg-6">
+                      <div className="single-team-box">
+                        <div className="image">
+                          <a href="penginapan.html">
+                            <img src="/images/_penginapan.png" alt="image" />
+                          </a>
+                        </div>
+                        <div className="content">
+                          <h3 style={{ fontSize: 14 }}><a href="penginapan.html">Penginapan</a></h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-lg-6">
+                      <div className="single-team-box">
+                        <div className="image">
+                          <a href="pelayanan-publik.html">
+                            <img src="/images/_public.png" alt="image" />
+                          </a>
+                        </div>
+                        <div className="content">
+                          <h3 style={{ fontSize: 14 }}><a href="pelayanan-publik.html">Pelayanan Publik</a></h3>
+                        </div>
+                      </div>
+                    </div> 
+                  </div>
+                </Carousel.Item>
+              </Carousel>
             </div>
             <div className="col-lg-3">
               <div
@@ -99,7 +178,7 @@ export default function Home() {
             <div className="col-lg-3">
               <aside class="widget-area">
                 <section class="widget widget_latest_news_thumb">
-                  <h3 class="widget-title">New Event</h3>
+                  <h3 class="widget-title"><Image src="/images/iEvent.png" width={30} height={30} alt="image" /> New Event</h3>
                     <article class="item">
                       <a href="#" class="thumb">
                         <span class="fullimage cover bg1" role="img"></span>
@@ -181,129 +260,6 @@ export default function Home() {
         </div>
       </section>
       {/* End Main News Area */}
-      {/* Start Team Area */}
-      {/* <section className="team-area pt-30">
-        <div className="container">
-          <div className="section-title">
-            <h2>Explore Bali</h2>
-          </div>
-          <div className="row">
-            <div className="col-lg-2 col-md-2">
-              <div className="single-team-box">
-                <div className="image">
-                  <a href="wisata-alam.html">
-                    <img src="/images/team/team-2.jpg" alt="image" />
-                  </a>
-                </div>
-                <div className="content">
-                  <h3 style={{ fontSize: 14 }}>
-                    <a href="wisata-alam.html">Wisata Alam</a>
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-2 col-md-2">
-              <div className="single-team-box">
-                <div className="image">
-                  <a href="wisata-kuliner.html">
-                    <img src="/images/team/team-2.jpg" alt="image" />
-                  </a>
-                </div>
-                <div className="content">
-                  <h3 style={{ fontSize: 14 }}>
-                    <a href="wisata-kuliner.html">Kuliner Tradisional</a>
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-2 col-md-2">
-              <div className="single-team-box">
-                <div className="image">
-                  <a href="wisata-adat.html">
-                    <img src="/images/team/team-2.jpg" alt="image" />
-                  </a>
-                </div>
-                <div className="content">
-                  <h3 style={{ fontSize: 14 }}>
-                    <a href="wisata-adat.html">Adat &amp; Budaya</a>
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-2 col-md-2">
-              <div className="single-team-box">
-                <div className="image">
-                  <a href="rekreasi.html">
-                    <img src="/images/team/team-2.jpg" alt="image" />
-                  </a>
-                </div>
-                <div className="content">
-                  <h3 style={{ fontSize: 14 }}>
-                    <a href="rekreasi.html">Tempat Rekreasi</a>
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-2 col-md-2">
-              <div className="single-team-box">
-                <div className="image">
-                  <a href="oleh-oleh.html">
-                    <img src="/images/team/team-2.jpg" alt="image" />
-                  </a>
-                </div>
-                <div className="content">
-                  <h3 style={{ fontSize: 14 }}>
-                    <a href="oleh-oleh.html">Oleh- Oleh Khas</a>
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-2 col-md-2">
-              <div className="single-team-box">
-                <div className="image">
-                  <a href="travel-agensi.html">
-                    <img src="/images/team/team-2.jpg" alt="image" />
-                  </a>
-                </div>
-                <div className="content">
-                  <h3 style={{ fontSize: 14 }}>
-                    <a href="travel-agensi.html">Travel Agensi</a>
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-2 col-md-2">
-              <div className="single-team-box">
-                <div className="image">
-                  <a href="penginapan.html">
-                    <img src="/images/team/team-2.jpg" alt="image" />
-                  </a>
-                </div>
-                <div className="content">
-                  <h3 style={{ fontSize: 14 }}>
-                    <a href="penginapan.html">Penginapan</a>
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-2 col-md-2">
-              <div className="single-team-box">
-                <div className="image">
-                  <a href="pelayanan-publik.html">
-                    <img src="/images/team/team-2.jpg" alt="image" />
-                  </a>
-                </div>
-                <div className="content">
-                  <h3 style={{ fontSize: 14 }}>
-                    <a href="pelayanan-publik.html">Pelayanan Publik</a>
-                  </h3>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-      {/* End Team Area */}
       {/* Start Default News Area */}
 
       <section className="default-news-area">
