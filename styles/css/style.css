@@ -7039,7 +7039,7 @@ Copy Right Area CSS
 =================================================*/
 .copyright-area {
   padding-top: 10px;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
   background-color: transparent;
   border-top: 1px solid grey;
 }

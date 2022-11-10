@@ -72,9 +72,9 @@ export default function Navbar(props) {
               >
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                    <a href="/localhost:3000" className="nav-link active">
+                    <Link href="/" className="nav-link active">
                       Home
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
                     <a href="#" className="nav-link ">

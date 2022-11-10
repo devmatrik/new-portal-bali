@@ -13,7 +13,7 @@ export default function Event() {
             <div className="container">
 
                 <div className="section-title"> 
-                    <h2>Upcoming Events</h2> 
+                    <h2>Events</h2> 
                 </div>
                 <Carousel>
                   <Carousel.Item>
