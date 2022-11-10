@@ -88,29 +88,29 @@ export default function Navbar(props) {
                         </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="wisata-kuliner.html" className="nav-link">
+                        <Link href="/Wisata/wisataKuliner" className="nav-link">
                           Wisata Kuliner
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="kuliner-tradisional.html" className="nav-link">
+                        <Link href="/Wisata/kulinerTradisional" className="nav-link">
                           Kuliner Tradisional
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="wisata-adat.html" className="nav-link">
+                        <Link href="/Wisata/wisataAdat" className="nav-link">
                           Adat &amp; Budaya
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="rekreasi.html" className="nav-link">
+                        <Link href="/Wisata/tempatRekreasi" className="nav-link">
                           Tempat Rekreasi
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="oleh-oleh.html" className="nav-link">
+                        <Link href="/Wisata/olehOlehKhas" className="nav-link">
                           Oleh - Oleh Khas
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
@@ -121,47 +121,47 @@ export default function Navbar(props) {
                     </a>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
-                        <a href="penginapan.html" className="nav-link">
+                        <Link href="/PublicService/Penginapan" className="nav-link">
                           Penginapan
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="travel-agensi.html" className="nav-link">
+                        <Link href="/PublicService/travelAgensi" className="nav-link">
                           Travel Agensi
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="pelayanan-publik.html" className="nav-link">
+                        <Link href="/PublicService/lokasiPelayananPublic" className="nav-link">
                           Lokasi Pelayanan Publik
-                        </a>
+                        </Link>
                       </li>
                       <hr style={{ backgroundColor: "#a0a0a0" }} />
                       <li className="nav-item">
-                        <a href="e-lapor.html" className="nav-link">
+                        <Link href="/PublicService/eLapor" className="nav-link">
                           E-Lapor
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="e-service.html" className="nav-link">
+                        <Link href="/PublicService/eService" className="nav-link">
                           E-Service
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item">
-                    <a href="event.html" className="nav-link">
+                    <Link href="/Event" className="nav-link">
                       Event
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a href="traffic.html" className="nav-link">
+                    <Link href="/Traffict" className="nav-link">
                       Traffic
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a href="news.html" className="nav-link">
+                    <Link href="/News" className="nav-link">
                       News
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
                     <a href="#" className="nav-link">
@@ -170,14 +170,14 @@ export default function Navbar(props) {
                     </a>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
-                        <a href="/Infographic/weeklyTraffictReport" className="nav-link">
+                        <Link href="/Infographic/weeklyTraffictReport" className="nav-link">
                           Weekly Traffic Report
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="/monthlyTraffictReport" className="nav-link">
+                        <Link href="/Infographic/monthlyTraffictReport" className="nav-link">
                           Monthly Traffic Report
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
@@ -188,21 +188,21 @@ export default function Navbar(props) {
                     </a>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
-                        <a href="/fotokegiatan" className="nav-link">
+                        <Link href="/Gallery/fotoKegiatan" className="nav-link">
                           Foto Kegiatan
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item">
-                    <a href="transportation.html" className="nav-link">
+                    <Link href="/transportationRoute" className="nav-link">
                       Transportation Route
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a href="contact.html" className="nav-link">
+                    <Link href="/Contact" className="nav-link">
                       Contact
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
                     <a href="#" className="nav-link">
@@ -211,13 +211,13 @@ export default function Navbar(props) {
                     </a>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
-                        <a href="#" className="nav-link">
+                        <Link href="/Download/peraturanDaerah" className="nav-link">
                           Peraturan Daerah
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="#" className="nav-link">
-                          Perundang- Undangan
+                        <a href="/Download/perUndangUndangan" className="nav-link">
+                          Perundang - Undangan
                         </a>
                       </li>
                     </ul>

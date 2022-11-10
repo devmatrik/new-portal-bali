@@ -81,7 +81,7 @@ export default function Home() {
                   <span>28 September, 2022</span>
                 </div>
               </div>
-              <div
+              {/* <div
                 className="single-main-news-inner mb-5"
                 style={{ borderRadius: 8 }}
               >
@@ -89,13 +89,12 @@ export default function Home() {
                   <img src="/images/main-news/main-news-2.jpg" alt="image" />
                 </a>
                 <div className="news-content">
-                  {/* <div class="tag">National</div> */}
                   <h3 style={{ fontSize: 20 }}>
                     <a href="detail.html">Smart City Bali</a>
                   </h3>
                   <span>28 September, 2022</span>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="col-lg-3">
               <aside class="widget-area">
@@ -306,12 +305,10 @@ export default function Home() {
       </section> */}
       {/* End Team Area */}
       {/* Start Default News Area */}
-      {/* <section className="default-news-area">
+
+      <section className="default-news-area">
         <div className="container">
           <div className="politics-news">
-            <div className="section-title">
-              <h2>Upcoming Events</h2>
-            </div>
             <div className="row">
               <div className="main-news-slides owl-carousel owl-theme">
                 <div className="news-slider-item" style={{ borderRadius: 10 }}>
@@ -389,15 +386,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="health-news ptb-50">
-              <div className="section-title">
-                <h2>Public Transportaion Route</h2>
-              </div>
-              <div className="about-image" style={{ borderRadius: 8 }}>
-                <img src="/images/about.jpg" alt="image" />
-              </div>
-            </div>
-            <div className="tech-news pb-50">
+            {/* <div className="tech-news pb-50">
               <div className="section-title">
                 <h2>Blog</h2>
               </div>
@@ -461,10 +450,10 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
-      </section> */}
+      </section>
       {/* End Default News Area */}
       {/* Start Copy Right Area */}
       

@@ -1,34 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import BaseLayouts from '../../components/MainCode/BaseLayouts'
 import Carousel from 'react-bootstrap/Carousel';
 
-export default function wisataAlam (){
-
+function wisataKuliner() {
   return (
     <>
-    <BaseLayouts>
-    {/* Jumbotron */}
-    {/* <div
-      className="bg-image p-5"
-      style={{
-        backgroundImage: 'url("/images/banner-wisata-alam.png")',
-        height: 200
-      }}
-    >
-      <h2 style={{ color: "#ffff" }}>Wisata Alam</h2>
-      <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "50%" }}>
-        Rekomendasi Wisata Alam di Bali
-      </h5>
-    </div> */}
-    {/* End Jumbotron */}
-    {/* Start Default News Area */}
-      <section className="default-news-area">
-        <div className="container">
-          <div className="tech-news ptb-50">
+      <BaseLayouts>
+        {/* Start Default News Area */}
+        <section className="default-news-area">
+          <div className="container">
+            <div className="tech-news ptb-50">
             <div class="section-title"> 
-              <h2>Wisata Alam</h2>
-              <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5>
+              <h2>Wisata Kuliner</h2>
+              <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Kuliner di Bali</h5>
             </div>
             <Carousel>
               <Carousel.Item>
@@ -162,11 +147,12 @@ export default function wisataAlam (){
               </div>
               </Carousel.Item>
             </Carousel>
+            </div>
           </div>
-        </div>
-      </section>
-    {/* End Default News Area */}
-    </BaseLayouts>
+        </section>
+      </BaseLayouts>
     </>
   )
 }
+
+export default wisataKuliner
