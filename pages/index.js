@@ -18,6 +18,10 @@ export default function Home() {
         <section className="main-news-area ">
           <div className="container">
             <div className="row">
+              <div className="section-title">
+                <h2>Wisata & Public Service <Image className="p-2" src="/images/wisataAlam.svg" width={50} height={50} alt="" /></h2>
+                {/* <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
+              </div>
               <div className="col-lg-9">
                 <Carousel>
                   <Carousel.Item>
