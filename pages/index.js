@@ -13,154 +13,158 @@ export default function Home() {
     // LinkApi: "algors/periode_keamanan",
   }
   return (
-  <>
-    <BaseLayouts title={konten.title}>
-      <section className="main-news-area ">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6">
-              <Carousel>
-                <Carousel.Item>
-                  <div className="row">
-                    <div className="col-lg-6">
-                      <div className="single-team-box">
-                        <div className="image">
-                          <a href="wisata-alam.html">
-                            <img src="/images/_wisata-alam.png" alt="image" />
-                          </a>
+    <>
+      <BaseLayouts title={konten.title}>
+        <section className="main-news-area ">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-6">
+                <Carousel>
+                  <Carousel.Item>
+                    <div className="row">
+                      <div className="col-lg-6">
+                        <div className="single-team-box">
+                          <div className="section-title">
+                            <h2>Wisata & Public Service <Image className="p-2" src="/images/wisataAlam.svg" width={50} height={50} alt="" /></h2>
+                            {/* <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
+                          </div>
+                          <div className="image">
+                            <a href="wisata-alam.html">
+                              <img src="/images/_wisata-alam.png" alt="image" />
+                            </a>
+                          </div>
+                          <div className="content">
+                            <h3 style={{ fontSize: 14 }}>
+                              <a href="wisata-alam.html">Wisata Alam</a>
+                            </h3>
+                          </div>
                         </div>
-                        <div className="content">
-                          <h3 style={{ fontSize: 14 }}>
-                            <a href="wisata-alam.html">Wisata Alam</a>
-                          </h3>
+                      </div>
+                      <div className="col-lg-6">
+                        <div className="single-team-box">
+                          <div className="image">
+                            <a href="wisata-kuliner.html">
+                              <img src="/images/_kuliner-tradisional.png" alt="image" />
+                            </a>
+                          </div>
+                          <div className="content">
+                            <h3 style={{ fontSize: 14 }}>
+                              <a href="wisata-kuliner.html">Kuliner Tradisional</a>
+                            </h3>
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <div className="col-lg-6">
-                      <div className="single-team-box">
-                        <div className="image">
-                          <a href="wisata-kuliner.html">
-                            <img src="/images/_kuliner-tradisional.png" alt="image" />
-                          </a>
+                  </Carousel.Item>
+                  <Carousel.Item>
+                    <div className="row">
+                      <div className="col-lg-6">
+                        <div className="single-team-box">
+                          <div className="image">
+                            <a href="wisata-adat.html">
+                              <img src="/images/_adat & budaya.png" alt="image" />
+                            </a>
+                          </div>
+                          <div className="content">
+                            <h3 style={{ fontSize: 14 }}>
+                              <a href="wisata-adat.html">Adat & Budaya</a>
+                            </h3>
+                          </div>
                         </div>
-                        <div className="content">
-                          <h3 style={{ fontSize: 14 }}>
-                            <a href="wisata-kuliner.html">Kuliner Tradisional</a>
-                          </h3>
+                      </div>
+                      <div className="col-lg-6">
+                        <div className="single-team-box">
+                          <div className="image">
+                            <a href="rekreasi.html">
+                              <img src="/images/_rekreasi.png" alt="image" />
+                            </a>
+                          </div>
+                          <div className="content">
+                            <h3 style={{ fontSize: 14 }}>
+                              <a href="rekreasi.html">Tempat Rekreasi</a>
+                            </h3>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <div className="row">
-                    <div className="col-lg-6">
+                  </Carousel.Item>
+                  <Carousel.Item>
+                    <div className="row">
+                      <div className="col-lg-6">
                         <div className="single-team-box">
-                            <div className="image">
-                                <a href="wisata-adat.html">
-                                    <img src="/images/_adat & budaya.png" alt="image" />
-                                </a>
-                            </div>
-                            <div className="content">
-                                <h3 style={{ fontSize: 14 }}>
-                                  <a href="wisata-adat.html">Adat & Budaya</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-6">
-                        <div className="single-team-box">
-                            <div className="image">
-                                <a href="rekreasi.html">
-                                    <img src="/images/_rekreasi.png" alt="image" />
-                                </a>
-                            </div>
-                            <div className="content">
-                                <h3 style={{ fontSize: 14 }}>
-                                  <a href="rekreasi.html">Tempat Rekreasi</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <div className="row">
-                    <div className="col-lg-6">
-                      <div className="single-team-box">
-                        <div className="image">
-                          <a href="oleh-oleh.html">
-                            <img src="/images/_oleholeh.png" alt="image" />
-                          </a>
+                          <div className="image">
+                            <a href="oleh-oleh.html">
+                              <img src="/images/_oleholeh.png" alt="image" />
+                            </a>
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}><a href="oleh-oleh.html">Oleh- Oleh Khas</a></h3>
                           </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="single-team-box">
-                        <div className="image">
-                          <a href="travel-agensi.html">
-                            <img src="/images/_travel.png" alt="image" />
-                          </a>
-                        </div>
-                        <div className="content">
-                          <h3 style={{ fontSize: 14 }}><a href="travel-agensi.html">Travel Agensi</a></h3>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <div className="row">
-                    <div className="col-lg-6">
-                      <div className="single-team-box">
-                        <div className="image">
-                          <a href="penginapan.html">
-                            <img src="/images/_penginapan.png" alt="image" />
-                          </a>
-                        </div>
-                        <div className="content">
-                          <h3 style={{ fontSize: 14 }}><a href="penginapan.html">Penginapan</a></h3>
+                      <div className="col-lg-6">
+                        <div className="single-team-box">
+                          <div className="image">
+                            <a href="travel-agensi.html">
+                              <img src="/images/_travel.png" alt="image" />
+                            </a>
+                          </div>
+                          <div className="content">
+                            <h3 style={{ fontSize: 14 }}><a href="travel-agensi.html">Travel Agensi</a></h3>
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <div className="col-lg-6">
-                      <div className="single-team-box">
-                        <div className="image">
-                          <a href="pelayanan-publik.html">
-                            <img src="/images/_public.png" alt="image" />
-                          </a>
-                        </div>
-                        <div className="content">
-                          <h3 style={{ fontSize: 14 }}><a href="pelayanan-publik.html">Pelayanan Publik</a></h3>
+                  </Carousel.Item>
+                  <Carousel.Item>
+                    <div className="row">
+                      <div className="col-lg-6">
+                        <div className="single-team-box">
+                          <div className="image">
+                            <a href="penginapan.html">
+                              <img src="/images/_penginapan.png" alt="image" />
+                            </a>
+                          </div>
+                          <div className="content">
+                            <h3 style={{ fontSize: 14 }}><a href="penginapan.html">Penginapan</a></h3>
+                          </div>
                         </div>
                       </div>
-                    </div> 
-                  </div>
-                </Carousel.Item>
-              </Carousel>
-            </div>
-            <div className="col-lg-3">
-              <div
-                className="single-main-news-inner mb-4"
-                style={{ borderRadius: 8 }}
-              >
-                <a href="detail.html">
-                  <img src="/images/jepun.png" alt="image" />
-                </a>
-                <div className="news-content">
-                  {/* <div class="tag">National</div> */}
-                  <h3 style={{ fontSize: 20 }}>
-                    <a href="detail.html">
-                      Jepun Bali, Jaringan Elektronik Policing untuk Bali
-                    </a>
-                  </h3>
-                  <span>28 September, 2022</span>
-                </div>
+                      <div className="col-lg-6">
+                        <div className="single-team-box">
+                          <div className="image">
+                            <a href="pelayanan-publik.html">
+                              <img src="/images/_public.png" alt="image" />
+                            </a>
+                          </div>
+                          <div className="content">
+                            <h3 style={{ fontSize: 14 }}><a href="pelayanan-publik.html">Pelayanan Publik</a></h3>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </Carousel.Item>
+                </Carousel>
               </div>
-              {/* <div
+              <div className="col-lg-3">
+                <div
+                  className="single-main-news-inner mb-4"
+                  style={{ borderRadius: 8 }}
+                >
+                  <a href="detail.html">
+                    <img src="/images/jepun.png" alt="image" />
+                  </a>
+                  <div className="news-content">
+                    {/* <div class="tag">National</div> */}
+                    <h3 style={{ fontSize: 20 }}>
+                      <a href="detail.html">
+                        Jepun Bali, Jaringan Elektronik Policing untuk Bali
+                      </a>
+                    </h3>
+                    <span>28 September, 2022</span>
+                  </div>
+                </div>
+                {/* <div
                 className="single-main-news-inner mb-5"
                 style={{ borderRadius: 8 }}
               >
@@ -174,11 +178,11 @@ export default function Home() {
                   <span>28 September, 2022</span>
                 </div>
               </div> */}
-            </div>
-            <div className="col-lg-3">
-              <aside className="widget-area">
-                <section className="widget widget_latest_news_thumb">
-                  <h3 className="widget-title"><Image src="/images/Event.png" width={30} height={30} alt="image" /> New Event</h3>
+              </div>
+              <div className="col-lg-3">
+                <aside className="widget-area">
+                  <section className="widget widget_latest_news_thumb">
+                    <h3 className="widget-title"><Image src="/images/Event.png" width={30} height={30} alt="image" /> New Event</h3>
                     <article className="item">
                       <a href="#" className="thumb">
                         <span className="fullimage cover bg1" role="img"></span>
@@ -206,7 +210,7 @@ export default function Home() {
                         <span>28 September, 2022</span>
                       </div>
                     </article>
-                </section>
+                  </section>
                   {/* <section class="widget widget_stay_connected">
                                 <h3 class="widget-title">Stay connected</h3>
                                 
@@ -254,95 +258,95 @@ export default function Home() {
                                     </li>
                                 </ul>
                   </section> */}
-              </aside>
+                </aside>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      {/* End Main News Area */}
-      {/* Start Default News Area */}
+        </section>
+        {/* End Main News Area */}
+        {/* Start Default News Area */}
 
-      <section className="default-news-area">
-        <div className="container">
-          <div className="politics-news">
-            <div className="row">
-              <div className="main-news-slides owl-carousel owl-theme">
-                <div className="news-slider-item" style={{ borderRadius: 10 }}>
-                  <a href="#">
-                    <img
-                      src="/images/main-news-slider/main-news-slider-1.jpg"
-                      alt="image"
-                    />
-                  </a>
-                  <div className="slider-content">
-                    <div className="tag">National</div>
-                    <h3 style={{ fontSize: 24 }}>
-                      <a href="#">Bali Experience 2022</a>
-                    </h3>
-                    <span>
-                      <a href="">Seminyak</a> / 27 Oct - 7 Nov, 2022
-                    </span>
+        <section className="default-news-area">
+          <div className="container">
+            <div className="politics-news">
+              <div className="row">
+                <div className="main-news-slides owl-carousel owl-theme">
+                  <div className="news-slider-item" style={{ borderRadius: 10 }}>
+                    <a href="#">
+                      <img
+                        src="/images/main-news-slider/main-news-slider-1.jpg"
+                        alt="image"
+                      />
+                    </a>
+                    <div className="slider-content">
+                      <div className="tag">National</div>
+                      <h3 style={{ fontSize: 24 }}>
+                        <a href="#">Bali Experience 2022</a>
+                      </h3>
+                      <span>
+                        <a href="">Seminyak</a> / 27 Oct - 7 Nov, 2022
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className="news-slider-item" style={{ borderRadius: 10 }}>
-                  <a href="#">
-                    <img
-                      src="/images/main-news-slider/main-news-slider-2.jpg"
-                      alt="image"
-                    />
-                  </a>
-                  <div className="slider-content">
-                    <div className="tag">International</div>
-                    <h3 style={{ fontSize: 24 }}>
-                      <a href="#">
-                        International Conference on Science, Engineering &amp;
-                        Technology
-                      </a>
-                    </h3>
-                    <span>
-                      <a href="">Seminyak</a> / 27 Oct, 2022
-                    </span>
+                  <div className="news-slider-item" style={{ borderRadius: 10 }}>
+                    <a href="#">
+                      <img
+                        src="/images/main-news-slider/main-news-slider-2.jpg"
+                        alt="image"
+                      />
+                    </a>
+                    <div className="slider-content">
+                      <div className="tag">International</div>
+                      <h3 style={{ fontSize: 24 }}>
+                        <a href="#">
+                          International Conference on Science, Engineering &amp;
+                          Technology
+                        </a>
+                      </h3>
+                      <span>
+                        <a href="">Seminyak</a> / 27 Oct, 2022
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className="news-slider-item" style={{ borderRadius: 10 }}>
-                  <a href="#">
-                    <img
-                      src="/images/main-news-slider/main-news-slider-3.jpg"
-                      alt="image"
-                    />
-                  </a>
-                  <div className="slider-content">
-                    <div className="tag">International</div>
-                    <h3 style={{ fontSize: 24 }}>
-                      <a href="#">
-                        G20 Summit, Bali — Centre for Disaster Protection
-                      </a>
-                    </h3>
-                    <span>
-                      <a href="">Bali</a> / 27 Oct - 7 Nov, 2022
-                    </span>
+                  <div className="news-slider-item" style={{ borderRadius: 10 }}>
+                    <a href="#">
+                      <img
+                        src="/images/main-news-slider/main-news-slider-3.jpg"
+                        alt="image"
+                      />
+                    </a>
+                    <div className="slider-content">
+                      <div className="tag">International</div>
+                      <h3 style={{ fontSize: 24 }}>
+                        <a href="#">
+                          G20 Summit, Bali — Centre for Disaster Protection
+                        </a>
+                      </h3>
+                      <span>
+                        <a href="">Bali</a> / 27 Oct - 7 Nov, 2022
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className="news-slider-item" style={{ borderRadius: 10 }}>
-                  <a href="#">
-                    <img
-                      src="/images/main-news-slider/main-news-slider-3.jpg"
-                      alt="image"
-                    />
-                  </a>
-                  <div className="slider-content">
-                    <div className="tag">National</div>
-                    <h3 style={{ fontSize: 24 }}>
-                      <a href="#">Da Maria Inno Hallowen Edition</a>
-                    </h3>
-                    <span>
-                      <a href="">Da Maria</a> / 27 Oct - 7 Nov, 2022
-                    </span>
+                  <div className="news-slider-item" style={{ borderRadius: 10 }}>
+                    <a href="#">
+                      <img
+                        src="/images/main-news-slider/main-news-slider-3.jpg"
+                        alt="image"
+                      />
+                    </a>
+                    <div className="slider-content">
+                      <div className="tag">National</div>
+                      <h3 style={{ fontSize: 24 }}>
+                        <a href="#">Da Maria Inno Hallowen Edition</a>
+                      </h3>
+                      <span>
+                        <a href="">Da Maria</a> / 27 Oct - 7 Nov, 2022
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            {/* <div className="tech-news pb-50">
+              {/* <div className="tech-news pb-50">
               <div className="section-title">
                 <h2>Blog</h2>
               </div>
@@ -407,19 +411,19 @@ export default function Home() {
                 </div>
               </div>
             </div> */}
+            </div>
           </div>
+        </section>
+        {/* End Default News Area */}
+        {/* Start Copy Right Area */}
+
+        {/* End Copy Right Area */}
+        {/* Start Go Top Area */}
+        <div className="go-top">
+          <i className="bx bx-up-arrow-alt" />
         </div>
-      </section>
-      {/* End Default News Area */}
-      {/* Start Copy Right Area */}
-      
-      {/* End Copy Right Area */}
-      {/* Start Go Top Area */}
-      <div className="go-top">
-        <i className="bx bx-up-arrow-alt" />
-      </div>
-    </BaseLayouts>    
-  </>
+      </BaseLayouts>
+    </>
 
   )
 }
