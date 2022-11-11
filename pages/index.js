@@ -143,17 +143,8 @@ export default function Home() {
                               <img src="/images/_public.png" alt="image" />
                             </a>
                           </div>
-                        </div>
-                        <div className="col-lg-6">
-                          <div className="single-team-box">
-                            <div className="image">
-                              <a href="pelayanan-publik.html">
-                                <img src="/images/_public.png" alt="image" />
-                              </a>
-                            </div>
-                            <div className="content">
-                              <h3 style={{ fontSize: 14 }}><a href="pelayanan-publik.html">Pelayanan Publik</a></h3>
-                            </div>
+                          <div className="content">
+                            <h3 style={{ fontSize: 14 }}><a href="pelayanan-publik.html">Pelayanan Publik</a></h3>
                           </div>
                         </div>
                       </div>
@@ -334,14 +325,6 @@ export default function Home() {
           </div>
         </section>
         {/* End Default News Area */}
-        {/* Start Go Top Area */}
-        <div className="go-top">
-          <i className="bx bx-up-arrow-alt" />
-        </div>
-        {/* End Main News Area */}
-        {/* Start Default News Area */}
-        {/* Start Copy Right Area */}
-        {/* End Copy Right Area */}
         {/* Start Go Top Area */}
         <div className="go-top">
           <i className="bx bx-up-arrow-alt" />
