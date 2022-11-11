@@ -192,6 +192,10 @@ export default function Home() {
               </div>
             </div>
             <div className="row">
+              <div className="section-title">
+                <h2>Latest News <Image className="p-2" src="/images/News.png" width={50} height={50} alt="" /></h2>
+                {/* <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
+              </div>
               <div className="col-lg-3">
                 <div
                   className="single-main-news-inner mb-4"
