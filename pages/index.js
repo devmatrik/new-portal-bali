@@ -18,11 +18,11 @@ export default function Home() {
       <section className="main-news-area ">
         <div className="container">
           <div className="row">
-            <div className="col-lg-6">
+            <div className="col-lg-9">
               <Carousel>
                 <Carousel.Item>
                   <div className="row">
-                    <div className="col-lg-6">
+                    <div className="col-lg-4">
                       <div className="single-team-box">
                         <div className="image">
                           <a href="wisata-alam.html">
@@ -36,7 +36,7 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    <div className="col-lg-6">
+                    <div className="col-lg-4">
                       <div className="single-team-box">
                         <div className="image">
                           <a href="wisata-kuliner.html">
@@ -50,11 +50,7 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  </div>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <div className="row">
-                    <div className="col-lg-6">
+                    <div className="col-lg-4">
                         <div className="single-team-box">
                             <div className="image">
                                 <a href="wisata-adat.html">
@@ -68,7 +64,11 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-6">
+                  </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <div className="row">
+                    <div className="col-lg-4">
                         <div className="single-team-box">
                             <div className="image">
                                 <a href="rekreasi.html">
@@ -82,11 +82,7 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                  </div>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <div className="row">
-                    <div className="col-lg-6">
+                    <div className="col-lg-4">
                       <div className="single-team-box">
                         <div className="image">
                           <a href="oleh-oleh.html">
@@ -98,7 +94,7 @@ export default function Home() {
                           </div>
                       </div>
                     </div>
-                    <div className="col-lg-6">
+                    <div className="col-lg-4">
                       <div className="single-team-box">
                         <div className="image">
                           <a href="travel-agensi.html">
@@ -114,7 +110,7 @@ export default function Home() {
                 </Carousel.Item>
                 <Carousel.Item>
                   <div className="row">
-                    <div className="col-lg-6">
+                    <div className="col-lg-4">
                       <div className="single-team-box">
                         <div className="image">
                           <a href="penginapan.html">
@@ -126,7 +122,7 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    <div className="col-lg-6">
+                    <div className="col-lg-4">
                       <div className="single-team-box">
                         <div className="image">
                           <a href="pelayanan-publik.html">
@@ -137,43 +133,10 @@ export default function Home() {
                           <h3 style={{ fontSize: 14 }}><a href="pelayanan-publik.html">Pelayanan Publik</a></h3>
                         </div>
                       </div>
-                    </div> 
+                    </div>
                   </div>
                 </Carousel.Item>
               </Carousel>
-            </div>
-            <div className="col-lg-3">
-              <div
-                className="single-main-news-inner mb-4"
-                style={{ borderRadius: 8 }}
-              >
-                <a href="detail.html">
-                  <img src="/images/jepun.png" alt="image" />
-                </a>
-                <div className="news-content">
-                  {/* <div class="tag">National</div> */}
-                  <h3 style={{ fontSize: 20 }}>
-                    <a href="detail.html">
-                      Jepun Bali, Jaringan Elektronik Policing untuk Bali
-                    </a>
-                  </h3>
-                  <span>28 September, 2022</span>
-                </div>
-              </div>
-              {/* <div
-                className="single-main-news-inner mb-5"
-                style={{ borderRadius: 8 }}
-              >
-                <a href="detail.html">
-                  <img src="/images/main-news/main-news-2.jpg" alt="image" />
-                </a>
-                <div className="news-content">
-                  <h3 style={{ fontSize: 20 }}>
-                    <a href="detail.html">Smart City Bali</a>
-                  </h3>
-                  <span>28 September, 2022</span>
-                </div>
-              </div> */}
             </div>
             <div className="col-lg-3">
               <aside className="widget-area">
@@ -255,6 +218,41 @@ export default function Home() {
                                 </ul>
                   </section> */}
               </aside>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-3">
+              <div
+                className="single-main-news-inner mb-4"
+                style={{ borderRadius: 8 }}
+              >
+                <a href="detail.html">
+                  <img src="/images/jepun.png" alt="image" />
+                </a>
+                <div className="news-content">
+                  {/* <div class="tag">National</div> */}
+                  <h3 style={{ fontSize: 20 }}>
+                    <a href="detail.html">
+                      Jepun Bali, Jaringan Elektronik Policing untuk Bali
+                    </a>
+                  </h3>
+                  <span>28 September, 2022</span>
+                </div>
+              </div>
+              <div
+                className="single-main-news-inner mb-5"
+                style={{ borderRadius: 8 }}
+              >
+                <a href="detail.html">
+                  <img src="/images/main-news/main-news-2.jpg" alt="image" />
+                </a>
+                <div className="news-content">
+                  <h3 style={{ fontSize: 20 }}>
+                    <a href="detail.html">Smart City Bali</a>
+                  </h3>
+                  <span>28 September, 2022</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
