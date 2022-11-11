@@ -241,7 +241,7 @@ export default function Home() {
                 style={{ borderRadius: 8 }}
               >
                 <a href="detail.html">
-                  <img src="/images/jepun.png" alt="image" />
+                  <img src="/images/wisata-alam.jpg" alt="image" />
                 </a>
                 <div className="news-content">
                   {/* <div class="tag">National</div> */}
