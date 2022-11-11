@@ -178,7 +178,7 @@ export default function Home() {
             <div className="col-lg-3">
               <aside className="widget-area">
                 <section className="widget widget_latest_news_thumb">
-                  <h3 className="widget-title"><Image src="/images/iEvent.png" width={30} height={30} alt="image" /> New Event</h3>
+                  <h3 className="widget-title"><Image src="/images/Event.png" width={30} height={30} alt="image" /> New Event</h3>
                     <article className="item">
                       <a href="#" className="thumb">
                         <span className="fullimage cover bg1" role="img"></span>
