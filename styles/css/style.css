@@ -142,6 +142,8 @@ h6:last-child {
 .ptb-50 {
   padding-top: 30px;
   padding-bottom: 30px;
+  z-index: -1000;
+  position: relative;
 }
 
 .pt-50 {
@@ -1783,6 +1785,8 @@ Main News Area CSS
 .main-news-area {
   padding-top: 50px;
   padding-bottom: 20px;
+  z-index: -1000;
+  position: relative;
 }
 
 .single-main-news {
@@ -3825,6 +3829,9 @@ Widget Sidebar CSS
 .widget-area .widget_latest_news_thumb .item {
   overflow: hidden;
   margin-bottom: 25px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .widget-area .widget_latest_news_thumb .item:last-child {
@@ -3898,7 +3905,7 @@ Widget Sidebar CSS
 
 .widget-area .widget_latest_news_thumb .item .info span {
   display: block;
-  color: #656565;
+  color: #000;
   margin-top: 5px;
   font-size: 14px;
   font-weight: 400;
@@ -3915,6 +3922,7 @@ Widget Sidebar CSS
   display: inline-block;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  color: #fff;
 }
 
 .widget-area .widget_latest_news_thumb .item:hover .info .title a {
@@ -6067,7 +6075,12 @@ Contact Area CSS
   padding: 40px;
   -webkit-box-shadow: 0 0 20px rgba(158, 158, 158, 0.16);
   box-shadow: 0 0 20px rgba(158, 158, 158, 0.16);
-  background-color: #ff661f;
+  /* background-color: #ff661f; */
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: -1000;
+  position: relative;
 }
 
 .contact-form .title {
@@ -6206,6 +6219,9 @@ News Area CSS
 =================================================*/
 .single-news-item {
   margin-bottom: 30px;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .single-news-item .news-image {
@@ -6270,6 +6286,7 @@ News Area CSS
 .single-news-item .news-content p {
   font-weight: 400;
   font-size: 14px;
+  color: #fff;
 }
 
 .single-news-item .news-content p a {

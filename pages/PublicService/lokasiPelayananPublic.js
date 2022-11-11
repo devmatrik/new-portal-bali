@@ -12,7 +12,7 @@ export default function lokasiPelayananPublic() {
             <div className="container">
               <div className="tech-news ptb-50">
                 <div class="section-title"> 
-                  <h2>Lokasi Pelayanan Public</h2>
+                  <h2>Lokasi Pelayanan Public <Image className="p-2" src="/images/public.svg" width={50} height={50} alt="" /></h2>
                   <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Lokasi Pelayanan Public di Bali</h5>
                 </div>
                 <Carousel>

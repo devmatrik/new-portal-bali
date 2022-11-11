@@ -12,7 +12,7 @@ export default function kulinerTradisional() {
           <div className="container">
             <div className="tech-news ptb-50">
             <div class="section-title"> 
-              <h2>Kuliner Tradisional</h2>
+              <h2>Kuliner Tradisional <Image className="p-2" src="/images/kulTrad.svg" width={50} height={50} alt="" /></h2>
               <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Kuliner Tradisional di Bali</h5>
             </div>
             <Carousel>

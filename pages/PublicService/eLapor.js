@@ -20,22 +20,100 @@ export default function eLapor() {
                                 <hr />
                             </div>
                             <Form>
-                              <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Group className="mb-3 mt-4">
-                                  <Form.Label for="exampleInputEmail1" className="form-label">Jenis Laporan</Form.Label>
+                              <div className ="row">
+                                <div className="col-lg-4 col-md-4 mb-3">
+                                  <Form.Label for="exampleInputEmail1" className="form-label">Saluran Informasi</Form.Label>
                                   <Form.Select>
-                                    <option selected disabled>Jenis Laporan</option>
-                                    <option value="1">Kecelakaan</option>
-                                    <option value="2">Kemacetan</option>
-                                    <option value="3">Pelanggaran</option>
-                                    <option value="4">Gangguan Lalu Lintas</option>
-                                    <option value="5">Insfrastruktur Jalan</option>
-                                    <option value="6">Tindak Pidanan di Jalan</option>
+                                    <option selected disabled>Petugas Lapangan</option>
+                                    <option value="1">Portal Interaktif</option>
+                                    <option value="2">Email</option>
+                                    <option value="3">Panic Button</option>
+                                    <option value="4">Medsos IG</option>
+                                    <option value="5">Medsos Twitter</option>
+                                    <option value="6">Medsos FB</option>
                                   </Form.Select>
-                                </Form.Group>
-                              </Form.Group>
+                                </div>
+
+                                <div className="col-lg-4 col-md-4 mb-3">
+                                  <Form.Label for="exampleInputEmail1" className="form-label">Kategori</Form.Label>
+                                  <Form.Select>
+                                    <option selected>Laporan</option>
+                                    <option value="1">Pelayanan</option>
+                                    <option value="2">Pengaduan</option>
+                                  </Form.Select>
+                                </div>
+
+                                <div className="col-lg-4 col-md-4 mb-3">
+                                  <Form.Label for="exampleInputEmail1" className="form-label">Sub Kategori</Form.Label>
+                                    <Form.Select>
+                                      <option selected>Tindak Pidana</option>
+                                      <option value="1">Bencana</option>
+                                      <option value="2">Pelanggaran</option>
+                                      <option value="3">Kemacetan</option>
+                                      <option value="3">Kecelakaan</option>
+                                    </Form.Select>
+                                </div>
+                              </div>
 
                               <div className ="row">
+                                <div className="col-lg-4 col-md-4 mb-3">
+                                  <Form.Label for="exampleInputEmail1" className="form-label">Status Jalan</Form.Label>
+                                  <Form.Select>
+                                    <option selected disabled>Jalan Nasional</option>
+                                    <option value="1">Jalan Provinsi</option>
+                                    <option value="2">Jalan Kota</option>
+                                    <option value="3">Jalan Kabupaten</option>
+                                    <option value="4">Jalan Desa</option>
+                                  </Form.Select>
+                                </div>
+
+                                <div className="col-lg-4 col-md-4 mb-3">
+                                  <Form.Label for="exampleInputEmail1" className="form-label">Fungsi Jalan</Form.Label>
+                                  <Form.Select>
+                                    <option selected>Jalan Tol</option>
+                                    <option value="1">Jalan Arteri</option>
+                                    <option value="2">Jalan Kolektor</option>
+                                    <option value="3">Jalan Lokal</option>
+                                  </Form.Select>
+                                </div>
+
+                                <div className="col-lg-4 col-md-4 mb-3">
+                                  <Form.Label for="exampleInputEmail1" className="form-label">Jumlah Korban</Form.Label>
+                                  <Form.Control type="text" className="form-control" id="exampleInputPassword1" />
+                                </div>
+                              </div>
+
+                              <div className ="row mb-4">
+                                <div className="col-lg-4 col-md-4 mb-3">
+                                  <Form.Label for="exampleInputEmail1" className="form-label">Kerusakan Object</Form.Label>
+                                  <Form.Select>
+                                    <option selected disabled>Bangunan</option>
+                                    <option value="1">Motor</option>
+                                    <option value="2">Mobil</option>
+                                  </Form.Select>
+                                </div>
+
+                                <div className="col-lg-4 col-md-4 mb-3">
+                                  <Form.Label for="exampleInputEmail1" className="form-label">Situasi Lalin</Form.Label>
+                                  <Form.Select>
+                                    <option selected>Macet</option>
+                                    <option value="1">Padat</option>
+                                    <option value="2">Lancar</option>
+                                  </Form.Select>
+                                </div>
+
+                                <div className="col-lg-4 col-md-4 mb-3">
+                                  <Form.Label for="exampleInputEmail1" className="form-label">Kebutuhan Peralatan</Form.Label>
+                                  <Form.Select>
+                                    <option selected>Mobil Patwal</option>
+                                    <option value="1">Damkar</option>
+                                    <option value="2">Mobil Derek</option>
+                                    <option value="3">Ambulance</option>
+                                  </Form.Select>
+                                </div>
+                              </div>
+
+                              <div className ="row border">
                                 <div className="col-lg-6 col-md-6 mb-3">
                                   <Form.Label for="exampleInputPassword1" className="form-label">Lokasi Kejadian</Form.Label>
                                   <Form.Control type="text" className="form-control" id="exampleInputPassword1" />
@@ -45,46 +123,17 @@ export default function eLapor() {
                                   <Form.Label for="exampleInputPassword1" className="form-label">Jam</Form.Label>
                                   <Form.Control type="time" className="form-control" id="exampleInputPassword1" />
                                 </div>
-                              </div>
-
-                              <div className="col-lg-12 col-md-6 mb-4">
-                                <Form.Label for="exampleInputPassword1" className="form-label">Lat Long</Form.Label>
-                                  <div className="input-group mb-3">
-                                    <Form.Control type="text" className="form-control" placeholder="Latitude" aria-label="Username" />
-                                    <Form.Control type="text" className="form-control" placeholder="Longitude" aria-label="Server" />
-                                    <span className="input-group-text"><i className="bx bx-map"></i></span>
-                                  </div>
-                              </div>
-
-                              <div className ="row">
-                                <div className="col-lg-4 col-md-4 mb-3">
-                                  <Form.Label for="exampleInputEmail1" className="form-label">Jenis Kecelakaan</Form.Label>
-                                  <Form.Select>
-                                    <option selected>Kecelakaan Tunggal</option>
-                                    <option value="1">R2 vs R2</option>
-                                    <option value="2">R4 vs R4</option>
-                                    <option value="3">R2 vs R4</option>
-                                    <option value="1">R4 vs R4</option>
-                                  </Form.Select>
-                                </div>
-
-                                <div className="col-lg-4 col-md-4 mb-3">
-                                  <Form.Label for="exampleInputEmail1" className="form-label">Korban Meninggal Dunia</Form.Label>
-                                  <Form.Select>
-                                    <option selected>Ada</option>
-                                    <option value="1">Tidak Ada</option>
-                                  </Form.Select>
-                                </div>
-
-                                <div className="col-lg-4 col-md-4 mb-3">
-                                  <Form.Label for="exampleInputEmail1" className="form-label">Perkiraan Jumlah Korban</Form.Label>
-                                    <Form.Select>
-                                      <option selected>1 - 2 Orang</option>
-                                      <option value="1">2 - 3 Orang</option>
-                                      <option value="2">{'>'}5 Orang</option>
-                                    </Form.Select>
+                                
+                                <div className="col-lg-12 col-md-6 mb-4">
+                                  <Form.Label for="exampleInputPassword1" className="form-label">Lat Long</Form.Label>
+                                    <div className="input-group mb-3">
+                                      <Form.Control type="text" className="form-control" placeholder="Latitude" aria-label="Username" />
+                                      <Form.Control type="text" className="form-control" placeholder="Longitude" aria-label="Server" />
+                                      <span className="input-group-text"><i className="bx bx-map"></i></span>
+                                    </div>
                                 </div>
                               </div>
+
 
                               <Form.Label for="exampleInputEmail1" className="form-label">Upload Foto</Form.Label>
                               <div className="input-group mb-3">
@@ -92,15 +141,25 @@ export default function eLapor() {
                               </div>
 
                               <div className ="row">
-                                <div className="col-lg-6 col-md-6 mb-3">
-                                  <Form.Label for="exampleInputPassword1" className="form-label">Pelapor</Form.Label>
+                                <div className="col-lg-4 col-md-4 mb-3">
+                                  <Form.Label for="exampleInputPassword1" className="form-label">Nama Pelapor</Form.Label>
                                   <Form.Control type="text" className="form-control" id="exampleInputPassword1" />
                                 </div>
 
-                                <div className="col-lg-6 col-md-6 mb-3">
+                                <div className="col-lg-4 col-md-4 mb-3">
+                                  <Form.Label for="exampleInputPassword1" className="form-label">Kategori Pelapor</Form.Label>
+                                  <Form.Select>
+                                    <option selected disabled>Pemerintah</option>
+                                    <option value="1">Instansi Swasta</option>
+                                    <option value="2">LSM</option>
+                                  </Form.Select>
+                                </div>
+
+                                <div className="col-lg-4 col-md-4 mb-3">
                                   <Form.Label for="exampleInputPassword1" className="form-label">No. Telp</Form.Label>
                                   <Form.Control type="text" className="form-control" id="exampleInputPassword1" />
                                 </div>
+
                               </div>
 
                               <div className="col-lg-12 col-md-12">

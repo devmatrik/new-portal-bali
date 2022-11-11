@@ -216,9 +216,9 @@ export default function Navbar(props) {
                         </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="/Download/perUndangUndangan" className="nav-link">
+                        <Link href="/Download/perUndangUndangan" className="nav-link">
                           Perundang - Undangan
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
