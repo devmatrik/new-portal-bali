@@ -40,6 +40,20 @@ export default function Home() {
                       <div className="single-team-box">
                         <div className="image">
                           <a href="wisata-kuliner.html">
+                            <img src="/images/_wisata-kuliner.png" alt="image" />
+                          </a>
+                        </div>
+                        <div className="content">
+                          <h3 style={{ fontSize: 14 }}>
+                            <a href="wisata-kuliner.html">Wisata Kuliner</a>
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-lg-4">
+                      <div className="single-team-box">
+                        <div className="image">
+                          <a href="wisata-kuliner.html">
                             <img src="/images/_kuliner-tradisional.png" alt="image" />
                           </a>
                         </div>
@@ -50,6 +64,10 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
+                  </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <div className="row">
                     <div className="col-lg-4">
                         <div className="single-team-box">
                             <div className="image">
@@ -64,10 +82,6 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                  </div>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <div className="row">
                     <div className="col-lg-4">
                         <div className="single-team-box">
                             <div className="image">
@@ -94,6 +108,10 @@ export default function Home() {
                           </div>
                       </div>
                     </div>
+                  </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <div className="row">
                     <div className="col-lg-4">
                       <div className="single-team-box">
                         <div className="image">
@@ -106,10 +124,6 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  </div>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <div className="row">
                     <div className="col-lg-4">
                       <div className="single-team-box">
                         <div className="image">
@@ -254,163 +268,112 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            <div className="col-lg-3">
+              <div
+                className="single-main-news-inner mb-4"
+                style={{ borderRadius: 8 }}
+              >
+                <a href="detail.html">
+                  <img src="/images/jepun.png" alt="image" />
+                </a>
+                <div className="news-content">
+                  {/* <div class="tag">National</div> */}
+                  <h3 style={{ fontSize: 20 }}>
+                    <a href="detail.html">
+                      Jepun Bali, Jaringan Elektronik Policing untuk Bali
+                    </a>
+                  </h3>
+                  <span>28 September, 2022</span>
+                </div>
+              </div>
+              <div
+                className="single-main-news-inner mb-5"
+                style={{ borderRadius: 8 }}
+              >
+                <a href="detail.html">
+                  <img src="/images/main-news/main-news-2.jpg" alt="image" />
+                </a>
+                <div className="news-content">
+                  <h3 style={{ fontSize: 20 }}>
+                    <a href="detail.html">Smart City Bali</a>
+                  </h3>
+                  <span>28 September, 2022</span>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <div
+                className="single-main-news-inner mb-4"
+                style={{ borderRadius: 8 }}
+              >
+                <a href="detail.html">
+                  <img src="/images/jepun.png" alt="image" />
+                </a>
+                <div className="news-content">
+                  {/* <div class="tag">National</div> */}
+                  <h3 style={{ fontSize: 20 }}>
+                    <a href="detail.html">
+                      Jepun Bali, Jaringan Elektronik Policing untuk Bali
+                    </a>
+                  </h3>
+                  <span>28 September, 2022</span>
+                </div>
+              </div>
+              <div
+                className="single-main-news-inner mb-5"
+                style={{ borderRadius: 8 }}
+              >
+                <a href="detail.html">
+                  <img src="/images/main-news/main-news-2.jpg" alt="image" />
+                </a>
+                <div className="news-content">
+                  <h3 style={{ fontSize: 20 }}>
+                    <a href="detail.html">Smart City Bali</a>
+                  </h3>
+                  <span>28 September, 2022</span>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <aside className="widget-area">
+                <section className="widget widget_latest_news_thumb">
+                  <h3 className="widget-title"><Image src="/images/Event.png" width={30} height={30} alt="image" />Popular News</h3>
+                    <article className="item">
+                      <a href="#" className="thumb">
+                        <span className="fullimage cover bg1" role="img"></span>
+                      </a>
+                      <div className="info">
+                        <h4 className="title usmall"><a href="#">Negotiations on a peace agreement between the two countries</a></h4>
+                        <span>28 September, 2022</span>
+                      </div>
+                    </article>
+                    <article className="item">
+                      <a href="#" className="thumb">
+                        <span className="fullimage cover bg2" role="img"></span>
+                      </a>
+                      <div className="info">
+                        <h4 className="title usmall"><a href="#">Love songs helped me through heartbreak</a></h4>
+                        <span>28 September, 2022</span>
+                      </div>
+                    </article>
+                    <article className="item">
+                      <a href="#" className="thumb">
+                        <span className="fullimage cover bg3" role="img"></span>
+                      </a>
+                      <div className="info">
+                        <h4 className="title usmall"><a href="#">This movement aims to establish women rights</a></h4>
+                        <span>28 September, 2022</span>
+                      </div>
+                    </article>
+                </section>
+              </aside>
+            </div>
           </div>
         </div>
       </section>
       {/* End Main News Area */}
       {/* Start Default News Area */}
-
-      <section className="default-news-area">
-        <div className="container">
-          <div className="politics-news">
-            <div className="row">
-              <div className="main-news-slides owl-carousel owl-theme">
-                <div className="news-slider-item" style={{ borderRadius: 10 }}>
-                  <a href="#">
-                    <img
-                      src="/images/main-news-slider/main-news-slider-1.jpg"
-                      alt="image"
-                    />
-                  </a>
-                  <div className="slider-content">
-                    <div className="tag">National</div>
-                    <h3 style={{ fontSize: 24 }}>
-                      <a href="#">Bali Experience 2022</a>
-                    </h3>
-                    <span>
-                      <a href="">Seminyak</a> / 27 Oct - 7 Nov, 2022
-                    </span>
-                  </div>
-                </div>
-                <div className="news-slider-item" style={{ borderRadius: 10 }}>
-                  <a href="#">
-                    <img
-                      src="/images/main-news-slider/main-news-slider-2.jpg"
-                      alt="image"
-                    />
-                  </a>
-                  <div className="slider-content">
-                    <div className="tag">International</div>
-                    <h3 style={{ fontSize: 24 }}>
-                      <a href="#">
-                        International Conference on Science, Engineering &amp;
-                        Technology
-                      </a>
-                    </h3>
-                    <span>
-                      <a href="">Seminyak</a> / 27 Oct, 2022
-                    </span>
-                  </div>
-                </div>
-                <div className="news-slider-item" style={{ borderRadius: 10 }}>
-                  <a href="#">
-                    <img
-                      src="/images/main-news-slider/main-news-slider-3.jpg"
-                      alt="image"
-                    />
-                  </a>
-                  <div className="slider-content">
-                    <div className="tag">International</div>
-                    <h3 style={{ fontSize: 24 }}>
-                      <a href="#">
-                        G20 Summit, Bali — Centre for Disaster Protection
-                      </a>
-                    </h3>
-                    <span>
-                      <a href="">Bali</a> / 27 Oct - 7 Nov, 2022
-                    </span>
-                  </div>
-                </div>
-                <div className="news-slider-item" style={{ borderRadius: 10 }}>
-                  <a href="#">
-                    <img
-                      src="/images/main-news-slider/main-news-slider-3.jpg"
-                      alt="image"
-                    />
-                  </a>
-                  <div className="slider-content">
-                    <div className="tag">National</div>
-                    <h3 style={{ fontSize: 24 }}>
-                      <a href="#">Da Maria Inno Hallowen Edition</a>
-                    </h3>
-                    <span>
-                      <a href="">Da Maria</a> / 27 Oct - 7 Nov, 2022
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <div className="tech-news pb-50">
-              <div className="section-title">
-                <h2>Blog</h2>
-              </div>
-              <div className="row">
-                <div className="col-lg-3 col-sm-3">
-                  <div className="single-tech-news-box" style={{ borderRadius: 8 }}>
-                    <a href="detail.html">
-                      <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
-                    </a>
-                    <div className="tech-news-content">
-                      <h3>
-                        <a href="detail.html">10 Wisata Terindah di Bali</a>
-                      </h3>
-                      <p>28 September, 2022</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-sm-3">
-                  <div className="single-tech-news-box" style={{ borderRadius: 8 }}>
-                    <a href="detail.html">
-                      <img src="/images/tech-news/tech-news-2.jpg" alt="image" />
-                    </a>
-                    <div className="tech-news-content">
-                      <h3>
-                        <a href="detail.html">
-                          Rekomendasi Kuliner Khas Bali yang Wajib Anda Coba
-                        </a>
-                      </h3>
-                      <p>28 September, 2022</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-sm-3">
-                  <div className="single-tech-news-box" style={{ borderRadius: 8 }}>
-                    <a href="detail.html">
-                      <img src="/images/tech-news/tech-news-3.jpg" alt="image" />
-                    </a>
-                    <div className="tech-news-content">
-                      <h3>
-                        <a href="detail.html">
-                          11 Hotel dengan Desain Unik di Bali
-                        </a>
-                      </h3>
-                      <p>28 September, 2022</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-sm-3">
-                  <div className="single-tech-news-box" style={{ borderRadius: 8 }}>
-                    <a href="detail.html">
-                      <img src="/images/tech-news/tech-news-3.jpg" alt="image" />
-                    </a>
-                    <div className="tech-news-content">
-                      <h3>
-                        <a href="detail.html">
-                          5 Wisata Desa Adat di Bali, Kaya Sejarah dan Budaya
-                        </a>
-                      </h3>
-                      <p>28 September, 2022</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
-          </div>
-        </div>
-      </section>
-      {/* End Default News Area */}
       {/* Start Copy Right Area */}
-      
       {/* End Copy Right Area */}
       {/* Start Go Top Area */}
       <div className="go-top">
