@@ -3825,6 +3825,9 @@ Widget Sidebar CSS
 .widget-area .widget_latest_news_thumb .item {
   overflow: hidden;
   margin-bottom: 25px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .widget-area .widget_latest_news_thumb .item:last-child {
@@ -3898,7 +3901,7 @@ Widget Sidebar CSS
 
 .widget-area .widget_latest_news_thumb .item .info span {
   display: block;
-  color: #656565;
+  color: #000;
   margin-top: 5px;
   font-size: 14px;
   font-weight: 400;
@@ -3915,6 +3918,7 @@ Widget Sidebar CSS
   display: inline-block;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  color: #fff;
 }
 
 .widget-area .widget_latest_news_thumb .item:hover .info .title a {

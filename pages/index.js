@@ -176,33 +176,33 @@ export default function Home() {
               </div> */}
             </div>
             <div className="col-lg-3">
-              <aside class="widget-area">
-                <section class="widget widget_latest_news_thumb">
-                  <h3 class="widget-title"><Image src="/images/iEvent.png" width={30} height={30} alt="image" /> New Event</h3>
-                    <article class="item">
-                      <a href="#" class="thumb">
-                        <span class="fullimage cover bg1" role="img"></span>
+              <aside className="widget-area">
+                <section className="widget widget_latest_news_thumb">
+                  <h3 className="widget-title"><Image src="/images/iEvent.png" width={30} height={30} alt="image" /> New Event</h3>
+                    <article className="item">
+                      <a href="#" className="thumb">
+                        <span className="fullimage cover bg1" role="img"></span>
                       </a>
-                      <div class="info">
-                        <h4 class="title usmall"><a href="#">Negotiations on a peace agreement between the two countries</a></h4>
+                      <div className="info">
+                        <h4 className="title usmall"><a href="#">Negotiations on a peace agreement between the two countries</a></h4>
                         <span>28 September, 2022</span>
                       </div>
                     </article>
-                    <article class="item">
-                      <a href="#" class="thumb">
-                        <span class="fullimage cover bg2" role="img"></span>
+                    <article className="item">
+                      <a href="#" className="thumb">
+                        <span className="fullimage cover bg2" role="img"></span>
                       </a>
-                      <div class="info">
-                        <h4 class="title usmall"><a href="#">Love songs helped me through heartbreak</a></h4>
+                      <div className="info">
+                        <h4 className="title usmall"><a href="#">Love songs helped me through heartbreak</a></h4>
                         <span>28 September, 2022</span>
                       </div>
                     </article>
-                    <article class="item">
-                      <a href="#" class="thumb">
-                        <span class="fullimage cover bg3" role="img"></span>
+                    <article className="item">
+                      <a href="#" className="thumb">
+                        <span className="fullimage cover bg3" role="img"></span>
                       </a>
-                      <div class="info">
-                        <h4 class="title usmall"><a href="#">This movement aims to establish women rights</a></h4>
+                      <div className="info">
+                        <h4 className="title usmall"><a href="#">This movement aims to establish women rights</a></h4>
                         <span>28 September, 2022</span>
                       </div>
                     </article>
