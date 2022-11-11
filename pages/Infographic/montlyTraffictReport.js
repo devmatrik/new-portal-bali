@@ -1,7 +1,7 @@
 import React from 'react'
 import BaseLayouts from '../../components/MainCode/BaseLayouts'
 
-function montlyTraffictReport() {
+export default function montlyTraffictReport() {
   return (
     <>
       <BaseLayouts>
@@ -10,5 +10,3 @@ function montlyTraffictReport() {
     </>
   )
 }
-
-export default montlyTraffictReport
