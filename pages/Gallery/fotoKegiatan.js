@@ -13,7 +13,7 @@ export default function fotoKegiatan() {
         <div className="container">
           <div className="tech-news ptb-50">
             <div class="section-title"> 
-              <h2>Foto Kegiatan</h2>
+              <h2>Foto Kegiatan <Image className="p-2" src="/images/foto.svg" width={50} height={50} alt="" /></h2>
             </div>
             <Carousel>
               <Carousel.Item>

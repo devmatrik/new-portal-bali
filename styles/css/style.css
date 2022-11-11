@@ -5149,8 +5149,10 @@ Page Title CSS
 =================================================*/
 .page-title-area {
   padding-top: 35px;
-  padding-bottom: 32px;
+  padding-bottom: 20px;
   border-bottom: 1px solid #e1e1e1;
+  z-index: -1000;
+  position: relative;
 }
 
 .page-title-content {
@@ -7193,7 +7195,7 @@ video {
   right: 0;
   outline: 0;
 }
-  
+
 #gallery-lightbox img {
   height: 350px;
   object-fit: cover;
@@ -7204,7 +7206,6 @@ video {
   opacity: 0.9;
   transition: 0.5s ease-out;
 }
-
 
 @-webkit-keyframes tada {
   0% {

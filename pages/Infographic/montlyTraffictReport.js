@@ -1,8 +1,13 @@
 import React from 'react'
+import BaseLayouts from '../../components/MainCode/BaseLayouts'
 
 function montlyTraffictReport() {
   return (
-    <div>montlyTraffictReport</div>
+    <>
+      <BaseLayouts>
+        <div className="section-title">Under Construction, View Soon !</div>
+      </BaseLayouts>
+    </>
   )
 }
 

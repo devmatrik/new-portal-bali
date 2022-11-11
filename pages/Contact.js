@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import BaseLayouts from '../components/MainCode/BaseLayouts'
 
 function Contact() {
@@ -9,7 +10,7 @@ function Contact() {
   <div className="page-title-area">
     <div className="container">
       <div className="page-title-content">
-        <h2>Contact</h2>
+        <h2>Contact <Image className="p-2" src="/images/Contact.png" width={50} height={50} alt="" /></h2>
       </div>
     </div>
   </div>

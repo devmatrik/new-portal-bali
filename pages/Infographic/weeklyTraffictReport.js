@@ -1,11 +1,12 @@
 import React from 'react'
-import Image from 'next/image'
 import BaseLayouts from '../../components/MainCode/BaseLayouts'
 
-function weeklyTraffictReport() {
+export default function weeklyTraffictReport() {
   return (
-    <div>weeklyTraffictReport</div>
+    <>
+      <BaseLayouts>
+        <div className="section-title ">Under Construction, View Soon !</div>
+      </BaseLayouts>
+    </>
   )
 }
-
-export default weeklyTraffictReport
