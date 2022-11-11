@@ -175,7 +175,7 @@ export default function Navbar(props) {
                         </Link>
                       </li>
                       <li className="nav-item">
-                        <Link href="/Infographic/monthlyTraffictReport" className="nav-link">
+                        <Link href="/Infographic/montlyTraffictReport" className="nav-link">
                           Monthly Traffic Report
                         </Link>
                       </li>
