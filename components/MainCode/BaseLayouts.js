@@ -43,7 +43,6 @@ export default function BaseLayouts(props) {
     {/* <Script src="js/contact-form-script.js"></Script> */}
     {/* <Script src="js/wow.min.js"></Script>
     <Script src="js/main.js"></Script> */}      
-
     </div>
   )
 }

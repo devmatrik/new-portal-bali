@@ -8,32 +8,56 @@ import Link from 'next/link';
 
 
 export default function Navbar(props) {
+
+    const showdate=new Date();
+    const displaytodaysdate = showdate.getFullYear()+' '+(showdate.getMonth()+1)+' '+showdate.getDate();
+    const dt = showdate.toDateString();
+    // const displaytime = showdate.getHours()+':'+showdate.getMinutes()+':'+showdate.getSeconds();
+
     return (
    <>
    <section id="main">
-      {/* <nav>
-        <div className="logo">
-          <Image src="/images/logo2.png" width={110} height={110} alt="" />
+      {/* <!-- Start Top Header Area --> */}
+      <div className="top-header-area">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-6">
+              <ul className="top-header-social">
+                <li>
+                  <i className='bx bx-calendar'></i>
+                    <a href="#">Call Center :<strong> 007</strong></a>
+                  </li>
+                <li>
+                  <i className='bx bx-calendar'></i>
+                    <a href="#">{dt}</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                      <div className="col-lg-6">
+                          <ul className="top-header-others">
+                              {/* <li>
+                                  <div className="languages-list">
+                                      <select>
+                                          <option value="1">English</option>
+                                          <option value="2">العربيّة</option>
+                                          <option value="3">Deutsch</option>
+                                          <option value="3">Português</option>
+                                          <option value="3">简体中文</option>
+                                      </select>
+                                  </div>
+                              </li> */}
+
+                              <li>
+                                  <i className='bx bx-user'></i>
+                                  <a href="/Login">Login</a>
+                              </li>
+                          </ul>
+                      </div>
+          </div>
         </div>
-        
-        <ul className="menu">
-          <li className="nav-item">
-            <a href="index.html" className="nav-link active">
-              Home
-            </a>
-          </li>
-          <li><a href="#next">Wisata</a></li>
-          <li><a href="#">Public Service</a></li>
-          <li><a href="#">Event</a></li>
-          <li><a href="#">Traffic</a></li>
-          <li><a href="#">News</a></li>
-          <li><a href="#">Infographic</a></li>
-          <li><a href="#">Gallery</a></li>
-          <li><a href="#">Transportation Route</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Download</a></li>
-        </ul>
-      </nav> */}
+      </div>
+      {/* <!-- End Top Header Area --> */}
       <div className="navbar-area">
         <div className="main-responsive-nav">
           <div className="container">

@@ -454,6 +454,7 @@ Preloader Area CSS
 Section Title CSS
 =================================================*/
 .section-title {
+  font-weight: bold;
   margin-bottom: 25px;
   position: relative;
   padding-bottom: 10px;
@@ -483,8 +484,12 @@ Top Header Area CSS
 =================================================*/
 .top-header-area {
   background-color: #111111;
+  opacity: 50%;
   padding-top: 10px;
   padding-bottom: 10px;
+  /* backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
 }
 
 .top-header-area.bg-color {
@@ -1773,6 +1778,7 @@ Navbar Area CSS
   }
   .main-navbar {
     display: none;
+    position: fixed;
   }
   .others-option-for-responsive {
     display: block;
@@ -1785,15 +1791,15 @@ Main News Area CSS
 .main-news-area {
   padding-top: 50px;
   padding-bottom: 20px;
-  z-index: -1000;
-  position: relative;
+  /* z-index: -1000;
+  position: relative; */
 }
 
 .single-main-news {
   position: relative;
   overflow: hidden;
   margin-bottom: 30px;
-  z-index: -100;
+  /* z-index: -100; */
 }
 
 .single-main-news::before {

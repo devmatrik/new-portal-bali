@@ -14,7 +14,7 @@ export default function Navbar(props) {
    <div className="copyright-area">
         <div className="container">
           <div className='row'>
-            <div className='col-md-6'>
+            <div className='col-md-4'>
               <div className="single-footer-widget">
                 <ul className="social mt-1">
                   <p>Find us on social media :</p>
@@ -41,7 +41,12 @@ export default function Navbar(props) {
                 </ul>
               </div>
             </div>
-            <div className='col-md-6'>
+            <div className="col-md-4">
+              {/* <div className="copyright-area-content"> */}
+                <Image className="mt-3" src="/images/logofooter.svg" width={1239} height={251} alt="" />
+              {/* </div> */}
+            </div>
+            <div className='col-md-4'>
                <div className="copyright-area-content">
                 <p>
                   Copyright © , <a href="https://elingbali.com">

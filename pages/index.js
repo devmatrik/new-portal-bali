@@ -1,10 +1,12 @@
 import React from 'react'
 // import Script from 'next/script'
+import Link from 'next/link'
 import Image from 'next/image'
 import {
   BaseLayouts
 } from '../components/MainCode/MainImport'
 import Carousel from 'react-bootstrap/Carousel';
+// import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
 
 export default function Home() {
@@ -15,7 +17,7 @@ export default function Home() {
   return (
     <>
       <BaseLayouts title={konten.title}>
-        <section className="main-news-area ">
+        <section className="main-news-area">
           <div className="container">
             <div className="row">
               <div className="section-title">
@@ -29,13 +31,13 @@ export default function Home() {
                       <div className="col-lg-4">
                         <div className="single-team-box">
                           <div className="image">
-                            <a href="wisata-alam.html">
+                            <Link href="/Wisata/wisataAlam">
                               <img src="/images/_wisata-alam.png" alt="image" />
-                            </a>
+                            </Link>
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <a href="wisata-alam.html">Wisata Alam</a>
+                              <Link href="/Wisata/wisataAlam">Wisata Alam</Link>
                             </h3>
                           </div>
                         </div>
@@ -43,13 +45,13 @@ export default function Home() {
                       <div className="col-lg-4">
                         <div className="single-team-box">
                           <div className="image">
-                            <a href="wisata-kuliner.html">
+                            <Link href="/Wisata/wisataKuliner">
                               <img src="/images/_wisata-kuliner.png" alt="image" />
-                            </a>
+                            </Link>
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <a href="wisata-kuliner.html">Wisata Kuliner</a>
+                              <Link href="/Wisata/wisataKuliner">Wisata Kuliner</Link>
                             </h3>
                           </div>
                         </div>
