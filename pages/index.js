@@ -16,6 +16,21 @@ export default function Home() {
   return (
     <>
       <BaseLayouts title={konten.title}>
+
+        {/* <!-- Start Preloader --> */}
+        {/* <div class="preloader">
+            <div class="loader">
+                <div class="wrapper">
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-1a"></div>
+                    <div class="circle circle-2"></div>
+                    <div class="circle circle-3"></div>
+                </div>
+                <span>Loading...</span>
+            </div>
+        </div> */}
+        {/* <!-- End Preloader --> */}
+
         <section className="main-news-area">
           <div className="container">
             <div className="row">
@@ -174,7 +189,7 @@ export default function Home() {
                         <span className="fullimage cover bg1" role="img"></span>
                       </a>
                       <div className="info">
-                        <h4 className="title usmall"><a href="#">Negotiations on a peace agreement between the two countries</a></h4>
+                        <h4 className="title usmall"><Link href="/DetailNews">Negotiations on a peace agreement between the two countries</Link></h4>
                         <span>28 September, 2022</span>
                       </div>
                     </article>
@@ -183,7 +198,7 @@ export default function Home() {
                         <span className="fullimage cover bg2" role="img"></span>
                       </a>
                       <div className="info">
-                        <h4 className="title usmall"><a href="#">Love songs helped me through heartbreak</a></h4>
+                        <h4 className="title usmall"><Link href="/DetailNews">Love songs helped me through heartbreak</Link></h4>
                         <span>28 September, 2022</span>
                       </div>
                     </article>
@@ -192,7 +207,7 @@ export default function Home() {
                         <span className="fullimage cover bg3" role="img"></span>
                       </a>
                       <div className="info">
-                        <h4 className="title usmall"><a href="#">This movement aims to establish women rights</a></h4>
+                        <h4 className="title usmall"><Link href="/DetailNews">This movement aims to establish women rights</Link></h4>
                         <span>28 September, 2022</span>
                       </div>
                     </article>
