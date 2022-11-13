@@ -1,33 +1,76 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import Image from 'next/image'
+import { useSession, getSession } from "next-auth/react"
 import BaseLayouts from '../../components/MainCode/BaseLayouts'
 import {
   StorageApi
 } from '../../components/MainCode/MainImport'
 import Carousel from 'react-bootstrap/Carousel';
+import Slider from "react-slick";
+
+
+import Function from '../../components/Function';
+
+// import { Carousel, Card, Stack, Button } from "react-bootstrap";
+
 import moment from 'moment/moment';
 
 export default function wisataAlam (){
+    
+    const [brandcumb, setBrandChumb] = useState([]);
+    const [subbrandcumb, setSubBrandChumb] = useState([]);
+    const { data: session, status } = useSession()
     const [loading, setLoading] = useState(false)
 
-  const [wisata, setWisata] = useState([])
-  useEffect(() => {
-    getData()
-  }, [loading])
+    const [wisata, setWisata] = useState([])
+    
+    useEffect(() => {
+      Menubrandchumb()
+      getData()
+    }, [loading])
 
+    const settings = {
+     dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 1
+    };
 
-  const konten = {
-    title: "Wisata Alam",
-    //LinkApi: "algors/periode_keselamatan",
-  }
+    const konten = {
+      title: "Wisata Alam",
+      //LinkApi: "algors/periode_keselamatan",
+    }
+
+    const Menubrandchumb = () => {
+      Promise.resolve(StorageApi.getData("sm_hrm/page_group?kode_sub_unit=SM_PORTAL_USER" ))
+        .then(value => {
+          const detail = value.data.data
+          setBrandChumb(detail)
+          var subbrandcumb = []
+          detail.map(item => {
+            if (item.level == 2) {
+              subbrandcumb.push({
+                id: item.rowid,
+                icon: item.icon,
+                link: item.link,
+                level: item.link,
+                page: item.page,
+                parent_menu: item.parent_menu
+              })
+            }
+          })
+          setSubBrandChumb(subbrandcumb)
+        }).catch(error => {
+          console.log(error);
+        })
+    }
 
   const getData = () => {
-    Promise.resolve(StorageApi.getData("sm_portal/wisata/?jenis_wisata_id=4"))
+    Promise.resolve(StorageApi.getData("sm_portal/wisata"))
       .then(value => {
         const data = value.data.data
-
-
         setWisata(data)
 
       }).catch(error => {
@@ -38,103 +81,67 @@ export default function wisataAlam (){
   return (
     <>
     <BaseLayouts>
-    {/* Jumbotron */}
-    {/* <div
-      className="bg-image p-5"
-      style={{
-        backgroundImage: 'url("/images/banner-wisata-alam.png")',
-        height: 200
-      }}
-    >
-      <h2 style={{ color: "#ffff" }}>Wisata Alam</h2>
-      <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "50%" }}>
-        Rekomendasi Wisata Alam di Bali
-      </h5>
-    </div> */}
-    {/* End Jumbotron */}
-    {/* Start Default News Area */}
       <section className="default-news-area">
         <div className="container">
           <div className="tech-news ptb-50">
             <div className="section-title"> 
-              <h2><Image className="p-2" src="/images/wisataAlam.svg" width={50} height={50} alt="" /> Wisata Alam</h2>
-              <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5>
+
+              <h2><Image className="p-2" src="/images/wisataAlam.svg" width={50} height={50} alt="" /> {session?.page}</h2>
+              {/* <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
             </div>
-            <Carousel>
-              <Carousel.Item>
-                <div className="row">
-                  {wisata.map(item => {
-                      return(
-                        <>
-                        <div className="col-lg-3 col-sm-3 ">
-                          <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                          <a href={`${item.judul}`}>
-                            <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
-                          </a>
-                          <div className="tech-news-content">
-                            <h3>
-                              <a href="">{item.judul}</a>
-                              <p>{item.sub_judul}</p>
-                            </h3>
-                            <p>{moment(item.ctddate).format("DD MMMM, YYYY ")}</p>
-                          </div>
-                          </div>
-                        </div>
-                        </>
-                      )
-                  })}
-                      
-                
-                  {/* <div className="col-lg-3 col-sm-3">
-                    <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                      <a href="detail-wisata.html">
-                        <img src="/images/tech-news/tech-news-2.jpg" alt="image" />
-                      </a>
-                      <div className="tech-news-content">
+             <Slider {...settings}>
+              {wisata.map(item => {
+                return(
+                  <div className="row">
+                    <div className="col-lg-3 col-sm-3 ">
+                      <div className="single-tech-news-box" style={{ width: "18rem" }}>
+                         <a href="">
+                            <img src="/images/tech-news/tech-news-1.jpg"  alt="image" />
+                        </a>
+                       <div className="tech-news-content">
                         <h3>
                           <a href="detail-wisata.html">
-                            Rekomendasi Kuliner Khas Bali yang Wajib Anda Coba
+                           {item.judul}
                           </a>
                         </h3>
-                        <p>28 September, 2022</p>
+                        <p>{item.sub_judul}</p>
+                        <p>{moment(item.ctddate).format("DD MMMM, YYYY ")}</p>
                       </div>
+                    </div>
                     </div>
                   </div>
-                
-                  <div className="col-lg-3 col-sm-3">
-                    <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                      <a href="detail-wisata.html">
-                        <img src="/images/tech-news/tech-news-3.jpg" alt="image" />
-                      </a>
-                      <div className="tech-news-content">
-                        <h3>
-                          <a href="detail-wisata.html">
-                            11 Hotel dengan Desain Unik di Bali
-                          </a>
-                        </h3>
-                        <p>28 September, 2022</p>
-                      </div>
+                  )
+                })}
+
+               
+            {/* {wisata.map(item => {
+              return(
+                <div className="row">
+                    <>
+                    <div className="col-lg-3 col-sm-3 ">
+                        <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
+                        <a href={`${item.judul}`}>
+                            <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
+                        </a>
+                        <div className="tech-news-content">
+                            <h3>
+                            <a href="">{item.judul}</a>
+                            <p>{item.sub_judul}</p>
+                            </h3>
+                            <p>{moment(item.ctddate).format("DD MMMM, YYYY ")}</p>
+                        </div>
+                        </div>
                     </div>
-                  </div> */}
-                
-                  {/* <div className="col-lg-3 col-sm-3">
-                    <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                      <a href="detail-wisata.html">
-                        <img src="/images/tech-news/tech-news-3.jpg" alt="image" />
-                      </a>
-                      <div className="tech-news-content">
-                        <h3>
-                          <a href="detail-wisata.html">
-                            5 Wisata Desa Adat di Bali, Kaya Sejarah dan Budaya
-                          </a>
-                        </h3>
-                        <p>28 September, 2022</p>
-                      </div>
-                    </div>
-                  </div> */}
+
+                    </>
                 </div>
-              </Carousel.Item>
-            </Carousel>
+                )
+            })}  */}
+           
+
+            </Slider>
+
+            
           </div>
         </div>
       </section>
