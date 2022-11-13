@@ -27,7 +27,7 @@ export default function wisataAdat() {
             <div className="tech-news ptb-50">
             <div class="section-title"> 
               <h2>Wisata Adat & Budaya <Image className="p-2" src="/images/adat&budaya.svg" width={50} height={50} alt="" /></h2>
-              <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Adat & Budaya di Bali</h5>
+              <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Wisata Adat & Budaya di Bali</h5>
             </div>
             <Carousel>
               <Carousel.Item>
