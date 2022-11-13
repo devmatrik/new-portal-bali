@@ -9,7 +9,6 @@ import '../styles/css/nice-select.min.css'
 import '../styles/css/style.css'
 import '../styles/css/dark.css'
 import '../styles/css/responsive.css'
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />

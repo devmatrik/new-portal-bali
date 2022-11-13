@@ -6,7 +6,6 @@ import {
   BaseLayouts
 } from '../components/MainCode/MainImport'
 import Carousel from 'react-bootstrap/Carousel';
-// import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
 
 export default function Home() {

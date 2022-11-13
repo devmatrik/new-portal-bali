@@ -36,21 +36,9 @@ export default function Navbar(props) {
 
                       <div className="col-lg-6">
                           <ul className="top-header-others">
-                              {/* <li>
-                                  <div className="languages-list">
-                                      <select>
-                                          <option value="1">English</option>
-                                          <option value="2">العربيّة</option>
-                                          <option value="3">Deutsch</option>
-                                          <option value="3">Português</option>
-                                          <option value="3">简体中文</option>
-                                      </select>
-                                  </div>
-                              </li> */}
-
                               <li>
                                   <i className='bx bx-user'></i>
-                                  <a href="/Login">Login</a>
+                                  <Link href="/Login">Login</Link>
                               </li>
                           </ul>
                       </div>
