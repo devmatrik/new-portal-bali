@@ -27,7 +27,7 @@ export default function wisataAlam (){
         <div className="container">
           <div className="tech-news ptb-50">
             <div className="section-title"> 
-              <h2>Wisata Alam <Image className="p-2" src="/images/wisataAlam.svg" width={50} height={50} alt="" /></h2>
+              <h2><Image className="p-2" src="/images/wisataAlam.svg" width={50} height={50} alt="" /> Wisata Alam</h2>
               <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5>
             </div>
             <Carousel>

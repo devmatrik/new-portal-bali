@@ -20,7 +20,7 @@ export default function Home() {
           <div className="container">
             <div className="row">
               <div className="section-title">
-                <h2>Wisata & Public Service <Image className="p-2" src="/images/wisataAlam.svg" width={50} height={50} alt="" /></h2>
+                <h2><Image className="p-2" src="/images/wisataAlam.svg" width={50} height={50} alt="" /> Explore Bali</h2>
                 {/* <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
               </div>
               <div className="col-lg-9">
@@ -202,7 +202,7 @@ export default function Home() {
             </div>
             <div className="row">
               <div className="section-title">
-                <h2>Latest News <Image className="p-2" src="/images/News.png" width={50} height={50} alt="" /></h2>
+                <h2><Image className="p-2" src="/images/News.png" width={50} height={50} alt="" /> Latest News</h2>
                 {/* <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
               </div>
               <div className="col-lg-3">
@@ -307,7 +307,7 @@ export default function Home() {
               <div className="col-lg-3">
                 <aside className="widget-area">
                   <section className="widget widget_latest_news_thumb">
-                    <h3 className="widget-title"><Image src="/images/Event.png" width={30} height={30} alt="image" /> Popular News</h3>
+                    <h3 className="widget-title"><Image src="/images/News.png" width={40} height={40} alt="image" /> G20</h3>
                     <article className="item">
                       <a href="#" className="thumb">
                         <span className="fullimage cover bg1" role="img"></span>

@@ -12,7 +12,7 @@ export default function travelAgensi() {
             <div className="container">
               <div className="tech-news ptb-50">
                 <div class="section-title"> 
-                  <h2>Travel Agensi <Image className="p-2" src="/images/agensi.svg" width={50} height={50} alt="" /></h2>
+                  <h2><Image className="p-2" src="/images/agensi.svg" width={50} height={50} alt="" /> Travel Agensi</h2>
                   <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Travel Agensi di Bali</h5>
                 </div>
                 <Carousel>

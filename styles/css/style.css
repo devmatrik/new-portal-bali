@@ -6095,8 +6095,8 @@ Contact Area CSS
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: -1000;
-  position: relative;
+  /* z-index: -1000;
+  position: relative; */
 }
 
 .contact-form .title {
@@ -6105,11 +6105,14 @@ Contact Area CSS
 
 .contact-form .title h3 {
   font-size: 25px;
+  font-weight: 800;
   margin-bottom: 12px;
 }
 
 .contact-form .title p {
   font-size: 14px;
+  font-weight: 800;
+  color: #ff661f;
   margin-bottom: 0;
 }
 
