@@ -44,7 +44,7 @@ export default function wisataAlam (){
     }
 
     const Menubrandchumb = () => {
-      Promise.resolve(StorageApi.getData("sm_hrm/page_group?kode_sub_unit=SM_PORTAL_USER" ))
+      Promise.resolve(StorageApi.getData("sm_hrm/page_group?kode_sub_unit=SM_PORTAL_USER"))
         .then(value => {
           const detail = value.data.data
           setBrandChumb(detail)
@@ -81,11 +81,11 @@ export default function wisataAlam (){
   return (
     <>
     <BaseLayouts>
+
       <section className="default-news-area">
         <div className="container">
           <div className="tech-news ptb-50">
             <div className="section-title"> 
-
               <h2><Image className="p-2" src="/images/wisataAlam.svg" width={50} height={50} alt="" /> {session?.page}</h2>
               {/* <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
             </div>
