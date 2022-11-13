@@ -698,6 +698,8 @@ Navbar Area CSS
 }
 
 .main-navbar {
+  background-color: #111111;
+  opacity: 80%;
   /* background-color: #fff; */
   /* opacity: 80%; */
   /* backdrop-filter: blur(15px);
@@ -718,7 +720,7 @@ Navbar Area CSS
 }
 
 .main-navbar .navbar ul {
-  padding-left: 0;
+  padding-left: 30px;
   list-style-type: none;
   margin-bottom: 0;
 }
@@ -7082,7 +7084,8 @@ Copy Right Area CSS
 .copyright-area {
   padding-top: 10px;
   /* padding-bottom: 10px; */
-  background-color: transparent;
+  background-color: #111111;
+  opacity: 80%;
   border-top: 1px solid grey;
 }
 
