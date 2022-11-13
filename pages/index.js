@@ -20,7 +20,7 @@ export default function Home() {
           <div className="container">
             <div className="row">
               <div className="section-title">
-                <h2>Wisata & Public Service <Image className="p-2" src="/images/wisataAlam.svg" width={50} height={50} alt="" /></h2>
+                <h2><Image className="p-2" src="/images/wisataAlam.svg" width={50} height={50} alt="" /> Explore Bali</h2>
                 {/* <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
               </div>
               <div className="col-lg-9">
@@ -31,7 +31,7 @@ export default function Home() {
                         <div className="single-team-box">
                           <div className="image">
                             <Link href="/Wisata/wisataAlam">
-                              <img src="/images/_wisata-alam.png" alt="image" />
+                              <Image src="/images/_wisata-alam.png" width={550} height={550} alt="image" />
                             </Link>
                           </div>
                           <div className="content">
@@ -45,7 +45,7 @@ export default function Home() {
                         <div className="single-team-box">
                           <div className="image">
                             <Link href="/Wisata/wisataKuliner">
-                              <img src="/images/_wisata-kuliner.png" alt="image" />
+                              <Image src="/images/_wisata-kuliner.png" width={550} height={550} alt="image" />
                             </Link>
                           </div>
                           <div className="content">
@@ -58,13 +58,13 @@ export default function Home() {
                       <div className="col-lg-4">
                         <div className="single-team-box">
                           <div className="image">
-                            <a href="wisata-kuliner.html">
-                              <img src="/images/_kuliner-tradisional.png" alt="image" />
-                            </a>
+                            <Link href="/Wisata/kulinerTradisional">
+                              <Image src="/images/_kuliner-tradisional.png" width={550} height={550} alt="image" />
+                            </Link>
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <a href="wisata-kuliner.html">Kuliner Tradisional</a>
+                              <Link href="/Wisata/kulinerTradisional">Kuliner Tradisional</Link>
                             </h3>
                           </div>
                         </div>
@@ -76,13 +76,13 @@ export default function Home() {
                       <div className="col-lg-4">
                         <div className="single-team-box">
                           <div className="image">
-                            <a href="wisata-adat.html">
-                              <img src="/images/_adat & budaya.png" alt="image" />
-                            </a>
+                            <Link href="/Wisata/wisataAdat">
+                              <Image src="/images/_adat & budaya.png" width={550} height={550} alt="image" />
+                            </Link>
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <a href="wisata-adat.html">Adat & Budaya</a>
+                              <Link href="/Wisata/wisataAdat">Adat & Budaya</Link>                            
                             </h3>
                           </div>
                         </div>
@@ -90,13 +90,13 @@ export default function Home() {
                       <div className="col-lg-4">
                         <div className="single-team-box">
                           <div className="image">
-                            <a href="rekreasi.html">
-                              <img src="/images/_rekreasi.png" alt="image" />
-                            </a>
+                            <Link href="/Wisata/tempatRekreasi">
+                              <Image src="/images/_rekreasi.png" width={550} height={550} alt="image" />
+                            </Link>
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <a href="rekreasi.html">Tempat Rekreasi</a>
+                              <Link href="/Wisata/tempatRekreasi">Tempat Rekreasi</Link>
                             </h3>
                           </div>
                         </div>
@@ -104,12 +104,14 @@ export default function Home() {
                       <div className="col-lg-4">
                         <div className="single-team-box">
                           <div className="image">
-                            <a href="oleh-oleh.html">
-                              <img src="/images/_oleholeh.png" alt="image" />
-                            </a>
+                            <Link href="/Wisata/olehOlehKhas">
+                              <Image src="/images/_oleholeh.png" width={550} height={550} alt="image" />
+                            </Link>
                           </div>
                           <div className="content">
-                            <h3 style={{ fontSize: 14 }}><a href="oleh-oleh.html">Oleh- Oleh Khas</a></h3>
+                            <h3 style={{ fontSize: 14 }}>
+                              <Link href="/Wisata/olehOlehKhas">Oleh- Oleh Khas</Link>
+                            </h3>
                           </div>
                         </div>
                       </div>
@@ -120,36 +122,42 @@ export default function Home() {
                       <div className="col-lg-4">
                         <div className="single-team-box">
                           <div className="image">
-                            <a href="travel-agensi.html">
-                              <img src="/images/_travel.png" alt="image" />
-                            </a>
+                            <Link href="/PublicService/travelAgensi">
+                              <Image src="/images/_travel.png" width={550} height={550} alt="image" />
+                            </Link>
                           </div>
                           <div className="content">
-                            <h3 style={{ fontSize: 14 }}><a href="travel-agensi.html">Travel Agensi</a></h3>
+                            <h3 style={{ fontSize: 14 }}>
+                              <Link href="/PublicService/travelAgensi">Travel Agensi</Link>
+                            </h3>
                           </div>
                         </div>
                       </div>
                       <div className="col-lg-4">
                         <div className="single-team-box">
                           <div className="image">
-                            <a href="penginapan.html">
-                              <img src="/images/_penginapan.png" alt="image" />
-                            </a>
+                            <Link href="/PublicService/Penginapan">
+                              <Image src="/images/_penginapan.png" width={550} height={550} alt="image" />
+                            </Link>
                           </div>
                           <div className="content">
-                            <h3 style={{ fontSize: 14 }}><a href="penginapan.html">Penginapan</a></h3>
+                            <h3 style={{ fontSize: 14 }}>
+                              <Link href="/PublicService/Penginapan">Penginapan</Link>
+                            </h3>
                           </div>
                         </div>
                       </div>
                       <div className="col-lg-4">
                         <div className="single-team-box">
                           <div className="image">
-                            <a href="pelayanan-publik.html">
-                              <img src="/images/_public.png" alt="image" />
-                            </a>
+                            <Link href="/PublicService/lokasiPelayananPublic">
+                              <Image src="/images/_public.png" width={550} height={550} alt="image" />
+                            </Link>
                           </div>
                           <div className="content">
-                            <h3 style={{ fontSize: 14 }}><a href="pelayanan-publik.html">Pelayanan Publik</a></h3>
+                            <h3 style={{ fontSize: 14 }}>
+                              <Link href="/PublicService/lokasiPelayananPublic">Pelayanan Publik</Link>
+                            </h3>
                           </div>
                         </div>
                       </div>
@@ -194,7 +202,7 @@ export default function Home() {
             </div>
             <div className="row">
               <div className="section-title">
-                <h2>Latest News <Image className="p-2" src="/images/News.png" width={50} height={50} alt="" /></h2>
+                <h2><Image className="p-2" src="/images/News.png" width={50} height={50} alt="" /> Latest News</h2>
                 {/* <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
               </div>
               <div className="col-lg-3">
@@ -299,7 +307,7 @@ export default function Home() {
               <div className="col-lg-3">
                 <aside className="widget-area">
                   <section className="widget widget_latest_news_thumb">
-                    <h3 className="widget-title"><Image src="/images/Event.png" width={30} height={30} alt="image" />Popular News</h3>
+                    <h3 className="widget-title"><Image src="/images/News.png" width={40} height={40} alt="image" /> G20</h3>
                     <article className="item">
                       <a href="#" className="thumb">
                         <span className="fullimage cover bg1" role="img"></span>

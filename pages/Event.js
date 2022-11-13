@@ -13,7 +13,7 @@ export default function Event() {
             <div className="container">
 
                 <div className="section-title"> 
-                    <h2>Events <Image className="p-2" src="/images/Event.png" width={50} height={50} alt="" /></h2> 
+                    <h2><Image className="p-2" src="/images/Event.png" width={50} height={50} alt="" /> Events</h2> 
                 </div>
                 <Carousel>
                   <Carousel.Item>

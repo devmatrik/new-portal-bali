@@ -142,7 +142,7 @@ h6:last-child {
 .ptb-50 {
   padding-top: 30px;
   padding-bottom: 30px;
-  z-index: -1000;
+  /* z-index: -1000; */
   position: relative;
 }
 
@@ -476,6 +476,7 @@ Section Title CSS
 
 .section-title h2 {
   font-size: 25px;
+  font-weight: bold;
   margin-bottom: 0;
 }
 
@@ -697,8 +698,10 @@ Navbar Area CSS
 }
 
 .main-navbar {
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  /* background-color: #fff; */
+  /* opacity: 80%; */
+  /* backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px); */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -731,7 +734,7 @@ Navbar Area CSS
 .main-navbar .navbar .navbar-nav .nav-item a {
   color: #09101f;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 900;
   padding: 30px 12px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -1470,6 +1473,8 @@ Navbar Area CSS
   opacity: 1;
   visibility: visible;
   margin-top: 0;
+  /* position: relative; */
+  z-index: 99;
 }
 
 .main-navbar .navbar .others-options .option-item .search-box {
@@ -1909,7 +1914,7 @@ Main News Area CSS
 .single-main-news-inner {
   position: relative;
   overflow: hidden;
-  z-index: -100;
+  /* z-index: -100; */
 }
 
 .single-main-news-inner::before {
@@ -3111,7 +3116,7 @@ Default News Area CSS
   position: relative;
   overflow: hidden;
   margin-bottom: 30px;
-  z-index: -100;
+  /* z-index: -100; */
 }
 
 .single-tech-news-box::before {
@@ -3804,7 +3809,7 @@ Widget Sidebar CSS
 
 .widget-area .widget:last-child {
   margin-bottom: 0;
-  z-index: -1000;
+  /* z-index: -1000; */
 }
 
 .widget-area .widget .widget-title {
@@ -3835,9 +3840,11 @@ Widget Sidebar CSS
 .widget-area .widget_latest_news_thumb .item {
   overflow: hidden;
   margin-bottom: 25px;
-  backdrop-filter: blur(15px);
+  background-color: #ff661f;
+  border-radius: 10px;
+  /* backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
 }
 
 .widget-area .widget_latest_news_thumb .item:last-child {
@@ -3932,7 +3939,7 @@ Widget Sidebar CSS
 }
 
 .widget-area .widget_latest_news_thumb .item:hover .info .title a {
-  color: #dc472e;
+  color: #fff;
 }
 
 .widget-area
@@ -5371,8 +5378,9 @@ Team Area CSS
 .single-team-box {
   margin-bottom: 30px;
   text-align: center;
-  z-index: -1000;
+  /* z-index: -1000; */
   position: relative;
+  border-radius: 15px;
 }
 
 .single-team-box .image {
@@ -6087,8 +6095,8 @@ Contact Area CSS
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: -1000;
-  position: relative;
+  /* z-index: -1000;
+  position: relative; */
 }
 
 .contact-form .title {
@@ -6097,11 +6105,14 @@ Contact Area CSS
 
 .contact-form .title h3 {
   font-size: 25px;
+  font-weight: 800;
   margin-bottom: 12px;
 }
 
 .contact-form .title p {
   font-size: 14px;
+  font-weight: 800;
+  color: #ff661f;
   margin-bottom: 0;
 }
 
@@ -6227,9 +6238,11 @@ News Area CSS
 =================================================*/
 .single-news-item {
   margin-bottom: 30px;
-  backdrop-filter: blur(25px);
+  background-color: #ff661f;
+  border-radius: 10px;
+  /* backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
 }
 
 .single-news-item .news-image {
@@ -6306,7 +6319,7 @@ News Area CSS
 }
 
 .single-news-item:hover .news-content h3 a {
-  color: #ff661f;
+  color: #fff;
 }
 
 .single-news-item:hover .news-content h3 a::before {
@@ -6314,7 +6327,7 @@ News Area CSS
 }
 
 .single-news-item:hover .news-content p a {
-  color: #ff661f;
+  color: #fff;
 }
 
 .single-news-item:hover .news-image img {
