@@ -3928,7 +3928,7 @@ Widget Sidebar CSS
   display: inline-block;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  color: #fff;
+  color: #000;
 }
 
 .widget-area .widget_latest_news_thumb .item:hover .info .title a {
