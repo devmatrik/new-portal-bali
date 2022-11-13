@@ -43,30 +43,6 @@ export default function wisataAlam (){
       //LinkApi: "algors/periode_keselamatan",
     }
 
-    const Menubrandchumb = () => {
-      Promise.resolve(StorageApi.getData("sm_hrm/page_group?kode_sub_unit=SM_PORTAL_USER"))
-        .then(value => {
-          const detail = value.data.data
-          setBrandChumb(detail)
-          var subbrandcumb = []
-          detail.map(item => {
-            if (item.level == 2) {
-              subbrandcumb.push({
-                id: item.rowid,
-                icon: item.icon,
-                link: item.link,
-                level: item.link,
-                page: item.page,
-                parent_menu: item.parent_menu
-              })
-            }
-          })
-          setSubBrandChumb(subbrandcumb)
-        }).catch(error => {
-          console.log(error);
-        })
-    }
-
   const getData = () => {
     Promise.resolve(StorageApi.getData("sm_portal/wisata"))
       .then(value => {
