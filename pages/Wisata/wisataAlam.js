@@ -72,7 +72,7 @@ export default function wisataAlam (){
                           {/* <a href="../DetailNews/rowid">
                            {item.judul}
                           </a> */}
-                          <Link href={'/isata/' + item.rowid} key={item.rowid}>
+                          <Link href={'/Wisata/' + item.rowid} key={item.rowid}>
                             {item.judul}
                           </Link>
                         
