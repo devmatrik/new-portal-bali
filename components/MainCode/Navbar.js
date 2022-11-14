@@ -156,7 +156,7 @@ export default function Navbar(props) {
                                   <>
                                   <li>
                                     <Link href={`/${item.link}`} >
-                                            {item.page}
+                                          {item.page}
                                     </Link>
                                   </li>
                                     
