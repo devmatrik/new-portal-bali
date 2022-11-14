@@ -4,7 +4,6 @@ import BaseLayouts from '../../components/MainCode/BaseLayouts'
 import {
   StorageApi
 } from '../../components/MainCode/MainImport'
-import Carousel from 'react-bootstrap/Carousel';
 import Slider from "react-slick";
 import Link from 'next/link';
 import Function from '../../components/Function';
@@ -13,7 +12,7 @@ import Function from '../../components/Function';
 
 import moment from 'moment/moment';
 
-export default function WisataKuliner() {
+export default function Event() {
 
     const [loading, setLoading] = useState(false)
     const [wisata, setWisata] = useState([])
@@ -26,17 +25,17 @@ export default function WisataKuliner() {
      dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 3,
+      slidesToShow: 4,
       slidesToScroll: 1
     };
 
     const konten = {
-      title: "Wisata Kuliner",
+      title: "Event",
       //LinkApi: "algors/periode_keselamatan",
     }
 
   const getData = () => {
-    Promise.resolve(StorageApi.getData("sm_portal/wisata?jenis_wisata_id=3"))
+    Promise.resolve(StorageApi.getData("sm_portal/event"))
       .then(value => {
         const data = value.data.data
         setWisata(data)
@@ -54,15 +53,15 @@ export default function WisataKuliner() {
         <div className="container">
           <div className="tech-news ptb-50">
             <div className="section-title"> 
-              <h2><Image className="p-2" src="/images/wisataKuliner.svg" width={50} height={50} alt="" /> Wisata Kuliner</h2>
-              <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Wisata Kuliner di Bali</h5>
+              <h2><Image className="p-2" src="/images/Event.png" width={50} height={50} alt="" /> Event</h2>
+              {/* <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Event di Bali</h5> */}
             </div>
              <Slider {...settings}>
               {wisata.map(item => {
                 return(
                   <div className="row" key={item.rowid}>
                     <div className="col-lg-3 col-sm-3 ">
-                      <div className="single-tech-news-box" style={{ width: "18rem" }}>
+                      <div className="single-tech-news-box rounded-3" style={{ width: "16rem" }}>
                          <a href="">
                           {item.image == 0 ? (<>
                              <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
@@ -78,13 +77,14 @@ export default function WisataKuliner() {
                           {/* <a href="../DetailNews/rowid">
                            {item.judul}
                           </a> */}
-                          <Link href={'/Wisata/' + item.rowid} key={item.rowid}>
-                            {item.judul}
+                          <Link href={'/Event/' + item.rowid} key={item.rowid}>
+                            {item.nama_event}
                           </Link>
                         
                         </h3>
                         <p>{item.sub_judul}</p>
-                        <p>{moment(item.ctddate).format("DD MMMM, YYYY ")}</p>
+                        <p>Mulai: {moment(item.tgl_event).format("DD MMMM, YYYY ")}</p>
+                        <p>Berakhir: {moment(item.tgl_berakhir).format("DD MMMM, YYYY ")}</p>
                       </div>
                       </div>
                     </div>

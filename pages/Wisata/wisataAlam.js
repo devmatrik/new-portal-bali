@@ -4,7 +4,6 @@ import BaseLayouts from '../../components/MainCode/BaseLayouts'
 import {
   StorageApi
 } from '../../components/MainCode/MainImport'
-import Carousel from 'react-bootstrap/Carousel';
 import Slider from "react-slick";
 import Link from 'next/link';
 import Function from '../../components/Function';
@@ -26,7 +25,7 @@ export default function WisataAlam() {
      dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 3,
+      slidesToShow: 4,
       slidesToScroll: 1
     };
 
@@ -36,13 +35,13 @@ export default function WisataAlam() {
     }
 
   const getData = () => {
-    Promise.resolve(StorageApi.getData("sm_portal/wisata?jenis_wisata_id=4"))
+    Promise.resolve(StorageApi.getData("sm_portal/wisata?jenis_wisata_id=2"))
       .then(value => {
         const data = value.data.data
         setWisata(data)
 
       }).catch(error => {
-        setWisata(data)
+        // setWisata(data)
 
       })
   }
@@ -54,17 +53,23 @@ export default function WisataAlam() {
         <div className="container">
           <div className="tech-news ptb-50">
             <div className="section-title"> 
-              <h2><Image className="p-2" src="/images/wisataAlam.svg" width={50} height={50} alt="" /> Wisata Alam</h2>
-              {/* <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
+              {/* <h2><Image className="p-2" src="/images/wisataAlam.svg" width={50} height={50} alt="" /> Wisata Alam</h2> */}
+              <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5>
             </div>
              <Slider {...settings}>
               {wisata.map(item => {
                 return(
                   <div className="row" key={item.rowid}>
                     <div className="col-lg-3 col-sm-3 ">
-                      <div className="single-tech-news-box" style={{ width: "18rem" }}>
+                      <div className="single-tech-news-box rounded-3" style={{ width: "16rem" }}>
                          <a href="">
-                            <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
+                          {item.image == 0 ? (<>
+                             <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
+                            </>) :(<>
+                            <img src={item.image} style={{ width: "450px", height:"350px" }}/>
+                            </>)}
+                    
+                            
                         </a>
                       {/* <img className="card-img-top" src="/images/tech-news/tech-news-1.jpg" alt="Card image cap" /> */}
                        <div className="tech-news-content">

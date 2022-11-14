@@ -1,159 +1,108 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import BaseLayouts from '../../components/MainCode/BaseLayouts'
+import {
+  StorageApi
+} from '../../components/MainCode/MainImport'
 import Carousel from 'react-bootstrap/Carousel';
+import Slider from "react-slick";
+import Link from 'next/link';
+import Function from '../../components/Function';
 
-function olehOlehKhas() {
+// import { Carousel, Card, Stack, Button } from "react-bootstrap";
+
+import moment from 'moment/moment';
+
+export default function OlehOlehKhas() {
+
+    const [loading, setLoading] = useState(false)
+    const [wisata, setWisata] = useState([])
+
+    useEffect(() => {
+      getData();
+    }, [loading])
+
+    const settings = {
+     dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 1
+    };
+
+    const konten = {
+      title: "Oleh Oleh Khas",
+      //LinkApi: "algors/periode_keselamatan",
+    }
+
+  const getData = () => {
+    Promise.resolve(StorageApi.getData("sm_portal/wisata?jenis_wisata_id=6"))
+      .then(value => {
+        const data = value.data.data
+        setWisata(data)
+
+      }).catch(error => {
+        // setWisata(data)
+
+      })
+  }
   return (
     <>
-      <BaseLayouts>
-        {/* Start Default News Area */}
-        <section className="default-news-area">
-          <div className="container">
-            <div className="tech-news ptb-50">
-              <div class="section-title"> 
-                <h2><Image className="p-2" src="/images/oleholeh.svg" width={50} height={50} alt="" /> Oleh Oleh Khas Bali</h2>
-                <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Oleh Oleh Khas Bali</h5>
-              </div>
-              <Carousel>
-                <Carousel.Item>
-                  <div className="row">
-                    <div className="col-lg-3 col-sm-3 ">
-                      <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                        <a href="detail-wisata.html">
-                          <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
-                        </a>
-                        <div className="tech-news-content">
-                          <h3>
-                            <a href="detail-wisata.html">10 Wisata Terindah di Bali</a>
-                          </h3>
-                          <p>28 September, 2022</p>
-                        </div>
-                      </div>
-                    </div>
-                  
-                    <div className="col-lg-3 col-sm-3">
-                      <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                        <a href="detail-wisata.html">
-                          <img src="/images/tech-news/tech-news-2.jpg" alt="image" />
-                        </a>
-                        <div className="tech-news-content">
-                          <h3>
-                            <a href="detail-wisata.html">
-                              Rekomendasi Kuliner Khas Bali yang Wajib Anda Coba
-                            </a>
-                          </h3>
-                          <p>28 September, 2022</p>
-                        </div>
-                      </div>
-                    </div>
-                  
-                    <div className="col-lg-3 col-sm-3">
-                      <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                        <a href="detail-wisata.html">
-                          <img src="/images/tech-news/tech-news-3.jpg" alt="image" />
-                        </a>
-                        <div className="tech-news-content">
-                          <h3>
-                            <a href="detail-wisata.html">
-                              11 Hotel dengan Desain Unik di Bali
-                            </a>
-                          </h3>
-                          <p>28 September, 2022</p>
-                        </div>
-                      </div>
-                    </div>
-                  
-                    <div className="col-lg-3 col-sm-3">
-                      <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                        <a href="detail-wisata.html">
-                          <img src="/images/tech-news/tech-news-3.jpg" alt="image" />
-                        </a>
-                        <div className="tech-news-content">
-                          <h3>
-                            <a href="detail-wisata.html">
-                              5 Wisata Desa Adat di Bali, Kaya Sejarah dan Budaya
-                            </a>
-                          </h3>
-                          <p>28 September, 2022</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <div className="row">
-                    <div className="col-lg-3 col-sm-3 ">
-                      <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                        <a href="detail-wisata.html">
-                          <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
-                        </a>
-                        <div className="tech-news-content">
-                          <h3>
-                            <a href="detail-wisata.html">10 Wisata Terindah di Bali</a>
-                          </h3>
-                          <p>28 September, 2022</p>
-                        </div>
-                      </div>
-                    </div>
-                  
-                    <div className="col-lg-3 col-sm-3">
-                      <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                        <a href="detail-wisata.html">
-                          <img src="/images/tech-news/tech-news-2.jpg" alt="image" />
-                        </a>
-                        <div className="tech-news-content">
-                          <h3>
-                            <a href="detail-wisata.html">
-                              Rekomendasi Kuliner Khas Bali yang Wajib Anda Coba
-                            </a>
-                          </h3>
-                          <p>28 September, 2022</p>
-                        </div>
-                      </div>
-                    </div>
-                  
-                    <div className="col-lg-3 col-sm-3">
-                      <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                        <a href="detail-wisata.html">
-                          <img src="/images/tech-news/tech-news-3.jpg" alt="image" />
-                        </a>
-                        <div className="tech-news-content">
-                          <h3>
-                            <a href="detail-wisata.html">
-                              11 Hotel dengan Desain Unik di Bali
-                            </a>
-                          </h3>
-                          <p>28 September, 2022</p>
-                        </div>
-                      </div>
-                    </div>
-                  
-                    <div className="col-lg-3 col-sm-3">
-                      <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                        <a href="detail-wisata.html">
-                          <img src="/images/tech-news/tech-news-3.jpg" alt="image" />
-                        </a>
-                        <div className="tech-news-content">
-                          <h3>
-                            <a href="detail-wisata.html">
-                              5 Wisata Desa Adat di Bali, Kaya Sejarah dan Budaya
-                            </a>
-                          </h3>
-                          <p>28 September, 2022</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </Carousel.Item>
-              </Carousel>
+    <BaseLayouts>
+   
+      <section className="default-news-area">
+        <div className="container">
+          <div className="tech-news ptb-50">
+            <div className="section-title"> 
+              <h2><Image className="p-2" src="/images/oleholeh.svg" width={50} height={50} alt="" /> Oleh Oleh Khas</h2>
+              <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Oleh Oleh Khas di Bali</h5>
             </div>
+             <Slider {...settings}>
+              {wisata.map(item => {
+                return(
+                  <div className="row" key={item.rowid}>
+                    <div className="col-lg-3 col-sm-3 ">
+                      <div className="single-tech-news-box" style={{ width: "18rem" }}>
+                         <a href="">
+                          {item.image == 0 ? (<>
+                             <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
+                            </>) :(<>
+                            <img src={item.image} style={{ width: "450px", height:"350px" }}/>
+                            </>)}
+                    
+                            
+                        </a>
+                      {/* <img className="card-img-top" src="/images/tech-news/tech-news-1.jpg" alt="Card image cap" /> */}
+                       <div className="tech-news-content">
+                        <h3>
+                          {/* <a href="../DetailNews/rowid">
+                           {item.judul}
+                          </a> */}
+                          <Link href={'/Wisata/' + item.rowid} key={item.rowid}>
+                            {item.judul}
+                          </Link>
+                        
+                        </h3>
+                        <p>{item.sub_judul}</p>
+                        <p>{moment(item.ctddate).format("DD MMMM, YYYY ")}</p>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  )
+                })}
+
+               
+  
+
+            </Slider>
+
+            
           </div>
-        </section>
-        {/* End Default News Area */}
-      </BaseLayouts>
+        </div>
+      </section>
+    {/* End Default News Area */}
+    </BaseLayouts>
     </>
   )
 }
-
-export default olehOlehKhas
