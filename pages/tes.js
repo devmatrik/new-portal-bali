@@ -27,10 +27,11 @@ function App() {
             temp: data[index].temp.day + "°c",
             hari: moment.unix(data[index].dt).format("DD MMM YYYY"),
             cuaca: data[index].weather[a].main,
+            icon : data[index].weather[a].icon,
             tingkat_awan: data[index].clouds + "%"
           })
         }
-        console.log(cuaca);
+        console.log(result.daily);
         setWeather(cuaca);
         setQuery('');
       });
