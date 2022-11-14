@@ -1,139 +1,77 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import BaseLayouts from '../../components/MainCode/BaseLayouts'
-import Carousel from 'react-bootstrap/Carousel';
+// import { Carousel, Card, Stack, Button } from "react-bootstrap/Carousel";
+import Button from "react-bootstrap/Button";
+import Stack from "react-bootstrap/Stack";
+import Card from "react-bootstrap/Card";
+// import Carousel from "react-bootstrap/Carousel";
+import Carousel from 'react-grid-carousel'
+import { BaseLayouts, SettingApi, StorageApi } from '../../components/MainCode/MainImport'
 
 export default function fotoKegiatan() {
+
+  const [loading, setLoading] = useState();
+  const [foto, setListFoto] = useState([])
+
+  useEffect(() => {
+    getGambar()
+  }, [loading])
+
+
+  const getGambar = () => {
+    Promise.resolve(StorageApi.getData('sm_portal/gallery?jenis_galery_id=1'))
+      .then(value => {
+        const list = value.data.data
+        const list_foto = [];
+        list.map(item => {
+          list_foto.push({
+            foto: `${SettingApi.url}/images/gallery/${item.file}`,
+            title: item.title
+          })
+        })
+        setListFoto(list_foto)
+      }).catch(error => {
+        setListFoto([])
+      })
+  }
+
   return (
     <>
-        <BaseLayouts>
-          <>
-        {/* Start Team Area */}
-      <section className="default-news-area">
-        <div className="container">
-          <div className="tech-news ptb-50">
-            <div class="section-title"> 
-              <h2><Image className="p-2" src="/images/foto.svg" width={50} height={50} alt="" /> Foto Kegiatan</h2>
+      <BaseLayouts>
+        <>
+          {/* Start Team Area */}
+          <section className="default-news-area">
+            <div className="container">
+              <div className="tech-news ptb-50">
+                <div class="section-title">
+                  <h2><Image className="p-2" src="/images/foto.svg" width={50} height={50} alt="" /> Foto Kegiatan</h2>
+                </div>
+                <Carousel cols={4} rows={1} gap={20} loop>
+                  {foto.map((item, index) => (
+                    <Carousel.Item>
+                      <div className="single-tech-news-box" style={{ borderRadius: 10, width: "18rem" }}>
+                        <a href="detail-wisata.html">
+                          <img src={item.foto} alt="image" />
+                        </a>
+                        <div className="tech-news-content">
+                          <h3>
+                            <a href="detail-wisata.html"></a>
+                          </h3>
+                          <p>{item.title}</p>
+                        </div>
+                      </div>
+                    </Carousel.Item>
+                  ))}
+                </Carousel>
+              </div>
             </div>
-            <Carousel>
-              <Carousel.Item>
-              <div className="row">
-                <div className="col-lg-3 col-sm-3 ">
-                  <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                    <a href="detail-wisata.html">
-                      <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
-                    </a>
-                    <div className="tech-news-content">
-                      <h3>
-                        <a href="detail-wisata.html"></a>
-                      </h3>
-                      <p></p>
-                    </div>
-                  </div>
-                </div>
-              
-                <div className="col-lg-3 col-sm-3">
-                  <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                    <a href="detail-wisata.html">
-                      <img src="/images/tech-news/tech-news-2.jpg" alt="image" />
-                    </a>
-                    <div className="tech-news-content">
-                      <h3>
-                        <a href="detail-wisata.html">
-                          
-                        </a>
-                      </h3>
-                      <p></p>
-                    </div>
-                  </div>
-                </div>
-              
-                <div className="col-lg-3 col-sm-3">
-                  <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                    <a href="detail-wisata.html">
-                      <img src="/images/tech-news/tech-news-3.jpg" alt="image" />
-                    </a>
-                    <div className="tech-news-content">
-                      <h3>
-                        <a href="detail-wisata.html">
-                          
-                        </a>
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              
-                <div className="col-lg-3 col-sm-3">
-                  <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                    <a href="detail-wisata.html">
-                      <img src="/images/tech-news/tech-news-3.jpg" alt="image" />
-                    </a>
-                    <div className="tech-news-content">
-                      <h3>
-                        <a href="detail-wisata.html">
-                          
-                        </a>
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </Carousel.Item>
-              <Carousel.Item>
-              <div className="row">
-                <div className="col-lg-3 col-sm-3 ">
-                  <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                    <a href="detail-wisata.html">
-                      <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
-                    </a>
-                    <div className="tech-news-content">
-                     
-                    </div>
-                  </div>
-                </div>
-              
-                <div className="col-lg-3 col-sm-3">
-                  <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                    <a href="detail-wisata.html">
-                      <img src="/images/tech-news/tech-news-2.jpg" alt="image" />
-                    </a>
-                    <div className="tech-news-content">
-                     
-                    </div>
-                  </div>
-                </div>
-              
-                <div className="col-lg-3 col-sm-3">
-                  <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                    <a href="detail-wisata.html">
-                      <img src="/images/tech-news/tech-news-3.jpg" alt="image" />
-                    </a>
-                    <div className="tech-news-content">
-                     
-                    </div>
-                  </div>
-                </div>
-              
-                <div className="col-lg-3 col-sm-3">
-                  <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                    <a href="detail-wisata.html">
-                      <img src="/images/tech-news/tech-news-3.jpg" alt="image" />
-                    </a>
-                    <div className="tech-news-content">
-                     
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </Carousel.Item>
-            </Carousel>
-          </div>
-        </div>
-      </section>
-      </>
+          </section>
 
-            
-        </BaseLayouts>
+
+        </>
+
+
+      </BaseLayouts>
     </>
   )
 }
