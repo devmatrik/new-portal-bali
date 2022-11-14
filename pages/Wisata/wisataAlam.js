@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import BaseLayouts from '../../components/MainCode/BaseLayouts'
 import {
@@ -14,12 +13,13 @@ import Function from '../../components/Function';
 
 import moment from 'moment/moment';
 
-export default function wisataAlam (){
-    const [loading, setLoading] = useState(false)
+export default function WisataAlam() {
 
+    const [loading, setLoading] = useState(false)
     const [wisata, setWisata] = useState([])
+
     useEffect(() => {
-      getData()
+      getData();
     }, [loading])
 
     const settings = {
@@ -60,7 +60,7 @@ export default function wisataAlam (){
              <Slider {...settings}>
               {wisata.map(item => {
                 return(
-                  <div className="row">
+                  <div className="row" key={item.rowid}>
                     <div className="col-lg-3 col-sm-3 ">
                       <div className="single-tech-news-box" style={{ width: "18rem" }}>
                          <a href="">
