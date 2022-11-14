@@ -1,9 +1,12 @@
 import React from 'react'
+import { BaseLayouts } from '../../components/MainCode/MainImport'
 
-function peraturanDaerah() {
+export default function PeraturanDaerah() {
   return (
-    <div>peraturanDaerah</div>
+    <>
+      <BaseLayouts>
+      
+      </BaseLayouts>
+    </>
   )
 }
-
-export default peraturanDaerah

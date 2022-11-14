@@ -6,7 +6,7 @@ import {
   BaseLayouts
 } from '../components/MainCode/MainImport'
 import Carousel from 'react-bootstrap/Carousel';
-import Cuaca from './tes';
+import Cuaca from './Cuaca';
 
 
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="col-md-6">
-                <Cuaca className="mt-2"></Cuaca>
+                <Cuaca></Cuaca>
               </div>
               <div className="col-lg-9">
                 <Carousel>
@@ -216,15 +216,15 @@ export default function Home() {
                   className="single-main-news-inner mb-4"
                   style={{ borderRadius: 8 }}
                 >
-                  <a href="detail.html">
+                  <Link href="/News/DetailNews">
                     <img src="/images/jepun.png" alt="image" />
-                  </a>
+                  </Link>
                   <div className="news-content">
                     {/* <div class="tag">National</div> */}
                     <h3 style={{ fontSize: 20 }}>
-                      <a href="detail.html">
+                      <Link href="/News/DetailNews">
                         Jepun Bali, Jaringan Elektronik Policing untuk Bali
-                      </a>
+                      </Link>
                     </h3>
                     <span>28 September, 2022</span>
                   </div>
@@ -233,12 +233,12 @@ export default function Home() {
                   className="single-main-news-inner mb-5"
                   style={{ borderRadius: 8 }}
                 >
-                  <a href="detail.html">
+                  <Link href="/News/DetailNews">
                     <img src="/images/main-news/main-news-2.jpg" alt="image" />
-                  </a>
+                  </Link>
                   <div className="news-content">
                     <h3 style={{ fontSize: 20 }}>
-                      <a href="detail.html">Smart City Bali</a>
+                      <Link href="/News/DetailNews">Smart City Bali</Link>
                     </h3>
                     <span>28 September, 2022</span>
                   </div>
@@ -249,15 +249,15 @@ export default function Home() {
                   className="single-main-news-inner mb-4"
                   style={{ borderRadius: 8 }}
                 >
-                  <a href="detail.html">
+                  <Link href="/News/DetailNews">
                     <img src="/images/jepun.png" alt="image" />
-                  </a>
+                  </Link>
                   <div className="news-content">
                     {/* <div class="tag">National</div> */}
                     <h3 style={{ fontSize: 20 }}>
-                      <a href="detail.html">
+                      <Link href="/News/DetailNews">
                         Jepun Bali, Jaringan Elektronik Policing untuk Bali
-                      </a>
+                      </Link>
                     </h3>
                     <span>28 September, 2022</span>
                   </div>
@@ -266,12 +266,12 @@ export default function Home() {
                   className="single-main-news-inner mb-5"
                   style={{ borderRadius: 8 }}
                 >
-                  <a href="detail.html">
+                  <Link href="/News/DetailNews">
                     <img src="/images/main-news/main-news-2.jpg" alt="image" />
-                  </a>
+                  </Link>
                   <div className="news-content">
                     <h3 style={{ fontSize: 20 }}>
-                      <a href="detail.html">Smart City Bali</a>
+                      <Link href="/News/DetailNews">Smart City Bali</Link>
                     </h3>
                     <span>28 September, 2022</span>
                   </div>
@@ -282,15 +282,15 @@ export default function Home() {
                   className="single-main-news-inner mb-4"
                   style={{ borderRadius: 8 }}
                 >
-                  <a href="detail.html">
+                  <Link href="/News/DetailNews">
                     <img src="/images/jepun.png" alt="image" />
-                  </a>
+                  </Link>
                   <div className="news-content">
                     {/* <div class="tag">National</div> */}
                     <h3 style={{ fontSize: 20 }}>
-                      <a href="detail.html">
+                      <Link href="/News/DetailNews">
                         Jepun Bali, Jaringan Elektronik Policing untuk Bali
-                      </a>
+                      </Link>
                     </h3>
                     <span>28 September, 2022</span>
                   </div>
@@ -299,12 +299,12 @@ export default function Home() {
                   className="single-main-news-inner mb-5"
                   style={{ borderRadius: 8 }}
                 >
-                  <a href="detail.html">
+                  <Link href="/News/DetailNews">
                     <img src="/images/main-news/main-news-2.jpg" alt="image" />
-                  </a>
+                  </Link>
                   <div className="news-content">
                     <h3 style={{ fontSize: 20 }}>
-                      <a href="detail.html">Smart City Bali</a>
+                      <Link href="/News/DetailNews">Smart City Bali</Link>
                     </h3>
                     <span>28 September, 2022</span>
                   </div>
