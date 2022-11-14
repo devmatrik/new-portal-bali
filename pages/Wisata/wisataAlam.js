@@ -9,8 +9,8 @@ import Carousel from 'react-bootstrap/Carousel';
 import moment from 'moment/moment';
 
 export default function wisataAlam (){
-    const [loading, setLoading] = useState(false)
-
+  
+  const [loading, setLoading] = useState(false)
   const [wisata, setWisata] = useState([])
   useEffect(() => {
     getData()

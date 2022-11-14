@@ -43,7 +43,7 @@ export default function Navbar(props) {
             </div>
             <div className="col-md-4">
               {/* <div className="copyright-area-content"> */}
-                <Image className="mt-3" src="/images/logofooter.svg" width={1239} height={251} alt="" />
+                <Image className="mt-3" src="/images/logofooterW.svg" width={1239} height={251} alt="" />
               {/* </div> */}
             </div>
             <div className='col-md-4'>
