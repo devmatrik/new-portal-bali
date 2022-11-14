@@ -8,7 +8,7 @@ import Card from "react-bootstrap/Card";
 import Carousel from 'react-grid-carousel'
 import { BaseLayouts, SettingApi, StorageApi } from '../../components/MainCode/MainImport'
 
-export default function fotoKegiatan() {
+export default function FotoKegiatan() {
 
   const [loading, setLoading] = useState();
   const [foto, setListFoto] = useState([])
@@ -48,7 +48,7 @@ export default function fotoKegiatan() {
                 </div>
                 <Carousel cols={4} rows={1} gap={20} loop>
                   {foto.map((item, index) => (
-                    <Carousel.Item>
+                    <Carousel.Item key={index}>
                       <div className="single-tech-news-box" style={{ borderRadius: 10, width: "18rem" }}>
                         <a href="detail-wisata.html">
                           <img src={item.foto} alt="image" />
