@@ -703,8 +703,8 @@ Navbar Area CSS
   /* backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px); */
   /* position: fixed; */
-  background-color: #111111;
-  opacity: 80%;
+  /* opacity: 80%; */
+  background-color: #1f2937;
   border-bottom: 1px solid #ff661f;
 }
 
@@ -7230,8 +7230,6 @@ video {
   opacity: 0.9;
   transition: 0.5s ease-out;
 }
-
-
 
 @-webkit-keyframes tada {
   0% {

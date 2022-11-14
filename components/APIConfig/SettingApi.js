@@ -2,8 +2,8 @@
 // const url = "https://backoffice.web.id:8082";
 // const url = "https://dev.estrada.co.id:8082";
 // const url = "http://192.168.8.36:8082";
-const url = "http://smbali.estrada.co.id:8082";
-// const url = "https://backend.elingbali.com:8082";
+// const url = "http://smbali.estrada.co.id:8082";
+const url = "https://backend.elingbali.com:8082";
 
 const kode_app = "SM";
 const data = function (data) {
