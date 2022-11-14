@@ -139,11 +139,8 @@ export default function Navbar(props) {
                   if (item.link == "") {
                     var no = item.rowid;
                     return (
-                      <div onMouseLeave={() => subMenuOnMouseDown(item.rowid)} onMouseEnter={() => subMenuOnMouseEnter(item.rowid)}>
+                      <div onMouseLeave={() => subMenuOnMouseDown(item.rowid)} onMouseEnter={() => subMenuOnMouseEnter(item.rowid)} key={item.rowid}>
                         <div className="items-center" >
-                          {/* <div className={`nav-link`}>
-                            {item.page}
-                          </div> */}
                           <li className="nav-item">
                             <a href="" className="nav-link ">
                               {item.page}
