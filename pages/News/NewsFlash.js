@@ -7,12 +7,12 @@ import {
 import Slider from "react-slick";
 import Link from 'next/link';
 import moment from 'moment/moment';
-
+import Carousel from 'react-grid-carousel'
 
 export default function NewsFlash() {
 
     const [loading, setLoading] = useState(false)
-    const [newsflash, setNewsFlash] = useState([])
+    const [news, setNews] = useState([])
 
     useEffect(() => {
       getData();
@@ -35,7 +35,7 @@ export default function NewsFlash() {
         Promise.resolve(StorageApi.getData("sm_portal/news?jenis_news_id=2"))
           .then(value => {
             const data = value.data.data
-            setNewsFlash(data)
+            setNews(data)
     
           }).catch(error => {
             // setWisata(data)
@@ -52,39 +52,39 @@ export default function NewsFlash() {
                     <h2><Image className="p-2" src="/images/News.png" width={50} height={50} alt="" /> News Flash</h2>
                     {/* <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
                 </div>
-                <Slider {...settings}>
-                {newsflash.map(item => {
-                    return(
-                    <div className="row" key={item.rowid}>
-                        <div className="col-lg-3 col-sm-3 ">
-                        <div className="single-tech-news-box rounded-3" style={{ width: "16rem" }}>
-                            <a href="">
-                            {item.image == 0 ? (<>
-                                <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
-                                </>) :(<>
-                                <img src={item.image} style={{ width: "450px", height:"350px" }}/>
-                                </>)}
-                            </a>
-                        {/* <img className="card-img-top" src="/images/tech-news/tech-news-1.jpg" alt="Card image cap" /> */}
-                        <div className="tech-news-content">
-                            <h3>
-                            {/* <a href="../DetailNews/rowid">
+                <Carousel cols={4} rows={1} gap={20} loop>
+                  {news.map((item, index) => (
+                    <Carousel.Item key={index}>
+                                        <div className="row" key={item.rowid}>
+                    <div className="col-lg-3 col-sm-3 ">
+                      <div className="single-tech-news-box rounded-3" style={{ width: "16rem" }}>
+                         <a href="">
+                          {item.image == 0 ? (<>
+                             <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
+                            </>) :(<>
+                            <img src={item.image} style={{ width: "450px", height:"350px" }}/>
+                            </>)}
+                        </a>
+                      {/* <img className="card-img-top" src="/images/tech-news/tech-news-1.jpg" alt="Card image cap" /> */}
+                       <div className="tech-news-content">
+                        <h3>
+                          {/* <a href="../DetailNews/rowid">
+                           {item.judul}
+                          </a> */}
+                          <Link href={'/Wisata/' + item.rowid} key={item.rowid}>
                             {item.judul}
-                            </a> */}
-                            <Link href={'/News/' + item.rowid} key={item.rowid}>
-                                {item.judul}
-                            </Link>
-                            
-                            </h3>
-                            <p>{item.sub_judul}</p>
-                            <p>{moment(item.ctddate).format("DD MMMM, YYYY ")}</p>
-                        </div>
-                        </div>
-                        </div>
+                          </Link>
+                        
+                        </h3>
+                        <p>{item.sub_judul}</p>
+                        <p>{moment(item.ctddate).format("DD MMMM, YYYY ")}</p>
+                      </div>
+                      </div>
                     </div>
-                    )
-                    })}
-                </Slider>
+                  </div>
+                    </Carousel.Item>
+                  ))}
+                </Carousel>
             </div>
             </div>
             </section>

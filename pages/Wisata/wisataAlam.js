@@ -4,10 +4,12 @@ import BaseLayouts from '../../components/MainCode/BaseLayouts'
 import {
   StorageApi
 } from '../../components/MainCode/MainImport'
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import Link from 'next/link';
 import Function from '../../components/Function';
 import moment from 'moment/moment';
+import Carousel from 'react-grid-carousel'
+
 // import { Carousel, Card, Stack, Button } from "react-bootstrap";
 
 export default function WisataAlam() {
@@ -54,10 +56,10 @@ export default function WisataAlam() {
               <h2><Image className="p-2" src="/images/wisataAlam.svg" width={50} height={50} alt="" /> Wisata Alam</h2>
               <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5>
             </div>
-             <Slider {...settings}>
-              {wisata.map(item => {
-                return(
-                  <div className="row" key={item.rowid}>
+              <Carousel cols={4} rows={1} gap={20} loop>
+                  {wisata.map((item, index) => (
+                    <Carousel.Item key={index}>
+                                        <div className="row" key={item.rowid}>
                     <div className="col-lg-3 col-sm-3 ">
                       <div className="single-tech-news-box rounded-3" style={{ width: "16rem" }}>
                          <a href="">
@@ -84,9 +86,9 @@ export default function WisataAlam() {
                       </div>
                     </div>
                   </div>
-                  )
-                })}
-            </Slider>
+                    </Carousel.Item>
+                  ))}
+              </Carousel>
           </div>
         </div>
       </section>

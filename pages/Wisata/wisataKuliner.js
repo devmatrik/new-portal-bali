@@ -4,10 +4,11 @@ import BaseLayouts from '../../components/MainCode/BaseLayouts'
 import {
   StorageApi
 } from '../../components/MainCode/MainImport'
-import Carousel from 'react-bootstrap/Carousel';
+// import Carousel from 'react-bootstrap/Carousel';
 import Slider from "react-slick";
 import Link from 'next/link';
 import Function from '../../components/Function';
+import Carousel from 'react-grid-carousel'
 
 // import { Carousel, Card, Stack, Button } from "react-bootstrap";
 
@@ -57,20 +58,18 @@ export default function WisataKuliner() {
               <h2><Image className="p-2" src="/images/wisataKuliner.svg" width={50} height={50} alt="" /> Wisata Kuliner</h2>
               <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Wisata Kuliner di Bali</h5>
             </div>
-             <Slider {...settings}>
-              {wisata.map(item => {
-                return(
-                  <div className="row" key={item.rowid}>
+            <Carousel cols={4} rows={1} gap={20} loop>
+                  {wisata.map((item, index) => (
+                    <Carousel.Item key={index}>
+                    <div className="row" key={item.rowid}>
                     <div className="col-lg-3 col-sm-3 ">
-                      <div className="single-tech-news-box" style={{ width: "18rem" }}>
+                      <div className="single-tech-news-box rounded-3" style={{ width: "16rem" }}>
                          <a href="">
                           {item.image == 0 ? (<>
                              <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
                             </>) :(<>
                             <img src={item.image} style={{ width: "450px", height:"350px" }}/>
                             </>)}
-                    
-                            
                         </a>
                       {/* <img className="card-img-top" src="/images/tech-news/tech-news-1.jpg" alt="Card image cap" /> */}
                        <div className="tech-news-content">
@@ -89,15 +88,9 @@ export default function WisataKuliner() {
                       </div>
                     </div>
                   </div>
-                  )
-                })}
-
-               
-  
-
-            </Slider>
-
-            
+                    </Carousel.Item>
+                  ))}
+              </Carousel>
           </div>
         </div>
       </section>
