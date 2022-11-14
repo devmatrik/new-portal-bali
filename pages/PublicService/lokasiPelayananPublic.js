@@ -3,7 +3,7 @@ import Image from 'next/image'
 import BaseLayouts from '../../components/MainCode/BaseLayouts'
 import Carousel from 'react-bootstrap/Carousel';
 
-export default function lokasiPelayananPublic() {
+export default function LokasiPelayananPublic() {
   return (
     <>
       <BaseLayouts>

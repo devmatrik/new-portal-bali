@@ -54,7 +54,7 @@ export default function WisataAdat() {
         <div className="container">
           <div className="tech-news ptb-50">
             <div className="section-title"> 
-              <h2><Image className="p-2" src="/images/adat&budaya.svg.svg" width={50} height={50} alt="" /> Adat & Budaya</h2>
+              <h2><Image className="p-2" src="/images/adat&budaya.svg" width={50} height={50} alt="" /> Adat & Budaya</h2>
               <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Adat & Budaya di Bali</h5>
             </div>
              <Slider {...settings}>

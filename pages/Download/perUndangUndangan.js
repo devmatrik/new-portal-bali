@@ -1,9 +1,12 @@
 import React from 'react'
+import { BaseLayouts } from '../../components/MainCode/MainImport'
 
-function perUndangUndangan() {
+export default function PerUndangUndangan() {
   return (
-    <div>perUndangUndangan</div>
+    <>
+      <BaseLayouts>
+      
+      </BaseLayouts>
+    </>
   )
 }
-
-export default perUndangUndangan

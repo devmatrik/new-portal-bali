@@ -7,10 +7,8 @@ import {
 import Slider from "react-slick";
 import Link from 'next/link';
 import Function from '../../components/Function';
-
-// import { Carousel, Card, Stack, Button } from "react-bootstrap";
-
 import moment from 'moment/moment';
+// import { Carousel, Card, Stack, Button } from "react-bootstrap";
 
 export default function WisataAlam() {
 
@@ -45,10 +43,10 @@ export default function WisataAlam() {
 
       })
   }
+
   return (
     <>
     <BaseLayouts>
-   
       <section className="default-news-area">
         <div className="container">
           <div className="tech-news ptb-50">
@@ -68,8 +66,6 @@ export default function WisataAlam() {
                             </>) :(<>
                             <img src={item.image} style={{ width: "450px", height:"350px" }}/>
                             </>)}
-                    
-                            
                         </a>
                       {/* <img className="card-img-top" src="/images/tech-news/tech-news-1.jpg" alt="Card image cap" /> */}
                        <div className="tech-news-content">
@@ -90,17 +86,11 @@ export default function WisataAlam() {
                   </div>
                   )
                 })}
-
-               
-  
-
             </Slider>
-
-            
           </div>
         </div>
       </section>
-    {/* End Default News Area */}
+      {/* End Default News Area */}
     </BaseLayouts>
     </>
   )
