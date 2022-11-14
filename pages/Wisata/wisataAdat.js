@@ -1,171 +1,108 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import BaseLayouts from '../../components/MainCode/BaseLayouts'
+import {
+  StorageApi
+} from '../../components/MainCode/MainImport'
 import Carousel from 'react-bootstrap/Carousel';
+import Slider from "react-slick";
+import Link from 'next/link';
+import Function from '../../components/Function';
 
-export default function wisataAdat() {
+// import { Carousel, Card, Stack, Button } from "react-bootstrap";
+
+import moment from 'moment/moment';
+
+export default function WisataAdat() {
+
+    const [loading, setLoading] = useState(false)
+    const [wisata, setWisata] = useState([])
+
+    useEffect(() => {
+      getData();
+    }, [loading])
+
+    const settings = {
+     dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 1
+    };
+
+    const konten = {
+      title: "Adat & Budaya",
+      //LinkApi: "algors/periode_keselamatan",
+    }
+
+  const getData = () => {
+    Promise.resolve(StorageApi.getData("sm_portal/wisata?jenis_wisata_id=4"))
+      .then(value => {
+        const data = value.data.data
+        setWisata(data)
+
+      }).catch(error => {
+        // setWisata(data)
+
+      })
+  }
   return (
     <>
-      <BaseLayouts>
-        {/* Jumbotron */}
-        {/* <div
-          className="bg-image p-5"
-          style={{
-            backgroundImage: 'url("/images/banner-adat&budaya.png")',
-            height: 200
-          }}
-        >
-          <h2 style={{ color: "#ffff" }}>Wisata Adat</h2>
-          <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>
-            Rekomendasi Wisata Adat di Bali
-          </h5>
-        </div> */}
-        {/* End Jumbotron */}
-        {/* Start Default News Area */}
-        <section className="default-news-area">
-          <div className="container">
-            <div className="tech-news ptb-50">
-            <div class="section-title"> 
-              <h2><Image className="p-2" src="/images/adat&budaya.svg" width={50} height={50} alt="" /> Wisata Adat & Budaya</h2>
-              <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Wisata Adat & Budaya di Bali</h5>
+    <BaseLayouts>
+   
+      <section className="default-news-area">
+        <div className="container">
+          <div className="tech-news ptb-50">
+            <div className="section-title"> 
+              <h2><Image className="p-2" src="/images/adat&budaya.svg.svg" width={50} height={50} alt="" /> Adat & Budaya</h2>
+              <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Adat & Budaya di Bali</h5>
             </div>
-            <Carousel>
-              <Carousel.Item>
-                <div className="row">
-                  <div className="col-lg-3 col-sm-3 ">
-                    <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                      <a href="detail-wisata.html">
-                        <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
-                      </a>
-                      <div className="tech-news-content">
+             <Slider {...settings}>
+              {wisata.map(item => {
+                return(
+                  <div className="row" key={item.rowid}>
+                    <div className="col-lg-3 col-sm-3 ">
+                      <div className="single-tech-news-box" style={{ width: "18rem" }}>
+                         <a href="">
+                          {item.image == 0 ? (<>
+                             <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
+                            </>) :(<>
+                            <img src={item.image} style={{ width: "450px", height:"350px" }}/>
+                            </>)}
+                    
+                            
+                        </a>
+                      {/* <img className="card-img-top" src="/images/tech-news/tech-news-1.jpg" alt="Card image cap" /> */}
+                       <div className="tech-news-content">
                         <h3>
-                          <a href="detail-wisata.html">10 Wisata Terindah di Bali</a>
+                          {/* <a href="../DetailNews/rowid">
+                           {item.judul}
+                          </a> */}
+                          <Link href={'/Wisata/' + item.rowid} key={item.rowid}>
+                            {item.judul}
+                          </Link>
+                        
                         </h3>
-                        <p>28 September, 2022</p>
+                        <p>{item.sub_judul}</p>
+                        <p>{moment(item.ctddate).format("DD MMMM, YYYY ")}</p>
+                      </div>
                       </div>
                     </div>
                   </div>
-                
-                  <div className="col-lg-3 col-sm-3">
-                    <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                      <a href="detail-wisata.html">
-                        <img src="/images/tech-news/tech-news-2.jpg" alt="image" />
-                      </a>
-                      <div className="tech-news-content">
-                        <h3>
-                          <a href="detail-wisata.html">
-                            Rekomendasi Kuliner Khas Bali yang Wajib Anda Coba
-                          </a>
-                        </h3>
-                        <p>28 September, 2022</p>
-                      </div>
-                    </div>
-                  </div>
-                
-                  <div className="col-lg-3 col-sm-3">
-                    <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                      <a href="detail-wisata.html">
-                        <img src="/images/tech-news/tech-news-3.jpg" alt="image" />
-                      </a>
-                      <div className="tech-news-content">
-                        <h3>
-                          <a href="detail-wisata.html">
-                            11 Hotel dengan Desain Unik di Bali
-                          </a>
-                        </h3>
-                        <p>28 September, 2022</p>
-                      </div>
-                    </div>
-                  </div>
-                
-                  <div className="col-lg-3 col-sm-3">
-                    <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                      <a href="detail-wisata.html">
-                        <img src="/images/tech-news/tech-news-3.jpg" alt="image" />
-                      </a>
-                      <div className="tech-news-content">
-                        <h3>
-                          <a href="detail-wisata.html">
-                            5 Wisata Desa Adat di Bali, Kaya Sejarah dan Budaya
-                          </a>
-                        </h3>
-                        <p>28 September, 2022</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div className="row">
-                  <div className="col-lg-3 col-sm-3 ">
-                    <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                      <a href="detail-wisata.html">
-                        <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
-                      </a>
-                      <div className="tech-news-content">
-                        <h3>
-                          <a href="detail-wisata.html">10 Wisata Terindah di Bali</a>
-                        </h3>
-                        <p>28 September, 2022</p>
-                      </div>
-                    </div>
-                  </div>
-                
-                  <div className="col-lg-3 col-sm-3">
-                    <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                      <a href="detail-wisata.html">
-                        <img src="/images/tech-news/tech-news-2.jpg" alt="image" />
-                      </a>
-                      <div className="tech-news-content">
-                        <h3>
-                          <a href="detail-wisata.html">
-                            Rekomendasi Kuliner Khas Bali yang Wajib Anda Coba
-                          </a>
-                        </h3>
-                        <p>28 September, 2022</p>
-                      </div>
-                    </div>
-                  </div>
-                
-                  <div className="col-lg-3 col-sm-3">
-                    <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                      <a href="detail-wisata.html">
-                        <img src="/images/tech-news/tech-news-3.jpg" alt="image" />
-                      </a>
-                      <div className="tech-news-content">
-                        <h3>
-                          <a href="detail-wisata.html">
-                            11 Hotel dengan Desain Unik di Bali
-                          </a>
-                        </h3>
-                        <p>28 September, 2022</p>
-                      </div>
-                    </div>
-                  </div>
-                
-                  <div className="col-lg-3 col-sm-3">
-                    <div className="single-tech-news-box" style={{ borderRadius: 10 }}>
-                      <a href="detail-wisata.html">
-                        <img src="/images/tech-news/tech-news-3.jpg" alt="image" />
-                      </a>
-                      <div className="tech-news-content">
-                        <h3>
-                          <a href="detail-wisata.html">
-                            5 Wisata Desa Adat di Bali, Kaya Sejarah dan Budaya
-                          </a>
-                        </h3>
-                        <p>28 September, 2022</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Carousel.Item>
-            </Carousel>
-            </div>
+                  )
+                })}
+
+               
+  
+
+            </Slider>
+
+            
           </div>
-        </section>
-        {/* End Default News Area */}
-      </BaseLayouts>
+        </div>
+      </section>
+    {/* End Default News Area */}
+    </BaseLayouts>
     </>
   )
 }
