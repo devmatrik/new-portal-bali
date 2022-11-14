@@ -16,6 +16,7 @@
     "eslint-config-next": "13.0.1",
     "mdb-react-ui-kit": "^5.0.0",
     "moment": "^2.29.4",
+    "moment-timezone": "^0.5.39",
     "next": "13.0.1",
     "next-auth": "^4.16.4",
     "react": "18.2.0",

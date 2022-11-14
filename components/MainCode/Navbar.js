@@ -115,7 +115,7 @@ export default function Navbar(props) {
                   className="collapse navbar-collapse mean-menu"
                   id="navbarSupportedContent"
                 >
-              <ul className="navbar-nav">
+                <ul className="navbar-nav">
                 {/* <li className="nav-item">
                   <a href="/" className="nav-link">
                     Home

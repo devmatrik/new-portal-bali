@@ -1,12 +1,15 @@
-import moment from 'moment/moment';
+// import moment from 'moment/moment';
+import moment from 'moment-timezone';
 import React, { useState, useEffect } from 'react';
+// import WeeklyWeather from "../../components/WeeklyWeather";
+import Image from 'next/image'
 
 const api = {
   key: "0aacff65b5e02f5d76fefb88183a1298",
   base: "https://api.openweathermap.org/data/2.5/forecast"
 }
 
-function App() {
+export default function Cuaca() {
   const [query, setQuery] = useState('bali');
   const [loading, setLoader] = useState(false);
   const [weather, setWeather] = useState([]);
@@ -27,7 +30,7 @@ function App() {
             temp: data[index].temp.day + "°c",
             hari: moment.unix(data[index].dt).format("DD MMM YYYY"),
             cuaca: data[index].weather[a].main,
-            icon : data[index].weather[a].icon,
+            icon : data[index].weather[a].main,
             tingkat_awan: data[index].clouds + "%"
           })
         }
@@ -42,16 +45,61 @@ function App() {
       <div className='bg-green-300'>
         tes
         {weather.map(item => {
-          <ul>
-            <li>Suhu  : {item.temp}</li>
-            <li>Weather  : {item.cuaca}</li>
-            <li>Cloud  : {item.tingkat_awan}</li>
-            {/* <li>Day  : {moment.unix(item.hari).utc()}</li> */}
-          </ul>
+          if (item == 0) {
+            return;
+          }
+
+          return (
+            <div className="weekly__card" key={weather.dt}>
+              <div className="weekly__inner">
+                <div className="weekly__left-content">
+                  <div>
+                    <h3>
+                      {moment.unix(weather.dt).tz(timezone).format("dddd")}
+                    </h3>
+
+                    <h4>
+                      <span>{weather.temp.max.toFixed(0)}&deg;C</span>
+                      <span>{weather.temp.min.toFixed(0)}&deg;C</span>
+                    </h4>
+                  </div>
+
+                  <div className="weekly__sun-times">
+                    <div>
+                      <span>Sunrise</span>
+                      <span>
+                        {moment.unix(weather.sunrise).tz(timezone).format("LT")}
+                      </span>
+                    </div>
+
+                    <div>
+                      <span>Sunset</span>
+                      <span>
+                        {moment.unix(weather.sunset).tz(timezone).format("LT")}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="weekly__right-content">
+                  <div className="weekly__icon-wrapper">
+                    <div>
+                      <Image
+                        src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+                        alt="Weather Icon"
+                        layout="fill"
+                      />
+                    </div>
+                  </div>
+
+                  <h5>{weather.weather[0].description}</h5>
+                </div>
+              </div>
+            </div>
+          );
+
         })}
       </div>
     </>
   );
 }
-
-export default App;
