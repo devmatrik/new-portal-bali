@@ -57,7 +57,7 @@ export default function Cuaca() {
                 </div>
                 <div class="col temp">
                   <span className=''>
-                    <Image src={'/images/angin.png'} width={20} height={20} alt="" />
+                    <Image src={'/images/wind.png'} width={20} height={20} alt="" />
                   </span>
                   {weather.kecepatan_angin}
                 </div>
