@@ -13,13 +13,13 @@ import Function from '../../components/Function';
 
 import moment from 'moment/moment';
 
-export default function wisataAlam() {
+export default function WisataAlam() {
 
     const [loading, setLoading] = useState(false)
     const [wisata, setWisata] = useState([])
 
     useEffect(() => {
-      getData()
+      getData();
     }, [loading])
 
     const settings = {
