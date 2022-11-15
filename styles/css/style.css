@@ -7351,5 +7351,44 @@ video {
   color: #ef4444;
   letter-spacing: 2px;
 }
+.livetraffict {
+  margin-bottom: -33px;
+}
+.route {
+  margin-bottom: -8px;
+}
+.liveweather {
+  margin-top: -2px;
+  background-color: #d1d5db;
+  padding: 3px 5px 3px 5px;
+  /* margin: 45px 45px 45px 45px; */
+}
+.hariLive {
+  /* margin-top: 10px; */
+  text-align: left;
+  color: #ef4444;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+.jalan {
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 8px;
+}
+.scroll-bar-vertical {
+  overflow-y: auto;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 
 /*# sourceMappingURL=style.css.map */
