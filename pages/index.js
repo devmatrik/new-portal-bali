@@ -83,8 +83,7 @@ export default function Home() {
             latest = item.rowid
           }
         })
-        // Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_news_id=${latest}`))
-        Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_news_id=5`))
+        Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_news_id=${latest}`))
           .then(value => {
             const datag20 = value.data.data
             const Listdata = datag20.sort((a, b) => moment(b.tanggal_news).format("DD") - moment(a.tanggal_news).format("DD"))
