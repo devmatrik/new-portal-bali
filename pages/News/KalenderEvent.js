@@ -32,23 +32,12 @@ export default function KalenderEvent() {
   }
 
   const getData = () => {
-    Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
+    Promise.resolve(StorageApi.getData(`sm_portal/event`))
       .then(value => {
-        const list = value.data.data
-        var param = ""
-        list.map(item => {
-          if (item.jenis_berita == "Kalender Event") {
-            param = item.rowid
-          }
-        })
-        Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_news_id=${param}`))
-          .then(value => {
-            const data = value.data.data
-            setNews(data)
-          }).catch(error => {
-            setNews([])
-          })
+        const data = value.data.data
+        setNews(data)
       }).catch(error => {
+        setNews([])
       })
   }
 
@@ -70,7 +59,7 @@ export default function KalenderEvent() {
                         <div className="single-tech-news-box rounded-3" style={{ width: "16rem" }}>
                           <a href="">
                             {item.image == 0 ? (<>
-                              <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
+                              <img src="./images/tech-news/tech-news-1.jpg" alt="image" />
                             </>) : (<>
                               <img src={item.image} style={{ width: "450px", height: "350px" }} />
                             </>)}
@@ -81,12 +70,12 @@ export default function KalenderEvent() {
                               {/* <a href="../DetailNews/rowid">
                            {item.judul}
                           </a> */}
+                              <p style={{ fontSize: 10, marginBottom: "-2px" }}>{item.jenis_event}</p>
                               <Link href={'/News/' + item.rowid} key={item.rowid}>
-                                {item.judul}
+                                {item.nama_event}
                               </Link>
 
                             </h3>
-                            <p>{item.sub_judul}</p>
                             <p>{moment(item.ctddate).format("DD MMMM, YYYY ")}</p>
                           </div>
                         </div>
