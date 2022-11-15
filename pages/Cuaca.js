@@ -52,7 +52,7 @@ export default function Cuaca() {
                       {weather.temp}
                     </p>
                     <p className='wind'>
-                      <Image  src={'/images/wind.png'} width={20} height={20} alt="" />
+                      <Image  src={'/images/windd.png'} width={20} height={20} alt="" />
                       {weather.kecepatan_angin}
                     </p>
                   </div>
