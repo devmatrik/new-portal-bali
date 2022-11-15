@@ -24,14 +24,14 @@ export default function Navbar(props) {
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="twitter" target="_blank">
+                    <Link href="https://www.instagram.com/smartcity.bali/" className="instagaram" target="_blank">
                       <i className="bx bxl-instagram" />
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="linkedin" target="_blank">
+                    <Link href="https://twitter.com/eling_bali" className="twitter" target="_blank">
                       <i className="bx bxl-twitter" />
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a href="#" className="linkedin" target="_blank">

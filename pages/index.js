@@ -20,14 +20,16 @@ export default function Home() {
         <section className="main-news-area">
           <div className="container">
             <div className="row">
-              <div className="col-md-6">
+              <div className="col-md-9">
                 <div className="section-title">
                   <h2><Image className="p-2" src="/images/explore.svg" width={50} height={50} alt="" /> Explore Bali</h2>
                   {/* <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
                 </div>
               </div>
-              <div className="col-md-6">
-                <Cuaca></Cuaca>
+              <div className="col-md-3">
+                <div className="wtitle">
+                  <Cuaca></Cuaca>
+                </div>
               </div>
               <div className="col-lg-9">
                 <Carousel>
