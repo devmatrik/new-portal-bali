@@ -7373,10 +7373,11 @@ video {
   font-weight: 500;
   letter-spacing: 2px; */
 }
-.jalan {
-  background-color: #fff;
-  border-radius: 5px;
-  font-size: 8px;
+.traf {
+  margin: 15px 5px 0px 0px;
+}
+.ltr {
+  margin-bottom: -2px;
 }
 .scroll-bar-vertical {
   overflow-y: auto;

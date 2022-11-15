@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BaseLayouts, StorageApi } from '../../components/MainCode/MainImport'
 import CuacaLiveTraffict from '../CuacaLiveTraffict';
-
+import Image from 'next/image';
 
 export default function LiveTraffict() {
 
@@ -44,7 +44,7 @@ export default function LiveTraffict() {
 
   return (
     <BaseLayouts>
-        <div className="contact-map">
+        <div className="contact-map ltr">
           <iframe src={`http://202.134.4.215/satupeta_new/PemetaanEmbed?center=-8.4356749,114.9973846&display=off&show_data=`} frameBorder="0" height={550} width={700}></iframe>
         </div>
         <div className="">
@@ -77,12 +77,12 @@ export default function LiveTraffict() {
                 <CuacaLiveTraffict lat={'-8.65'} lng={'115.216667'}/>
               </div>
               <div className="col-lg-3">
-                <div className="jalan">
-                  <p>Padat</p>          
+                <div className="traf">
+                  <Image src="/images/traffict.svg" width={500} height={100} alt="" />
                 </div>
               </div>
-            </div>
           </div>
+        </div>
         <div className='grid grid-cols-1 livetraffict'>
           <iframe className='xl:-ml-0 ml-2 !xl:w-full w-[100%] h-[700px]' src={tableu} frameBorder="0" width={1455} height={600} />
         </div>
