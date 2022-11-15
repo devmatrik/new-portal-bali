@@ -35,7 +35,7 @@ export default function WisataAlam() {
     }
 
   const getData = () => {
-    Promise.resolve(StorageApi.getData("sm_portal/wisata?jenis_wisata_id=2"))
+    Promise.resolve(StorageApi.getData("sm_portal/wisata?jenis_wisata_id=1"))
       .then(value => {
         const data = value.data.data
         setWisata(data)

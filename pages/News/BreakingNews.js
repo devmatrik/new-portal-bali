@@ -32,7 +32,7 @@ export default function BreakingNews() {
     }
 
     const getData = () => {
-        Promise.resolve(StorageApi.getData("sm_portal/news?jenis_news_id=2"))
+        Promise.resolve(StorageApi.getData("sm_portal/news?jenis_news_id=1"))
           .then(value => {
             const data = value.data.data
             setNews(data)
