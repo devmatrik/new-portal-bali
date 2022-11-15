@@ -164,7 +164,7 @@ export default function DetailNews() {
                                             </a>
                                             <div className="info">
                                                 <h4 className="title usmall"><a href="#">Giving special powers to police officers to prevent crime</a></h4>
-                                                <span>28 September, 2022</span>
+                                                <span>28 September, 2022 </span>
                                             </div>
                                         </article>
                                     </section>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import moment from 'moment/moment'
+import Image from 'next/image'
 import { StorageApi, BaseLayouts } from '../../components/MainCode/MainImport'
 
 export default function DetailNews() {
@@ -8,9 +9,11 @@ export default function DetailNews() {
     const query = router?.query;
 
     const [loading, setLoading] = useState('')
+    const [listLatest, setListLatest] = useState([]);
     const [detail, setDetail] = useState('')
     useEffect(() => {
         GetDetailNews(query.id)
+        LatestNews()
     }, [loading])
     const GetDetailNews = (id) => {
         console.log(id);
@@ -21,7 +24,29 @@ export default function DetailNews() {
                 setDetail('')
             })
     }
-    console.log(detail);
+
+    const LatestNews = () => {
+        Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
+            .then(value => {
+                const list = value.data.data
+                var latest = ""
+                list.map(item => {
+                    if (item.jenis_berita == "Latest News") {
+                        latest = item.rowid
+                    }
+                })
+                Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_news_id=${latest}`))
+                    .then(value => {
+                        const datag20 = value.data.data
+                        const Listdata = datag20.sort((a, b) => moment(b.tanggal_news).format("DD") - moment(a.tanggal_news).format("DD"))
+                        setListLatest(Listdata)
+                    }).catch(error => {
+                        setListLatest([])
+                    })
+            }).catch(error => {
+
+            })
+    }
     return (
         <>
             <BaseLayouts>
@@ -71,46 +96,25 @@ export default function DetailNews() {
 
                                     <section className="widget widget_latest_news_thumb">
                                         <h3 className="widget-title">Latest posts</h3>
-
-                                        <article className="item">
-                                            <a href="#" className="thumb">
-                                                <span className="fullimage cover bg1" role="img"></span>
-                                            </a>
-                                            <div className="info">
-                                                <h4 className="title usmall"><a href="#">Negotiations on a peace agreement between the two countries</a></h4>
-                                                <span>28 September, 2022</span>
+                                        <aside className="widget-area scroll-bar-vertical scrollbar-hide" style={{ height: "30rem" }}>
+                                            <div className='scroll-bar-vertical scrollbar-hide' style={{ height: "20rem" }}>
+                                                {listLatest.map((item, index) => {
+                                                    return (
+                                                        <article className="item" key={index}>
+                                                            <a href="#" className="thumb">
+                                                                <span className="fullimage cover bg1" role="img"></span>
+                                                            </a>
+                                                            <div className="info ">
+                                                                <h4 className="title usmall p-1" style={{ fontSize: 11 }}>
+                                                                    <a href="#">{item.judul_news}</a>
+                                                                </h4>
+                                                                <span style={{ fontSize: 11 }}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
+                                                            </div>
+                                                        </article>
+                                                    )
+                                                })}
                                             </div>
-                                        </article>
-
-                                        <article className="item">
-                                            <a href="#" className="thumb">
-                                                <span className="fullimage cover bg2" role="img"></span>
-                                            </a>
-                                            <div className="info">
-                                                <h4 className="title usmall"><a href="#">Love songs helped me through heartbreak</a></h4>
-                                                <span>28 September, 2022</span>
-                                            </div>
-                                        </article>
-
-                                        <article className="item">
-                                            <a href="#" className="thumb">
-                                                <span className="fullimage cover bg3" role="img"></span>
-                                            </a>
-                                            <div className="info">
-                                                <h4 className="title usmall"><a href="#">This movement aims to establish women rights</a></h4>
-                                                <span>28 September, 2022</span>
-                                            </div>
-                                        </article>
-
-                                        <article className="item">
-                                            <a href="#" className="thumb">
-                                                <span className="fullimage cover bg4" role="img"></span>
-                                            </a>
-                                            <div className="info">
-                                                <h4 className="title usmall"><a href="#">Giving special powers to police officers to prevent crime</a></h4>
-                                                <span>28 September, 2022</span>
-                                            </div>
-                                        </article>
+                                        </aside>
                                     </section>
                                 </aside>
                             </div>
