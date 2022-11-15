@@ -50,8 +50,8 @@ export default function Cuaca() {
                       <img src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} width={30} alt="cuaca" />
                       {weather.temp}
                       <span className='wind'>
-                        <Image  src={'/images/windd.png'} width={20} height={20} alt="" />
-                        {weather.kecepatan_angin}
+                        <Image src={'/images/windd.png'} width={20} height={20} alt="" />
+                        &nbsp;{weather.kecepatan_angin}
                       </span>
                     </p>
                   </div>

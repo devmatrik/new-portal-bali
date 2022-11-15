@@ -32,14 +32,24 @@ export default function KalenderEvent() {
     }
 
     const getData = () => {
-        Promise.resolve(StorageApi.getData("sm_portal/news?jenis_news_id=2"))
+        Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
+      .then(value => {
+        const list = value.data.data
+        var param = ""
+        list.map(item => {
+          if (item.jenis_berita == "Kalender Event") {
+            param = item.rowid
+          }
+        })
+        Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_berita_id=${param}`))
           .then(value => {
             const data = value.data.data
             setNews(data)
-    
           }).catch(error => {
-            // setWisata(data)
+            setNews([])
           })
+      }).catch(error => {
+      })
     }
 
   return (
@@ -71,7 +81,7 @@ export default function KalenderEvent() {
                           {/* <a href="../DetailNews/rowid">
                            {item.judul}
                           </a> */}
-                          <Link href={'/Wisata/' + item.rowid} key={item.rowid}>
+                          <Link href={'/News/' + item.rowid} key={item.rowid}>
                             {item.judul}
                           </Link>
                         

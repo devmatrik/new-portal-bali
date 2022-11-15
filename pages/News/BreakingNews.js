@@ -32,15 +32,25 @@ export default function BreakingNews() {
     }
 
     const getData = () => {
-        Promise.resolve(StorageApi.getData("sm_portal/news?jenis_news_id=2"))
+    Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
+      .then(value => {
+        const list = value.data.data
+        var param = ""
+        list.map(item => {
+          if (item.jenis_berita == "Breaking News") {
+            param = item.rowid
+          }
+        })
+        Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_news_id=${param}`))
           .then(value => {
             const data = value.data.data
             setNews(data)
-    
-          }).catch(error => {
-            // setWisata(data)
-          })
-      }
+        }).catch(error => {
+            setNews([])
+        })
+    }).catch(error => {
+    })
+}
 
   return (
     <>
@@ -71,8 +81,8 @@ export default function BreakingNews() {
                           {/* <a href="../DetailNews/rowid">
                            {item.judul}
                           </a> */}
-                          <Link href={'/Wisata/' + item.rowid} key={item.rowid}>
-                            {item.judul}
+                          <Link href={'/News/' + item.rowid} key={item.rowid}>
+                            {item.judul_news}
                           </Link>
                         
                         </h3>

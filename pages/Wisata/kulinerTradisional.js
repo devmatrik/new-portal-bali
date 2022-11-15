@@ -35,14 +35,23 @@ export default function KulinerTradisional() {
     }
 
   const getData = () => {
-    Promise.resolve(StorageApi.getData("sm_portal/wisata?jenis_wisata_id=1"))
+    Promise.resolve(StorageApi.getData("sm_master_data/jenis_wisata"))
       .then(value => {
-        const data = value.data.data
-        setWisata(data)
-
+        const list = value.data.data
+        var param = ""
+        list.map(item => {
+          if (item.jenis_wisata == "Kuliner Tradisional") {
+            param = item.rowid
+          }
+        })
+        Promise.resolve(StorageApi.getData(`sm_portal/wisata?jenis_wisata_id=${param}`))
+          .then(value => {
+            const data = value.data.data
+            setWisata(data)
+          }).catch(error => {
+            setWisata([])
+          })
       }).catch(error => {
-        // setWisata(data)
-
       })
   }
   return (

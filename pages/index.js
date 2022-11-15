@@ -207,146 +207,360 @@ export default function Home() {
                   </section>
                 </aside>
               </div>
-            </div>
-            <div className="row">
-              <div className="section-title">
-                <h2><Image className="p-2" src="/images/News.png" width={50} height={50} alt="" /> Latest News</h2>
-                {/* <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
               </div>
-              <div className="col-lg-3">
-                <div
-                  className="single-main-news-inner mb-4"
-                  style={{ borderRadius: 8 }}
-                >
-                  <Link href="/News/DetailNews">
-                    <img src="/images/jepun.png" alt="image" />
-                  </Link>
-                  <div className="news-content">
-                    {/* <div class="tag">National</div> */}
-                    <h3 style={{ fontSize: 20 }}>
-                      <Link href="/News/DetailNews">
-                        Jepun Bali, Jaringan Elektronik Policing untuk Bali
-                      </Link>
-                    </h3>
-                    <span>28 September, 2022</span>
+              <div className="row">
+                  <div className="section-title">
+                    <h2><Image className="p-2" src="/images/News.png" width={50} height={50} alt="" /> Latest News</h2>
+                    {/* <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
                   </div>
-                </div>
-                <div
-                  className="single-main-news-inner mb-5"
-                  style={{ borderRadius: 8 }}
-                >
-                  <Link href="/News/DetailNews">
-                    <img src="/images/main-news/main-news-2.jpg" alt="image" />
-                  </Link>
-                  <div className="news-content">
-                    <h3 style={{ fontSize: 20 }}>
-                      <Link href="/News/DetailNews">Smart City Bali</Link>
-                    </h3>
-                    <span>28 September, 2022</span>
+                  <div className="col-lg-9">
+                    <Carousel>
+                      <Carousel.Item>
+                        <div className="row">
+                          <div class="col-lg-4">
+                            <div
+                              className="single-main-news-inner mb-4"
+                              style={{ borderRadius: 8 }}
+                            >
+                              <Link href="/News/DetailNews">
+                                <img src="/images/jepun.png" alt="image" />
+                              </Link>
+                              <div className="news-content">
+                                {/* <div class="tag">National</div> */}
+                                <h3 style={{ fontSize: 20 }}>
+                                  <Link href="/News/DetailNews">
+                                    Jepun Bali, Jaringan Elektronik Policing untuk Bali
+                                  </Link>
+                                </h3>
+                                <span>28 September, 2022</span>
+                              </div>
+                            </div>
+                            <div
+                              className="single-main-news-inner mb-5"
+                              style={{ borderRadius: 8 }}
+                            >
+                              <Link href="/News/DetailNews">
+                                <img src="/images/main-news/main-news-2.jpg" alt="image" />
+                              </Link>
+                              <div className="news-content">
+                                <h3 style={{ fontSize: 20 }}>
+                                  <Link href="/News/DetailNews">Smart City Bali</Link>
+                                </h3>
+                                <span>28 September, 2022</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div
+                              className="single-main-news-inner mb-4"
+                              style={{ borderRadius: 8 }}
+                            >
+                              <Link href="/News/DetailNews">
+                                <img src="/images/jepun.png" alt="image" />
+                              </Link>
+                              <div className="news-content">
+                                {/* <div class="tag">National</div> */}
+                                <h3 style={{ fontSize: 20 }}>
+                                  <Link href="/News/DetailNews">
+                                    Jepun Bali, Jaringan Elektronik Policing untuk Bali
+                                  </Link>
+                                </h3>
+                                <span>28 September, 2022</span>
+                              </div>
+                            </div>
+                            <div
+                              className="single-main-news-inner mb-5"
+                              style={{ borderRadius: 8 }}
+                            >
+                              <Link href="/News/DetailNews">
+                                <img src="/images/main-news/main-news-2.jpg" alt="image" />
+                              </Link>
+                              <div className="news-content">
+                                <h3 style={{ fontSize: 20 }}>
+                                  <Link href="/News/DetailNews">Smart City Bali</Link>
+                                </h3>
+                                <span>28 September, 2022</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div
+                              className="single-main-news-inner mb-4"
+                              style={{ borderRadius: 8 }}
+                            >
+                              <Link href="/News/DetailNews">
+                                <img src="/images/jepun.png" alt="image" />
+                              </Link>
+                              <div className="news-content">
+                                {/* <div class="tag">National</div> */}
+                                <h3 style={{ fontSize: 20 }}>
+                                  <Link href="/News/DetailNews">
+                                    Jepun Bali, Jaringan Elektronik Policing untuk Bali
+                                  </Link>
+                                </h3>
+                                <span>28 September, 2022</span>
+                              </div>
+                            </div>
+                            <div
+                              className="single-main-news-inner mb-5"
+                              style={{ borderRadius: 8 }}
+                            >
+                              <Link href="/News/DetailNews">
+                                <img src="/images/main-news/main-news-2.jpg" alt="image" />
+                              </Link>
+                              <div className="news-content">
+                                <h3 style={{ fontSize: 20 }}>
+                                  <Link href="/News/DetailNews">Smart City Bali</Link>
+                                </h3>
+                                <span>28 September, 2022</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </Carousel.Item>
+                      <Carousel.Item>
+                        <div className="row">
+                          <div class="col-lg-4">
+                            <div
+                              className="single-main-news-inner mb-4"
+                              style={{ borderRadius: 8 }}
+                            >
+                              <Link href="/News/DetailNews">
+                                <img src="/images/jepun.png" alt="image" />
+                              </Link>
+                              <div className="news-content">
+                                {/* <div class="tag">National</div> */}
+                                <h3 style={{ fontSize: 20 }}>
+                                  <Link href="/News/DetailNews">
+                                    Jepun Bali, Jaringan Elektronik Policing untuk Bali
+                                  </Link>
+                                </h3>
+                                <span>28 September, 2022</span>
+                              </div>
+                            </div>
+                            <div
+                              className="single-main-news-inner mb-5"
+                              style={{ borderRadius: 8 }}
+                            >
+                              <Link href="/News/DetailNews">
+                                <img src="/images/main-news/main-news-2.jpg" alt="image" />
+                              </Link>
+                              <div className="news-content">
+                                <h3 style={{ fontSize: 20 }}>
+                                  <Link href="/News/DetailNews">Smart City Bali</Link>
+                                </h3>
+                                <span>28 September, 2022</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div
+                              className="single-main-news-inner mb-4"
+                              style={{ borderRadius: 8 }}
+                            >
+                              <Link href="/News/DetailNews">
+                                <img src="/images/jepun.png" alt="image" />
+                              </Link>
+                              <div className="news-content">
+                                {/* <div class="tag">National</div> */}
+                                <h3 style={{ fontSize: 20 }}>
+                                  <Link href="/News/DetailNews">
+                                    Jepun Bali, Jaringan Elektronik Policing untuk Bali
+                                  </Link>
+                                </h3>
+                                <span>28 September, 2022</span>
+                              </div>
+                            </div>
+                            <div
+                              className="single-main-news-inner mb-5"
+                              style={{ borderRadius: 8 }}
+                            >
+                              <Link href="/News/DetailNews">
+                                <img src="/images/main-news/main-news-2.jpg" alt="image" />
+                              </Link>
+                              <div className="news-content">
+                                <h3 style={{ fontSize: 20 }}>
+                                  <Link href="/News/DetailNews">Smart City Bali</Link>
+                                </h3>
+                                <span>28 September, 2022</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div
+                              className="single-main-news-inner mb-4"
+                              style={{ borderRadius: 8 }}
+                            >
+                              <Link href="/News/DetailNews">
+                                <img src="/images/jepun.png" alt="image" />
+                              </Link>
+                              <div className="news-content">
+                                {/* <div class="tag">National</div> */}
+                                <h3 style={{ fontSize: 20 }}>
+                                  <Link href="/News/DetailNews">
+                                    Jepun Bali, Jaringan Elektronik Policing untuk Bali
+                                  </Link>
+                                </h3>
+                                <span>28 September, 2022</span>
+                              </div>
+                            </div>
+                            <div
+                              className="single-main-news-inner mb-5"
+                              style={{ borderRadius: 8 }}
+                            >
+                              <Link href="/News/DetailNews">
+                                <img src="/images/main-news/main-news-2.jpg" alt="image" />
+                              </Link>
+                              <div className="news-content">
+                                <h3 style={{ fontSize: 20 }}>
+                                  <Link href="/News/DetailNews">Smart City Bali</Link>
+                                </h3>
+                                <span>28 September, 2022</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </Carousel.Item>
+                      <Carousel.Item>
+                        <div className="row">
+                          <div class="col-lg-4">
+                            <div
+                              className="single-main-news-inner mb-4"
+                              style={{ borderRadius: 8 }}
+                            >
+                              <Link href="/News/DetailNews">
+                                <img src="/images/jepun.png" alt="image" />
+                              </Link>
+                              <div className="news-content">
+                                {/* <div class="tag">National</div> */}
+                                <h3 style={{ fontSize: 20 }}>
+                                  <Link href="/News/DetailNews">
+                                    Jepun Bali, Jaringan Elektronik Policing untuk Bali
+                                  </Link>
+                                </h3>
+                                <span>28 September, 2022</span>
+                              </div>
+                            </div>
+                            <div
+                              className="single-main-news-inner mb-5"
+                              style={{ borderRadius: 8 }}
+                            >
+                              <Link href="/News/DetailNews">
+                                <img src="/images/main-news/main-news-2.jpg" alt="image" />
+                              </Link>
+                              <div className="news-content">
+                                <h3 style={{ fontSize: 20 }}>
+                                  <Link href="/News/DetailNews">Smart City Bali</Link>
+                                </h3>
+                                <span>28 September, 2022</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div
+                              className="single-main-news-inner mb-4"
+                              style={{ borderRadius: 8 }}
+                            >
+                              <Link href="/News/DetailNews">
+                                <img src="/images/jepun.png" alt="image" />
+                              </Link>
+                              <div className="news-content">
+                                {/* <div class="tag">National</div> */}
+                                <h3 style={{ fontSize: 20 }}>
+                                  <Link href="/News/DetailNews">
+                                    Jepun Bali, Jaringan Elektronik Policing untuk Bali
+                                  </Link>
+                                </h3>
+                                <span>28 September, 2022</span>
+                              </div>
+                            </div>
+                            <div
+                              className="single-main-news-inner mb-5"
+                              style={{ borderRadius: 8 }}
+                            >
+                              <Link href="/News/DetailNews">
+                                <img src="/images/main-news/main-news-2.jpg" alt="image" />
+                              </Link>
+                              <div className="news-content">
+                                <h3 style={{ fontSize: 20 }}>
+                                  <Link href="/News/DetailNews">Smart City Bali</Link>
+                                </h3>
+                                <span>28 September, 2022</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div
+                              className="single-main-news-inner mb-4"
+                              style={{ borderRadius: 8 }}
+                            >
+                              <Link href="/News/DetailNews">
+                                <img src="/images/jepun.png" alt="image" />
+                              </Link>
+                              <div className="news-content">
+                                {/* <div class="tag">National</div> */}
+                                <h3 style={{ fontSize: 20 }}>
+                                  <Link href="/News/DetailNews">
+                                    Jepun Bali, Jaringan Elektronik Policing untuk Bali
+                                  </Link>
+                                </h3>
+                                <span>28 September, 2022</span>
+                              </div>
+                            </div>
+                            <div
+                              className="single-main-news-inner mb-5"
+                              style={{ borderRadius: 8 }}
+                            >
+                              <Link href="/News/DetailNews">
+                                <img src="/images/main-news/main-news-2.jpg" alt="image" />
+                              </Link>
+                              <div className="news-content">
+                                <h3 style={{ fontSize: 20 }}>
+                                  <Link href="/News/DetailNews">Smart City Bali</Link>
+                                </h3>
+                                <span>28 September, 2022</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </Carousel.Item>
+                    </Carousel>
                   </div>
-                </div>
+                  <div className="col-lg-3">
+                    <aside className="widget-area">
+                      <section className="widget widget_latest_news_thumb">
+                        <h3 className="widget-title"><Image src="/images/News.png" width={40} height={40} alt="image" /> G20</h3>
+                        <article className="item">
+                          <a href="#" className="thumb">
+                            <span className="fullimage cover bg1" role="img"></span>
+                          </a>
+                          <div className="info">
+                            <h4 className="title usmall"><a href="#">Negotiations on a peace agreement between the two countries</a></h4>
+                            <span>28 September, 2022</span>
+                          </div>
+                        </article>
+                        <article className="item">
+                          <a href="#" className="thumb">
+                            <span className="fullimage cover bg2" role="img"></span>
+                          </a>
+                          <div className="info">
+                            <h4 className="title usmall"><a href="#">Love songs helped me through heartbreak</a></h4>
+                            <span>28 September, 2022</span>
+                          </div>
+                        </article>
+                        <article className="item">
+                          <a href="#" className="thumb">
+                            <span className="fullimage cover bg3" role="img"></span>
+                          </a>
+                          <div className="info">
+                            <h4 className="title usmall"><a href="#">This movement aims to establish women rights</a></h4>
+                            <span>28 September, 2022</span>
+                          </div>
+                        </article>
+                      </section>
+                    </aside>
+                  </div>
               </div>
-              <div className="col-lg-3">
-                <div
-                  className="single-main-news-inner mb-4"
-                  style={{ borderRadius: 8 }}
-                >
-                  <Link href="/News/DetailNews">
-                    <img src="/images/jepun.png" alt="image" />
-                  </Link>
-                  <div className="news-content">
-                    {/* <div class="tag">National</div> */}
-                    <h3 style={{ fontSize: 20 }}>
-                      <Link href="/News/DetailNews">
-                        Jepun Bali, Jaringan Elektronik Policing untuk Bali
-                      </Link>
-                    </h3>
-                    <span>28 September, 2022</span>
-                  </div>
-                </div>
-                <div
-                  className="single-main-news-inner mb-5"
-                  style={{ borderRadius: 8 }}
-                >
-                  <Link href="/News/DetailNews">
-                    <img src="/images/main-news/main-news-2.jpg" alt="image" />
-                  </Link>
-                  <div className="news-content">
-                    <h3 style={{ fontSize: 20 }}>
-                      <Link href="/News/DetailNews">Smart City Bali</Link>
-                    </h3>
-                    <span>28 September, 2022</span>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-3">
-                <div
-                  className="single-main-news-inner mb-4"
-                  style={{ borderRadius: 8 }}
-                >
-                  <Link href="/News/DetailNews">
-                    <img src="/images/jepun.png" alt="image" />
-                  </Link>
-                  <div className="news-content">
-                    {/* <div class="tag">National</div> */}
-                    <h3 style={{ fontSize: 20 }}>
-                      <Link href="/News/DetailNews">
-                        Jepun Bali, Jaringan Elektronik Policing untuk Bali
-                      </Link>
-                    </h3>
-                    <span>28 September, 2022</span>
-                  </div>
-                </div>
-                <div
-                  className="single-main-news-inner mb-5"
-                  style={{ borderRadius: 8 }}
-                >
-                  <Link href="/News/DetailNews">
-                    <img src="/images/main-news/main-news-2.jpg" alt="image" />
-                  </Link>
-                  <div className="news-content">
-                    <h3 style={{ fontSize: 20 }}>
-                      <Link href="/News/DetailNews">Smart City Bali</Link>
-                    </h3>
-                    <span>28 September, 2022</span>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-3">
-                <aside className="widget-area">
-                  <section className="widget widget_latest_news_thumb">
-                    <h3 className="widget-title"><Image src="/images/News.png" width={40} height={40} alt="image" /> G20</h3>
-                    <article className="item">
-                      <a href="#" className="thumb">
-                        <span className="fullimage cover bg1" role="img"></span>
-                      </a>
-                      <div className="info">
-                        <h4 className="title usmall"><a href="#">Negotiations on a peace agreement between the two countries</a></h4>
-                        <span>28 September, 2022</span>
-                      </div>
-                    </article>
-                    <article className="item">
-                      <a href="#" className="thumb">
-                        <span className="fullimage cover bg2" role="img"></span>
-                      </a>
-                      <div className="info">
-                        <h4 className="title usmall"><a href="#">Love songs helped me through heartbreak</a></h4>
-                        <span>28 September, 2022</span>
-                      </div>
-                    </article>
-                    <article className="item">
-                      <a href="#" className="thumb">
-                        <span className="fullimage cover bg3" role="img"></span>
-                      </a>
-                      <div className="info">
-                        <h4 className="title usmall"><a href="#">This movement aims to establish women rights</a></h4>
-                        <span>28 September, 2022</span>
-                      </div>
-                    </article>
-                  </section>
-                </aside>
-              </div>
-            </div>
           </div>
         </section>
         {/* End Default News Area */}

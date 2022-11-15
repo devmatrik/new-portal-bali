@@ -38,12 +38,21 @@ export default function TempatRekreasi() {
   const getData = () => {
     Promise.resolve(StorageApi.getData("sm_portal/wisata?jenis_wisata_id=5"))
       .then(value => {
-        const data = value.data.data
-        setWisata(data)
-
+        const list = value.data.data
+        var param = ""
+        list.map(item => {
+          if (item.jenis_wisata == "Tempat Rekreasi") {
+            param = item.rowid
+          }
+        })
+        Promise.resolve(StorageApi.getData(`sm_portal/wisata?jenis_wisata_id=${param}`))
+          .then(value => {
+            const data = value.data.data
+            setWisata(data)
+          }).catch(error => {
+            setWisata([])
+          })
       }).catch(error => {
-        // setWisata(data)
-
       })
   }
   return (
