@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import moment from 'moment/moment'
 import { StorageApi, BaseLayouts } from '../../components/MainCode/MainImport'
 
 export default function DetailNews() {
     const router = useRouter()
-    const query = router?.query;
+    const query = router.query;
 
     const [loading, setLoading] = useState('')
     const [detail, setDetail] = useState('')
@@ -32,14 +31,71 @@ export default function DetailNews() {
                             <div className="col-lg-8 col-md-12 mt-0">
                                 <div className="blog-details-desc">
                                     <div className="article-content mt-0">
-                                        <span><a href="#">Walters</a> / {moment(detail.tanggal_news).format("DD MMMM, YYYY")} /</span>
-                                        <h3>{detail.judul_news}</h3>
+                                        <span><a href="#">Walters</a> / 28 September 2022 /</span>
+                                        <h3>Smart City Bali, Teknologi apa yang dipakai disana?</h3>
                                         <div className="article-image">
-                                            <img src={detail.image} alt="image" />
+                                            <img src="assets/img/news-details/news-details-1.jpg" alt="image" />
                                         </div> <br />
-                                        <div>
-                                            <p style={{ textAlign: "justify" }}>{detail.isi_konten}</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.</p>
+
+                                        <div className="desc-overview">
+                                            <div className="row align-items-center">
+                                                <div className="col-lg-6">
+                                                    <div className="desc-image">
+                                                        <img src="assets/img/news-details/news-details-2.jpg" alt="image" />
+                                                    </div>
+                                                </div>
+
+                                                <div className="col-lg-6">
+                                                    <div className="desc-text">
+                                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
+
+                                        <h4>Trump discusses various issues with his partys political leaders</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                                        <ul className="features-list">
+                                            <li>
+                                                <i className='bx bx-check'></i>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            </li>
+                                            <li>
+                                                <i className='bx bx-check'></i>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.
+                                            </li>
+                                            <li>
+                                                <i className='bx bx-check'></i>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            </li>
+                                        </ul>
+
+                                        <h4>Discuss 5 major issues by keeping people together</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                                        <ul className="features-list">
+                                            <li>
+                                                <i className='bx bx-check'></i>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            </li>
+                                            <li>
+                                                <i className='bx bx-check'></i>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.
+                                            </li>
+                                            <li>
+                                                <i className='bx bx-check'></i>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            </li>
+                                        </ul>
+
+                                        <blockquote className="wp-block-quote">
+                                            <p>“Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.”</p>
+                                        </blockquote>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                     </div>
 
                                     <div className="article-footer">

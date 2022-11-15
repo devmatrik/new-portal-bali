@@ -321,7 +321,11 @@ export default function Home() {
                               <span className="fullimage cover bg1" role="img"></span>
                             </a>
                             <div className="info">
-                              <h4 className="title usmall" style={{ fontSize: 11 }}><a href="#">{item.judul_news}</a></h4>
+                              <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                <h4 className="title usmall" style={{ fontSize: 11 }}>
+                                  <a>{item.judul_news}</a>
+                                </h4>
+                              </Link>
                               <span style={{ fontSize: 11 }}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
                             </div>
                           </article>
