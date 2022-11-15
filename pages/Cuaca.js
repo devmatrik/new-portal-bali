@@ -32,43 +32,43 @@ export default function Cuaca() {
 
   return (
     <>
-      <Card style={{ width: '40rem' }} className={'bg-transparent hapus-border'}>
+    {/* <div className="container"> */}
+    <div className="row">
+                <div className="col-md-6">
+                  <div className="location">
+                    <p className='hari'>
+                      <Image src="/images/map.png" width={20} height={20} alt="" />
+                      {weather.kota}
+                    </p>
+                    <p className='tanggal'>
+                      {weather.hari}
+                    </p>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="temp">
+                    <p className='weather'>
+                      <img src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} width={30} alt="cuaca" />
+                      {weather.temp}
+                    </p>
+                    <p className='wind'>
+                      <Image  src={'/images/wind.png'} width={20} height={20} alt="" />
+                      {weather.kecepatan_angin}
+                    </p>
+                  </div>
+                </div>
+              </div>
+      {/* <Card style={{ width: '40rem' }} className={'bg-transparent hapus-border'}>
         <Card.Body>
           <Card.Title></Card.Title>
           <Card.Subtitle className='font-hari'></Card.Subtitle>
           <Card.Text>
-            <div class="container">
-              <div class="row">
-                <div class="col">
-                  <p className='hari'>
-                    {weather.kota}
-                  </p>
-                  <p className='tanggal'>
-                    {weather.hari}
-                  </p>
-                </div>
-                <div class="col temp">
-                  <span className=''>
-                    <img src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} width={50} alt="cuaca" />
-                  </span>
-                  <span>
-                    {weather.temp}
-                  </span>
-                </div>
-                <div class="col temp">
-                  <span className=''>
-                    <Image src={'/images/wind.png'} width={20} height={20} alt="" />
-                  </span>
-                  {weather.kecepatan_angin}
-                </div>
-              </div>
-            </div>
+            
           </Card.Text>
-
         </Card.Body>
-      </Card>
-      <div>
-      </div>
+      </Card> */}
+      {/* <div>
+      </div> */}
     </>
   );
 }
