@@ -32,14 +32,24 @@ export default function NewsFlash() {
     }
 
     const getData = () => {
-        Promise.resolve(StorageApi.getData("sm_portal/news?jenis_news_id=2"))
+        Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
+      .then(value => {
+        const list = value.data.data
+        var param = ""
+        list.map(item => {
+          if (item.jenis_berita == "News Flash") {
+            param = item.rowid
+          }
+        })
+        Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_berita_id=${param}`))
           .then(value => {
             const data = value.data.data
             setNews(data)
-    
           }).catch(error => {
-            // setWisata(data)
+            setNews([])
           })
+      }).catch(error => {
+      })
       }
 
   return (
@@ -72,7 +82,7 @@ export default function NewsFlash() {
                            {item.judul}
                           </a> */}
                           <Link href={'/News/' + item.rowid} key={item.rowid}>
-                            {item.judul}
+                            {item.judul_news}
                           </Link>
                         
                         </h3>

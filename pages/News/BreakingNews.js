@@ -31,16 +31,26 @@ export default function BreakingNews() {
       //LinkApi: "algors/periode_keselamatan",
     }
 
-    const getData = async () => {
-        Promise.resolve(StorageApi.getData("sm_portal/news" + param))
+    const getData = () => {
+    Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
+      .then(value => {
+        const list = value.data.data
+        var param = ""
+        list.map(item => {
+          if (item.jenis_berita == "Breaking News") {
+            param = item.rowid
+          }
+        })
+        Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_news_id=${param}`))
           .then(value => {
             const data = value.data.data
             setNews(data)
-    
-          }).catch(error => {
-            // setWisata(data)
-          })
-      }
+        }).catch(error => {
+            setNews([])
+        })
+    }).catch(error => {
+    })
+}
 
   return (
     <>
@@ -72,7 +82,7 @@ export default function BreakingNews() {
                            {item.judul}
                           </a> */}
                           <Link href={'/News/' + item.rowid} key={item.rowid}>
-                            {item.judul}
+                            {item.judul_news}
                           </Link>
                         
                         </h3>

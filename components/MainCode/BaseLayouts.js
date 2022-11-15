@@ -24,9 +24,7 @@ export default function BaseLayouts(props) {
     <Navbar>
       {props.children}
     </Navbar>
-
     <Footer>
-      
     </Footer>
     
     {/* <Konten></Konten> */}

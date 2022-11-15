@@ -5,8 +5,8 @@ import {
   StorageApi
 } from '../../components/MainCode/MainImport'
 // import Slider from "react-slick";
+// import Function from '../../components/Function';
 import Link from 'next/link';
-import Function from '../../components/Function';
 import moment from 'moment/moment';
 import Carousel from 'react-grid-carousel'
 
