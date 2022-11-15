@@ -33,10 +33,14 @@ export default function CuacaLiveTraffict(props) {
 
   return (
     <>
-        <Image src="/images/map.png" width={20} height={20} alt="" />
-        {weather.kota}
-        <img src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} width={30} alt="cuaca" />
-        {weather.temp}
+        <div className="hariLive">
+            <Image src="/images/map.png" width={20} height={20} alt="" />
+            {weather.kota}
+        </div>
+        <div className="hariLive">
+            <img src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} width={25} alt="cuaca" />
+            {weather.temp}
+        </div>
     </>
   );
 }

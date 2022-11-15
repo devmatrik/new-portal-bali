@@ -83,7 +83,8 @@ export default function Home() {
             latest = item.rowid
           }
         })
-        Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_news_id=${latest}`))
+        // Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_news_id=${latest}`))
+        Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_news_id=5`))
           .then(value => {
             const datag20 = value.data.data
             const Listdata = datag20.sort((a, b) => moment(b.tanggal_news).format("DD") - moment(a.tanggal_news).format("DD"))
@@ -283,20 +284,20 @@ export default function Home() {
               </div>
               <div className="col-lg-9">
                 <Carousel cols={3} rows={2} gap={8} loop>
-                  {listLatest.map(item => {
+                  {listLatest.map((item, index) => {
                     return (
-                      <Carousel.Item>
+                      <Carousel.Item key={index}>
                         <div
                           className="single-main-news-inner mb-4"
                           style={{ borderRadius: 8 }}
                         >
-                          <Link href="/News/DetailNews">
+                          <Link href={`/News/DetailNews?id=${item.rowid}`}>
                             <img src={`${item.image}`} alt="image" style={{ height: "170px" }} />
                           </Link>
                           <div className="news-content">
                             {/* <div class="tag">National</div> */}
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/News/DetailNews">
+                              <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                 {item.judul_news}
                               </Link>
                             </h3>
