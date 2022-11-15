@@ -34,29 +34,30 @@ export default function Cuaca() {
     <>
     {/* <div className="container"> */}
     <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-12">
                   <div className="location">
                     <p className='hari'>
                       <Image src="/images/map.png" width={20} height={20} alt="" />
-                      {weather.kota}
-                    </p>
-                    <p className='tanggal'>
-                      {weather.hari}
+                      {weather.kota},
+                      <span className='tanggal'>
+                        {weather.hari}
+                      </span>
+                    
                     </p>
                   </div>
-                </div>
-                <div className="col-md-6">
                   <div className="temp">
                     <p className='weather'>
                       <img src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} width={30} alt="cuaca" />
                       {weather.temp}
-                    </p>
-                    <p className='wind'>
-                      <Image  src={'/images/windd.png'} width={20} height={20} alt="" />
-                      {weather.kecepatan_angin}
+                      <span className='wind'>
+                        <Image  src={'/images/windd.png'} width={20} height={20} alt="" />
+                        {weather.kecepatan_angin}
+                      </span>
                     </p>
                   </div>
                 </div>
+                {/* <div className="col-md-6">
+                </div> */}
               </div>
       {/* <Card style={{ width: '40rem' }} className={'bg-transparent hapus-border'}>
         <Card.Body>

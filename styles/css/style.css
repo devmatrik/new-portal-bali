@@ -7306,7 +7306,7 @@ video {
   /* float: right; */
 }
 .wtitle {
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
   /* border-bottom: 1px solid #ef4444; */
   background-color: #d1d5db;
   border-radius: 10px;
@@ -7325,8 +7325,8 @@ video {
 }
 
 .wind {
-  margin-top: 10px;
-  /* margin-left: 6px; */
+  /* margin-top: 10px; */
+  margin-left: 6px;
   text-align: center;
   font-size: 10px;
   font-weight: 500;
@@ -7335,7 +7335,7 @@ video {
 }
 
 .hari {
-  margin-top: 10px;
+  /* margin-top: 10px; */
   text-align: center;
   color: #ef4444;
   font-size: 10px;
@@ -7343,7 +7343,7 @@ video {
   letter-spacing: 2px;
 }
 .tanggal {
-  margin-top: 10px;
+  /* margin-top: 10px; */
   margin-left: 10px;
   text-align: center;
   font-size: 10px;
