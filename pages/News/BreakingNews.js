@@ -71,7 +71,7 @@ export default function BreakingNews() {
                           {/* <a href="../DetailNews/rowid">
                            {item.judul}
                           </a> */}
-                          <Link href={'/Wisata/' + item.rowid} key={item.rowid}>
+                          <Link href={'/News/' + item.rowid} key={item.rowid}>
                             {item.judul}
                           </Link>
                         
