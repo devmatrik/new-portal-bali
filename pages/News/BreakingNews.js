@@ -31,8 +31,8 @@ export default function BreakingNews() {
       //LinkApi: "algors/periode_keselamatan",
     }
 
-    const getData = () => {
-        Promise.resolve(StorageApi.getData("sm_portal/news?jenis_news_id=1"))
+    const getData = async () => {
+        Promise.resolve(StorageApi.getData("sm_portal/news" + param))
           .then(value => {
             const data = value.data.data
             setNews(data)
