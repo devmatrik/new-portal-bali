@@ -42,7 +42,6 @@ export default function Cuaca() {
                       <span className='tanggal'>
                         {weather.hari}
                       </span>
-                    
                     </p>
                   </div>
                   <div className="temp">

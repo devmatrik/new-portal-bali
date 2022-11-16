@@ -460,7 +460,7 @@ Section Title CSS
   padding-bottom: 10px;
   border-bottom: 1px solid #eeeeee;
   width: 100%;
-  /* position: relative; */
+  position: relative;
   /* z-index: -100; */
 }
 
@@ -6064,6 +6064,8 @@ Contact Area CSS
   padding-left: 0;
   margin-bottom: 0;
   margin-top: 20px;
+  /* backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px); */
 }
 
 .contact-info li {
@@ -7320,7 +7322,7 @@ video {
 .weather {
   /* margin-top: 10px; */
   text-align: center;
-  color: #ef4444;
+  /* color: #ef4444; */
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 2px;
@@ -7332,14 +7334,14 @@ video {
   text-align: center;
   font-size: 10px;
   font-weight: 500;
-  color: #ef4444;
+  /* color: #ef4444; */
   letter-spacing: 2px;
 }
 
 .hari {
   /* margin-top: 10px; */
   text-align: center;
-  color: #ef4444;
+  /* color: #ef4444; */
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 2px;
@@ -7350,7 +7352,7 @@ video {
   text-align: center;
   font-size: 10px;
   font-weight: 500;
-  color: #ef4444;
+  /* color: #ef4444; */
   letter-spacing: 2px;
 }
 .livetraffict {
@@ -7406,6 +7408,16 @@ video {
 .mprof {
   border-radius: 20px;
   background-color: #fff;
+  padding: 9px 9px 9px 9px;
+}
+
+.allnews {
+  background-color: #fff;
+}
+
+.contactprof {
+  background-color: #fff;
+  border-radius: 20px;
   padding: 9px 9px 9px 9px;
 }
 /*# sourceMappingURL=style.css.map */

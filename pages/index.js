@@ -91,7 +91,7 @@ export default function Home() {
             <div className="row">
               <div className="col-md-9">
                 <div className="section-title">
-                  <h2><Image className="p-2" src="/images/explore.svg" width={50} height={50} alt="" /> Explore Bali</h2>
+                  <h2 className='widget-title'><Image className="p-2" src="/images/explore.svg" width={50} height={50} alt="image" /> Explore Bali</h2>
                 </div>
               </div>
               <div className="col-md-3">
@@ -100,7 +100,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="col-lg-9">
-                <Carousel>
+                <Carousel autoplay loop>
                   <Carousel.Item>
                     <div className="row">
                       <div className="col-lg-4">
