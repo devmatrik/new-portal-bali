@@ -20,7 +20,7 @@ function Profile() {
                                         <Image className="prof" src="/images/logo2.png" width={140} height={140} alt="image" />
                                     </div>
                                     <div className='container'>
-                                        <Image className="prof" src="/images/profilebanner.svg" width={600} height={320} alt="image" />
+                                        <Image className="prof" src="/images/bannerprofile.svg" width={500} height={320} alt="image" />
                                     </div>
                                 </div> <br />
                                 <p>Electronic Policing (e-policing) yang merupakan pemolisian di era digital yang dapat mendukung pelayanan kepolisian yang prima yaitu: cepat, tepat, akurat, transparan, akuntabel, informatif dan mudah diakses. Di era kemajuan di bidang ilmu pengetahuan dan teknologi yang begitu cepat berdampak terjadinya globalisasi.</p>
@@ -109,7 +109,7 @@ function Profile() {
                     </div>
 
                     <div class="col-lg-4">
-                        <aside class="widget-area">
+                        <aside class="widget-area contactprof">
                             <section class="widget widget_stay_connected">
                                 <h3 class="widget-title">Location</h3>
                                 
