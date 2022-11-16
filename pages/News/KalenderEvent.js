@@ -7,7 +7,8 @@ import {
 // import Slider from "react-slick";
 import Link from 'next/link';
 import moment from 'moment/moment';
-import Carousel from 'react-grid-carousel'
+// import Carousel from 'react-grid-carousel'
+import Slide from 'react-bootstrap/Carousel'
 
 export default function KalenderEvent() {
 
@@ -85,11 +86,151 @@ export default function KalenderEvent() {
 
         {/* <!-- Start Main News Slider Area --> */}
         <section className="main-news-slider-area">
-            <div className="container">
+            <div className="container events">
                 <div className="section-title"> 
                     <h2>Upcoming Events</h2> 
                 </div>
-                <div className="main-news-slides owl-carousel owl-theme">
+                <Slide>
+                        <Slide.Item>
+                          <div className="row">
+                            <div className='col-lg-4'>
+                              <div className="single-main-news">
+                                <a href="#">
+                                  <img src="/images/jepun.png" alt="image" />
+                                </a>
+                                <div className="news-content">
+                                  <div className="tag">World news</div>
+                                    <h3>
+                                      <a href="#">Bali Experience 2022</a>
+                                    </h3>
+                                    <span><a href="">Seminyak</a> / 27 Oct - 7 Nov, 2022</span>
+                                  </div>
+                              </div>
+                            </div>
+                            <div className='col-lg-4'>
+                              <div className="single-main-news">
+                                <a href="#">
+                                  <img src="/images/jepun.png" alt="image" />
+                                </a>
+                                <div className="news-content">
+                                  <div className="tag">World news</div>
+                                    <h3>
+                                    <a href="#">International Conference on Science, Engineering & Technology</a>
+                                    </h3>
+                                    <span><a href="">Seminyak</a> / 27 Oct, 2022</span>
+                                  </div>
+                              </div>
+                            </div>
+                            <div className='col-lg-4'>
+                              <div className="single-main-news">
+                                <a href="#">
+                                  <img src="/images/jepun.png" alt="image" />
+                                </a>
+                                <div className="news-content">
+                                  <div className="tag">World news</div>
+                                    <h3>
+                                      <a href="#">G20 Summit, Bali — Centre for Disaster Protection</a>
+                                    </h3>
+                                    <span><a href="">Bali</a> / 27 Oct - 7 Nov, 2022</span>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        </Slide.Item>
+                        <Slide.Item>
+                        <div className="row">
+                            <div className='col-lg-4'>
+                              <div className="single-main-news">
+                                <a href="#">
+                                  <img src="/images/jepun.png" alt="image" />
+                                </a>
+                                <div className="news-content">
+                                  <div className="tag">World news</div>
+                                    <h3>
+                                      <a href="#">Bali Experience 2022</a>
+                                    </h3>
+                                    <span><a href="">Seminyak</a> / 27 Oct - 7 Nov, 2022</span>
+                                  </div>
+                              </div>
+                            </div>
+                            <div className='col-lg-4'>
+                              <div className="single-main-news">
+                                <a href="#">
+                                  <img src="/images/jepun.png" alt="image" />
+                                </a>
+                                <div className="news-content">
+                                  <div className="tag">World news</div>
+                                    <h3>
+                                    <a href="#">International Conference on Science, Engineering & Technology</a>
+                                    </h3>
+                                    <span><a href="">Seminyak</a> / 27 Oct, 2022</span>
+                                  </div>
+                              </div>
+                            </div>
+                            <div className='col-lg-4'>
+                              <div className="single-main-news">
+                                <a href="#">
+                                  <img src="/images/jepun.png" alt="image" />
+                                </a>
+                                <div className="news-content">
+                                  <div className="tag">World news</div>
+                                    <h3>
+                                      <a href="#">G20 Summit, Bali — Centre for Disaster Protection</a>
+                                    </h3>
+                                    <span><a href="">Bali</a> / 27 Oct - 7 Nov, 2022</span>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        </Slide.Item>
+                        <Slide.Item>
+                        <div className="row">
+                            <div className='col-lg-4'>
+                              <div className="single-main-news">
+                                <a href="#">
+                                  <img src="/images/jepun.png" alt="image" />
+                                </a>
+                                <div className="news-content">
+                                  <div className="tag">World news</div>
+                                    <h3>
+                                      <a href="#">Bali Experience 2022</a>
+                                    </h3>
+                                    <span><a href="">Seminyak</a> / 27 Oct - 7 Nov, 2022</span>
+                                  </div>
+                              </div>
+                            </div>
+                            <div className='col-lg-4'>
+                              <div className="single-main-news">
+                                <a href="#">
+                                  <img src="/images/jepun.png" alt="image" />
+                                </a>
+                                <div className="news-content">
+                                  <div className="tag">World news</div>
+                                    <h3>
+                                    <a href="#">International Conference on Science, Engineering & Technology</a>
+                                    </h3>
+                                    <span><a href="">Seminyak</a> / 27 Oct, 2022</span>
+                                  </div>
+                              </div>
+                            </div>
+                            <div className='col-lg-4'>
+                              <div className="single-main-news">
+                                <a href="#">
+                                  <img src="/images/jepun.png" alt="image" />
+                                </a>
+                                <div className="news-content">
+                                  <div className="tag">World news</div>
+                                    <h3>
+                                      <a href="#">G20 Summit, Bali — Centre for Disaster Protection</a>
+                                    </h3>
+                                    <span><a href="">Bali</a> / 27 Oct - 7 Nov, 2022</span>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        </Slide.Item>
+                      </Slide>
+                {/* <div className="main-news-slides owl-carousel owl-theme">
                     <div className="news-slider-item">
                         <a href="#">
                             <img src="assets/img/main-news-slider/main-news-slider-1.jpg" alt="image" />
@@ -145,7 +286,7 @@ export default function KalenderEvent() {
                             <span><a href="">Da Maria</a> / 27 Oct - 7 Nov, 2022</span>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </section>
         {/* <!-- End Main News Slider Area -->
@@ -153,7 +294,7 @@ export default function KalenderEvent() {
         <!-- Start Default News Area --> */}
         <section className="default-news-area ptb-30">
             <div className="container">
-                <div className="row">
+                <div className="row events">
                     <div className="col-lg-9">
                         <div className="single-culture-news">
                             <div className="row align-items-center">
