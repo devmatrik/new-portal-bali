@@ -7,7 +7,8 @@ import {
 // import Slider from "react-slick";
 import Link from 'next/link';
 import moment from 'moment/moment';
-import Carousel from 'react-grid-carousel'
+import Slide from 'react-bootstrap/Carousel'
+// import Carousel from 'react-grid-carousel'
 
 export default function BreakingNews() {
 
@@ -91,40 +92,104 @@ export default function BreakingNews() {
                       <div className="section-title">
                         <h2><Image className="p-2" src="/images/News.png" width={50} height={50} alt="" />News</h2>
                       </div>
-                      <Carousel>
-                        <Carousel.Item>
-                        <div className="row">
-                          <div className='col-lg-6'>
-                            <div className="single-main-news">
-                              <a href="#">
-                                <img src="/images/jepun.png" alt="image" />
-                              </a>
-                              <div className="news-content">
-                                <div className="tag">World news</div>
-                                  <h3>
-                                    <a href="#">Speech to the nation on the current situation and the warning of coronavirus</a>
-                                  </h3>
-                                  <span><a href="">Walters</a> / 28 September, 2022</span>
-                                </div>
+                      <Slide>
+                        <Slide.Item>
+                          <div className="row">
+                            <div className='col-lg-6'>
+                              <div className="single-main-news">
+                                <a href="#">
+                                  <img src="/images/jepun.png" alt="image" />
+                                </a>
+                                <div className="news-content">
+                                  <div className="tag">World news</div>
+                                    <h3>
+                                      <a href="#">Speech to the nation on the current situation and the warning of coronavirus</a>
+                                    </h3>
+                                    <span><a href="">Walters</a> / 28 September, 2022</span>
+                                  </div>
+                              </div>
+                            </div>
+                            <div className='col-lg-6'>
+                              <div className="single-main-news">
+                                <a href="#">
+                                  <img src="/images/jepun.png" alt="image" />
+                                </a>
+                                <div className="news-content">
+                                  <div className="tag">World news</div>
+                                    <h3>
+                                      <a href="#">Speech to the nation on the current situation and the warning of coronavirus</a>
+                                    </h3>
+                                    <span><a href="">Walters</a> / 28 September, 2022</span>
+                                  </div>
+                              </div>
                             </div>
                           </div>
-                          <div className='col-lg-6'>
-                            <div className="single-main-news">
-                              <a href="#">
-                                <img src="/images/jepun.png" alt="image" />
-                              </a>
-                              <div className="news-content">
-                                <div className="tag">World news</div>
-                                  <h3>
-                                    <a href="#">Speech to the nation on the current situation and the warning of coronavirus</a>
-                                  </h3>
-                                  <span><a href="">Walters</a> / 28 September, 2022</span>
-                                </div>
+                        </Slide.Item>
+                        <Slide.Item>
+                          <div className="row">
+                            <div className='col-lg-6'>
+                              <div className="single-main-news">
+                                <a href="#">
+                                  <img src="/images/jepun.png" alt="image" />
+                                </a>
+                                <div className="news-content">
+                                  <div className="tag">World news</div>
+                                    <h3>
+                                      <a href="#">Speech to the nation on the current situation and the warning of coronavirus</a>
+                                    </h3>
+                                    <span><a href="">Walters</a> / 28 September, 2022</span>
+                                  </div>
+                              </div>
+                            </div>
+                            <div className='col-lg-6'>
+                              <div className="single-main-news">
+                                <a href="#">
+                                  <img src="/images/jepun.png" alt="image" />
+                                </a>
+                                <div className="news-content">
+                                  <div className="tag">World news</div>
+                                    <h3>
+                                      <a href="#">Speech to the nation on the current situation and the warning of coronavirus</a>
+                                    </h3>
+                                    <span><a href="">Walters</a> / 28 September, 2022</span>
+                                  </div>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        </Carousel.Item>
-                      </Carousel>
+                        </Slide.Item>
+                        <Slide.Item>
+                          <div className="row">
+                            <div className='col-lg-6'>
+                              <div className="single-main-news">
+                                <a href="#">
+                                  <img src="/images/jepun.png" alt="image" />
+                                </a>
+                                <div className="news-content">
+                                  <div className="tag">World news</div>
+                                    <h3>
+                                      <a href="#">Speech to the nation on the current situation and the warning of coronavirus</a>
+                                    </h3>
+                                    <span><a href="">Walters</a> / 28 September, 2022</span>
+                                  </div>
+                              </div>
+                            </div>
+                            <div className='col-lg-6'>
+                              <div className="single-main-news">
+                                <a href="#">
+                                  <img src="/images/jepun.png" alt="image" />
+                                </a>
+                                <div className="news-content">
+                                  <div className="tag">World news</div>
+                                    <h3>
+                                      <a href="#">Speech to the nation on the current situation and the warning of coronavirus</a>
+                                    </h3>
+                                    <span><a href="">Walters</a> / 28 September, 2022</span>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        </Slide.Item>
+                      </Slide>
                       </div>
                   </div>
             </div>
