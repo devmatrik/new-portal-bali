@@ -37,7 +37,7 @@ export default function WisataAdat() {
     }
 
   const getData = () => {
-    Promise.resolve(StorageApi.getData("sm_portal/wisata?jenis_wisata_id=4"))
+    Promise.resolve(StorageApi.getData("sm_portal/wisata"))
       .then(value => {
         const list = value.data.data
         var param = ""
@@ -69,7 +69,7 @@ export default function WisataAdat() {
             <Carousel cols={4} rows={1} gap={20} loop>
                   {wisata.map((item, index) => (
                     <Carousel.Item key={index}>
-                                        <div className="row" key={item.rowid}>
+                  <div className="row" key={item.rowid}>
                     <div className="col-lg-3 col-sm-3 ">
                       <div className="single-tech-news-box rounded-3" style={{ width: "16rem" }}>
                          <a href="">
