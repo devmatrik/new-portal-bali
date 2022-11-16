@@ -270,7 +270,7 @@ export default function Home() {
                 {/* <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
               </div>
               <div className="col-lg-9">
-                <Carousel cols={3} rows={2} gap={8} loop autoplay>
+                <Carousel cols={3} rows={3} gap={8} loop autoplay>
                   {listLatest.map((item, index) => {
                     return (
                       <Carousel.Item key={index}>
