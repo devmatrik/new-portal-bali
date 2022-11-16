@@ -55,7 +55,7 @@ export default function Home() {
         const list = value.data.data
         var newEvent = ""
         list.map(item => {
-          if (item.jenis_berita == "New Event") {
+          if (item.jenis_event == "New Event") {
             newEvent = item.rowid
           }
         })
@@ -74,26 +74,13 @@ export default function Home() {
   }
 
   const LatestNews = () => {
-    Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
+    Promise.resolve(StorageApi.getData(`sm_portal/news`))
       .then(value => {
-        const list = value.data.data
-        var latest = ""
-        list.map(item => {
-          if (item.jenis_berita == "Latest News") {
-            latest = item.rowid
-          }
-        })
-        // Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_news_id=${latest}`))
-        Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_news_id=5`))
-          .then(value => {
-            const datag20 = value.data.data
-            const Listdata = datag20.sort((a, b) => moment(b.tanggal_news).format("DD") - moment(a.tanggal_news).format("DD"))
-            setListLatest(Listdata)
-          }).catch(error => {
-            setListLatest([])
-          })
+        const datag20 = value.data.data
+        const Listdata = datag20.sort((a, b) => b.rowid - a.rowid)
+        setListLatest(Listdata)
       }).catch(error => {
-
+        setListLatest([])
       })
   }
   return (
@@ -266,8 +253,8 @@ export default function Home() {
                               <span className="fullimage cover bg1" role="img"></span>
                             </a>
                             <div className="info">
-                              <h4 className="title usmall"><a href="#">{item.nama_event}</a></h4>
-                              <span>{moment(item.tgl_event).format("DD MMMM, YYYY")}</span>
+                              <h4 className="title usmall" style={{ fontSize: 11 }}><a href="#">{item.nama_event}</a></h4>
+                              <span style={{ fontSize: 11 }}>{moment(item.tgl_event).format("DD MMMM, YYYY")}</span>
                             </div>
                           </article>
                         )
@@ -283,7 +270,7 @@ export default function Home() {
                 {/* <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
               </div>
               <div className="col-lg-9">
-                <Carousel cols={3} rows={2} gap={8} loop>
+                <Carousel cols={3} rows={2} gap={8} loop autoplay>
                   {listLatest.map((item, index) => {
                     return (
                       <Carousel.Item key={index}>
@@ -321,7 +308,11 @@ export default function Home() {
                               <span className="fullimage cover bg1" role="img"></span>
                             </a>
                             <div className="info">
-                              <h4 className="title usmall" style={{ fontSize: 11 }}><a href="#">{item.judul_news}</a></h4>
+                              <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                <h4 className="title usmall" style={{ fontSize: 11 }}>
+                                  <a>{item.judul_news}</a>
+                                </h4>
+                              </Link>
                               <span style={{ fontSize: 11 }}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
                             </div>
                           </article>

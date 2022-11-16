@@ -3809,6 +3809,8 @@ Widget Sidebar CSS
 =================================================*/
 .widget-area .widget {
   margin-bottom: 30px;
+  border-radius: 10px;
+  backdrop-filter: blur(15px);
 }
 
 .widget-area .widget:last-child {
@@ -7373,10 +7375,11 @@ video {
   font-weight: 500;
   letter-spacing: 2px; */
 }
-.jalan {
-  background-color: #fff;
-  border-radius: 5px;
-  font-size: 8px;
+.traf {
+  margin: 15px 5px 0px 0px;
+}
+.ltr {
+  margin-bottom: -2px;
 }
 .scroll-bar-vertical {
   overflow-y: auto;
@@ -7393,4 +7396,16 @@ video {
   display: none;
 }
 
+.prof {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin: 0px 200px 0px 200px; */
+}
+
+.mprof {
+  border-radius: 20px;
+  background-color: #fff;
+  padding: 9px 9px 9px 9px;
+}
 /*# sourceMappingURL=style.css.map */
