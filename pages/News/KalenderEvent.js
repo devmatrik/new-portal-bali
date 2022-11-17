@@ -51,14 +51,13 @@ export default function KalenderEvent() {
                 <div className="section-title"> 
                     <h2>Upcoming Events</h2> 
                 </div>
-                <Carousel cols={4} rows={1} gap={8} loop>
+                <Carousel cols={4} rows={1} gap={40} loop>
                       {event.map((item, index) => (
                         <Carousel.Item key={index}>
                           <div className="row" key={item.rowid}>
-                            <div className='col-lg-4'>
                               <div className="single-main-news">
                                 <a href="#">
-                                  <img src={item.image} style={{ width: "350px", height: "200px" }} alt="image" />
+                                  <img src={item.image} style={{ width: "350px", height: "250px" }} alt="image" />
                                 </a>
                                 <div className="news-content">
                                   <div className="tag">{item.jenis_event}</div>
@@ -69,7 +68,6 @@ export default function KalenderEvent() {
                                   </div>
                               </div>
                             </div>
-                          </div>
                         </Carousel.Item>
                       ))}
                       </Carousel>
