@@ -7,20 +7,24 @@ import {
 import Link from 'next/link';
 import moment from 'moment/moment';
 import Slide from 'react-bootstrap/Carousel'
+import Carousel from 'react-grid-carousel'
+import Cuaca from '../Cuaca';
 // import Slider from "react-slick";
-// import Carousel from 'react-grid-carousel'
 
 export default function BreakingNews() {
 
   const [listLatest, setListLatest] = useState([]);
-  const [listtags, setListTags] = useState([]);  
+  const [listTags, setListTags] = useState([]);  
   const [g20, setListG20] = useState([]);
   const [newEvent, setListNewEvent] = useState([]);
   const [loading, setLoading] = useState(false)
   const [news, setNews] = useState([])
 
   useEffect(() => {
+    G20()
+    LatestNews()
     getData();
+    getTags();
   }, [loading])
 
   const settings = {
@@ -34,6 +38,40 @@ export default function BreakingNews() {
   const konten = {
     title: "All News",
     //LinkApi: "algors/periode_keselamatan",
+  }
+
+  const LatestNews = () => {
+    Promise.resolve(StorageApi.getData(`sm_portal/news`))
+      .then(value => {
+        const datag20 = value.data.data
+        const Listdata = datag20.sort((a, b) => b.rowid - a.rowid)
+        setListLatest(Listdata)
+      }).catch(error => {
+        setListLatest([])
+      })
+  }
+
+  const G20 = () => {
+    Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
+      .then(value => {
+        const list = value.data.data
+        var g20 = ""
+        list.map(item => {
+          if (item.jenis_berita == "G20") {
+            g20 = item.rowid
+          }
+        })
+        Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_news_id=${g20}`))
+          .then(value => {
+            const datag20 = value.data.data
+            const Listdata = datag20.sort((a, b) => moment(b.tanggal_news).format("DD") - moment(a.tanggal_news).format("DD"))
+            setListG20(Listdata)
+          }).catch(error => {
+            setListG20([])
+          })
+      }).catch(error => {
+
+      })
   }
 
   const getData = () => {
@@ -57,8 +95,8 @@ export default function BreakingNews() {
       })
   }
 
-  const getTags = (id) => {
-    Promise.resolve(StorageApi.getTags(`sm_portal/news?jenis_news_id=${id}`))
+  const getTags = () => {
+    Promise.resolve(StorageApi.getData(`sm_master_data/jenis_berita`))
     .then(value => {
       const data = value.data.data
       setListTags(data)
@@ -74,137 +112,66 @@ export default function BreakingNews() {
       <BaseLayouts>
         <section className="main-news-area allnews">
             <div className="container">
-              <div className="col-lg-12">
-                        <aside className="widget-area">
-                            <section className="widget widget_tag_cloud">
-                                <h3 className="widget-title">Tags</h3>
-                                <div className="tagcloud">
-                                    {/* <Link >
-                                    </Link> */}
-                                    <a href="#">News</a>
-                                    <a href="#">Business</a>
-                                    <a href="#">Health</a>
-                                    <a href="#">Politics</a>
-                                    <a href="#">Magazine</a>
-                                    <a href="#">Sport</a>
-                                    <a href="#">Tech</a>
-                                    <a href="#">Video</a>
-                                    <a href="#">Global</a>
-                                    <a href="#">Culture</a>
-                                    <a href="#">Fashion</a>
-                                    <a href="#">Event</a>
-                                    <a href="#">Breaking News</a>
-                                    <a href="#">IT Goverment</a>
-                                </div>
-                            </section>
-
-                        </aside>
+              <div class="row">
+                <div className="col-md-9">
+                  <div className="section-title">
+                    <h3 className='widget-title'><Image className="p-2" src="/images/explore.svg" width={50} height={50} alt="image" />Tags</h3>
+                  </div>
+                </div>
+                <div className="col-md-3">
+                  <div className="wtitle">
+                    <Cuaca></Cuaca>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-12">
+                <aside className="widget-area">
+                  <section className="widget widget_tag_cloud">
+                    {/* <h3 className="widget-title">Tags</h3> */}
+                      <div className="tagcloud" >
+                        {listTags.map((item, index) => {
+                           return (
+                            <Link key={index} href={`sm_master_data/jenis_berita`}>
+                              {item.jenis_berita}
+                            </Link>
+                          )
+                        })}
+                      </div>
+                  </section>
+                </aside>
               </div>
               <br />
-              
                   <div className="row">
-                    <div className="col-lg-12">
+                    <div className="col-lg-8">
                       <div className="section-title">
                         <h2><Image className="p-2" src="/images/News.png" width={50} height={50} alt="" />News</h2>
                       </div>
-                      <Slide>
-                        <Slide.Item>
-                          <div className="row">
-                            <div className='col-lg-6'>
-                              <div className="single-main-news">
-                                <a href="#">
-                                  <img src="/images/jepun.png" alt="image" />
-                                </a>
-                                <div className="news-content">
-                                  <div className="tag">World news</div>
-                                    <h3>
-                                      <a href="#">Speech to the nation on the current situation and the warning of coronavirus</a>
-                                    </h3>
-                                    <span><a href="">Walters</a> / 28 September, 2022</span>
-                                  </div>
+                      <Carousel cols={1} row={1} gap={10}>
+                        {listLatest.map((item, index) => {
+                          return (
+                          <Carousel.Item key={index}>
+                            {/* <div className="row"> */}
+                              <div className='col-lg-4'>
+                                <div className="single-main-news">
+                                  <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                    <img src={`${item.image}`} alt="image" />
+                                  </Link>
+                                  <div className="news-content">
+                                    {/* <div className="tag">World news</div> */}
+                                      <h3>
+                                        <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                          {item.judul_news}
+                                        </Link>
+                                      </h3>
+                                      <span>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
+                                    </div>
+                                </div>
                               </div>
-                            </div>
-                            <div className='col-lg-6'>
-                              <div className="single-main-news">
-                                <a href="#">
-                                  <img src="/images/jepun.png" alt="image" />
-                                </a>
-                                <div className="news-content">
-                                  <div className="tag">World news</div>
-                                    <h3>
-                                      <a href="#">Speech to the nation on the current situation and the warning of coronavirus</a>
-                                    </h3>
-                                    <span><a href="">Walters</a> / 28 September, 2022</span>
-                                  </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Slide.Item>
-                        <Slide.Item>
-                          <div className="row">
-                            <div className='col-lg-6'>
-                              <div className="single-main-news">
-                                <a href="#">
-                                  <img src="/images/jepun.png" alt="image" />
-                                </a>
-                                <div className="news-content">
-                                  <div className="tag">World news</div>
-                                    <h3>
-                                      <a href="#">Speech to the nation on the current situation and the warning of coronavirus</a>
-                                    </h3>
-                                    <span><a href="">Walters</a> / 28 September, 2022</span>
-                                  </div>
-                              </div>
-                            </div>
-                            <div className='col-lg-6'>
-                              <div className="single-main-news">
-                                <a href="#">
-                                  <img src="/images/jepun.png" alt="image" />
-                                </a>
-                                <div className="news-content">
-                                  <div className="tag">World news</div>
-                                    <h3>
-                                      <a href="#">Speech to the nation on the current situation and the warning of coronavirus</a>
-                                    </h3>
-                                    <span><a href="">Walters</a> / 28 September, 2022</span>
-                                  </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Slide.Item>
-                        <Slide.Item>
-                          <div className="row">
-                            <div className='col-lg-6'>
-                              <div className="single-main-news">
-                                <a href="#">
-                                  <img src="/images/jepun.png" alt="image" />
-                                </a>
-                                <div className="news-content">
-                                  <div className="tag">World news</div>
-                                    <h3>
-                                      <a href="#">Speech to the nation on the current situation and the warning of coronavirus</a>
-                                    </h3>
-                                    <span><a href="">Walters</a> / 28 September, 2022</span>
-                                  </div>
-                              </div>
-                            </div>
-                            <div className='col-lg-6'>
-                              <div className="single-main-news">
-                                <a href="#">
-                                  <img src="/images/jepun.png" alt="image" />
-                                </a>
-                                <div className="news-content">
-                                  <div className="tag">World news</div>
-                                    <h3>
-                                      <a href="#">Speech to the nation on the current situation and the warning of coronavirus</a>
-                                    </h3>
-                                    <span><a href="">Walters</a> / 28 September, 2022</span>
-                                  </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Slide.Item>
-                      </Slide>
+                            {/* </div> */}
+                          </Carousel.Item>
+                          )
+                        })}
+                      </Carousel>
                       </div>
                   </div>
             </div>
@@ -216,10 +183,10 @@ export default function BreakingNews() {
                     <div className="col-lg-8">
                         <div className="most-popular-news">
                             <div className="section-title"> 
-                                <h2>Most popular</h2> 
+                                <h2>Global</h2> 
                             </div>
     
-                            <div className="row">
+                            {/* <div className="row">
                                 <div className="col-lg-6">
                                     <div className="single-most-popular-news">
                                         <div className="popular-news-image">
@@ -343,7 +310,7 @@ export default function BreakingNews() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className="video-news">
@@ -416,7 +383,7 @@ export default function BreakingNews() {
                                 <h2>Politics</h2> 
                             </div>
 
-                            <div className="row">
+                            {/* <div className="row">
                                 <div className="col-lg-6">
                                     <div className="single-politics-news">
                                         <div className="politics-news-image">
@@ -499,7 +466,7 @@ export default function BreakingNews() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className="business-news">
@@ -580,7 +547,7 @@ export default function BreakingNews() {
                                     <h2>Sports</h2> 
                                 </div>
 
-                                <div className="single-sports-news">
+                                {/* <div className="single-sports-news">
                                     <div className="row align-items-center">
                                         <div className="col-lg-4 col-sm-4">
                                             <div className="sports-news-image">
@@ -599,9 +566,9 @@ export default function BreakingNews() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
 
-                                <div className="single-sports-news">
+                                {/* <div className="single-sports-news">
                                     <div className="row align-items-center">
                                         <div className="col-lg-4 col-sm-4">
                                             <div className="sports-news-image">
@@ -620,9 +587,9 @@ export default function BreakingNews() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
 
-                                <div className="single-sports-news">
+                                {/* <div className="single-sports-news">
                                     <div className="row align-items-center">
                                         <div className="col-lg-4 col-sm-4">
                                             <div className="sports-news-image">
@@ -641,7 +608,7 @@ export default function BreakingNews() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
 
                             <div className="col-lg-6">
@@ -649,7 +616,7 @@ export default function BreakingNews() {
                                     <h2>Tech</h2> 
                                 </div>
 
-                                <div className="single-tech-news">
+                                {/* <div className="single-tech-news">
                                     <div className="row align-items-center">
                                         <div className="col-lg-4 col-sm-4">
                                             <div className="tech-news-image">
@@ -668,9 +635,9 @@ export default function BreakingNews() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
 
-                                <div className="single-tech-news">
+                                {/* <div className="single-tech-news">
                                     <div className="row align-items-center">
                                         <div className="col-lg-4 col-sm-4">
                                             <div className="tech-news-image">
@@ -689,9 +656,9 @@ export default function BreakingNews() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
 
-                                <div className="single-tech-news">
+                                {/* <div className="single-tech-news">
                                     <div className="row align-items-center">
                                         <div className="col-lg-4 col-sm-4">
                                             <div className="tech-news-image">
@@ -710,7 +677,7 @@ export default function BreakingNews() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
 
@@ -719,7 +686,7 @@ export default function BreakingNews() {
                                 <h2>Culture</h2> 
                             </div>
 
-                            <div className="row">
+                            {/* <div className="row">
                                 <div className="col-lg-6">
                                     <div className="single-culture-news">
                                         <div className="culture-news-image">
@@ -802,7 +769,7 @@ export default function BreakingNews() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className="health-news">
@@ -883,7 +850,7 @@ export default function BreakingNews() {
                             <section className="widget widget_latest_news_thumb">
                                 <h3 className="widget-title">Latest news</h3>
 
-                                <article className="item">
+                                {/* <article className="item">
                                     <a href="#" className="thumb">
                                         <span className="fullimage cover bg1" role="img"></span>
                                     </a>
@@ -931,80 +898,13 @@ export default function BreakingNews() {
                                         <h4 className="title usmall"><a href="#">Copy paste the style of your element Newspaper</a></h4>
                                         <span>28 September, 2022</span>
                                     </div>
-                                </article>
-                            </section>
-
-                            <section className="widget widget_featured_reports">
-                                <h3 className="widget-title">Featured reports</h3>
-
-                                <div className="single-featured-reports">
-                                    <div className="featured-reports-image">
-                                        <a href="#">
-                                            <img src="assets/img/featured-reports/featured-reports-1.jpg" alt="image" />
-                                        </a>
-
-                                        <div className="featured-reports-content">
-                                            <h3>
-                                                <a href="#">All the highlights from western fashion week summer 2022</a>
-                                            </h3>
-                                            <p><a href="#">Patricia</a> / 28 September, 2022</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-
-                            <section className="widget widget_stay_connected">
-                                <h3 className="widget-title">Stay connected</h3>
-                                
-                                <ul className="stay-connected-list">
-                                    <li>
-                                        <a href="#">
-                                            <i className='bx bxl-facebook'></i>
-                                            120,345 Fans
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" className="twitter">
-                                            <i className='bx bxl-twitter'></i>
-                                            25,321 Followers
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" className="linkedin">
-                                            <i className='bx bxl-linkedin'></i>
-                                            7,519 Connect
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" className="youtube">
-                                            <i className='bx bxl-youtube'></i>
-                                            101,545 Subscribers
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" className="instagram">
-                                            <i className='bx bxl-instagram'></i>
-                                            10,129 Followers
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" className="wifi">
-                                            <i className='bx bx-wifi'></i>
-                                            952 Subscribers
-                                        </a>
-                                    </li>
-                                </ul>
+                                </article> */}
                             </section>
 
                             <section className="widget widget_popular_posts_thumb">
                                 <h3 className="widget-title">Popular posts</h3>
 
-                                <article className="item">
+                                {/* <article className="item">
                                     <a href="#" className="thumb">
                                         <span className="fullimage cover bg1" role="img"></span>
                                     </a>
@@ -1042,7 +942,7 @@ export default function BreakingNews() {
                                         <h4 className="title usmall"><a href="#">A fierce battle is going on between the two in the game</a></h4>
                                         <span>28 September, 2022</span>
                                     </div>
-                                </article>
+                                </article> */}
                             </section>
                         </aside>
                     </div>
