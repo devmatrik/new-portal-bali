@@ -51,14 +51,13 @@ export default function KalenderEvent() {
                 <div className="section-title"> 
                     <h2>Upcoming Events</h2> 
                 </div>
-                <Slide cols={3} rows={1} gap={20} loop>
+                <Carousel cols={4} rows={1} gap={40} loop>
                       {event.map((item, index) => (
-                        <Slide.Item key={index}>
+                        <Carousel.Item key={index}>
                           <div className="row" key={item.rowid}>
-                            <div className='col-lg-4'>
                               <div className="single-main-news">
                                 <a href="#">
-                                  <img src={item.image} style={{ width: "350px", height: "200px" }} alt="image" />
+                                  <img src={item.image} style={{ width: "350px", height: "250px" }} alt="image" />
                                 </a>
                                 <div className="news-content">
                                   <div className="tag">{item.jenis_event}</div>
@@ -69,10 +68,9 @@ export default function KalenderEvent() {
                                   </div>
                               </div>
                             </div>
-                          </div>
-                        </Slide.Item>
+                        </Carousel.Item>
                       ))}
-                      </Slide>
+                      </Carousel>
                 </div>
             </section>
         {/* <!-- End Main News Slider Area -->
@@ -81,7 +79,7 @@ export default function KalenderEvent() {
         <section className="default-news-area ptb-30">
             <div className="container">
               {event.map((item, index) => (
-                  <div className="row events mb-20">
+                  <div className="row events mb-20" key={index}>
                     <div className="col-lg-9 ">
                         <div className="single-culture-news">
                             <div className="row align-items-center">
