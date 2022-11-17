@@ -4,15 +4,16 @@ import BaseLayouts from '../../components/MainCode/BaseLayouts'
 import {
   StorageApi
 } from '../../components/MainCode/MainImport'
-// import Slider from "react-slick";
 import Link from 'next/link';
 import moment from 'moment/moment';
 import Slide from 'react-bootstrap/Carousel'
+// import Slider from "react-slick";
 // import Carousel from 'react-grid-carousel'
 
 export default function BreakingNews() {
 
   const [listLatest, setListLatest] = useState([]);
+  const [listtags, setListTags] = useState([]);  
   const [g20, setListG20] = useState([]);
   const [newEvent, setListNewEvent] = useState([]);
   const [loading, setLoading] = useState(false)
@@ -56,6 +57,18 @@ export default function BreakingNews() {
       })
   }
 
+  const getTags = (id) => {
+    Promise.resolve(StorageApi.getTags(`sm_portal/news?jenis_news_id=${id}`))
+    .then(value => {
+      const data = value.data.data
+      setListTags(data)
+    }).catch(error => {
+      setListTags([])
+    }).catch(error => {
+
+    })
+  }
+
   return (
     <>
       <BaseLayouts>
@@ -66,6 +79,8 @@ export default function BreakingNews() {
                             <section className="widget widget_tag_cloud">
                                 <h3 className="widget-title">Tags</h3>
                                 <div className="tagcloud">
+                                    {/* <Link >
+                                    </Link> */}
                                     <a href="#">News</a>
                                     <a href="#">Business</a>
                                     <a href="#">Health</a>

@@ -7362,11 +7362,14 @@ video {
   margin-bottom: -8px;
 }
 .liveweather {
-  height: 80px;
+  /* height: 80px; */
   margin-top: -2px;
   background-color: #d1d5db;
   padding: 3px 5px 3px 5px;
   font-size: 12px;
+  width: !auto;
+  margin-left: 0px;
+  margi-right: 0px;
   /* margin: 45px 45px 45px 45px; */
 }
 .hariLive {
@@ -7381,7 +7384,7 @@ video {
   margin: 15px 5px 0px 0px;
 }
 .ltr {
-  margin-bottom: -2px;
+  margin-bottom: -6px;
 }
 .scroll-bar-vertical {
   overflow-y: auto;

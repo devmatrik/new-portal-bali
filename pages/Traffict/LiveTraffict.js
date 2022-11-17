@@ -47,9 +47,9 @@ export default function LiveTraffict() {
         <div className="contact-map ltr">
           <iframe src={`http://202.134.4.215/satupeta_new/PemetaanEmbed?center=-8.4356749,114.9973846&display=off&show_data=`} frameBorder="0" height={550} width={700}></iframe>
         </div>
-        <div className="">
+        <div className="contact-map">
           <div class="row liveweather">
-              <div className="col-lg-1">
+              <div className="col-md-1">
                 <CuacaLiveTraffict lat={'-8.4355'} lng={'115.243698'}/>
               </div>
               <div className="col-lg-1">

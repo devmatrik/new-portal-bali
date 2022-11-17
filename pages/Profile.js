@@ -17,7 +17,7 @@ function Profile() {
                                 <h3>Smart City Bali, Electronic Policing</h3>
                                 <div className="article-image">
                                     <div className='container'>
-                                        <Image className="prof" src="/images/logo2.png" width={140} height={140} alt="image" />
+                                        <Image className="prof" src="/images/LogoElingBali.png" width={240} height={140} alt="image" />
                                     </div>
                                     <div className='container'>
                                         <Image className="prof" src="/images/bannerprofile.svg" width={500} height={320} alt="image" />
