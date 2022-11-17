@@ -77,9 +77,9 @@ export default function KalenderEvent() {
 
         <!-- Start Default News Area --> */}
         <section className="default-news-area ptb-30">
-            <div className="container">
+            <div className="container events">
               {event.map((item, index) => (
-                  <div className="row events mb-20" key={index}>
+                  <div className="row mb-20" key={index}>
                     <div className="col-lg-9 ">
                         <div className="single-culture-news">
                             <div className="row align-items-center">
