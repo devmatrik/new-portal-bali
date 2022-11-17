@@ -6,6 +6,7 @@ import moment from 'moment/moment'
 import {
   BaseLayouts, StorageApi
 } from '../components/MainCode/MainImport'
+import Slide from 'react-bootstrap/Carousel'
 import Carousel from 'react-grid-carousel';
 import Cuaca from './Cuaca';
 
@@ -100,8 +101,8 @@ export default function Home() {
                 </div>
               </div>
               <div className="col-lg-9">
-                <Carousel autoplay loop>
-                  <Carousel.Item>
+                <Slide autoplay loop>
+                  <Slide.Item>
                     <div className="row">
                       <div className="col-lg-4">
                         <div className="single-team-box">
@@ -146,8 +147,8 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  </Carousel.Item>
-                  <Carousel.Item>
+                  </Slide.Item>
+                  <Slide.Item>
                     <div className="row">
                       <div className="col-lg-4">
                         <div className="single-team-box">
@@ -192,8 +193,8 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  </Carousel.Item>
-                  <Carousel.Item>
+                  </Slide.Item>
+                  <Slide.Item>
                     <div className="row">
                       <div className="col-lg-4">
                         <div className="single-team-box">
@@ -238,14 +239,14 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  </Carousel.Item>
-                </Carousel>
+                  </Slide.Item>
+                </Slide>
               </div>
               <div className="col-lg-3">
                 <aside className="widget-area scroll-bar-vertical scrollbar-hide" style={{ height: "30rem" }}>
                   <section className="widget widget_latest_news_thumb">
                     <h3 className="widget-title"><Image src="/images/Event.png" width={30} height={30} alt="image" /> New Event</h3>
-                    <div className='scroll-bar-vertical scrollbar-hide' style={{ height: "19.8rem" }}>
+                    <div className='scroll-bar-vertical scrollbar-hide' style={{ height: "20.8rem" }}>
                       {newEvent.map((item, index) => {
                         return (
                           <article className="item" key={index}>
@@ -297,10 +298,10 @@ export default function Home() {
                 </Carousel>
               </div>
               <div className="col-lg-3">
-                <aside className="widget-area ">
+                <aside className="widget-area scroll-bar-vertical scrollbar-hide" style={{ height: "30rem" }}>
                   <section className="widget widget_latest_news_thumb">
                     <h3 className="widget-title"><Image src="/images/News.png" width={40} height={40} alt="image" /> G20</h3>
-                    <div className='scroll-bar-vertical scrollbar-hide' style={{ height: "25.5rem" }}>
+                    <div className='scroll-bar-vertical scrollbar-hide' style={{ height: "20.8rem" }}>
                       {g20.map((item, index) => {
                         return (
                           <article className="item" key={index}>
