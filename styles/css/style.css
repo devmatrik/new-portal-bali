@@ -7421,8 +7421,10 @@ video {
   padding: 9px 9px 9px 9px;
 }
 .events {
-  background-color: #fff;
-  border-radius: 20px;
-  padding: 9px 9px 9px 9px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 9px 9px 9px 9px;
+    margin-bottom: 24px;
+    margin-top: 10px;
 }
 /*# sourceMappingURL=style.css.map */
