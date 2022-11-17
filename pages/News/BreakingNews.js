@@ -123,58 +123,57 @@ export default function BreakingNews() {
                     <Cuaca></Cuaca>
                   </div>
                 </div>
-                <div className="col-lg-8">
-                  <div className="section-title">
-                    <h2><Image className="p-2" src="/images/News.png" width={50} height={50} alt="" />News</h2>
-                  </div>
-                  <Carousel cols={1} row={4} gap={1}>
-                    {listLatest.map((item, index) => {
-                      return (
-                        <Carousel.Item key={index}>
-                          <div className="single-main-news">
-                            <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                              <img src={`${item.image}`} alt="image" />
-                            </Link>
-                              <div className="news-content">
-                                  <h3>
-                                      <a href="detail.html">Smart City Bali, Teknologi apa yang dipakai disana?</a>
-                                  </h3>
-                                  <span><a href="detail.html">Walters</a> / 28 September, 2022</span>
-                              </div>
-                          </div>
-                        </Carousel.Item>
-                      )
-                    })}
-
-                  </Carousel>
-                    </div>
-
-                    <div className="col-lg-4">
-                        <div className="single-main-news-inner mb-4">
-                            <a href="detail.html">
-                                <img src="assets/img/main-news/main-news-2.jpg" alt="image" />
-                            </a>
-                            <div className="news-content">
-                                <h3>
-                                    <a href="detail.html">Jepun Bali, Jaringan Elektronik Policing untuk Bali</a>
-                                </h3>
-                                <span>28 September, 2022</span>
-                            </div>
-                        </div>
-
-                        <div className="single-main-news-inner mb-5">
-                            <a href="detail.html">
-                                <img src="assets/img/main-news/main-news-2.jpg" alt="image" />
-                            </a>
-                            <div className="news-content">
-                                <h3>
-                                    <a href="detail.html">Smart City Bali</a>
-                                </h3>
-                                <span>28 September, 2022</span>
-                            </div>
-                        </div>
-                    </div>
               </div>
+              <div className="col-md-12">
+                <aside className="widget-area">
+                  <section className="widget widget_tag_cloud">
+                    {/* <h3 className="widget-title">Tags</h3> */}
+                      <div className="tagcloud" >
+                        {listTags.map((item, index) => {
+                           return (
+                            <Link key={index} href={`sm_master_data/jenis_berita`}>
+                              {item.jenis_berita}
+                            </Link>
+                          )
+                        })}
+                      </div>
+                  </section>
+                </aside>
+              </div>
+              <br />
+                  <div className="row">
+                    <div className="col-lg-8">
+                      <div className="section-title">
+                        <h2><Image className="p-2" src="/images/News.png" width={50} height={50} alt="" />News</h2>
+                      </div>
+                      <Carousel cols={1} row={1} gap={10}>
+                        {listLatest.map((item, index) => {
+                          return (
+                          <Carousel.Item key={index}>
+                            {/* <div className="row"> */}
+                              <div className='col-lg-4'>
+                                <div className="single-main-news">
+                                  <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                    <img src={`${item.image}`} alt="image" />
+                                  </Link>
+                                  <div className="news-content">
+                                    {/* <div className="tag">World news</div> */}
+                                      <h3>
+                                        <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                          {item.judul_news}
+                                        </Link>
+                                      </h3>
+                                      <span>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
+                                    </div>
+                                </div>
+                              </div>
+                            {/* </div> */}
+                          </Carousel.Item>
+                          )
+                        })}
+                      </Carousel>
+                      </div>
+                  </div>
             </div>
         </section>
 
@@ -187,7 +186,7 @@ export default function BreakingNews() {
                                 <h2>Global</h2> 
                             </div>
     
-                            <div className="row">
+                            {/* <div className="row">
                                 <div className="col-lg-6">
                                     <div className="single-most-popular-news">
                                         <div className="popular-news-image">
@@ -311,7 +310,7 @@ export default function BreakingNews() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className="video-news">
@@ -384,7 +383,7 @@ export default function BreakingNews() {
                                 <h2>Politics</h2> 
                             </div>
 
-                            <div className="row">
+                            {/* <div className="row">
                                 <div className="col-lg-6">
                                     <div className="single-politics-news">
                                         <div className="politics-news-image">
@@ -467,7 +466,7 @@ export default function BreakingNews() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className="business-news">
@@ -548,7 +547,7 @@ export default function BreakingNews() {
                                     <h2>Sports</h2> 
                                 </div>
 
-                                <div className="single-sports-news">
+                                {/* <div className="single-sports-news">
                                     <div className="row align-items-center">
                                         <div className="col-lg-4 col-sm-4">
                                             <div className="sports-news-image">
@@ -567,9 +566,9 @@ export default function BreakingNews() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
 
-                                <div className="single-sports-news">
+                                {/* <div className="single-sports-news">
                                     <div className="row align-items-center">
                                         <div className="col-lg-4 col-sm-4">
                                             <div className="sports-news-image">
@@ -588,9 +587,9 @@ export default function BreakingNews() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
 
-                                <div className="single-sports-news">
+                                {/* <div className="single-sports-news">
                                     <div className="row align-items-center">
                                         <div className="col-lg-4 col-sm-4">
                                             <div className="sports-news-image">
@@ -609,7 +608,7 @@ export default function BreakingNews() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
 
                             <div className="col-lg-6">
@@ -617,7 +616,7 @@ export default function BreakingNews() {
                                     <h2>Tech</h2> 
                                 </div>
 
-                                <div className="single-tech-news">
+                                {/* <div className="single-tech-news">
                                     <div className="row align-items-center">
                                         <div className="col-lg-4 col-sm-4">
                                             <div className="tech-news-image">
@@ -636,9 +635,9 @@ export default function BreakingNews() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
 
-                                <div className="single-tech-news">
+                                {/* <div className="single-tech-news">
                                     <div className="row align-items-center">
                                         <div className="col-lg-4 col-sm-4">
                                             <div className="tech-news-image">
@@ -657,9 +656,9 @@ export default function BreakingNews() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
 
-                                <div className="single-tech-news">
+                                {/* <div className="single-tech-news">
                                     <div className="row align-items-center">
                                         <div className="col-lg-4 col-sm-4">
                                             <div className="tech-news-image">
@@ -678,7 +677,7 @@ export default function BreakingNews() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
 
@@ -687,7 +686,7 @@ export default function BreakingNews() {
                                 <h2>Culture</h2> 
                             </div>
 
-                            <div className="row">
+                            {/* <div className="row">
                                 <div className="col-lg-6">
                                     <div className="single-culture-news">
                                         <div className="culture-news-image">
@@ -770,7 +769,7 @@ export default function BreakingNews() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className="health-news">
@@ -851,7 +850,7 @@ export default function BreakingNews() {
                             <section className="widget widget_latest_news_thumb">
                                 <h3 className="widget-title">Latest news</h3>
 
-                                <article className="item">
+                                {/* <article className="item">
                                     <a href="#" className="thumb">
                                         <span className="fullimage cover bg1" role="img"></span>
                                     </a>
@@ -899,13 +898,13 @@ export default function BreakingNews() {
                                         <h4 className="title usmall"><a href="#">Copy paste the style of your element Newspaper</a></h4>
                                         <span>28 September, 2022</span>
                                     </div>
-                                </article>
+                                </article> */}
                             </section>
 
                             <section className="widget widget_popular_posts_thumb">
                                 <h3 className="widget-title">Popular posts</h3>
 
-                                <article className="item">
+                                {/* <article className="item">
                                     <a href="#" className="thumb">
                                         <span className="fullimage cover bg1" role="img"></span>
                                     </a>
@@ -943,7 +942,7 @@ export default function BreakingNews() {
                                         <h4 className="title usmall"><a href="#">A fierce battle is going on between the two in the game</a></h4>
                                         <span>28 September, 2022</span>
                                     </div>
-                                </article>
+                                </article> */}
                             </section>
                         </aside>
                     </div>
