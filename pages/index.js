@@ -266,7 +266,7 @@ export default function Home() {
                 </aside>
               </div>
             </div>
-            <div className="row">
+            <div className="row ">
               <div className="section-title">
                 <h2><Image className="p-2" src="/images/News.png" width={50} height={50} alt="" /> Latest News</h2>
                 {/* <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
