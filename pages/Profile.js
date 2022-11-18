@@ -104,7 +104,7 @@ function Profile() {
                                 <div class="row">
                                     <div class="col-lg-8">
                                         <div class="contact-map mprof">
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d679.5511726623012!2d115.18299524194806!3d-8.64862445997187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd238a5e2861e9d%3A0x86383fe797cfbace!2sPolresta%20Denpasar!5e0!3m2!1sid!2sid!4v1668571688804!5m2!1sid!2sid" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15777.77033839834!2d115.2248866!3d-8.6493878!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd24082a26da0a3%3A0x57ee2644ece89566!2sDITLANTAS%20POLDA%20BALI!5e0!3m2!1sen!2sid!4v1668784013949!5m2!1sen!2sid" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                         </div>
                                     </div>
 
