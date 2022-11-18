@@ -411,7 +411,7 @@ export default function BreakingNews() {
                                 <div className="section-title"> 
                                     <h2>Breaking News</h2> 
                                 </div>
-                                {news.map((item, index) => {
+                                {news.slice(0,3).map((item, index) => {
                                   return (
                                   <div className="single-sports-news" key={index}>
                                       <div className="row align-items-center">
@@ -446,7 +446,6 @@ export default function BreakingNews() {
                                 </div>
 
                                 {newflash.slice(0,3).map((item, index) => {
-                                    console.log (index)
                                     return (
                                         <div className="single-tech-news" key={index}>
                                             <div className="row align-items-center">
@@ -480,7 +479,6 @@ export default function BreakingNews() {
                                 </div>
                                
                                 {g20.slice(0,3).map((item, index) => {
-                                    console.log (index)
                                     return (
                                         <div className="single-tech-news" key={index}>
                                             <div className="row align-items-center">
@@ -514,7 +512,6 @@ export default function BreakingNews() {
                                 </div>
 
                                 {global.slice(0,3).map((item, index) => {
-                                    console.log (index)
                                     return (
                                         <div className="single-tech-news" key={index}>
                                             <div className="row align-items-center">
@@ -547,7 +544,6 @@ export default function BreakingNews() {
                                 </div>
 
                                 {wisata.slice(0,3).map((item, index) => {
-                                    console.log (index)
                                     return (
                                         <div className="single-tech-news" key={index}>
                                             <div className="row align-items-center">
@@ -582,7 +578,6 @@ export default function BreakingNews() {
                                 </div>
 
                                 {technology.slice(0,3).map((item, index) => {
-                                    console.log (index)
                                     return (
                                         <div className="single-tech-news" key={index}>
                                             <div className="row align-items-center">
@@ -615,7 +610,6 @@ export default function BreakingNews() {
                                 </div>
 
                                {budaya.slice(0,3).map((item, index) => {
-                                    console.log (index)
                                     return (
                                         <div className="single-tech-news" key={index}>
                                             <div className="row align-items-center">
@@ -650,7 +644,6 @@ export default function BreakingNews() {
                                 </div>
 
                                 {olahraga.slice(0,3).map((item, index) => {
-                                    console.log (index)
                                     return (
                                         <div className="single-tech-news" key={index}>
                                             <div className="row align-items-center">
@@ -684,7 +677,6 @@ export default function BreakingNews() {
                                 </div>
 
                                 {it.slice(0,3).map((item, index) => {
-                                    console.log (index)
                                     return (
                                         <div className="single-tech-news" key={index}>
                                             <div className="row align-items-center">
