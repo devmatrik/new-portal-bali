@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
-import Link from 'next/link';
 import { useRouter } from "next/router";
 import Head from 'next/head'
 import { InputCustom, Notifikasi } from "../components/MainCode/MainImport"
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { getCsrfToken, useSession, signIn, signOut } from "next-auth/react"
+import Link from 'next/link';
 
 
 
@@ -57,7 +57,7 @@ export default function Login() {
     return (
         <>
             <Head>
-                <title>Form Login</title>
+                <title>Form Register</title>
                 <meta charSet="utf-8" />
                 <meta
                     name="viewport"
@@ -91,7 +91,7 @@ export default function Login() {
                                     </Button>
                                     <div>
                                         <p className="mb-0 text-center">Dont have an account?
-                                            <Link href="/Register">Sign Up</Link>
+                                            <Link href="/register">Sign Up</Link>
                                             {/* <a href="#!" class="text-white-50 fw-bold"></a> */}
                                         </p>
                                     </div>
