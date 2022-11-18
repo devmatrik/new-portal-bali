@@ -76,8 +76,10 @@ export default function Login() {
                         <div>
                             <div className='bg-dark text-white my-5 mx-auto' style={{ borderRadius: '1rem', width: '900px' }}>
                                 <div className='p-5  flex-column align-items-center mx-auto'>
-                                    <Image className="mb-4" src="/images/logo2.png" width={90} height={90} alt="" />
-                                    <h2 className="fw-bold mb-4 text-2xl text-white text-center">Form Register</h2>
+                                    <div className='text-center'>
+                                        <Image className="mb-4" src="/images/logo2.png" width={90} height={90} alt="" />
+                                        <h2 className="fw-bold mb-4 text-2xl text-white text-center">Form Register</h2>
+                                    </div>
                                     <div className='row'>
                                         <div className="col-lg-4 col-md-4 mb-3">
                                             <InputCustom className="" type="text" placeholder="Nik" onChange={e => setUsername(e.target.value)} />

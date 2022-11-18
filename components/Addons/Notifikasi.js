@@ -3,7 +3,7 @@ import Toast from 'react-bootstrap/Toast';
 import Image from 'next/image';
 import ToastContainer from 'react-bootstrap/ToastContainer';
 
-export default function Notifikasi (props) {
+export default function Notifikasi(props) {
   return (
     <div>
       <ToastContainer className="p-3" position={'top-center'}>
@@ -14,6 +14,7 @@ export default function Notifikasi (props) {
               className="rounded me-2"
               alt=""
               width={30}
+              height={30}
             />
             <strong className="me-auto">Portal Bali</strong>
           </Toast.Header>

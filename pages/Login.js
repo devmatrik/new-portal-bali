@@ -45,7 +45,7 @@ export default function Login() {
         });
         if (res?.error) {
             setNotif(true)
-            setNotifBody("Tidak dapat login, periksa kembali NIP dan Password anda!")
+            setNotifBody("Tidak dapat login, periksa kembali Nik dan Password anda!")
             setOk(false)
         } else {
             setNotif(true)
@@ -75,16 +75,17 @@ export default function Login() {
                     <div className='d-flex justify-content-center align-items-center'>
                         <div>
                             <div className='bg-dark text-white my-5 mx-auto' style={{ borderRadius: '1rem', width: '500px' }}>
-                                <div className='p-5  flex-column align-items-center mx-auto'>
-                                    <Image className="mb-4" src="/images/logo2.png" width={90} height={90} alt="" />
-                                    <h2 className="fw-bold mb-4 text-2xl text-white text-center">Form Login</h2>
-                                    <div className="mb-3">
-                                        <InputCustom className="" type="text" placeholder="Nik" onChange={e => setUsername(e.target.value)} />
+                                <div className='p-5 flex-column align-items-center mx-auto'>
+                                    <div className='text-center'>
+                                        <Image className="mb-4" src="/images/logo2.png" width={90} height={90} alt="" />
+                                        <h2 className="fw-bold mb-4 text-2xl text-white text-center">Form Login</h2>
+                                        <div className="mb-3">
+                                            <InputCustom className="" type="text" placeholder="Nik" onChange={e => setUsername(e.target.value)} />
+                                        </div>
+                                        <div className="mb-3">
+                                            <InputCustom className="" type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                                        </div>
                                     </div>
-                                    <div className="mb-3">
-                                        <InputCustom className="" type="text" placeholder="Password" onChange={e => setPassword(e.target.value)} />
-                                    </div>
-
                                     <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
                                     <Button variant="success" onClick={e => Login(e)}>
                                         <p>Login</p>
