@@ -313,7 +313,7 @@ export default function BreakingNews() {
 
                         <div className="video-news">
                             <div className="section-title"> 
-                                <h2>Top video</h2> 
+                                <h2>G20</h2> 
                             </div>
 
                             <div className="video-slides owl-carousel owl-theme">
@@ -378,7 +378,7 @@ export default function BreakingNews() {
 
                         <div className="politics-news">
                             <div className="section-title"> 
-                                <h2>Politics</h2> 
+                                <h2>News Flash</h2> 
                             </div>
 
                             {/* <div className="row">
@@ -469,7 +469,7 @@ export default function BreakingNews() {
 
                         <div className="business-news">
                             <div className="section-title"> 
-                                <h2>Business</h2> 
+                                <h2>Breaking News</h2> 
                             </div>
 
                             <div className="business-news-slides owl-carousel owl-theme">
@@ -542,7 +542,7 @@ export default function BreakingNews() {
                         <div className="row">
                             <div className="col-lg-6">
                                 <div className="section-title"> 
-                                    <h2>Sports</h2> 
+                                    <h2>Olahraga</h2> 
                                 </div>
 
                                 {/* <div className="single-sports-news">
@@ -611,7 +611,7 @@ export default function BreakingNews() {
 
                             <div className="col-lg-6">
                                 <div className="section-title"> 
-                                    <h2>Tech</h2> 
+                                    <h2>Technology</h2> 
                                 </div>
 
                                 {/* <div className="single-tech-news">
@@ -681,7 +681,7 @@ export default function BreakingNews() {
 
                         <div className="culture-news">
                             <div className="section-title"> 
-                                <h2>Culture</h2> 
+                                <h2>Budaya</h2> 
                             </div>
 
                             {/* <div className="row">
@@ -772,7 +772,7 @@ export default function BreakingNews() {
 
                         <div className="health-news">
                             <div className="section-title"> 
-                                <h2>Health</h2> 
+                                <h2>IT Goverment</h2> 
                             </div>
 
                             <div className="health-news-slides owl-carousel owl-theme">
@@ -900,7 +900,7 @@ export default function BreakingNews() {
                             </section>
 
                             <section className="widget widget_popular_posts_thumb">
-                                <h3 className="widget-title">Popular posts</h3>
+                                <h3 className="widget-title">Kalender Event</h3>
 
                                 {/* <article className="item">
                                     <a href="#" className="thumb">
