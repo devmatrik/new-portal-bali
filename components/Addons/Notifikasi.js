@@ -14,6 +14,7 @@ export default function Notifikasi(props) {
               className="rounded me-2"
               alt=""
               width={30}
+              height={30}
             />
             <strong className="me-auto">Portal Bali</strong>
           </Toast.Header>

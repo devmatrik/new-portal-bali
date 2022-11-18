@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Image from 'next/image'
 import {
   BaseLayouts,
   SelectSaluranInformasi,
@@ -16,6 +15,7 @@ import {
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useSession } from "next-auth/react"
+import Link from 'next/link';
 
 export default function eLapor() {
   const [show, setShow] = useState(false);
@@ -84,9 +84,9 @@ export default function eLapor() {
       formData.append('sub_kategori', sub_kategori_param.toLowerCase().replace(" ", "_"))
     }
     formData.append('kategori_pelapor_id', kategori_pelapor_id)
-    // formData.append('ctdby', session?.kode_user_master)
-    // formData.append('polda_id', session?.polda_id)
-    // formData.append('polres_id', session?.polres_id)
+    formData.append('ctdby', session?.kode_user_master)
+    formData.append('polda_id', session?.polda_id)
+    formData.append('polres_id', session?.polres_id)
     fileAdd.map(item => {
       formData.append('images[]', item.files)
       formData.append('keterangan[]', item.keterangan)
@@ -273,9 +273,17 @@ export default function eLapor() {
 
 
                     <div className="col-lg-12 col-md-12">
-                      <Button variant="primary" onClick={e => Simpan(e)}>
-                        Kirim
-                      </Button>
+                      {session ? (<>
+                        <Button variant="primary" onClick={e => Simpan(e)}>
+                          Kirim
+                        </Button>
+                      </>) : (<>
+                        <Link href="/Login" className='text-white'>
+                          <Button variant="primary">
+                            Sign In
+                          </Button>
+                        </Link>
+                      </>)}
                       <div id="msgSubmit" className="h3 text-center hidden"></div>
                       <div className="clearfix"></div>
                     </div>

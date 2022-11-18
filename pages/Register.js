@@ -74,15 +74,25 @@ export default function Login() {
                 <Form>
                     <div className='d-flex justify-content-center align-items-center'>
                         <div>
-                            <div className='bg-dark text-white my-5 mx-auto' style={{ borderRadius: '1rem', width: '500px' }}>
+                            <div className='bg-dark text-white my-5 mx-auto' style={{ borderRadius: '1rem', width: '900px' }}>
                                 <div className='p-5  flex-column align-items-center mx-auto'>
-                                    <Image className="mb-4" src="/images/logo2.png" width={90} height={90} alt="" />
-                                    <h2 className="fw-bold mb-4 text-2xl text-white text-center">Form Login</h2>
-                                    <div className="mb-3">
-                                        <InputCustom className="" type="text" placeholder="Nik" onChange={e => setUsername(e.target.value)} />
+                                    <div className='text-center'>
+                                        <Image className="mb-4" src="/images/logo2.png" width={90} height={90} alt="" />
+                                        <h2 className="fw-bold mb-4 text-2xl text-white text-center">Form Register</h2>
                                     </div>
-                                    <div className="mb-3">
-                                        <InputCustom className="" type="text" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                                    <div className='row'>
+                                        <div className="col-lg-4 col-md-4 mb-3">
+                                            <InputCustom className="" type="text" placeholder="Nik" onChange={e => setUsername(e.target.value)} />
+                                        </div>
+                                        <div className="col-lg-4 col-md-4 mb-3">
+                                            <InputCustom className="" type="text" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                                        </div>
+                                        <div className="col-lg-4 col-md-4 mb-3">
+                                            <InputCustom className="" type="text" placeholder="Nik" onChange={e => setUsername(e.target.value)} />
+                                        </div>
+                                        <div className="col-lg-4 col-md-4 mb-3">
+                                            <InputCustom className="" type="text" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                                        </div>
                                     </div>
 
                                     <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
@@ -90,8 +100,8 @@ export default function Login() {
                                         <p>Login</p>
                                     </Button>
                                     <div>
-                                        <p className="mb-0 text-center">Dont have an account?
-                                            <Link href="/register">Sign Up</Link>
+                                        <p className="mb-0 text-center">Dont have an account ?
+                                            <Link href="/Login" className='text-white'> Sign In</Link>
                                             {/* <a href="#!" class="text-white-50 fw-bold"></a> */}
                                         </p>
                                     </div>
