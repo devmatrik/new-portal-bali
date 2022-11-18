@@ -17,8 +17,8 @@ export default function BreakingNews() {
   const [listLatest, setListLatest] = useState([]);
   const [g20, setListG20] = useState([]);
   const [newEvent, setListNewEvent] = useState([]);
-  const [loading, setLoading] = useState(false)
   const [news, setNews] = useState([])
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     getTags();
@@ -205,74 +205,7 @@ export default function BreakingNews() {
                 <div className="row">
                     <div className="col-lg-8">
                         <div className="row">
-                            <div className="col-lg-6">
-                                <div className="section-title"> 
-                                    <h2>Breaking News</h2> 
-                                </div>
-
-                                <div className="single-sports-news">
-                                    <div className="row align-items-center">
-                                        <div className="col-lg-4 col-sm-4">
-                                            <div className="sports-news-image">
-                                                <a href="#">
-                                                    <img src="assets/img/sports-news/sports-news-1.jpg" alt="image" />
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div className="col-lg-8 col-sm-8">
-                                            <div className="sports-news-content">
-                                                <h3>
-                                                    <a href="#">Start a new men’s road World Championships</a>
-                                                </h3>
-                                                <p>28 September, 2022</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="single-sports-news">
-                                    <div className="row align-items-center">
-                                        <div className="col-lg-4 col-sm-4">
-                                            <div className="sports-news-image">
-                                                <a href="#">
-                                                    <img src="assets/img/sports-news/sports-news-2.jpg" alt="image" />
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div className="col-lg-8 col-sm-8">
-                                            <div className="sports-news-content">
-                                                <h3>
-                                                    <a href="#">He look the first wicket with the first ball in this match.</a>
-                                                </h3>
-                                                <p>28 September, 2022</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="single-sports-news">
-                                    <div className="row align-items-center">
-                                        <div className="col-lg-4 col-sm-4">
-                                            <div className="sports-news-image">
-                                                <a href="#">
-                                                    <img src="assets/img/sports-news/sports-news-3.jpg" alt="image" />
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div className="col-lg-8 col-sm-8">
-                                            <div className="sports-news-content">
-                                                <h3>
-                                                    <a href="#">The last time of the match is goning on</a>
-                                                </h3>
-                                                <p>28 September, 2022</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
 
                             <div className="col-lg-6">
                                 <div className="section-title"> 
