@@ -5,7 +5,7 @@
 // const url = "http://smbali.estrada.co.id:8082";
 const url = "https://backend.elingbali.com:8082";
 
-const kode_app = "SM";
+const kode_app = "SM_UMUM";
 const data = function (data) {
 
 }
