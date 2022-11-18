@@ -90,8 +90,8 @@ export default function Login() {
                                         <p>Login</p>
                                     </Button>
                                     <div>
-                                        <p className="mb-0 text-center">Dont have an account?
-                                            <Link href="/Register">Sign Up</Link>
+                                        <p className="mb-0 text-center">Dont have an account ?
+                                            <Link href="/Register" className='text-white'> Sign Up</Link>
                                             {/* <a href="#!" class="text-white-50 fw-bold"></a> */}
                                         </p>
                                     </div>
