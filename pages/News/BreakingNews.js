@@ -407,7 +407,38 @@ export default function BreakingNews() {
                 <div className="row">
                     <div className="col-lg-8">
                         <div className="row">
-                            
+                        <div className="col-lg-6">
+                                <div className="section-title"> 
+                                    <h2>Breaking News</h2> 
+                                </div>
+                                {news.map((item, index) => {
+                                  return (
+                                  <div className="single-sports-news" key={index}>
+                                      <div className="row align-items-center">
+                                          <div className="col-lg-4 col-sm-4">
+                                              <div className="sports-news-image">
+                                                  <a href="#">
+                                                      <img src={item.image} alt="image" />
+                                                  </a>
+                                              </div>
+                                          </div>
+
+                                          <div className="col-lg-8 col-sm-8">
+                                              <div className="sports-news-content">
+                                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                                  <h3>
+                                                      <a href="#">{item.judul_news}</a>
+                                                  </h3>
+                                                  <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
+                                                </Link>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  )
+                                })}
+
+                            </div>
 
                             <div className="col-lg-6">
                                 <div className="section-title"> 
