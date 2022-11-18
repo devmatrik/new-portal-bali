@@ -13,18 +13,19 @@ import Cuaca from '../Cuaca';
 
 export default function BreakingNews() {
 
-  const [listLatest, setListLatest] = useState([]);
   const [listTags, setListTags] = useState([]);  
+  const [listLatest, setListLatest] = useState([]);
   const [g20, setListG20] = useState([]);
   const [newEvent, setListNewEvent] = useState([]);
   const [loading, setLoading] = useState(false)
   const [news, setNews] = useState([])
 
   useEffect(() => {
-    G20()
-    LatestNews()
-    getData();
     getTags();
+    LatestNews();
+    G20();
+    NewEvent();
+    getData();
   }, [loading])
 
   const settings = {
@@ -51,6 +52,30 @@ export default function BreakingNews() {
       })
   }
 
+  const NewEvent = () => {
+    Promise.resolve(StorageApi.getData("sm_master_data/jenis_event"))
+      .then(value => {
+        const list = value.data.data
+        var newEvent = ""
+        list.map(item => {
+          if (item.jenis_event == "New Event") {
+            newEvent = item.rowid
+          }
+        })
+        Promise.resolve(StorageApi.getData(`sm_portal/event?jenis_event_id=${newEvent}`))
+          .then(value => {
+            const dataNewEvent = value.data.data
+            const Listdata = dataNewEvent.sort((a, b) => moment(b.tgl_event).format("DD") - moment(a.tgl_event).format("DD"))
+            console.log(Listdata);
+            setListNewEvent(Listdata)
+          }).catch(error => {
+            setListNewEvent([])
+          })
+      }).catch(error => {
+
+      })
+  }
+
   const G20 = () => {
     Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
       .then(value => {
@@ -73,7 +98,7 @@ export default function BreakingNews() {
 
       })
   }
-
+  
   const getData = () => {
     Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
       .then(value => {
@@ -179,373 +204,13 @@ export default function BreakingNews() {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8">
-                        <div className="most-popular-news">
-                            <div className="section-title"> 
-                                <h2>Global</h2> 
-                            </div>
-    
-                            {/* <div className="row">
-                                <div className="col-lg-6">
-                                    <div className="single-most-popular-news">
-                                        <div className="popular-news-image">
-                                            <a href="#">
-                                                <img src="assets/img/most-popular/most-popular-1.jpg" alt="image" />
-                                            </a>
-                                        </div>
-                                        
-                                        <div className="popular-news-content">
-                                            <span>Politics</span>
-                                            <h3>
-                                                <a href="#">The Prime Ministers said that selfish nations are constantly dying for their won interests.</a>
-                                            </h3>
-                                            <p><a href="#">Patricia</a> / 28 September, 2022</p>
-                                        </div>
-                                    </div>
-    
-                                    <div className="single-most-popular-news">
-                                        <div className="popular-news-image">
-                                            <a href="#">
-                                                <img src="assets/img/most-popular/most-popular-2.jpg" alt="image" />
-                                            </a>
-                                        </div>
-    
-                                        <div className="popular-news-content">
-                                            <span>Premer league</span>
-                                            <h3>
-                                                <a href="#">Manchester Uniteds dream of winning by a goal was fulfilled</a>
-                                            </h3>
-                                            <p><a href="#">Gonzalez</a> / 28 September, 2022</p>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                                <div className="col-lg-6">
-                                    <div className="most-popular-post">
-                                        <div className="row align-items-center">
-                                            <div className="col-lg-4 col-sm-4">
-                                                <div className="post-image">
-                                                    <a href="#">
-                                                        <img src="assets/img/most-popular/most-popular-3.jpg" alt="image" />
-                                                    </a>
-                                                </div>
-                                            </div>
-
-                                            <div className="col-lg-8 col-sm-8">
-                                                <div className="post-content">
-                                                    <span>Culture</span>
-                                                    <h3>
-                                                        <a href="#">As well as stopping goals, Christiane Endler is opening.</a>
-                                                    </h3>
-                                                    <p>28 September, 2022</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="most-popular-post">
-                                        <div className="row align-items-center">
-                                            <div className="col-lg-4 col-sm-4">
-                                                <div className="post-image">
-                                                    <a href="#">
-                                                        <img src="assets/img/most-popular/most-popular-4.jpg" alt="image" />
-                                                    </a>
-                                                </div>
-                                            </div>
-
-                                            <div className="col-lg-8 col-sm-8">
-                                                <div className="post-content">
-                                                    <span>Technology</span>
-                                                    <h3>
-                                                        <a href="#">The majority of news published online presents more videos</a>
-                                                    </h3>
-                                                    <p>28 September, 2022</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="most-popular-post">
-                                        <div className="row align-items-center">
-                                            <div className="col-lg-4 col-sm-4">
-                                                <div className="post-image">
-                                                    <a href="#">
-                                                        <img src="assets/img/most-popular/most-popular-5.jpg" alt="image" />
-                                                    </a>
-                                                </div>
-                                            </div>
-
-                                            <div className="col-lg-8 col-sm-8">
-                                                <div className="post-content">
-                                                    <span>Business</span>
-                                                    <h3>
-                                                        <a href="#">This movement aims to establish womens rights.</a>
-                                                    </h3>
-                                                    <p>28 September, 2022</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="most-popular-post">
-                                        <div className="row align-items-center">
-                                            <div className="col-lg-4 col-sm-4">
-                                                <div className="post-image">
-                                                    <a href="#">
-                                                        <img src="assets/img/most-popular/most-popular-6.jpg" alt="image" />
-                                                    </a>
-                                                </div>
-                                            </div>
-
-                                            <div className="col-lg-8 col-sm-8">
-                                                <div className="post-content">
-                                                    <span>Politics</span>
-                                                    <h3>
-                                                        <a href="#">Trump discusses various issues with his partys political leaders.</a>
-                                                    </h3>
-                                                    <p>28 September, 2022</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
-                        </div>
-
-                        <div className="video-news">
-                            <div className="section-title"> 
-                                <h2>G20</h2> 
-                            </div>
-
-                            <div className="video-slides owl-carousel owl-theme">
-                                <div className="video-item">
-                                    <div className="video-news-image">
-                                        <a href="#">
-                                            <img src="assets/img/video-news/video-news-1.jpg" alt="image" />
-                                        </a>
-
-                                        <a href="https://www.youtube.com/watch?v=UG8N5JT4QLc" className="popup-youtube">
-                                            <i className='bx bx-play-circle'></i>
-                                        </a>
-                                    </div>
-
-                                    <div className="video-news-content">
-                                        <h3>
-                                            <a href="#">Apply these 10 secret techniques to improve travel</a>
-                                        </h3>
-                                        <span>28  September, 2022</span>
-                                    </div>
-                                </div>
-
-                                <div className="video-item">
-                                    <div className="video-news-image">
-                                        <a href="#">
-                                            <img src="assets/img/video-news/video-news-2.jpg" alt="image" />
-                                        </a>
-
-                                        <a href="https://www.youtube.com/watch?v=UG8N5JT4QLc" className="popup-youtube">
-                                            <i className='bx bx-play-circle'></i>
-                                        </a>
-                                    </div>
-
-                                    <div className="video-news-content">
-                                        <h3>
-                                            <a href="#">The lazy man’s guide to travel you to our moms</a>
-                                        </h3>
-                                        <span>28  September, 2022</span>
-                                    </div>
-                                </div>
-
-                                <div className="video-item">
-                                    <div className="video-news-image">
-                                        <a href="#">
-                                            <img src="assets/img/video-news/video-news-3.jpg" alt="image" />
-                                        </a>
-
-                                        <a href="https://www.youtube.com/watch?v=UG8N5JT4QLc" className="popup-youtube">
-                                            <i className='bx bx-play-circle'></i>
-                                        </a>
-                                    </div>
-
-                                    <div className="video-news-content">
-                                        <h3>
-                                            <a href="#">Sony laptops are still part of the sony family</a>
-                                        </h3>
-                                        <span>28  September, 2022</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="politics-news">
-                            <div className="section-title"> 
-                                <h2>News Flash</h2> 
-                            </div>
-
-                            {/* <div className="row">
-                                <div className="col-lg-6">
-                                    <div className="single-politics-news">
-                                        <div className="politics-news-image">
-                                            <a href="#">
-                                                <img src="assets/img/politics-news/politics-news-1.jpg" alt="image" />
-                                            </a>
-                                        </div>
-                                        
-                                        <div className="politics-news-content">
-                                            <span>Politics</span>
-                                            <h3>
-                                                <a href="#">Organizing conference among our selves to make it better financially</a>
-                                            </h3>
-                                            <p><a href="#">Jonson Steven</a> / 28 September, 2022</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-6">
-                                    <div className="politics-news-post">
-                                        <div className="row align-items-center">
-                                            <div className="col-lg-4 col-sm-4">
-                                                <div className="politics-news-image">
-                                                    <a href="#">
-                                                        <img src="assets/img/politics-news/politics-news-2.jpg" alt="image" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            
-                                            <div className="col-lg-8 col-sm-8">
-                                                <div className="politics-news-content">
-                                                    <h3>
-                                                        <a href="#">Politically, new riots have started inside the country</a>
-                                                    </h3>
-                                                    <p>28 September, 2022</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="politics-news-post">
-                                        <div className="row align-items-center">
-                                            <div className="col-lg-4 col-sm-4">
-                                                <div className="politics-news-image">
-                                                    <a href="#">
-                                                        <img src="assets/img/politics-news/politics-news-3.jpg" alt="image" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            
-                                            <div className="col-lg-8 col-sm-8">
-                                                <div className="politics-news-content">
-                                                    <h3>
-                                                        <a href="#">Public discussion in 5 major issues</a>
-                                                    </h3>
-                                                    <p>28 September, 2022</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="politics-news-post">
-                                        <div className="row align-items-center">
-                                            <div className="col-lg-4 col-sm-4">
-                                                <div className="politics-news-image">
-                                                    <a href="#">
-                                                        <img src="assets/img/politics-news/politics-news-4.jpg" alt="image" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            
-                                            <div className="col-lg-8 col-sm-8">
-                                                <div className="politics-news-content">
-                                                    <h3>
-                                                        <a href="#">Preparations are being made in a  new way for the elections</a>
-                                                    </h3>
-                                                    <p>28 September, 2022</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
-                        </div>
-
-                        <div className="business-news">
-                            <div className="section-title"> 
-                                <h2>Breaking News</h2> 
-                            </div>
-
-                            <div className="business-news-slides owl-carousel owl-theme">
-                                <div className="single-business-news">
-                                    <div className="business-news-image">
-                                        <a href="#">
-                                            <img src="assets/img/business-news/business-news-1.jpg" alt="image" />
-                                        </a>
-                                    </div>
-                                    
-                                    <div className="business-news-content">
-                                        <span>Business</span>
-                                        <h3>
-                                            <a href="#">We have to make a business plan while maintaining mental heatlh during this epidemic</a>
-                                        </h3>
-                                        <p><a href="#">Patricia</a> / 28 September, 2022</p>
-                                    </div>
-                                </div>
-
-                                <div className="single-business-news">
-                                    <div className="business-news-image">
-                                        <a href="#">
-                                            <img src="assets/img/business-news/business-news-2.jpg" alt="image" />
-                                        </a>
-                                    </div>
-                                    
-                                    <div className="business-news-content">
-                                        <span>News</span>
-                                        <h3>
-                                            <a href="#">Many people are established today by doing ecommerce business during the time of Corona</a>
-                                        </h3>
-                                        <p><a href="#">Sanford</a> / 28 September, 2022</p>
-                                    </div>
-                                </div>
-
-                                <div className="single-business-news">
-                                    <div className="business-news-image">
-                                        <a href="#">
-                                            <img src="assets/img/business-news/business-news-1.jpg" alt="image" />
-                                        </a>
-                                    </div>
-                                    
-                                    <div className="business-news-content">
-                                        <span>Business</span>
-                                        <h3>
-                                            <a href="#">We have to make a business plan while maintaining mental heatlh during this epidemic</a>
-                                        </h3>
-                                        <p><a href="#">Patricia</a> / 28 September, 2022</p>
-                                    </div>
-                                </div>
-
-                                <div className="single-business-news">
-                                    <div className="business-news-image">
-                                        <a href="#">
-                                            <img src="assets/img/business-news/business-news-2.jpg" alt="image" />
-                                        </a>
-                                    </div>
-                                    
-                                    <div className="business-news-content">
-                                        <span>News</span>
-                                        <h3>
-                                            <a href="#">Many people are established today by doing ecommerce business during the time of Corona</a>
-                                        </h3>
-                                        <p><a href="#">Sanford</a> / 28 September, 2022</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <div className="row">
                             <div className="col-lg-6">
                                 <div className="section-title"> 
-                                    <h2>Olahraga</h2> 
+                                    <h2>Breaking News</h2> 
                                 </div>
 
-                                {/* <div className="single-sports-news">
+                                <div className="single-sports-news">
                                     <div className="row align-items-center">
                                         <div className="col-lg-4 col-sm-4">
                                             <div className="sports-news-image">
@@ -564,9 +229,9 @@ export default function BreakingNews() {
                                             </div>
                                         </div>
                                     </div>
-                                </div> */}
+                                </div>
 
-                                {/* <div className="single-sports-news">
+                                <div className="single-sports-news">
                                     <div className="row align-items-center">
                                         <div className="col-lg-4 col-sm-4">
                                             <div className="sports-news-image">
@@ -585,9 +250,9 @@ export default function BreakingNews() {
                                             </div>
                                         </div>
                                     </div>
-                                </div> */}
+                                </div>
 
-                                {/* <div className="single-sports-news">
+                                <div className="single-sports-news">
                                     <div className="row align-items-center">
                                         <div className="col-lg-4 col-sm-4">
                                             <div className="sports-news-image">
@@ -606,15 +271,15 @@ export default function BreakingNews() {
                                             </div>
                                         </div>
                                     </div>
-                                </div> */}
+                                </div>
                             </div>
 
                             <div className="col-lg-6">
                                 <div className="section-title"> 
-                                    <h2>Technology</h2> 
+                                    <h2>News Flash</h2> 
                                 </div>
 
-                                {/* <div className="single-tech-news">
+                                <div className="single-tech-news">
                                     <div className="row align-items-center">
                                         <div className="col-lg-4 col-sm-4">
                                             <div className="tech-news-image">
@@ -633,9 +298,9 @@ export default function BreakingNews() {
                                             </div>
                                         </div>
                                     </div>
-                                </div> */}
+                                </div>
 
-                                {/* <div className="single-tech-news">
+                                <div className="single-tech-news">
                                     <div className="row align-items-center">
                                         <div className="col-lg-4 col-sm-4">
                                             <div className="tech-news-image">
@@ -654,9 +319,9 @@ export default function BreakingNews() {
                                             </div>
                                         </div>
                                     </div>
-                                </div> */}
+                                </div>
 
-                                {/* <div className="single-tech-news">
+                                <div className="single-tech-news">
                                     <div className="row align-items-center">
                                         <div className="col-lg-4 col-sm-4">
                                             <div className="tech-news-image">
@@ -675,169 +340,6 @@ export default function BreakingNews() {
                                             </div>
                                         </div>
                                     </div>
-                                </div> */}
-                            </div>
-                        </div>
-
-                        <div className="culture-news">
-                            <div className="section-title"> 
-                                <h2>Budaya</h2> 
-                            </div>
-
-                            {/* <div className="row">
-                                <div className="col-lg-6">
-                                    <div className="single-culture-news">
-                                        <div className="culture-news-image">
-                                            <a href="#">
-                                                <img src="assets/img/culture-news/culture-news-1.jpg" alt="image" />
-                                            </a>
-                                        </div>
-                                        
-                                        <div className="culture-news-content">
-                                            <span>Culture</span>
-                                            <h3>
-                                                <a href="#">Entertainment activists started again a few months later</a>
-                                            </h3>
-                                            <p><a href="#">Steven</a> / 28 September, 2022</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-6">
-                                    <div className="culture-news-post">
-                                        <div className="row align-items-center">
-                                            <div className="col-lg-4 col-sm-4">
-                                                <div className="culture-news-image">
-                                                    <a href="#">
-                                                        <img src="assets/img/culture-news/culture-news-2.jpg" alt="image" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            
-                                            <div className="col-lg-8 col-sm-8">
-                                                <div className="culture-news-content">
-                                                    <h3>
-                                                        <a href="#">Working in the garden is a tradition for women</a>
-                                                    </h3>
-                                                    <p>28 September, 2022</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="culture-news-post">
-                                        <div className="row align-items-center">
-                                            <div className="col-lg-4 col-sm-4">
-                                                <div className="culture-news-image">
-                                                    <a href="#">
-                                                        <img src="assets/img/culture-news/culture-news-3.jpg" alt="image" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            
-                                            <div className="col-lg-8 col-sm-8">
-                                                <div className="culture-news-content">
-                                                    <h3>
-                                                        <a href="#">The fashion that captures the lives of women</a>
-                                                    </h3>
-                                                    <p>28 September, 2022</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="culture-news-post">
-                                        <div className="row align-items-center">
-                                            <div className="col-lg-4 col-sm-4">
-                                                <div className="culture-news-image">
-                                                    <a href="#">
-                                                        <img src="assets/img/culture-news/culture-news-4.jpg" alt="image" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            
-                                            <div className="col-lg-8 col-sm-8">
-                                                <div className="culture-news-content">
-                                                    <h3>
-                                                        <a href="#">A group of artists performed music in a group way</a>
-                                                    </h3>
-                                                    <p>28 September, 2022</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
-                        </div>
-
-                        <div className="health-news">
-                            <div className="section-title"> 
-                                <h2>IT Goverment</h2> 
-                            </div>
-
-                            <div className="health-news-slides owl-carousel owl-theme">
-                                <div className="single-health-news">
-                                    <div className="health-news-image">
-                                        <a href="#">
-                                            <img src="assets/img/health-news/health-news-1.jpg" alt="image" />
-                                        </a>
-                                    </div>
-                                    
-                                    <div className="health-news-content">
-                                        <span>Health</span>
-                                        <h3>
-                                            <a href="#">At present, diseases have become the main obstacle for children to get out healthy</a>
-                                        </h3>
-                                        <p><a href="#">Tikelo</a> / 28 September, 2022</p>
-                                    </div>
-                                </div>
-
-                                <div className="single-health-news">
-                                    <div className="health-news-image">
-                                        <a href="#">
-                                            <img src="assets/img/health-news/health-news-2.jpg" alt="image" />
-                                        </a>
-                                    </div>
-                                    
-                                    <div className="health-news-content">
-                                        <span>Fitness</span>
-                                        <h3>
-                                            <a href="#">Morning yoga is very important for maintaining good physical fitness</a>
-                                        </h3>
-                                        <p><a href="#">Patricia</a> / 28 September, 2022</p>
-                                    </div>
-                                </div>
-
-                                <div className="single-health-news">
-                                    <div className="health-news-image">
-                                        <a href="#">
-                                            <img src="assets/img/health-news/health-news-1.jpg" alt="image" />
-                                        </a>
-                                    </div>
-                                    
-                                    <div className="health-news-content">
-                                        <span>Health</span>
-                                        <h3>
-                                            <a href="#">At present, diseases have become the main obstacle for children to get out healthy</a>
-                                        </h3>
-                                        <p><a href="#">Tikelo</a> / 28 September, 2022</p>
-                                    </div>
-                                </div>
-
-                                <div className="single-health-news">
-                                    <div className="health-news-image">
-                                        <a href="#">
-                                            <img src="assets/img/health-news/health-news-2.jpg" alt="image" />
-                                        </a>
-                                    </div>
-                                    
-                                    <div className="health-news-content">
-                                        <span>Fitness</span>
-                                        <h3>
-                                            <a href="#">Morning yoga is very important for maintaining good physical fitness</a>
-                                        </h3>
-                                        <p><a href="#">Patricia</a> / 28 September, 2022</p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -847,100 +349,42 @@ export default function BreakingNews() {
                         <aside className="widget-area">
                             <section className="widget widget_latest_news_thumb">
                                 <h3 className="widget-title">Latest news</h3>
-
-                                {/* <article className="item">
+                                <div className='scroll-bar-vertical scrollbar-hide' style={{ height: "20.8rem" }}>
+                                {listLatest.map((item, index) => {
+                                  return (
+                                <article className="item" key={index}>
                                     <a href="#" className="thumb">
-                                        <span className="fullimage cover bg1" role="img"></span>
+                                        <span className="fullimage cover bg1" role="img">{`${item.image}`}</span>
                                     </a>
                                     <div className="info">
-                                        <h4 className="title usmall"><a href="#">Negotiations on a peace agreement between the two countries</a></h4>
-                                        <span>28 September, 2022</span>
+                                      <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                        <h4 className="title usmall"><a href="#">{item.judul_news}</a></h4>
+                                      </Link>
+                                        <span>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
                                     </div>
                                 </article>
-
-                                <article className="item">
-                                    <a href="#" className="thumb">
-                                        <span className="fullimage cover bg2" role="img"></span>
-                                    </a>
-                                    <div className="info">
-                                        <h4 className="title usmall"><a href="#">Love songs helped me through heartbreak</a></h4>
-                                        <span>28 September, 2022</span>
-                                    </div>
-                                </article>
-
-                                <article className="item">
-                                    <a href="#" className="thumb">
-                                        <span className="fullimage cover bg3" role="img"></span>
-                                    </a>
-                                    <div className="info">
-                                        <h4 className="title usmall"><a href="#">This movement aims to establish women rights</a></h4>
-                                        <span>28 September, 2022</span>
-                                    </div>
-                                </article>
-
-                                <article className="item">
-                                    <a href="#" className="thumb">
-                                        <span className="fullimage cover bg4" role="img"></span>
-                                    </a>
-                                    <div className="info">
-                                        <h4 className="title usmall"><a href="#">Giving special powers to police officers to prevent crime</a></h4>
-                                        <span>28 September, 2022</span>
-                                    </div>
-                                </article>
-
-                                <article className="item">
-                                    <a href="#" className="thumb">
-                                        <span className="fullimage cover bg5" role="img"></span>
-                                    </a>
-                                    <div className="info">
-                                        <h4 className="title usmall"><a href="#">Copy paste the style of your element Newspaper</a></h4>
-                                        <span>28 September, 2022</span>
-                                    </div>
-                                </article> */}
+                                  )
+                                })}
+                                </div>
                             </section>
 
                             <section className="widget widget_popular_posts_thumb">
                                 <h3 className="widget-title">Kalender Event</h3>
-
-                                {/* <article className="item">
+                                <div className='scroll-bar-vertical scrollbar-hide' style={{ height: "20.8rem" }}>
+                                {newEvent.map((item, index) => {
+                                  return (
+                                <article className="item" key={index}>
                                     <a href="#" className="thumb">
                                         <span className="fullimage cover bg1" role="img"></span>
                                     </a>
                                     <div className="info">
-                                        <h4 className="title usmall"><a href="#">Match between United States and England at AGD stadium</a></h4>
-                                        <span>28 September, 2022</span>
+                                        <h4 className="title usmall"><a href="#">{item.nama_event}</a></h4>
+                                        <span>{moment(item.tgl_event).format("DD MMMM, YYYY")}</span>
                                     </div>
                                 </article>
-
-                                <article className="item">
-                                    <a href="#" className="thumb">
-                                        <span className="fullimage cover bg2" role="img"></span>
-                                    </a>
-                                    <div className="info">
-                                        <h4 className="title usmall"><a href="#">For the last time, he addressed the people</a></h4>
-                                        <span>28 September, 2022</span>
-                                    </div>
-                                </article>
-
-                                <article className="item">
-                                    <a href="#" className="thumb">
-                                        <span className="fullimage cover bg3" role="img"></span>
-                                    </a>
-                                    <div className="info">
-                                        <h4 className="title usmall"><a href="#">The coronavairus is finished and the outfit is busy</a></h4>
-                                        <span>28 September, 2022</span>
-                                    </div>
-                                </article>
-
-                                <article className="item">
-                                    <a href="#" className="thumb">
-                                        <span className="fullimage cover bg4" role="img"></span>
-                                    </a>
-                                    <div className="info">
-                                        <h4 className="title usmall"><a href="#">A fierce battle is going on between the two in the game</a></h4>
-                                        <span>28 September, 2022</span>
-                                    </div>
-                                </article> */}
+                                  )
+                                })}
+                                </div>
                             </section>
                         </aside>
                     </div>
