@@ -142,23 +142,22 @@ export default function BreakingNews() {
               </div>
               <br />
                   <div className="row">
-                    <div className="col-lg-8">
+                    <div className="col-lg-12">
                       <div className="section-title">
                         <h2><Image className="p-2" src="/images/News.png" width={50} height={50} alt="" />News</h2>
                       </div>
-                      <Carousel cols={1} row={1} gap={10}>
+                      <Carousel cols={5} row={1} gap={10}>
                         {listLatest.map((item, index) => {
                           return (
                           <Carousel.Item key={index}>
                             {/* <div className="row"> */}
-                              <div className='col-lg-4'>
-                                <div className="single-main-news">
+                                <div className="single-main-news" style={{height:250}}>
                                   <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                    <img src={`${item.image}`} alt="image" />
+                                    <img src={`${item.image}`} alt="image"  style={{height:"250px",width:"auto !important"}}/>
                                   </Link>
                                   <div className="news-content">
                                     {/* <div className="tag">World news</div> */}
-                                      <h3>
+                                      <h3 className="bannews">
                                         <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                           {item.judul_news}
                                         </Link>
@@ -166,7 +165,6 @@ export default function BreakingNews() {
                                       <span>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
                                     </div>
                                 </div>
-                              </div>
                             {/* </div> */}
                           </Carousel.Item>
                           )
