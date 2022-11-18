@@ -2,7 +2,7 @@ import React from 'react'
 import Toast from 'react-bootstrap/Toast';
 import ToastContainer from 'react-bootstrap/ToastContainer';
 
-export default function (props) {
+export default function Notifikasi(props) {
   return (
     <div>
       <ToastContainer className="p-3" position={'top-center'}>
