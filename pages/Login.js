@@ -88,7 +88,7 @@ export default function Login() {
                                     </div>
                                     <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
                                     <Button variant="success" onClick={e => Login(e)}>
-                                        <p>Login</p>
+                                        <p className="login">Login</p>
                                     </Button>
                                     <div>
                                         <p className="mb-0 text-center">Dont have an account ?
