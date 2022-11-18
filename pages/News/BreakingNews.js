@@ -437,7 +437,6 @@ export default function BreakingNews() {
                                   </div>
                                   )
                                 })}
-
                             </div>
 
                             <div className="col-lg-6">

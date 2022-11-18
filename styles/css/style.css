@@ -6100,10 +6100,10 @@ Contact Area CSS
   padding: 40px;
   -webkit-box-shadow: 0 0 20px rgba(158, 158, 158, 0.16);
   box-shadow: 0 0 20px rgba(158, 158, 158, 0.16);
-  /* background-color: #ff661f; */
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
+  background-color: #fff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  /* backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px); */
   /* z-index: -1000;
   position: relative; */
 }
