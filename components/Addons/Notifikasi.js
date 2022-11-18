@@ -1,14 +1,15 @@
 import React from 'react'
 import Toast from 'react-bootstrap/Toast';
+import Image from 'next/image';
 import ToastContainer from 'react-bootstrap/ToastContainer';
 
-export default function (props) {
+export default function Notifikasi (props) {
   return (
     <div>
       <ToastContainer className="p-3" position={'top-center'}>
         <Toast onClose={props.onClose} show={props.show}>
           <Toast.Header closeButton={true}>
-            <img
+            <Image
               src="/images/icon-jepun.png"
               className="rounded me-2"
               alt=""
