@@ -353,9 +353,9 @@ export default function BreakingNews() {
                                 {listLatest.map((item, index) => {
                                   return (
                                 <article className="item" key={index}>
-                                    <a href="#" className="thumb">
-                                        <span className="fullimage cover bg1" role="img">{`${item.image}`}</span>
-                                    </a>
+                                    <Link href={`/News/DetailNews?id=${item.rowid}`} className="thumb">
+                                        <img className="fullimage cover bg1" role="img" src={`${item.image}`}></img> 
+                                    </Link>
                                     <div className="info">
                                       <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                         <h4 className="title usmall"><a href="#">{item.judul_news}</a></h4>
@@ -375,7 +375,7 @@ export default function BreakingNews() {
                                   return (
                                 <article className="item" key={index}>
                                     <a href="#" className="thumb">
-                                        <span className="fullimage cover bg1" role="img"></span>
+                                        <img className="fullimage cover bg1" role="img" src={`${item.image}`}></img>
                                     </a>
                                     <div className="info">
                                         <h4 className="title usmall"><a href="#">{item.nama_event}</a></h4>
