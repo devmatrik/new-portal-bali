@@ -251,11 +251,12 @@ export default function Home() {
                         return (
                           <article className="item" key={index}>
                             <a href="#" className="thumb">
-                              <span className="fullimage cover bg1" role="img"></span>
+                              {/* <span className="fullimage cover bg1" role="img"></span> */}
+                              <img src={item.image} style={{ height: "80px", width : "100px" }} alt="image" />
                             </a>
                             <div className="info">
                               <h4 className="title usmall" style={{ fontSize: 11 }}><a href="#">{item.nama_event}</a></h4>
-                              <span style={{ fontSize: 11 }}>{moment(item.tgl_event).format("DD MMMM, YYYY")}</span>
+                              <span style={{ fontSize: 11 }}>{moment(item.tgl_event).format("DD MMM, YYYY ")}- {moment(item.tgl_berakhir).format("DD MMM, YYYY ")}</span>
                             </div>
                           </article>
                         )
@@ -280,7 +281,7 @@ export default function Home() {
                           style={{ borderRadius: 8 }}
                         >
                           <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                            <img src={`${item.image}`} alt="image" style={{ height: "170px" }} />
+                            <img src={`${item.image}`} alt="image" style={{ height: "170px", width : "300px" }} />
                           </Link>
                           <div className="news-content">
                             {/* <div class="tag">National</div> */}
@@ -306,7 +307,8 @@ export default function Home() {
                         return (
                           <article className="item" key={index}>
                             <a href="#" className="thumb">
-                              <span className="fullimage cover bg1" role="img"></span>
+                              {/* <span className="fullimage cover bg1" role="img"></span> */}
+                              <img src={item.image} style={{ height: "80px", width : "100px" }} alt="image" />
                             </a>
                             <div className="info">
                               <Link href={`/News/DetailNews?id=${item.rowid}`}>
