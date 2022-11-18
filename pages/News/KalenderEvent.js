@@ -55,9 +55,9 @@ export default function KalenderEvent() {
                       {event.map((item, index) => (
                         <Carousel.Item key={index}>
                           <div className="row" key={item.rowid}>
-                              <div className="single-main-news">
+                              <div className="single-main-news" >
                                 <a href="#">
-                                  <img src={item.image} style={{ width: "350px", height: "250px" }} alt="image" />
+                                  <img src={item.image} style={{ width: "400px", height: "250px" }} alt="image" />
                                 </a>
                                 <div className="news-content">
                                   <div className="tag">{item.jenis_event}</div>
@@ -86,7 +86,7 @@ export default function KalenderEvent() {
                                 <div className="col-lg-4">
                                     <div className="culture-news-image">
                                         <a href="#">
-                                            <img src={item.image} alt="image" />
+                                            <img src={item.image} style={{ height: "170px", width : "300px" }} alt="image" />
                                         </a>
                                     </div>
                                 </div>
