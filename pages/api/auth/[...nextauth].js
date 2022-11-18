@@ -12,14 +12,22 @@ export default NextAuth({
         CredentialsProvider({
             name: "cridentials",
             credentials: {
-                kode_login: 'kode_login'
+                username: {
+                    label: "Username",
+                    type: "text",
+                    placeholder: "Masukan Username"
+                },
+                password: {
+                    label: "Password",
+                    type: "password",
+                    placeholder: "Masukan password"
+                }
             },
             authorize: async (cridentials) => {
                 try {
-                    let { data } = await StorageApi.auth('login_sso', cridentials);
-                    const sesi_login = data.data[0]
+                    let { data } = await StorageApi.auth('login_portal', cridentials);
                     return {
-                        id: sesi_login.data_login,
+                        id: data.data,
                     }
                 } catch (error) {
                     return null

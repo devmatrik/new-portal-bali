@@ -1,35 +1,29 @@
 import React, { useState } from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
-import { useSession, getSession } from "next-auth/react"
+import { useSession, getSession, signOut } from "next-auth/react"
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import {
-  StorageApi
+  StorageApi,
+  Notifikasi
 } from '../MainCode/MainImport'
 
 export default function Navbar(props) {
-    
-  const menuaktif = "nav-link active";
-  const menunonaktif = "nav-link";
 
   const router = useRouter();
   const [openmenu, setOpenmenu] = useState([])
-  const [aktif, setaktif] = useState(false)
-  const [actionmenu, setActionMenu] = useState('')
-  const [menuparent, setMenuParent] = useState([])
-  const [menusubparent, setMenuSubParent] = useState([])
   const [loading, setLoading] = useState(false)
   const [brandcumb, setBrandChumb] = useState([]);
   const [subbrandcumb, setSubBrandChumb] = useState([]);
   const { data: session, status } = useSession()
   const link_akses = router.asPath.split('/')
   const link_aktif = link_akses[link_akses.length - 1]
+  const [notif, setNotif] = useState(false);
+  const [notif_body, setNotifBody] = useState("");
 
   useEffect(() => {
     Menubrandchumb()
-    // cfrToken()
-    // redirect();
   }, [loading])
 
 
@@ -72,8 +66,17 @@ export default function Navbar(props) {
     })
   }
 
+  const Logout = async (e) => {
+    await signOut({
+      redirect: false
+    });
+    setNotif(true)
+    setNotifBody("Anda berhasil logout")
+    router.push('/');
+  }
   return (
     <>
+      <Notifikasi onClose={e => setNotif(!notif)} show={notif} body={notif_body} />
       <section id="main">
         <div className="navbar-area">
           <div className="main-responsive-nav">
@@ -108,67 +111,71 @@ export default function Navbar(props) {
                 <ul className="top-header-others">
                   <li>
                     <i className='bx bx-user'></i>
-                    <Link href="/Login">Login</Link>
+                    {session ? (<>
+                      <p className='text-white pointer' style={{ cursor: 'pointer' }} onClick={e => Logout(e)}>logout</p>
+                    </>) : (<>
+                      <Link href="/Login">Login</Link>
+                    </>)}
                   </li>
                 </ul>
                 <div
                   className="collapse navbar-collapse mean-menu"
                   id="navbarSupportedContent"
                 >
-                <ul className="navbar-nav">
-                {/* <li className="nav-item">
+                  <ul className="navbar-nav">
+                    {/* <li className="nav-item">
                   <a href="/" className="nav-link">
                     Home
                   </a>
                 </li> */}
-                {brandcumb.map(item => {
-                  if (item.level == 1 && item.link != "") {
-                    return (
-                      <>
-                        <li className="nav-item">
-                            <Link className="nav-link" href={`/${item.link}`}>
-                               {item.page}
-                              {/* <a className="nav-link">
+                    {brandcumb.map(item => {
+                      if (item.level == 1 && item.link != "") {
+                        return (
+                          <>
+                            <li className="nav-item">
+                              <Link className="nav-link" href={`/${item.link}`}>
+                                {item.page}
+                                {/* <a className="nav-link">
                               </a> */}
-                            </Link>
-                        </li>
-                      </>
-                    )
-                  }
+                              </Link>
+                            </li>
+                          </>
+                        )
+                      }
 
-                  if (item.link == "") {
-                    var no = item.rowid;
-                    return (
-                      <div onMouseLeave={() => subMenuOnMouseDown(item.rowid)} onMouseEnter={() => subMenuOnMouseEnter(item.rowid)} key={item.rowid}>
-                        <div className="items-center" >
-                          <li className="nav-item">
-                            <a href="" className="nav-link ">
-                              {item.page}
-                              <i className="bx bx-chevron-down" />
-                            </a>
-                            <ul className={`${openmenu[item.rowid] == false ? "dropdown-menu" : ""} `}>
-                            {openmenu[item.rowid] == false && subbrandcumb.map(item => {
-                              if (no == item.parent_menu) {
-                                return (
-                                  <>
-                                  <li>
-                                    <Link href={`/${item.link}`} >
-                                          {item.page}
-                                    </Link>
-                                  </li>
-                                    
-                                  </>
-                                )
-                              }
-                            })}
-                          </ul>
-                          </li>
-                        </div>
-                      </div>
-                    )
-                  }
-                })}
-              </ul>
+                      if (item.link == "") {
+                        var no = item.rowid;
+                        return (
+                          <div onMouseLeave={() => subMenuOnMouseDown(item.rowid)} onMouseEnter={() => subMenuOnMouseEnter(item.rowid)} key={item.rowid}>
+                            <div className="items-center" >
+                              <li className="nav-item">
+                                <a href="" className="nav-link ">
+                                  {item.page}
+                                  <i className="bx bx-chevron-down" />
+                                </a>
+                                <ul className={`${openmenu[item.rowid] == false ? "dropdown-menu" : ""} `}>
+                                  {openmenu[item.rowid] == false && subbrandcumb.map(item => {
+                                    if (no == item.parent_menu) {
+                                      return (
+                                        <>
+                                          <li>
+                                            <Link href={`/${item.link}`} >
+                                              {item.page}
+                                            </Link>
+                                          </li>
+
+                                        </>
+                                      )
+                                    }
+                                  })}
+                                </ul>
+                              </li>
+                            </div>
+                          </div>
+                        )
+                      }
+                    })}
+                  </ul>
                 </div>
               </nav>
             </div>
