@@ -1,13 +1,9 @@
-import React from 'react'
+import React from 'react';
 import Toast from 'react-bootstrap/Toast';
 import Image from 'next/image';
 import ToastContainer from 'react-bootstrap/ToastContainer';
 
-<<<<<<< HEAD
 export default function Notifikasi(props) {
-=======
-export default function Notifikasi (props) {
->>>>>>> 4e94f3800d54a04b0e8ffcdc2cad8daaddbbe134
   return (
     <div>
       <ToastContainer className="p-3" position={'top-center'}>
