@@ -45,7 +45,7 @@ export default function LiveTraffict() {
   return (
     <BaseLayouts>
       <div className="contact-map ltr">
-        <iframe src={`http://satupeta.net/satupeta_new/PemetaanEmbed?center=-8.4356749,114.9973846&display=off&show_data=`} frameBorder="0" height={550} width={700}></iframe>
+        <iframe src={`https://satupeta.net/PemetaanEmbed?center=-8.4356749,114.9973846&display=off&show_data=`} frameBorder="0" height={550} width={700}></iframe>
       </div>
       <div className="contact-map">
         <div class="row liveweather">
