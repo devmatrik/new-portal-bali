@@ -14,7 +14,7 @@ import WisataAdat from '../Wisata/wisataAdat';
 
 export default function BreakingNews() {
 
-  const [listTags, setListTags] = useState([]);  
+  const [listTags, setListTags] = useState([]);
   const [listLatest, setListLatest] = useState([]);
   const [global, setListGlobal] = useState([]);
   const [g20, setListG20] = useState([]);
@@ -185,7 +185,7 @@ export default function BreakingNews() {
       })
   }
 
-   const Kuliner = () => {
+  const Kuliner = () => {
     Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
       .then(value => {
         const list = value.data.data
@@ -231,7 +231,7 @@ export default function BreakingNews() {
       })
   }
 
-   const Technology = () => {
+  const Technology = () => {
     Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
       .then(value => {
         const list = value.data.data
@@ -254,7 +254,7 @@ export default function BreakingNews() {
       })
   }
 
-   const IT = () => {
+  const IT = () => {
     Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
       .then(value => {
         const list = value.data.data
@@ -299,7 +299,7 @@ export default function BreakingNews() {
 
       })
   }
-  
+
   const getData = () => {
     Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
       .then(value => {
@@ -323,429 +323,429 @@ export default function BreakingNews() {
 
   const getTags = () => {
     Promise.resolve(StorageApi.getData(`sm_master_data/jenis_berita`))
-    .then(value => {
-      const data = value.data.data
-      setListTags(data)
-    }).catch(error => {
-      setListTags([])
-    }).catch(error => {
+      .then(value => {
+        const data = value.data.data
+        setListTags(data)
+      }).catch(error => {
+        setListTags([])
+      }).catch(error => {
 
-    })
+      })
   }
 
   return (
     <>
       <BaseLayouts>
         <section className="main-news-area allnews">
-            <div className="container">
-              <div class="row">
-                <div className="col-md-9">
-                  <div className="section-title">
-                    <h3 className='widget-title'><Image className="p-2" src="/images/explore.svg" width={50} height={50} alt="image" />Tags</h3>
-                  </div>
-                </div>
-                <div className="col-md-3">
-                  <div className="wtitle">
-                    <Cuaca></Cuaca>
-                  </div>
+          <div className="container">
+            <div class="row">
+              <div className="col-md-9">
+                <div className="section-title">
+                  <h3 className='widget-title'><Image className="p-2" src="/images/explore.svg" width={50} height={50} alt="image" />Kategori</h3>
                 </div>
               </div>
-              <div className="col-md-12">
-                <aside className="widget-area">
-                  <section className="widget widget_tag_cloud">
-                    {/* <h3 className="widget-title">Tags</h3> */}
-                      <div className="tagcloud" >
-                        {listTags.map((item, index) => {
-                           return (
-                            <Link key={index} href={`sm_master_data/jenis_berita`}>
-                              {item.jenis_berita}
-                            </Link>
-                          )
-                        })}
-                      </div>
-                  </section>
-                </aside>
+              <div className="col-md-3">
+                <div className="wtitle">
+                  <Cuaca></Cuaca>
+                </div>
               </div>
-              <br />
-                  <div className="row">
-                    <div className="col-lg-12">
-                      <div className="section-title">
-                        <h2><Image className="p-2" src="/images/News.png" width={50} height={50} alt="" />News</h2>
-                      </div>
-                      <Carousel cols={5} row={1} gap={10}>
-                        {listLatest.map((item, index) => {
-                            
-                          return (
-                          <Carousel.Item key={index}>
-                            {/* <div className="row"> */}
-                                <div className="single-main-news" style={{height:250}}>
-                                  <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                    <img src={`${item.image}`} alt="image"  style={{height:"250px",width:"auto !important"}}/>
-                                  </Link>
-                                  <div className="news-content">
-                                    {/* <div className="tag">World news</div> */}
-                                      <h3 className="bannews">
-                                        <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                          {item.judul_news}
-                                        </Link>
-                                      </h3>
-                                      <span>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
-                                    </div>
-                                </div>
-                            {/* </div> */}
-                          </Carousel.Item>
-                          )
-                        })}
-                      </Carousel>
-                      </div>
-                  </div>
             </div>
+            <div className="col-md-12">
+              <aside className="widget-area">
+                <section className="widget widget_tag_cloud">
+                  {/* <h3 className="widget-title">Tags</h3> */}
+                  <div className="tagcloud" >
+                    {listTags.map((item, index) => {
+                      return (
+                        <Link key={index} href={`sm_master_data/jenis_berita`}>
+                          {item.jenis_berita}
+                        </Link>
+                      )
+                    })}
+                  </div>
+                </section>
+              </aside>
+            </div>
+            <br />
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="section-title">
+                  <h2><Image className="p-2" src="/images/News.png" width={50} height={50} alt="" />News</h2>
+                </div>
+                <Carousel cols={5} row={1} gap={10}>
+                  {listLatest.map((item, index) => {
+
+                    return (
+                      <Carousel.Item key={index}>
+                        {/* <div className="row"> */}
+                        <div className="single-main-news" style={{ height: 250 }}>
+                          <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                            <img src={`${item.image}`} alt="image" style={{ height: "250px", width: "auto !important" }} />
+                          </Link>
+                          <div className="news-content">
+                            {/* <div className="tag">World news</div> */}
+                            <h3 className="bannews">
+                              <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                {item.judul_news}
+                              </Link>
+                            </h3>
+                            <span>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
+                          </div>
+                        </div>
+                        {/* </div> */}
+                      </Carousel.Item>
+                    )
+                  })}
+                </Carousel>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section className="default-news-area allnews">
-            <div className="container">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8">
                 <div className="row">
-                    <div className="col-lg-8">
-                        <div className="row">
-                        <div className="col-lg-6">
-                                <div className="section-title"> 
-                                    <h2>Breaking News</h2> 
-                                </div>
-                                {news.slice(0,3).map((item, index) => {
-                                  return (
-                                  <div className="single-sports-news" key={index}>
-                                      <div className="row align-items-center">
-                                          <div className="col-lg-4 col-sm-4">
-                                              <div className="sports-news-image">
-                                                  <a href="#">
-                                                      <img src={item.image} alt="image" />
-                                                  </a>
-                                              </div>
-                                          </div>
-
-                                          <div className="col-lg-8 col-sm-8">
-                                              <div className="sports-news-content">
-                                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                                  <h3>
-                                                      <a href="#">{item.judul_news}</a>
-                                                  </h3>
-                                                  <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
-                                                </Link>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  )
-                                })}
+                  <div className="col-lg-6">
+                    <div className="section-title">
+                      <h2>Breaking News</h2>
+                    </div>
+                    {news.slice(0, 3).map((item, index) => {
+                      return (
+                        <div className="single-sports-news" key={index}>
+                          <div className="row align-items-center">
+                            <div className="col-lg-4 col-sm-4">
+                              <div className="sports-news-image">
+                                <a href="#">
+                                  <img src={item.image} alt="image" />
+                                </a>
+                              </div>
                             </div>
 
-                            <div className="col-lg-6">
-                                <div className="section-title"> 
-                                    <h2>News Flash</h2> 
-                                </div>
-
-                                {newflash.slice(0,3).map((item, index) => {
-                                    return (
-                                        <div className="single-tech-news" key={index}>
-                                            <div className="row align-items-center">
-                                                <div className="col-lg-4 col-sm-4">
-                                                    <div className="tech-news-image">
-                                                        <a href="#">
-                                                            <img src={item.image} alt="image" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-
-                                                <div className="col-lg-8 col-sm-8">
-                                                    <div className="tech-news-content">
-                                                        <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                                            <h3 >
-                                                                <a>{item.judul_news}</a>
-                                                            </h3>
-                                                        </Link>
-                                                        <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )
-                                })}
-
+                            <div className="col-lg-8 col-sm-8">
+                              <div className="sports-news-content">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                  <h3>
+                                    <a href="#">{item.judul_news}</a>
+                                  </h3>
+                                  <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
+                                </Link>
+                              </div>
                             </div>
-                            <div className="col-lg-6">
-                                <div className="section-title"> 
-                                    <h2>G20</h2> 
-                                </div>
-                               
-                                {g20.slice(0,3).map((item, index) => {
-                                    return (
-                                        <div className="single-tech-news" key={index}>
-                                            <div className="row align-items-center">
-                                                <div className="col-lg-4 col-sm-4">
-                                                    <div className="tech-news-image">
-                                                        <a href="#">
-                                                            <img src={item.image} alt="image" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-
-                                                <div className="col-lg-8 col-sm-8">
-                                                    <div className="tech-news-content">
-                                                        <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                                            <h3 >
-                                                                <a>{item.judul_news}</a>
-                                                            </h3>
-                                                        </Link>
-                                                        <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )
-                                })}
-
-                            </div>
-                            <div className="col-lg-6">
-                                <div className="section-title"> 
-                                    <h2>Global</h2> 
-                                </div>
-
-                                {global.slice(0,3).map((item, index) => {
-                                    return (
-                                        <div className="single-tech-news" key={index}>
-                                            <div className="row align-items-center">
-                                                <div className="col-lg-4 col-sm-4">
-                                                    <div className="tech-news-image">
-                                                        <a href="#">
-                                                            <img src={item.image} alt="image" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-
-                                                <div className="col-lg-8 col-sm-8">
-                                                    <div className="tech-news-content">
-                                                        <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                                            <h3 >
-                                                                <a>{item.judul_news}</a>
-                                                            </h3>
-                                                        </Link>
-                                                        <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                            <div className="col-lg-6">
-                                <div className="section-title"> 
-                                    <h2>Wisata</h2> 
-                                </div>
-
-                                {wisata.slice(0,3).map((item, index) => {
-                                    return (
-                                        <div className="single-tech-news" key={index}>
-                                            <div className="row align-items-center">
-                                                <div className="col-lg-4 col-sm-4">
-                                                    <div className="tech-news-image">
-                                                        <a href="#">
-                                                            <img src={item.image} alt="image" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-
-                                                <div className="col-lg-8 col-sm-8">
-                                                    <div className="tech-news-content">
-                                                        <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                                            <h3 >
-                                                                <a>{item.judul_news}</a>
-                                                            </h3>
-                                                        </Link>
-                                                        <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )
-                                })}
-
-                              
-                            </div>
-                            <div className="col-lg-6">
-                                <div className="section-title"> 
-                                    <h2>Technology</h2> 
-                                </div>
-
-                                {technology.slice(0,3).map((item, index) => {
-                                    return (
-                                        <div className="single-tech-news" key={index}>
-                                            <div className="row align-items-center">
-                                                <div className="col-lg-4 col-sm-4">
-                                                    <div className="tech-news-image">
-                                                        <a href="#">
-                                                            <img src={item.image} alt="image" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-
-                                                <div className="col-lg-8 col-sm-8">
-                                                    <div className="tech-news-content">
-                                                        <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                                            <h3 >
-                                                                <a>{item.judul_news}</a>
-                                                            </h3>
-                                                        </Link>
-                                                        <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                            <div className="col-lg-6">
-                                <div className="section-title"> 
-                                    <h2>Budaya</h2> 
-                                </div>
-
-                               {budaya.slice(0,3).map((item, index) => {
-                                    return (
-                                        <div className="single-tech-news" key={index}>
-                                            <div className="row align-items-center">
-                                                <div className="col-lg-4 col-sm-4">
-                                                    <div className="tech-news-image">
-                                                        <a href="#">
-                                                            <img src={item.image} alt="image" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-
-                                                <div className="col-lg-8 col-sm-8">
-                                                    <div className="tech-news-content">
-                                                        <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                                            <h3 >
-                                                                <a>{item.judul_news}</a>
-                                                            </h3>
-                                                        </Link>
-                                                        <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )
-                                })}
-
-                             
-                            </div>
-                            <div className="col-lg-6">
-                                <div className="section-title"> 
-                                    <h2>Olahraga</h2> 
-                                </div>
-
-                                {olahraga.slice(0,3).map((item, index) => {
-                                    return (
-                                        <div className="single-tech-news" key={index}>
-                                            <div className="row align-items-center">
-                                                <div className="col-lg-4 col-sm-4">
-                                                    <div className="tech-news-image">
-                                                        <a href="#">
-                                                            <img src={item.image} alt="image" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-
-                                                <div className="col-lg-8 col-sm-8">
-                                                    <div className="tech-news-content">
-                                                        <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                                            <h3 >
-                                                                <a>{item.judul_news}</a>
-                                                            </h3>
-                                                        </Link>
-                                                        <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-
-                            <div className="col-lg-6">
-                                <div className="section-title"> 
-                                    <h2>IT Goverment</h2> 
-                                </div>
-
-                                {it.slice(0,3).map((item, index) => {
-                                    return (
-                                        <div className="single-tech-news" key={index}>
-                                            <div className="row align-items-center">
-                                                <div className="col-lg-4 col-sm-4">
-                                                    <div className="tech-news-image">
-                                                        <a href="#">
-                                                            <img src={item.image} alt="image" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-
-                                                <div className="col-lg-8 col-sm-8">
-                                                    <div className="tech-news-content">
-                                                        <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                                            <h3 >
-                                                                <a>{item.judul_news}</a>
-                                                            </h3>
-                                                        </Link>
-                                                        <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )
-                                })}
-                            </div>
+                          </div>
                         </div>
+                      )
+                    })}
+                  </div>
+
+                  <div className="col-lg-6">
+                    <div className="section-title">
+                      <h2>News Flash</h2>
                     </div>
 
-                    <div className="col-lg-4">
-                        <aside className="widget-area">
-                            <section className="widget widget_latest_news_thumb">
-                                <h3 className="widget-title">Latest news</h3>
-                                {listLatest.slice(0,4).map((item, index) => {
-                                  return (
-                                <article className="item" key={index}>
-                                    <Link href={`/News/DetailNews?id=${item.rowid}`} className="thumb">
-                                        <img className="fullimage cover bg1" role="img" src={`${item.image}`}></img> 
-                                    </Link>
-                                    <div className="info">
-                                      <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                        <h4 className="title usmall"><a href="#">{item.judul_news}</a></h4>
-                                      </Link>
-                                        <span>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
-                                    </div>
-                                </article>
-                                  )
-                                })}
-                            </section>
+                    {newflash.slice(0, 3).map((item, index) => {
+                      return (
+                        <div className="single-tech-news" key={index}>
+                          <div className="row align-items-center">
+                            <div className="col-lg-4 col-sm-4">
+                              <div className="tech-news-image">
+                                <a href="#">
+                                  <img src={item.image} alt="image" />
+                                </a>
+                              </div>
+                            </div>
 
-                            <section className="widget widget_popular_posts_thumb">
-                                <h3 className="widget-title">Kalender Event</h3>
-                                {newEvent.slice(0,4).map((item, index) => {
-                                  return (
-                                    <article className="item" key={index}>
-                                        <a href="#" className="thumb">
-                                            <img className="fullimage cover bg1" role="img" src={`${item.image}`}></img>
-                                        </a>
-                                        <div className="info">
-                                            <h4 className="title usmall"><a href="#">{item.nama_event}</a></h4>
-                                            <span>{moment(item.tgl_event).format("DD MMMM, YYYY")}</span>
-                                        </div>
-                                    </article>
-                                  )
-                                })}
-                            </section>
-                        </aside>
+                            <div className="col-lg-8 col-sm-8">
+                              <div className="tech-news-content">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                  <h3 >
+                                    <a>{item.judul_news}</a>
+                                  </h3>
+                                </Link>
+                                <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="section-title">
+                      <h2>G20</h2>
                     </div>
+
+                    {g20.slice(0, 3).map((item, index) => {
+                      return (
+                        <div className="single-tech-news" key={index}>
+                          <div className="row align-items-center">
+                            <div className="col-lg-4 col-sm-4">
+                              <div className="tech-news-image">
+                                <a href="#">
+                                  <img src={item.image} alt="image" />
+                                </a>
+                              </div>
+                            </div>
+
+                            <div className="col-lg-8 col-sm-8">
+                              <div className="tech-news-content">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                  <h3 >
+                                    <a>{item.judul_news}</a>
+                                  </h3>
+                                </Link>
+                                <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="section-title">
+                      <h2>Global</h2>
+                    </div>
+
+                    {global.slice(0, 3).map((item, index) => {
+                      return (
+                        <div className="single-tech-news" key={index}>
+                          <div className="row align-items-center">
+                            <div className="col-lg-4 col-sm-4">
+                              <div className="tech-news-image">
+                                <a href="#">
+                                  <img src={item.image} alt="image" />
+                                </a>
+                              </div>
+                            </div>
+
+                            <div className="col-lg-8 col-sm-8">
+                              <div className="tech-news-content">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                  <h3 >
+                                    <a>{item.judul_news}</a>
+                                  </h3>
+                                </Link>
+                                <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="section-title">
+                      <h2>Wisata</h2>
+                    </div>
+
+                    {wisata.slice(0, 3).map((item, index) => {
+                      return (
+                        <div className="single-tech-news" key={index}>
+                          <div className="row align-items-center">
+                            <div className="col-lg-4 col-sm-4">
+                              <div className="tech-news-image">
+                                <a href="#">
+                                  <img src={item.image} alt="image" />
+                                </a>
+                              </div>
+                            </div>
+
+                            <div className="col-lg-8 col-sm-8">
+                              <div className="tech-news-content">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                  <h3 >
+                                    <a>{item.judul_news}</a>
+                                  </h3>
+                                </Link>
+                                <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+
+
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="section-title">
+                      <h2>Technology</h2>
+                    </div>
+
+                    {technology.slice(0, 3).map((item, index) => {
+                      return (
+                        <div className="single-tech-news" key={index}>
+                          <div className="row align-items-center">
+                            <div className="col-lg-4 col-sm-4">
+                              <div className="tech-news-image">
+                                <a href="#">
+                                  <img src={item.image} alt="image" />
+                                </a>
+                              </div>
+                            </div>
+
+                            <div className="col-lg-8 col-sm-8">
+                              <div className="tech-news-content">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                  <h3 >
+                                    <a>{item.judul_news}</a>
+                                  </h3>
+                                </Link>
+                                <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="section-title">
+                      <h2>Budaya</h2>
+                    </div>
+
+                    {budaya.slice(0, 3).map((item, index) => {
+                      return (
+                        <div className="single-tech-news" key={index}>
+                          <div className="row align-items-center">
+                            <div className="col-lg-4 col-sm-4">
+                              <div className="tech-news-image">
+                                <a href="#">
+                                  <img src={item.image} alt="image" />
+                                </a>
+                              </div>
+                            </div>
+
+                            <div className="col-lg-8 col-sm-8">
+                              <div className="tech-news-content">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                  <h3 >
+                                    <a>{item.judul_news}</a>
+                                  </h3>
+                                </Link>
+                                <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+
+
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="section-title">
+                      <h2>Olahraga</h2>
+                    </div>
+
+                    {olahraga.slice(0, 3).map((item, index) => {
+                      return (
+                        <div className="single-tech-news" key={index}>
+                          <div className="row align-items-center">
+                            <div className="col-lg-4 col-sm-4">
+                              <div className="tech-news-image">
+                                <a href="#">
+                                  <img src={item.image} alt="image" />
+                                </a>
+                              </div>
+                            </div>
+
+                            <div className="col-lg-8 col-sm-8">
+                              <div className="tech-news-content">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                  <h3 >
+                                    <a>{item.judul_news}</a>
+                                  </h3>
+                                </Link>
+                                <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+
+                  <div className="col-lg-6">
+                    <div className="section-title">
+                      <h2>IT Goverment</h2>
+                    </div>
+
+                    {it.slice(0, 3).map((item, index) => {
+                      return (
+                        <div className="single-tech-news" key={index}>
+                          <div className="row align-items-center">
+                            <div className="col-lg-4 col-sm-4">
+                              <div className="tech-news-image">
+                                <a href="#">
+                                  <img src={item.image} alt="image" />
+                                </a>
+                              </div>
+                            </div>
+
+                            <div className="col-lg-8 col-sm-8">
+                              <div className="tech-news-content">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                  <h3 >
+                                    <a>{item.judul_news}</a>
+                                  </h3>
+                                </Link>
+                                <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
                 </div>
+              </div>
+
+              <div className="col-lg-4">
+                <aside className="widget-area">
+                  <section className="widget widget_latest_news_thumb">
+                    <h3 className="widget-title">Latest news</h3>
+                    {listLatest.slice(0, 4).map((item, index) => {
+                      return (
+                        <article className="item" key={index}>
+                          <Link href={`/News/DetailNews?id=${item.rowid}`} className="thumb">
+                            <img className="fullimage cover bg1" role="img" src={`${item.image}`}></img>
+                          </Link>
+                          <div className="info">
+                            <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                              <h4 className="title usmall"><a href="#">{item.judul_news}</a></h4>
+                            </Link>
+                            <span>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
+                          </div>
+                        </article>
+                      )
+                    })}
+                  </section>
+
+                  <section className="widget widget_popular_posts_thumb">
+                    <h3 className="widget-title">Kalender Event</h3>
+                    {newEvent.slice(0, 4).map((item, index) => {
+                      return (
+                        <article className="item" key={index}>
+                          <a href="#" className="thumb">
+                            <img className="fullimage cover bg1" role="img" src={`${item.image}`}></img>
+                          </a>
+                          <div className="info">
+                            <h4 className="title usmall"><a href="#">{item.nama_event}</a></h4>
+                            <span>{moment(item.tgl_event).format("DD MMMM, YYYY")}</span>
+                          </div>
+                        </article>
+                      )
+                    })}
+                  </section>
+                </aside>
+              </div>
             </div>
+          </div>
         </section>
 
       </BaseLayouts>
