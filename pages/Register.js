@@ -2,11 +2,19 @@ import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useRouter } from "next/router";
 import Head from 'next/head'
-import { InputCustom, Notifikasi } from "../components/MainCode/MainImport"
+import {
+    InputCustom,
+    Notifikasi,
+    SelectCustom,
+    SelectPolres,
+    StorageApi,
+    Textarea,
+} from "../components/MainCode/MainImport"
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { getCsrfToken, useSession, signIn, signOut } from "next-auth/react"
 import Link from 'next/link';
+import moment from 'moment';
 
 
 
@@ -14,45 +22,63 @@ export default function Login() {
     const router = useRouter();
     const { data: session, status } = useSession()
     const [ok, setOk] = useState(false)
-    const [cfr, setCfr] = useState("");
-    const [username, setUsername] = useState("");
+    const [alamat, setAlamat] = useState("");
+    const [email, setEmail] = useState("");
+    const [nama, setNama] = useState("");
+    const [telp, setTelp] = useState("");
+    const [jenis_kelamin, setJenisKelamin] = useState("");
+    const [tgl_lahir, setTglLahir] = useState("");
+    const [polres_id, setPolresId] = useState("");
+    const [nik, setNik] = useState("");
     const [password, setPassword] = useState("");
     const [notif, setNotif] = useState(false);
     const [notif_body, setNotifBody] = useState("");
 
     useEffect(() => {
-        cfrToken()
-    }, [ok])
 
-    const cfrToken = async () => {
-        const c = await getCsrfToken();
-        setCfr(c)
+    }, [ok])
+    const reset_elm = () => {
+        setOk(true)
+        setAlamat('')
+        setEmail('')
+        setNama('')
+        setJenisKelamin('')
+        setTglLahir('')
+        setPolresId('')
+        setNik('')
+        setPassword('')
+        setNama('')
+        setTelp('')
     }
 
-    const Login = async (e) => {
-        e.preventDefault();
-        setOk(false)
-        await signOut({
-            redirect: false
-        });
-
-
-        const res = await signIn('credentials', {
-            redirect: false,
-            username: username,
-            password: password,
-            callbackUrl: `${window.location.origin}`,
-        });
-        if (res?.error) {
-            setNotif(true)
-            setNotifBody("Tidak dapat login, periksa kembali NIP dan Password anda!")
-            setOk(false)
-        } else {
-            setNotif(true)
-            setNotifBody("Selamat Anda berhasil Login")
-            router.push("/HubungiKami/eLapor")
-            setOk(true)
-        }
+    const Simpan = () => {
+        const formData = new FormData()
+        formData.append('kode_jenis_user', 'EXTERNAL')
+        formData.append('polda_id', "17")
+        formData.append('nama', nama)
+        formData.append('polres_id', polres_id)
+        formData.append('tgl_lahir', tgl_lahir)
+        formData.append('jenis_kelamin', jenis_kelamin)
+        formData.append('email', email)
+        formData.append('nik', nik)
+        formData.append('password', password)
+        formData.append('kesatuan', "POLRES")
+        formData.append('kode_unit', "SM_UMUM")
+        formData.append('telp', telp)
+        formData.append('alamat', alamat)
+        formData.append('kode_sub_unit', "SM_UMUM_MASYARAKAT")
+        formData.append('ctdby', "")
+        formData.append('ctddate', moment().format("YYYY-MM-DD"))
+        formData.append('ctdtime', moment().format("HH:mm:ss"))
+        Promise.resolve(StorageApi.addData("sm_hrm/user_master", formData))
+            .then(value => {
+                setNotifBody("Selamat Anda berhasil register, Silahkan cek email anda untuk verifikasi data")
+                setNotif(true)
+                reset_elm();
+            }).catch(error => {
+                setNotifBody("Gagal melakukan register")
+                setNotif(false)
+            })
     }
     return (
         <>
@@ -82,21 +108,64 @@ export default function Login() {
                                     </div>
                                     <div className='row'>
                                         <div className="col-lg-4 col-md-4 mb-3">
-                                            <InputCustom className="" type="text" placeholder="Nik" onChange={e => setUsername(e.target.value)} />
+                                            <Form.Label for="exampleInputPassword1" className="form-label">Nik</Form.Label>
+                                            <InputCustom className="" type="number" placeholder="Nik" value={nik} onChange={e => setNik(e.target.value)} />
                                         </div>
                                         <div className="col-lg-4 col-md-4 mb-3">
-                                            <InputCustom className="" type="text" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                                            <Form.Label for="exampleInputPassword1" className="form-label">Nama Lengkap</Form.Label>
+                                            <InputCustom className="" type="text" placeholder="Nama Lengkap" onChange={e => setNama(e.target.value)} />
                                         </div>
                                         <div className="col-lg-4 col-md-4 mb-3">
-                                            <InputCustom className="" type="text" placeholder="Nik" onChange={e => setUsername(e.target.value)} />
+                                            <Form.Label for="exampleInputPassword1" className="form-label">Jenis Kelamin</Form.Label>
+                                            <SelectCustom onChange={(e) => setJenisKelamin(e.value)} value={jenis_kelamin} placeholder="Jenis Kelamin">
+                                                {
+                                                    [
+                                                        { label: <p style={{ color: "black" }}>Laki-laki</p>, value: 'L' },
+                                                        { label: <p style={{ color: "black" }}>Perempuan</p>, value: 'P' },
+                                                    ]
+                                                }
+                                            </SelectCustom>
                                         </div>
                                         <div className="col-lg-4 col-md-4 mb-3">
-                                            <InputCustom className="" type="text" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                                            <Form.Label for="exampleInputPassword1" className="form-label">Telp</Form.Label>
+                                            <InputCustom className="" type="number" placeholder="Telp" onChange={e => setTelp(e.target.value)} />
                                         </div>
+                                        <div className="col-lg-4 col-md-4 mb-3">
+                                            <Form.Label for="exampleInputPassword1" className="form-label">Tanggal Lahir</Form.Label>
+                                            <InputCustom className="" type="date" placeholder="Tanggal Lahir" value={tgl_lahir} onChange={e => setTglLahir(e.target.value)} />
+                                        </div>
+                                        <div className="col-lg-4 col-md-4 mb-3">
+                                            <Form.Label for="exampleInputPassword1" className="form-label">Provinsi</Form.Label>
+                                            <InputCustom className="" type="text" placeholder="Nama Lengkap" value={"Provinsi Bali"} onChange={e => setPoldaId(e.target.value)} readOnly />
+                                        </div>
+                                        <div className="col-lg-4 col-md-4 mb-3">
+                                            <Form.Label for="exampleInputPassword1" className="form-label">Kota/Kabupaten</Form.Label>
+                                            <SelectPolres onChange={(e) => setPolresId(e.value)} value={polres_id} param={17} placeholder="Pilih kota/kabupaten" />
+                                        </div>
+                                        <div className="col-lg-4 col-md-4 mb-3">
+                                            <Form.Label for="exampleInputPassword1" className="form-label">Email</Form.Label>
+                                            <InputCustom className="" type="mail" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+                                        </div>
+                                        <div className="col-lg-4 col-md-4 mb-3">
+                                            <Form.Label for="exampleInputPassword1" className="form-label">Username</Form.Label>
+                                            <InputCustom className="" type="text" placeholder="Username" value={nik} readOnly />
+                                        </div>
+                                        <div className="col-lg-4 col-md-4 mb-3">
+                                            <Form.Label for="exampleInputPassword1" className="form-label">Password</Form.Label>
+                                            <InputCustom className="" type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+                                        </div>
+                                        <Form.Label for="exampleInputPassword1" className="form-label">Alamat</Form.Label>
+                                        <Textarea
+                                            rows="4"
+                                            name="keterangan"
+                                            placeholder="Alamat"
+                                            value={alamat}
+                                            onChange={e => setAlamat(e.target.value)}
+                                        />
                                     </div>
 
                                     <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
-                                    <Button variant="success" onClick={e => Login(e)}>
+                                    <Button variant="success" onClick={e => Simpan(e)}>
                                         <p>Login</p>
                                     </Button>
                                     <div>

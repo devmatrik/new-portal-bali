@@ -38,6 +38,25 @@ export default function eLapor() {
   const [lng, setLng] = useState('');
 
 
+
+  const reset_elm = () => {
+    setTanggal('')
+    setSaluranInformasi('')
+    setKategoriId('')
+    setSubKategoriId('')
+    setKategoriparam('')
+    setSubKategoriparam('')
+    setNamaJalanId('')
+    setPenjelasanSingkat('')
+    setKategoriPelapor('')
+    setTelp('')
+    setNamaPelapor('')
+    setSituasiLalin('')
+    setJumlahKorban('')
+    setLat('')
+    setLng('')
+  }
+
   const ShowModal = (param) => {
     setShow(true)
 
@@ -68,14 +87,14 @@ export default function eLapor() {
     formData.append('saluran_informasi_id', saluran_informasi_id)
     formData.append('kategori_id', kategori_id)
     formData.append('sub_kategori_id', sub_kategori_id)
+    formData.append('situasi_lalin_id', situasi_lalin_id)
+    formData.append('jml_korban', korban ? korban : 0)
+    formData.append('penjelasan_singkat', penjelasan_singkat)
     formData.append('nama_jalan_s', nama_jalan_id)
     formData.append('lat', lat)
     formData.append('lng', lng)
-    formData.append('jml_korban', korban)
-    formData.append('situasi_lalin_id', situasi_lalin_id)
-    formData.append('penjelasan_singkat', penjelasan_singkat)
-    formData.append('nama_pelapor', nama)
-    formData.append('telp_pelapor', telp)
+    formData.append('nama_pelapor', session?.nama)
+    formData.append('telp_pelapor', session?.telp)
     formData.append('kategori', kategori_param.toLowerCase())
     if (kategori_param == "Pelayanan") {
       const param = KategoriPelayanan(sub_kategori_param)
@@ -86,12 +105,12 @@ export default function eLapor() {
     formData.append('kategori_pelapor_id', kategori_pelapor_id)
     formData.append('ctdby', session?.kode_user_master)
     formData.append('polda_id', session?.polda_id)
+    formData.append('penjelasan_singkat', penjelasan_singkat[0])
     formData.append('polres_id', session?.polres_id)
     fileAdd.map(item => {
       formData.append('images[]', item.files)
       formData.append('keterangan[]', item.keterangan)
     })
-    debugger
     Promise.resolve(StorageApi.addData('public_service', formData))
       .then(value => {
         reset_elm()
@@ -196,7 +215,7 @@ export default function eLapor() {
                         <div className="input-group mb-3">
                           <InputCustom className="" type="text" placeholder="Latitude" onChange={e => setLat(e.target.value)} />
                           <InputCustom className="" type="text" placeholder="Longitude" onChange={e => setLng(e.target.value)} />
-                          <span className="input-group-text" onClick={(e) => ShowModal("Show Map")}><i className="bx bx-map"></i></span>
+                          <span className="input-group-text"><i className="bx bx-map"></i></span>
                         </div>
                       </div>
                     </div>
@@ -269,6 +288,13 @@ export default function eLapor() {
                         <InputCustom className="" type="text" placeholder="Telp./CP" value={session?.telp} readOnly />
                       </div>
                     </div>
+                    <Form.Label for="exampleInputPassword1" className="form-label">Penjelasan Singkat</Form.Label>
+                    <Textarea
+                      rows="4"
+                      placeholder="Penjelasan Singkat"
+                      value={penjelasan_singkat}
+                      onChange={e => setPenjelasanSingkat(e.target.value)}
+                    />
 
 
 
