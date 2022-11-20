@@ -44,48 +44,48 @@ export default function LiveTraffict() {
 
   return (
     <BaseLayouts>
-        <div className="contact-map ltr">
-          <iframe src={`http://202.134.4.215/satupeta_new/PemetaanEmbed?center=-8.4356749,114.9973846&display=off&show_data=`} frameBorder="0" height={550} width={700}></iframe>
-        </div>
-        <div className="contact-map">
-          <div class="row liveweather">
-              <div className="col-md-1">
-                <CuacaLiveTraffict lat={'-8.4355'} lng={'115.243698'}/>
-              </div>
-              <div className="col-lg-1">
-                <CuacaLiveTraffict lat={'-8.4542'} lng={'115.3545'}/>
-              </div>
-              <div className="col-lg-1">
-                <CuacaLiveTraffict lat={'-8.112'} lng={'115.088181'}/>
-              </div>
-              <div className="col-lg-1">
-                <CuacaLiveTraffict lat={'-8.5'} lng={'115'}/>
-              </div>
-              <div className="col-lg-1">
-                <CuacaLiveTraffict lat={'-8.31507'} lng={'114.602547'}/>
-              </div>
-              <div className="col-lg-1">
-                <CuacaLiveTraffict lat={'-6.8512'} lng={'111.3638'}/>
-              </div>
-              <div className="col-lg-1">
-                <CuacaLiveTraffict lat={'-8.5333'} lng={'115.4'}/>
-              </div>
-              <div className="col-lg-1">
-                <CuacaLiveTraffict lat={'-8.5413'} lng={'115.125221'}/>
-              </div>
-              <div className="col-lg-1">
-                <CuacaLiveTraffict lat={'-8.65'} lng={'115.216667'}/>
-              </div>
-              <div className="col-lg-3">
-                <div className="traf">
-                  <Image src="/images/traffict.svg" width={500} height={100} alt="" />
-                </div>
-              </div>
+      <div className="contact-map ltr">
+        <iframe src={`https://202.134.4.215/satupeta_new/PemetaanEmbed?center=-8.4356749,114.9973846&display=off&show_data=`} frameBorder="0" height={550} width={700}></iframe>
+      </div>
+      <div className="contact-map">
+        <div class="row liveweather">
+          <div className="col-md-1">
+            <CuacaLiveTraffict lat={'-8.4355'} lng={'115.243698'} />
+          </div>
+          <div className="col-lg-1">
+            <CuacaLiveTraffict lat={'-8.4542'} lng={'115.3545'} />
+          </div>
+          <div className="col-lg-1">
+            <CuacaLiveTraffict lat={'-8.112'} lng={'115.088181'} />
+          </div>
+          <div className="col-lg-1">
+            <CuacaLiveTraffict lat={'-8.5'} lng={'115'} />
+          </div>
+          <div className="col-lg-1">
+            <CuacaLiveTraffict lat={'-8.31507'} lng={'114.602547'} />
+          </div>
+          <div className="col-lg-1">
+            <CuacaLiveTraffict lat={'-6.8512'} lng={'111.3638'} />
+          </div>
+          <div className="col-lg-1">
+            <CuacaLiveTraffict lat={'-8.5333'} lng={'115.4'} />
+          </div>
+          <div className="col-lg-1">
+            <CuacaLiveTraffict lat={'-8.5413'} lng={'115.125221'} />
+          </div>
+          <div className="col-lg-1">
+            <CuacaLiveTraffict lat={'-8.65'} lng={'115.216667'} />
+          </div>
+          <div className="col-lg-3">
+            <div className="traf">
+              <Image src="/images/traffict.svg" width={500} height={100} alt="" />
+            </div>
           </div>
         </div>
-        <div className='grid grid-cols-1 livetraffict'>
-          <iframe className='xl:-ml-0 ml-2 !xl:w-full w-[100%] h-[700px]' src={tableu} frameBorder="0" width={1455} height={600} />
-        </div>
-      </BaseLayouts>
+      </div>
+      <div className='grid grid-cols-1 livetraffict'>
+        <iframe className='xl:-ml-0 ml-2 !xl:w-full w-[100%] h-[700px]' src={tableu} frameBorder="0" width={1455} height={600} />
+      </div>
+    </BaseLayouts>
   )
 }
