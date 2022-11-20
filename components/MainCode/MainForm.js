@@ -162,6 +162,123 @@ export function SelectSituasiLalin(props) {
   )
 }
 
+// export function SelectPolda(props) {
+//   const [list, setDetail] = useState([]);
+
+//   useEffect(e => {
+//     ListCategory();
+//   }, [])
+
+//   const ListCategory = async () => {
+//     const a = Promise.resolve(StorageApi.getRelasi('polda'));
+//     a.then(value => {
+//       const lists = value.data.data;
+//       var daftar = [];
+//       lists.map(item => (
+//         item.polda == "Polda Bali" ? (
+//           daftar.push({ label: <p style={{ color: black }}>{item.polda}</p>, value: item.polda_id })
+//         ) : ("")
+//       ))
+//       setDetail(daftar)
+//     }).catch(e => {
+//       console.log(e);
+//     });
+//   }
+
+//   return (
+//     <>
+//       <SelectSearch
+//         className="w-full"
+//         value={props.value ?
+//           list.filter(option =>
+//             option.value === props.value) : ""
+//         }
+//         onChange={props.onChange}
+//         placeholder={props.placeholder}
+//         options={list}
+//         required
+//         isDisabled={props.disabled ? true : false}
+//       />
+//     </>
+//   )
+// }
+
+export function SelectPolres(props) {
+  const [list, setDetail] = useState([]);
+
+  useEffect(e => {
+    ListCategory(props.param);
+  }, [props?.param])
+
+  const ListCategory = async (polda_id) => {
+    const a = Promise.resolve(StorageApi.getRelasi('polres?polda_id=' + polda_id));
+    a.then(value => {
+      const lists = value.data.data
+      var daftar = [];
+      lists.map(item =>
+        daftar.push({ label: <p style={{ color: "black" }}>{item.polres == "POLRESTA DENPASAR" ? item.polres.replace('POLRESTA', '') : item.polres.replace('POLRES', '')}</p>, value: item.polres_id }))
+      setDetail(daftar)
+    }).catch(e => {
+      setDetail([])
+      console.log(e);
+    });
+  }
+  return (
+    <>
+      <SelectSearch
+        className="w-full"
+        value={props.value ?
+          list.filter(option =>
+            option.value === props.value) : ""
+        }
+        onChange={props.onChange}
+        placeholder={props.placeholder}
+        options={list}
+        required
+        isDisabled={(props.disabled) ? true : false}
+      />
+    </>
+  )
+}
+
+export function SelectPolda(props) {
+  const [list, setDetail] = useState([]);
+
+  useEffect(e => {
+    ListCategory();
+  }, [])
+
+  const ListCategory = async () => {
+    const a = Promise.resolve(StorageApi.getRelasi('polda'));
+    a.then(value => {
+      const lists = value.data.data;
+      var daftar = [];
+      lists.map(item => (
+        daftar.push({ label: item.polda, value: item.polda_id })
+      ))
+      setDetail(daftar)
+    }).catch(e => {
+      console.log(e);
+    });
+  }
+
+  return (
+    <>
+      <SelectSearch
+        className="w-full"
+        value={props.value ?
+          list.filter(option =>
+            option.value === props.value) : ""
+        }
+        onChange={props.onChange}
+        placeholder={props.placeholder}
+        options={list}
+        required
+        isDisabled={props.disabled ? true : false}
+      />
+    </>
+  )
+}
 export function SelectKategoriPelapor(props) {
   const [list, setDetail] = useState([]);
 
@@ -251,6 +368,25 @@ export function Textarea(props) {
         name={props.name}
         readOnly={props.readOnly ? true : false}
       ></textarea>
+    </>
+  )
+}
+
+export function SelectCustom(props) {
+  return (
+    <>
+      <SelectSearch
+        className="w-full"
+        value={props.value ?
+          props.children.filter(option =>
+            option.value === props.value) : ""
+        }
+        onChange={props.onChange}
+        placeholder={props.placeholder}
+        options={props.children}
+        required
+        isDisabled={props.disabled ? true : false}
+      />
     </>
   )
 }
