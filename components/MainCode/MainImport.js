@@ -7,6 +7,9 @@ export {
   SelectSubKategori,
   SelectSituasiLalin,
   SelectKategoriPelapor,
+  SelectPolda,
+  SelectCustom,
+  SelectPolres,
   InputCustom,
   Textarea
 } from "./MainForm"
