@@ -17,7 +17,7 @@ import Form from 'react-bootstrap/Form';
 import { useSession } from "next-auth/react"
 import Link from 'next/link';
 
-export default function eLapor() {
+export default function ELapor() {
   const [show, setShow] = useState(false);
   const { data: session, status } = useSession()
   const [tanggal, setTanggal] = useState('');
