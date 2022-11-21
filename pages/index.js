@@ -113,7 +113,7 @@ export default function Home() {
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/Wisata/wisataAlam">Wisata Alam</Link>
+                              <Link style={{ color: '#fff' }} href="/Wisata/wisataAlam">Wisata Alam</Link>
                             </h3>
                           </div>
                         </div>
@@ -127,7 +127,7 @@ export default function Home() {
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/Wisata/wisataKuliner">Wisata Kuliner</Link>
+                              <Link style={{ color: '#fff' }} href="/Wisata/wisataKuliner">Wisata Kuliner</Link>
                             </h3>
                           </div>
                         </div>
@@ -141,7 +141,7 @@ export default function Home() {
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/Wisata/kulinerTradisional">Kuliner Tradisional</Link>
+                              <Link style={{ color: '#fff' }} href="/Wisata/kulinerTradisional">Kuliner Tradisional</Link>
                             </h3>
                           </div>
                         </div>
@@ -159,7 +159,7 @@ export default function Home() {
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/Wisata/wisataAdat">Adat & Budaya</Link>
+                              <Link style={{ color: '#fff' }} href="/Wisata/wisataAdat">Adat & Budaya</Link>
                             </h3>
                           </div>
                         </div>
@@ -173,7 +173,7 @@ export default function Home() {
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/Wisata/tempatRekreasi">Tempat Rekreasi</Link>
+                              <Link style={{ color: '#fff' }} href="/Wisata/tempatRekreasi">Tempat Rekreasi</Link>
                             </h3>
                           </div>
                         </div>
@@ -187,7 +187,7 @@ export default function Home() {
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/Wisata/olehOlehKhas">Oleh- Oleh Khas</Link>
+                              <Link style={{ color: '#fff' }} href="/Wisata/olehOlehKhas">Oleh- Oleh Khas</Link>
                             </h3>
                           </div>
                         </div>
@@ -205,7 +205,7 @@ export default function Home() {
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/PublicService/travelAgensi">Travel Agensi</Link>
+                              <Link style={{ color: '#fff' }} href="/PublicService/travelAgensi">Travel Agensi</Link>
                             </h3>
                           </div>
                         </div>
@@ -219,7 +219,7 @@ export default function Home() {
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/PublicService/Penginapan">Penginapan</Link>
+                              <Link style={{ color: '#fff' }} href="/PublicService/Penginapan">Penginapan</Link>
                             </h3>
                           </div>
                         </div>
@@ -233,7 +233,7 @@ export default function Home() {
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/PublicService/lokasiPelayananPublic">Pelayanan Publik</Link>
+                              <Link style={{ color: '#fff' }} href="/PublicService/lokasiPelayananPublic">Pelayanan Publik</Link>
                             </h3>
                           </div>
                         </div>

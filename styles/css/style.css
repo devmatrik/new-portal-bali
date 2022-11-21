@@ -458,7 +458,7 @@ Section Title CSS
   font-weight: bold;
   margin-bottom: 25px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid #1f2937;
   width: 100%;
   position: relative;
   /* z-index: -100; */
@@ -472,7 +472,7 @@ Section Title CSS
   width: 100px;
   height: 1px;
   bottom: -1px;
-  background: #ff661f;
+  background: #991b1b;
 }
 
 .section-title h2 {
@@ -3822,7 +3822,7 @@ Widget Sidebar CSS
   margin-bottom: 30px;
   position: relative;
   padding-bottom: 10px;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid #1f2937;
   font-size: 25px;
   font-weight: 500;
 }
@@ -3835,7 +3835,7 @@ Widget Sidebar CSS
   width: 100px;
   height: 1px;
   bottom: -1px;
-  background: #ff661f;
+  background: #991b1b;
 }
 
 .widget-area .widget_latest_news_thumb {
@@ -5476,7 +5476,7 @@ Team Area CSS
 }
 
 .single-team-box .content {
-  background-color: #f3f3f3;
+  background-color: #1f2937;
   padding: 30px 20px;
 }
 
