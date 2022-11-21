@@ -12,13 +12,11 @@ export default function DetailNews() {
     const [listTags, setListTags] = useState([]);
     const [listLatest, setListLatest] = useState([]);
     const [detail, setDetail] = useState([]);
-    const [news, setNews] = useState([]);
     const [loading, setLoading] = useState('')
     useEffect(() => {
         GetDetailNews(query.id)
         LatestNews()
         getTags();
-        getData();
     }, [loading])
 
     const GetDetailNews = (id) => {
@@ -31,36 +29,15 @@ export default function DetailNews() {
             })
     }
 
-    const getData = () => {
-        Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
-          .then(value => {
-            const list = value.data.data
-            var param = ""
-            list.map(item => {
-              if (item.jenis_berita == "Breaking News") {
-                param = item.rowid
-              }
-            })
-            Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_news_id=${param}`))
-              .then(value => {
-                const data = value.data.data
-                setNews(data)
-              }).catch(error => {
-                setNews([])
-              })
-          }).catch(error => {
-          })
-      }
-
     const LatestNews = () => {
         Promise.resolve(StorageApi.getData(`sm_portal/news`))
-          .then(value => {
+        .then(value => {
             const datag20 = value.data.data
             const Listdata = datag20.sort((a, b) => b.rowid - a.rowid)
             setListLatest(Listdata)
-          }).catch(error => {
+        }).catch(error => {
             setListLatest([])
-          })
+        })
     }
 
     const getTags = () => {
@@ -105,11 +82,11 @@ export default function DetailNews() {
                                                 {listLatest.map((item, index) => {
                                                     return (
                                                         <article className="item" key={index}>
-                                                            <Link href={`/News/?id=${item.rowid}`} className="thumb">
+                                                            <Link href={`/News/DetailNews?id=${item.rowid}`} className="thumb">
                                                                 <img src={`${item.image}`} alt="image" style={{ height: "80px", width : "100px" }} />
                                                             </Link>
                                                             <div className="info">
-                                                                <Link href={`/News/?id=${item.rowid}`}>
+                                                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                                                     <h4 className="title usmall" style={{ fontSize: 12 }}>
                                                                         <a>{item.judul_news}</a>
                                                                     </h4>
