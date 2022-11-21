@@ -84,7 +84,7 @@ export default function LiveTraffict() {
         </div>
       </div>
       <div className='grid grid-cols-1 livetraffict'>
-        <iframe className='xl:-ml-0 ml-2 !xl:w-full w-[100%] h-[700px]' src={tableu} frameBorder="0" width={1455} height={600} />
+        <iframe className='xl:-ml-0 ml-2 !xl:w-[700px] w-[100%] h-[700px]' src={tableu} frameBorder="0" width={1455} height={600} />
       </div>
     </BaseLayouts>
   )

@@ -341,7 +341,7 @@ export default function BreakingNews() {
             <div class="row">
               <div className="col-md-9">
                 <div className="section-title">
-                  <h3 className='widget-title'><Image className="p-2" src="/images/explore.svg" width={50} height={50} alt="image" />Kategori</h3>
+                  <h3 className='widget-title'><Image className="p-2" src="/images/tag.svg" width={50} height={50} alt="image" />Kategori</h3>
                 </div>
               </div>
               <div className="col-md-3">

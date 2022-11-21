@@ -6371,7 +6371,7 @@ News Details Area CSS
 
 .blog-details-desc .article-content {
   margin-top: 30px;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   background-color: #fff;
   padding: 9px 9px 9px 9px;
 }
