@@ -49,7 +49,7 @@ export default function KalenderEvent() {
         <section className="main-news-slider-area">
             <div className="container events">
                 <div className="section-title"> 
-                    <h2>Upcoming Events</h2> 
+                    <h2>Events</h2> 
                 </div>
                 <Carousel cols={4} rows={1} gap={40} loop>
                       {event.map((item, index) => (
@@ -71,12 +71,7 @@ export default function KalenderEvent() {
                         </Carousel.Item>
                       ))}
                       </Carousel>
-                </div>
-            </section>
-        {/* <!-- End Main News Slider Area -->
-
-        <!-- Start Default News Area --> */}
-        <section className="default-news-area ptb-30">
+                      <section className="default-news-area ptb-30">
             <div className="container events">
               {event.map((item, index) => (
                   <div className="row mb-20" key={index}>
@@ -106,9 +101,6 @@ export default function KalenderEvent() {
                                 </div>
                             </div>
                         </div>
-
-                      
-
                         {/* <div className="pagination-area justify-content-center">
                             <a href="#" className="prev page-numbers">
                                 <i className='bx bx-chevron-left'></i>
@@ -122,16 +114,12 @@ export default function KalenderEvent() {
                             </a>
                         </div> */}
                     </div>
-                    
                   </div>
               ))}
-
-
-               
             </div>
         </section>
-        {/* <!-- End Default News Area --> */}
-
+        </div>
+      </section>
       </BaseLayouts>
     </>
   )

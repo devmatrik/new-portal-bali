@@ -224,7 +224,7 @@ export default function Navbar(props) {
             </div>
           </div>
         </div>
-        <video src="/images/video.mp4" muted autoPlay loop></video>
+        {/* <video src="/images/video.mp4" muted autoPlay loop></video> */}
       </section>
       {props.children}
     </>

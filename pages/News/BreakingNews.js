@@ -6,10 +6,10 @@ import {
 } from '../../components/MainCode/MainImport'
 import Link from 'next/link';
 import moment from 'moment/moment';
-import Slide from 'react-bootstrap/Carousel'
 import Carousel from 'react-grid-carousel'
 import Cuaca from '../Cuaca';
-import WisataAdat from '../Wisata/wisataAdat';
+// import Slide from 'react-bootstrap/Carousel'
+// import WisataAdat from '../Wisata/wisataAdat';
 // import Slider from "react-slick";
 
 export default function BreakingNews() {
@@ -56,17 +56,6 @@ export default function BreakingNews() {
   const konten = {
     title: "All News",
     //LinkApi: "algors/periode_keselamatan",
-  }
-
-  const LatestNews = () => {
-    Promise.resolve(StorageApi.getData(`sm_portal/news`))
-      .then(value => {
-        const datag20 = value.data.data
-        const Listdata = datag20.sort((a, b) => b.rowid - a.rowid)
-        setListLatest(Listdata)
-      }).catch(error => {
-        setListLatest([])
-      })
   }
 
   const NewEvent = () => {
@@ -321,6 +310,17 @@ export default function BreakingNews() {
       })
   }
 
+  const LatestNews = () => {
+    Promise.resolve(StorageApi.getData(`sm_portal/news`))
+      .then(value => {
+        const datag20 = value.data.data
+        const Listdata = datag20.sort((a, b) => b.rowid - a.rowid)
+        setListLatest(Listdata)
+      }).catch(error => {
+        setListLatest([])
+      })
+  }
+
   const getTags = () => {
     Promise.resolve(StorageApi.getData(`sm_master_data/jenis_berita`))
       .then(value => {
@@ -341,7 +341,7 @@ export default function BreakingNews() {
             <div class="row">
               <div className="col-md-9">
                 <div className="section-title">
-                  <h3 className='widget-title'><Image className="p-2" src="/images/explore.svg" width={50} height={50} alt="image" />Kategori</h3>
+                  <h3 className='widget-title'><Image className="p-2" src="/images/tag.svg" width={50} height={50} alt="image" />Kategori</h3>
                 </div>
               </div>
               <div className="col-md-3">
@@ -723,9 +723,11 @@ export default function BreakingNews() {
                           </Link>
                           <div className="info">
                             <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                              <h4 className="title usmall"><a href="#">{item.judul_news}</a></h4>
+                              <h4 className="title usmall" style={{ fontSize: 12 }}>
+                                <a href="#">{item.judul_news}</a>
+                              </h4>
                             </Link>
-                            <span>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
+                            <span style={{ fontSize: 12 }}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
                           </div>
                         </article>
                       )

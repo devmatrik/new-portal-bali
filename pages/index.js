@@ -113,7 +113,7 @@ export default function Home() {
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/Wisata/wisataAlam">Wisata Alam</Link>
+                              <Link style={{ color: '#fff' }} href="/Wisata/wisataAlam">Wisata Alam</Link>
                             </h3>
                           </div>
                         </div>
@@ -127,7 +127,7 @@ export default function Home() {
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/Wisata/wisataKuliner">Wisata Kuliner</Link>
+                              <Link style={{ color: '#fff' }} href="/Wisata/wisataKuliner">Wisata Kuliner</Link>
                             </h3>
                           </div>
                         </div>
@@ -141,7 +141,7 @@ export default function Home() {
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/Wisata/kulinerTradisional">Kuliner Tradisional</Link>
+                              <Link style={{ color: '#fff' }} href="/Wisata/kulinerTradisional">Kuliner Tradisional</Link>
                             </h3>
                           </div>
                         </div>
@@ -159,7 +159,7 @@ export default function Home() {
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/Wisata/wisataAdat">Adat & Budaya</Link>
+                              <Link style={{ color: '#fff' }} href="/Wisata/wisataAdat">Adat & Budaya</Link>
                             </h3>
                           </div>
                         </div>
@@ -173,7 +173,7 @@ export default function Home() {
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/Wisata/tempatRekreasi">Tempat Rekreasi</Link>
+                              <Link style={{ color: '#fff' }} href="/Wisata/tempatRekreasi">Tempat Rekreasi</Link>
                             </h3>
                           </div>
                         </div>
@@ -187,7 +187,7 @@ export default function Home() {
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/Wisata/olehOlehKhas">Oleh- Oleh Khas</Link>
+                              <Link style={{ color: '#fff' }} href="/Wisata/olehOlehKhas">Oleh- Oleh Khas</Link>
                             </h3>
                           </div>
                         </div>
@@ -205,7 +205,7 @@ export default function Home() {
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/PublicService/travelAgensi">Travel Agensi</Link>
+                              <Link style={{ color: '#fff' }} href="/PublicService/travelAgensi">Travel Agensi</Link>
                             </h3>
                           </div>
                         </div>
@@ -219,7 +219,7 @@ export default function Home() {
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/PublicService/Penginapan">Penginapan</Link>
+                              <Link style={{ color: '#fff' }} href="/PublicService/Penginapan">Penginapan</Link>
                             </h3>
                           </div>
                         </div>
@@ -233,7 +233,7 @@ export default function Home() {
                           </div>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link href="/PublicService/lokasiPelayananPublic">Pelayanan Publik</Link>
+                              <Link style={{ color: '#fff' }} href="/PublicService/lokasiPelayananPublic">Pelayanan Publik</Link>
                             </h3>
                           </div>
                         </div>
@@ -285,11 +285,11 @@ export default function Home() {
                           style={{ borderRadius: 8 }}
                         >
                           <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                            <img src={`${item.image}`} alt="image" style={{ height: "170px", width : "300px" }} />
+                            <img src={`${item.image}`} alt="image" style={{ fontSize: '12px'}} />
                           </Link>
                           <div className="news-content">
                             {/* <div class="tag">National</div> */}
-                            <h3 style={{ fontSize: 14 }}>
+                            <h3 style={{ fontSize: 12 }}>
                               <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                 {item.judul_news}
                               </Link>
@@ -303,29 +303,31 @@ export default function Home() {
                 </Carousel>
               </div>
               <div className="col-lg-3">
-                <aside className="widget-area scroll-bar-vertical scrollbar-hide" style={{ height: "30rem" }}>
+                <aside className="widget-area">
                   <section className="widget widget_latest_news_thumb">
                     <h3 className="widget-title"><Image src="/images/News.png" width={40} height={40} alt="image" /> G20</h3>
-                    <div className='scroll-bar-vertical scrollbar-hide' style={{ height: "20.8rem" }}>
-                      {g20.map((item, index) => {
-                        return (
-                          <article className="item" key={index}>
-                            <a href="#" className="thumb">
-                              {/* <span className="fullimage cover bg1" role="img"></span> */}
-                              <img src={item.image} style={{ height: "80px", width : "100px" }} alt="image" />
-                            </a>
-                            <div className="info">
-                              <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                <h4 className="title usmall" style={{ fontSize: 13 }}>
-                                  <a>{item.judul_news}</a>
-                                </h4>
-                              </Link>
-                              <span style={{ fontSize: 12, color: '#fff' }}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
-                            </div>
-                          </article>
-                        )
-                      })}
-                    </div>
+                    <aside className='widget-area scroll-bar-vertical scrollbar-hide' style={{ height: "30rem" }}>
+                      <div className='scroll-bar-vertical scrollbar-hide' style={{ height: "60rem" }}>
+                        {g20.map((item, index) => {
+                          return (
+                            <article className="item" key={index}>
+                              <a href="#" className="thumb">
+                                {/* <span className="fullimage cover bg1" role="img"></span> */}
+                                <img src={item.image} style={{ height: "80px", width : "100px" }} alt="image" />
+                              </a>
+                              <div className="info">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                  <h4 className="title usmall" style={{ fontSize: 12 }}>
+                                    <a>{item.judul_news}</a>
+                                  </h4>
+                                </Link>
+                                <span style={{ fontSize: 12, color: '#fff' }}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
+                              </div>
+                            </article>
+                          )
+                        })}
+                      </div>
+                    </aside>
                   </section>
                 </aside>
               </div>
