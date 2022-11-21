@@ -715,7 +715,7 @@ export default function BreakingNews() {
                 <aside className="widget-area">
                   <section className="widget widget_latest_news_thumb">
                     <h3 className="widget-title">Latest news</h3>
-                    {g20.slice(0, 4).map((item, index) => {
+                    {listLatest.slice(0, 4).map((item, index) => {
                       return (
                         <article className="item" key={index}>
                           <Link href={`/News/DetailNews?id=${item.rowid}`} className="thumb">

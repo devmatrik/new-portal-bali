@@ -22,6 +22,12 @@ export default function Navbar(props) {
   const [notif, setNotif] = useState(false);
   const [notif_body, setNotifBody] = useState("");
 
+  const menuaktif = "nav-item active";
+  const menunonaktif = "nav-item ";
+
+  const submenuaktif = "nav-link active";
+  const submenunonaktif = "nav-link ";
+
   useEffect(() => {
     Menubrandchumb()
   }, [loading])
@@ -129,10 +135,12 @@ export default function Navbar(props) {
                   </a>
                 </li> */}
                     {brandcumb.map(item => {
+                      const page_count = item.link.split('/')
+                      const page = page_count[page_count.length - 1]
                       if (item.level == 1 && item.link != "") {
                         return (
                           <>
-                            <li className="nav-item">
+                            <li className={(link_aktif == page) ? menuaktif : menunonaktif}>
                               <Link className="nav-link" href={`/${item.link}`}>
                                 {item.page}
                                 {/* <a className="nav-link">
@@ -144,22 +152,28 @@ export default function Navbar(props) {
                       }
 
                       if (item.link == "") {
-                        var no = item.rowid;
+                        const page_count_sub = item.link.split('/')
+                        const pagesub = page_count_sub[page_count_sub.length - 2]
+                        var id = item.rowid
+                        
                         return (
                           <div onMouseLeave={() => subMenuOnMouseDown(item.rowid)} onMouseEnter={() => subMenuOnMouseEnter(item.rowid)} key={item.rowid}>
                             <div className="items-center" >
-                              <li className="nav-item">
-                                <a href="" className="nav-link ">
+                             <li className={(link_aktif == pagesub) ? menuaktif : menunonaktif}>
+                            {/* <li className={menuaktif}> */}
+                                <a href="#" className="nav-link ">
                                   {item.page}
                                   <i className="bx bx-chevron-down" />
                                 </a>
                                 <ul className={`${openmenu[item.rowid] == false ? "dropdown-menu" : ""} `}>
                                   {openmenu[item.rowid] == false && subbrandcumb.map(item => {
-                                    if (no == item.parent_menu) {
+                                    const sub_count = item.link.split('/')
+                                    const subpage = sub_count[sub_count.length - 1]
+                                    if (id == item.parent_menu) {
                                       return (
                                         <>
                                           <li>
-                                            <Link href={`/${item.link}`} >
+                                            <Link className={(link_aktif == subpage) ? submenuaktif : submenunonaktif} href={`/${item.link}`} >
                                               {item.page}
                                             </Link>
                                           </li>
