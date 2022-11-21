@@ -303,29 +303,31 @@ export default function Home() {
                 </Carousel>
               </div>
               <div className="col-lg-3">
-                <aside className="widget-area scroll-bar-vertical scrollbar-hide" style={{ height: "30rem" }}>
+                <aside className="widget-area">
                   <section className="widget widget_latest_news_thumb">
                     <h3 className="widget-title"><Image src="/images/News.png" width={40} height={40} alt="image" /> G20</h3>
-                    <div className='scroll-bar-vertical scrollbar-hide' style={{ height: "20.8rem" }}>
-                      {g20.map((item, index) => {
-                        return (
-                          <article className="item" key={index}>
-                            <a href="#" className="thumb">
-                              {/* <span className="fullimage cover bg1" role="img"></span> */}
-                              <img src={item.image} style={{ height: "80px", width : "100px" }} alt="image" />
-                            </a>
-                            <div className="info">
-                              <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                <h4 className="title usmall" style={{ fontSize: 12 }}>
-                                  <a>{item.judul_news}</a>
-                                </h4>
-                              </Link>
-                              <span style={{ fontSize: 12, color: '#fff' }}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
-                            </div>
-                          </article>
-                        )
-                      })}
-                    </div>
+                    <aside className='widget-area scroll-bar-vertical scrollbar-hide' style={{ height: "30rem" }}>
+                      <div className='scroll-bar-vertical scrollbar-hide' style={{ height: "60rem" }}>
+                        {g20.map((item, index) => {
+                          return (
+                            <article className="item" key={index}>
+                              <a href="#" className="thumb">
+                                {/* <span className="fullimage cover bg1" role="img"></span> */}
+                                <img src={item.image} style={{ height: "80px", width : "100px" }} alt="image" />
+                              </a>
+                              <div className="info">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                  <h4 className="title usmall" style={{ fontSize: 12 }}>
+                                    <a>{item.judul_news}</a>
+                                  </h4>
+                                </Link>
+                                <span style={{ fontSize: 12, color: '#fff' }}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
+                              </div>
+                            </article>
+                          )
+                        })}
+                      </div>
+                    </aside>
                   </section>
                 </aside>
               </div>

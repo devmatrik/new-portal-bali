@@ -11,12 +11,14 @@ export default function DetailNews() {
 
     const [listTags, setListTags] = useState([]);
     const [listLatest, setListLatest] = useState([]);
-    const [detail, setDetail] = useState([])
+    const [detail, setDetail] = useState([]);
+    const [news, setNews] = useState([]);
     const [loading, setLoading] = useState('')
     useEffect(() => {
         GetDetailNews(query.id)
         LatestNews()
         getTags();
+        getData();
     }, [loading])
 
     const GetDetailNews = (id) => {
@@ -28,6 +30,27 @@ export default function DetailNews() {
                 setDetail('')
             })
     }
+
+    const getData = () => {
+        Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
+          .then(value => {
+            const list = value.data.data
+            var param = ""
+            list.map(item => {
+              if (item.jenis_berita == "Breaking News") {
+                param = item.rowid
+              }
+            })
+            Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_news_id=${param}`))
+              .then(value => {
+                const data = value.data.data
+                setNews(data)
+              }).catch(error => {
+                setNews([])
+              })
+          }).catch(error => {
+          })
+      }
 
     const LatestNews = () => {
         Promise.resolve(StorageApi.getData(`sm_portal/news`))
@@ -82,14 +105,14 @@ export default function DetailNews() {
                                                 {listLatest.map((item, index) => {
                                                     return (
                                                         <article className="item" key={index}>
-                                                            <Link href={`/News/DetailNews?id=${item.rowid}`} className="thumb">
+                                                            <Link href={`/News/?id=${item.rowid}`} className="thumb">
                                                                 <img src={`${item.image}`} alt="image" style={{ height: "80px", width : "100px" }} />
                                                             </Link>
                                                             <div className="info">
-                                                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                                                <h4 className="title usmall" style={{ fontSize: 12 }}>
-                                                                    <a href="#">{item.judul_news}</a>
-                                                                </h4>
+                                                                <Link href={`/News/?id=${item.rowid}`}>
+                                                                    <h4 className="title usmall" style={{ fontSize: 12 }}>
+                                                                        <a>{item.judul_news}</a>
+                                                                    </h4>
                                                                 </Link>
                                                                 <span style={{ fontSize: 12, color: '#fff' }}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
                                                             </div>

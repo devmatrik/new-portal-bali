@@ -58,17 +58,6 @@ export default function BreakingNews() {
     //LinkApi: "algors/periode_keselamatan",
   }
 
-  const LatestNews = () => {
-    Promise.resolve(StorageApi.getData(`sm_portal/news`))
-      .then(value => {
-        const datag20 = value.data.data
-        const Listdata = datag20.sort((a, b) => b.rowid - a.rowid)
-        setListLatest(Listdata)
-      }).catch(error => {
-        setListLatest([])
-      })
-  }
-
   const NewEvent = () => {
     Promise.resolve(StorageApi.getData("sm_master_data/jenis_event"))
       .then(value => {
@@ -318,6 +307,17 @@ export default function BreakingNews() {
             setNews([])
           })
       }).catch(error => {
+      })
+  }
+
+  const LatestNews = () => {
+    Promise.resolve(StorageApi.getData(`sm_portal/news`))
+      .then(value => {
+        const datag20 = value.data.data
+        const Listdata = datag20.sort((a, b) => b.rowid - a.rowid)
+        setListLatest(Listdata)
+      }).catch(error => {
+        setListLatest([])
       })
   }
 
