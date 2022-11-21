@@ -6,10 +6,10 @@ import {
 } from '../../components/MainCode/MainImport'
 import Link from 'next/link';
 import moment from 'moment/moment';
-import Slide from 'react-bootstrap/Carousel'
 import Carousel from 'react-grid-carousel'
 import Cuaca from '../Cuaca';
-import WisataAdat from '../Wisata/wisataAdat';
+// import Slide from 'react-bootstrap/Carousel'
+// import WisataAdat from '../Wisata/wisataAdat';
 // import Slider from "react-slick";
 
 export default function BreakingNews() {

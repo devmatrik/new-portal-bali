@@ -9,13 +9,16 @@ export default function DetailNews() {
     const router = useRouter()
     const query = router?.query;
 
-    const [loading, setLoading] = useState('')
+    const [listTags, setListTags] = useState([]);
     const [listLatest, setListLatest] = useState([]);
     const [detail, setDetail] = useState('')
+    const [loading, setLoading] = useState('')
     useEffect(() => {
         GetDetailNews(query.id)
         LatestNews()
+        getTags();
     }, [loading])
+
     const GetDetailNews = (id) => {
         console.log(id);
         Promise.resolve(StorageApi.getData(`sm_portal/news/${id}`))
@@ -34,6 +37,18 @@ export default function DetailNews() {
             setListLatest(Listdata)
           }).catch(error => {
             setListLatest([])
+          })
+    }
+
+    const getTags = () => {
+        Promise.resolve(StorageApi.getData(`sm_master_data/jenis_berita`))
+          .then(value => {
+            const data = value.data.data
+            setListTags(data)
+          }).catch(error => {
+            setListTags([])
+          }).catch(error => {
+    
           })
     }
 
@@ -68,12 +83,15 @@ export default function DetailNews() {
                                                     return (
                                                         <article className="item" key={index}>
                                                             <Link href={`/News/DetailNews?id=${item.rowid}`} className="thumb">
+                                                                <img src={`${item.image}`} alt="image" style={{ height: "80px", width : "100px" }} />
                                                             </Link>
                                                             <div className="info">
                                                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                                                <h4 className="title usmall"><a href="#">{item.judul_news}</a></h4>
+                                                                <h4 className="title usmall" style={{ fontSize: 12 }}>
+                                                                    <a href="#">{item.judul_news}</a>
+                                                                </h4>
                                                                 </Link>
-                                                                <span>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
+                                                                <span style={{ fontSize: 12, color: '#fff' }}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
                                                             </div>
                                                         </article>
                                                     )
@@ -86,17 +104,13 @@ export default function DetailNews() {
                                         <h3 class="widget-title">Tags</h3>
 
                                         <div class="tagcloud">
-                                            <a href="#">News</a>
-                                            <a href="#">Business</a>
-                                            <a href="#">Health</a>
-                                            <a href="#">Politics</a>
-                                            <a href="#">Magazine</a>
-                                            <a href="#">Sport</a>
-                                            <a href="#">Tech</a>
-                                            <a href="#">Video</a>
-                                            <a href="#">Global</a>
-                                            <a href="#">Culture</a>
-                                            <a href="#">Fashion</a>
+                                        {listTags.map((item, index) => {
+                                            return (
+                                                <Link key={index} href={`sm_master_data/jenis_berita`}>
+                                                {item.jenis_berita}
+                                                </Link>
+                                            )
+                                        })}
                                         </div>
                                     </section>
                                 </aside>

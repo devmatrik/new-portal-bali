@@ -285,11 +285,11 @@ export default function Home() {
                           style={{ borderRadius: 8 }}
                         >
                           <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                            <img src={`${item.image}`} alt="image" style={{ height: "170px", width : "300px" }} />
+                            <img src={`${item.image}`} alt="image" style={{ fontSize: '12px'}} />
                           </Link>
                           <div className="news-content">
                             {/* <div class="tag">National</div> */}
-                            <h3 style={{ fontSize: 14 }}>
+                            <h3 style={{ fontSize: 12 }}>
                               <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                 {item.judul_news}
                               </Link>
@@ -316,7 +316,7 @@ export default function Home() {
                             </a>
                             <div className="info">
                               <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                <h4 className="title usmall" style={{ fontSize: 13 }}>
+                                <h4 className="title usmall" style={{ fontSize: 12 }}>
                                   <a>{item.judul_news}</a>
                                 </h4>
                               </Link>
