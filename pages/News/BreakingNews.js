@@ -723,9 +723,11 @@ export default function BreakingNews() {
                           </Link>
                           <div className="info">
                             <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                              <h4 className="title usmall"><a href="#">{item.judul_news}</a></h4>
+                              <h4 className="title usmall" style={{ fontSize: 12 }}>
+                                <a href="#">{item.judul_news}</a>
+                              </h4>
                             </Link>
-                            <span>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
+                            <span style={{ fontSize: 12 }}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
                           </div>
                         </article>
                       )

@@ -11,7 +11,7 @@ export default function DetailNews() {
 
     const [listTags, setListTags] = useState([]);
     const [listLatest, setListLatest] = useState([]);
-    const [detail, setDetail] = useState('')
+    const [detail, setDetail] = useState([])
     const [loading, setLoading] = useState('')
     useEffect(() => {
         GetDetailNews(query.id)
