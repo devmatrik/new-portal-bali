@@ -85,9 +85,9 @@ export default function KalenderEvent() {
                             <div className="row align-items-center">
                                 <div className="col-lg-4">
                                     <div className="culture-news-image">
-                                        <a href="#">
+                                        <Link href={`/News/DetailEvent?id=${item.rowid}`}>
                                             <img src={item.image} style={{ height: "170px", width : "300px" }} alt="image" />
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
 
@@ -95,7 +95,7 @@ export default function KalenderEvent() {
                                     <div className="culture-news-content mt-0">
                                         <span>{item.jenis_event}</span>
                                         <h3>
-                                            <a href="#">{item.nama_event}</a>
+                                            <Link href="#">{item.nama_event}</Link>
                                         </h3>
                                         <p>{item.isi_konten.length > 200 ?
                                             `${item.isi_konten.substring(0, 200)}...` : item.description

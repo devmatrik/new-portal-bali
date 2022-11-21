@@ -244,19 +244,23 @@ export default function Home() {
               </div>
               <div className="col-lg-3">
                 <aside className="widget-area scroll-bar-vertical scrollbar-hide" style={{ height: "30rem" }}>
-                  <section className="widget widget_latest_news_thumb">
+                  <section className="widget widget_popular_posts_thumb">
                     <h3 className="widget-title"><Image src="/images/Event.png" width={30} height={30} alt="image" /> New Event</h3>
                     <div className='scroll-bar-vertical scrollbar-hide' style={{ height: "20.8rem" }}>
                       {newEvent.map((item, index) => {
                         return (
                           <article className="item" key={index}>
-                            <a href="#" className="thumb">
+                            <Link href={`/News/DetailEvent?id=${item.rowid}`} className="thumb">
                               {/* <span className="fullimage cover bg1" role="img"></span> */}
-                              <img src={item.image} style={{ height: "80px", width : "100px" }} alt="image" />
-                            </a>
+                              <img className="fullimage cover bg1" src={item.image} style={{ height: "80px", width : "100px" }} role="image" />
+                            </Link>
                             <div className="info">
-                              <h4 className="title usmall" style={{ fontSize: 11 }}><a href="#">{item.nama_event}</a></h4>
-                              <span style={{ fontSize: 11 }}>{moment(item.tgl_event).format("DD MMM, YYYY ")}- {moment(item.tgl_berakhir).format("DD MMM, YYYY ")}</span>
+                              <h4 className="title usmall">
+                                <Link href={`/News/DetailEvent?id=${item.rowid}`}>
+                                  {item.nama_event}
+                                </Link>
+                              </h4>
+                              <span style={{ color: '#ff661f', fontWeight: 'bold' }}>{moment(item.tgl_event).format("DD MMM, YYYY ")}- {moment(item.tgl_berakhir).format("DD MMM, YYYY ")}</span>
                             </div>
                           </article>
                         )
@@ -312,11 +316,11 @@ export default function Home() {
                             </a>
                             <div className="info">
                               <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                <h4 className="title usmall" style={{ fontSize: 11 }}>
+                                <h4 className="title usmall" style={{ fontSize: 13 }}>
                                   <a>{item.judul_news}</a>
                                 </h4>
                               </Link>
-                              <span style={{ fontSize: 11 }}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
+                              <span style={{ fontSize: 12, color: '#fff' }}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
                             </div>
                           </article>
                         )

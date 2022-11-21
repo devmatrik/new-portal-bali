@@ -417,9 +417,9 @@ export default function BreakingNews() {
                           <div className="row align-items-center">
                             <div className="col-lg-4 col-sm-4">
                               <div className="sports-news-image">
-                                <a href="#">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <img src={item.image} alt="image" />
-                                </a>
+                                </Link>
                               </div>
                             </div>
 
@@ -450,9 +450,9 @@ export default function BreakingNews() {
                           <div className="row align-items-center">
                             <div className="col-lg-4 col-sm-4">
                               <div className="tech-news-image">
-                                <a href="#">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <img src={item.image} alt="image" />
-                                </a>
+                                </Link>
                               </div>
                             </div>
 
@@ -472,6 +472,7 @@ export default function BreakingNews() {
                     })}
 
                   </div>
+
                   <div className="col-lg-6">
                     <div className="section-title">
                       <h2>G20</h2>
@@ -483,9 +484,9 @@ export default function BreakingNews() {
                           <div className="row align-items-center">
                             <div className="col-lg-4 col-sm-4">
                               <div className="tech-news-image">
-                                <a href="#">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <img src={item.image} alt="image" />
-                                </a>
+                                </Link>
                               </div>
                             </div>
 
@@ -505,6 +506,7 @@ export default function BreakingNews() {
                     })}
 
                   </div>
+
                   <div className="col-lg-6">
                     <div className="section-title">
                       <h2>Global</h2>
@@ -516,9 +518,9 @@ export default function BreakingNews() {
                           <div className="row align-items-center">
                             <div className="col-lg-4 col-sm-4">
                               <div className="tech-news-image">
-                                <a href="#">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <img src={item.image} alt="image" />
-                                </a>
+                                </Link>
                               </div>
                             </div>
 
@@ -537,6 +539,7 @@ export default function BreakingNews() {
                       )
                     })}
                   </div>
+
                   <div className="col-lg-6">
                     <div className="section-title">
                       <h2>Wisata</h2>
@@ -548,9 +551,9 @@ export default function BreakingNews() {
                           <div className="row align-items-center">
                             <div className="col-lg-4 col-sm-4">
                               <div className="tech-news-image">
-                                <a href="#">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <img src={item.image} alt="image" />
-                                </a>
+                                </Link>
                               </div>
                             </div>
 
@@ -571,6 +574,7 @@ export default function BreakingNews() {
 
 
                   </div>
+
                   <div className="col-lg-6">
                     <div className="section-title">
                       <h2>Technology</h2>
@@ -582,9 +586,9 @@ export default function BreakingNews() {
                           <div className="row align-items-center">
                             <div className="col-lg-4 col-sm-4">
                               <div className="tech-news-image">
-                                <a href="#">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <img src={item.image} alt="image" />
-                                </a>
+                                </Link>
                               </div>
                             </div>
 
@@ -603,6 +607,7 @@ export default function BreakingNews() {
                       )
                     })}
                   </div>
+
                   <div className="col-lg-6">
                     <div className="section-title">
                       <h2>Budaya</h2>
@@ -614,9 +619,9 @@ export default function BreakingNews() {
                           <div className="row align-items-center">
                             <div className="col-lg-4 col-sm-4">
                               <div className="tech-news-image">
-                                <a href="#">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <img src={item.image} alt="image" />
-                                </a>
+                                </Link>
                               </div>
                             </div>
 
@@ -637,6 +642,7 @@ export default function BreakingNews() {
 
 
                   </div>
+
                   <div className="col-lg-6">
                     <div className="section-title">
                       <h2>Olahraga</h2>
@@ -648,9 +654,9 @@ export default function BreakingNews() {
                           <div className="row align-items-center">
                             <div className="col-lg-4 col-sm-4">
                               <div className="tech-news-image">
-                                <a href="#">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <img src={item.image} alt="image" />
-                                </a>
+                                </Link>
                               </div>
                             </div>
 
@@ -681,9 +687,9 @@ export default function BreakingNews() {
                           <div className="row align-items-center">
                             <div className="col-lg-4 col-sm-4">
                               <div className="tech-news-image">
-                                <a href="#">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <img src={item.image} alt="image" />
-                                </a>
+                                </Link>
                               </div>
                             </div>
 
@@ -709,7 +715,7 @@ export default function BreakingNews() {
                 <aside className="widget-area">
                   <section className="widget widget_latest_news_thumb">
                     <h3 className="widget-title">Latest news</h3>
-                    {listLatest.slice(0, 4).map((item, index) => {
+                    {g20.slice(0, 4).map((item, index) => {
                       return (
                         <article className="item" key={index}>
                           <Link href={`/News/DetailNews?id=${item.rowid}`} className="thumb">
@@ -727,15 +733,19 @@ export default function BreakingNews() {
                   </section>
 
                   <section className="widget widget_popular_posts_thumb">
-                    <h3 className="widget-title">Kalender Event</h3>
+                    <h3 className="widget-title"><Image src="/images/Event.png" width={30} height={30} alt="image" /> Kalender Event</h3>
                     {newEvent.slice(0, 4).map((item, index) => {
                       return (
                         <article className="item" key={index}>
-                          <a href="#" className="thumb">
+                          <Link href={`/News/DetailEvent?id=${item.rowid}`} className="thumb">
                             <img className="fullimage cover bg1" role="img" src={`${item.image}`}></img>
-                          </a>
+                          </Link>
                           <div className="info">
-                            <h4 className="title usmall"><a href="#">{item.nama_event}</a></h4>
+                            <h4 className="title usmall">
+                              <Link href={`/News/DetailEvent?id=${item.rowid}`}>
+                                {item.nama_event}
+                              </Link>
+                            </h4>
                             <span>{moment(item.tgl_event).format("DD MMMM, YYYY")}</span>
                           </div>
                         </article>

@@ -48,7 +48,6 @@ export default function Event() {
   return (
     <>
     <BaseLayouts>
-   
       <section className="default-news-area">
         <div className="container">
           <div className="tech-news ptb-50">
@@ -68,8 +67,6 @@ export default function Event() {
                             </>) :(<>
                             <img src={item.image} style={{ width: "450px", height:"350px" }}/>
                             </>)}
-                    
-                            
                         </a>
                       {/* <img className="card-img-top" src="/images/tech-news/tech-news-1.jpg" alt="Card image cap" /> */}
                        <div className="tech-news-content">
@@ -91,13 +88,7 @@ export default function Event() {
                   </div>
                   )
                 })}
-
-               
-  
-
             </Slider>
-
-            
           </div>
         </div>
       </section>
