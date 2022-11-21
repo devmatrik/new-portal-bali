@@ -56,15 +56,15 @@ export default function KalenderEvent() {
                         <Carousel.Item key={index}>
                           <div className="row" key={item.rowid}>
                               <div className="single-main-news" >
-                                <a href="#">
+                                <Link href={`/News/DetailEvent?id=${item.rowid}`}>
                                   <img src={item.image} style={{ width: "400px", height: "250px" }} alt="image" />
-                                </a>
+                                </Link>
                                 <div className="news-content">
                                   <div className="tag">{item.jenis_event}</div>
                                     <h3>
-                                      <a href="#">{item.nama_event}</a>
+                                      <Link href={`/News/DetailEvent?id=${item.rowid}`}>{item.nama_event}</Link>
                                     </h3>
-                                    <span><a href=""></a> / {moment(item.tgl_event).format("DD MMM, YYYY ")}- {moment(item.tgl_berakhir).format("DD MMM, YYYY ")}</span>
+                                    <span>Date {moment(item.tgl_event).format("DD MMM, YYYY ")}- {moment(item.tgl_berakhir).format("DD MMM, YYYY ")}</span>
                                   </div>
                               </div>
                             </div>
@@ -80,7 +80,7 @@ export default function KalenderEvent() {
             <div className="container events">
               {event.map((item, index) => (
                   <div className="row mb-20" key={index}>
-                    <div className="col-lg-9 ">
+                    <div className="col-lg-12 ">
                         <div className="single-culture-news">
                             <div className="row align-items-center">
                                 <div className="col-lg-4">
@@ -95,7 +95,7 @@ export default function KalenderEvent() {
                                     <div className="culture-news-content mt-0">
                                         <span>{item.jenis_event}</span>
                                         <h3>
-                                            <Link href="#">{item.nama_event}</Link>
+                                            <Link href={`/News/DetailEvent?id=${item.rowid}`}>{item.nama_event}</Link>
                                         </h3>
                                         <p>{item.isi_konten.length > 200 ?
                                             `${item.isi_konten.substring(0, 200)}...` : item.description

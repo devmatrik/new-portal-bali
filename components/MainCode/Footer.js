@@ -11,7 +11,7 @@ import Link from 'next/link';
 export default function Navbar(props) {
     return (
    <>
-   <div className="copyright-area">
+    <div className="copyright-area">
         <div className="container">
           <div className='row'>
             <div className='col-md-4'>
@@ -19,25 +19,25 @@ export default function Navbar(props) {
                 <ul className="social mt-1">
                   <p>Find us on social media :</p>
                   <li>
-                    <a href="#" className="facebook" target="_blank">
-                      <i className="bx bxl-facebook" />
-                    </a>
+                    <Link href="https://www.tiktok.com/@smartcitybali?lang=en" className="tiktok" target="_blank">
+                      <Image className="iconfooter" src="/images/tiktok.svg" width={30} height={30} alt=""/>
+                    </Link>
                   </li>
                   <li>
                     <Link href="https://www.instagram.com/smartcity.bali/" className="instagaram" target="_blank">
-                      <i className="bx bxl-instagram" />
+                      <Image className="iconfooter" src="/images/instagram.svg" width={30} height={30} alt=""/>
                     </Link>
                   </li>
                   <li>
                     <Link href="https://twitter.com/eling_bali" className="twitter" target="_blank">
-                      <i className="bx bxl-twitter" />
+                      <Image className="iconfooter" src="/images/twitter.svg" width={30} height={30} alt=""/>
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <a href="#" className="linkedin" target="_blank">
                       <i className="bx bxl-youtube" />
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
@@ -58,7 +58,7 @@ export default function Navbar(props) {
           </div>
          
         </div>
-      </div>
+    </div>
    </>
   )
 }

@@ -7439,4 +7439,10 @@ video {
 .login {
   color: #fff;
 }
+.iconfooter {
+  margin: 0px 10px 0px 0px;
+}
+.iconfooter: hover {
+  background-color: #ff661f;
+}
 /*# sourceMappingURL=style.css.map */
