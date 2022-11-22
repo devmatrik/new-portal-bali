@@ -63,7 +63,7 @@ export default function Pelayanan() {
         <div className="container">
           <div className="tech-news ptb-50">
             <div className="section-title"> 
-               <h2><Image className="p-2" src="/images/public.svg" width={50} height={50} alt="" /> Lokasi Pelayanan Public</h2>
+               <h2><Image className="p-2" src="/images/pelayananW.svg" width={50} height={50} alt="" /> Lokasi Pelayanan Public</h2>
                   <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Lokasi Pelayanan Public di Bali</h5>
             </div>
             <Carousel cols={4} rows={1} gap={20} loop>

@@ -39,7 +39,7 @@ export default function FotoKegiatan() {
             <div className="container">
               <div className="tech-news ptb-50">
                 <div class="section-title">
-                  <h2><Image className="p-2" src="/images/foto.svg" width={50} height={50} alt="" /> Video</h2>
+                  <h2><Image className="p-2" src="/images/videoW.svg" width={50} height={50} alt="" /> Video</h2>
                 </div>
                 <Carousel cols={4} rows={2} gap={20} loop autoplay showDots>
                   {foto.map((item, index) => (

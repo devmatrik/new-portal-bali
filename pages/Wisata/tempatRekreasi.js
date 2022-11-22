@@ -63,7 +63,7 @@ export default function TempatRekreasi() {
         <div className="container">
           <div className="tech-news ptb-50">
             <div className="section-title"> 
-              <h2><Image className="p-2" src="/images/rekreasi.svg" width={50} height={50} alt="" /> Tempat Rekreasi</h2>
+              <h2><Image className="p-2" src="/images/rekreasiW.svg" width={50} height={50} alt="" /> Tempat Rekreasi</h2>
               <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Tempat Rekreasi di Bali</h5>
             </div>
              <Slider {...settings}>
