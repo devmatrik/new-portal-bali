@@ -458,7 +458,7 @@ Section Title CSS
   font-weight: bold;
   margin-bottom: 25px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #1f2937;
+  border-bottom: 1px solid #606469;
   width: 100%;
   position: relative;
   /* z-index: -100; */
@@ -472,7 +472,7 @@ Section Title CSS
   width: 100px;
   height: 1px;
   bottom: -1px;
-  background: #991b1b;
+  background: #7f1d1d;
 }
 
 .section-title h2 {
@@ -705,7 +705,7 @@ Navbar Area CSS
   /* position: fixed; */
   /* opacity: 80%; */
   background-color: #1f2937;
-  border-bottom: 1px solid #ff661f;
+  border-bottom: 1px solid #7f1d1d;
 }
 
 .main-navbar .navbar {
@@ -3382,6 +3382,8 @@ Default News Area CSS
 
 .single-culture-news {
   margin-bottom: 30px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
 }
 
 .single-culture-news .culture-news-image {
@@ -3809,20 +3811,19 @@ Widget Sidebar CSS
 =================================================*/
 .widget-area .widget {
   margin-bottom: 30px;
-  border-radius: 10px;
-  backdrop-filter: blur(15px);
+  border-radius: 5px;
+  /* backdrop-filter: blur(15px); */
 }
 
 .widget-area .widget:last-child {
   margin-bottom: 0;
-  /* z-index: -1000; */
 }
 
 .widget-area .widget .widget-title {
   margin-bottom: 30px;
   position: relative;
   padding-bottom: 10px;
-  border-bottom: 1px solid #1f2937;
+  border-bottom: 1px solid #606469;
   font-size: 25px;
   font-weight: 500;
 }
@@ -3835,7 +3836,7 @@ Widget Sidebar CSS
   width: 100px;
   height: 1px;
   bottom: -1px;
-  background: #991b1b;
+  background: #7f1d1d;
 }
 
 .widget-area .widget_latest_news_thumb {
@@ -3847,7 +3848,7 @@ Widget Sidebar CSS
   overflow: hidden;
   margin-bottom: 25px;
   background-color: #ff661f;
-  border-radius: 10px;
+  border-radius: 5px;
   height: 80px;
   /* backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
@@ -6371,9 +6372,10 @@ News Details Area CSS
 
 .blog-details-desc .article-content {
   margin-top: 30px;
-  /* border-radius: 20px; */
+  border-radius: 5px;
   background-color: #fff;
   padding: 9px 9px 9px 9px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .blog-details-desc .article-content span {
@@ -7089,8 +7091,8 @@ Copy Right Area CSS
 =================================================*/
 .copyright-area {
   padding-top: 10px;
-  background-color: #111111;
-  opacity: 90%;
+  background-color: #1f2937;
+  /* opacity: 90%; */
   /* padding-bottom: 10px; */
   border-top: 1px solid grey;
 }
@@ -7410,9 +7412,10 @@ video {
 }
 
 .mprof {
-  border-radius: 20px;
+  border-radius: 5px;
   background-color: #fff;
   padding: 9px 9px 9px 9px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .allnews {
@@ -7421,8 +7424,9 @@ video {
 
 .contactprof {
   background-color: #fff;
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 9px 9px 9px 9px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .events {
   background-color: #fff;

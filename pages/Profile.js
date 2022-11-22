@@ -69,7 +69,7 @@ function Profile() {
                                 </div>
                             </div>
                             <div class="col-lg-4">
-                                <aside class="widget-area">
+                                <aside class="widget-area contactprof">
 
                                     <section class="widget widget_latest_news_thumb">
                                         <h3 class="widget-title">Wilayah Provinsi Bali</h3>

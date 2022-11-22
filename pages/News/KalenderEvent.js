@@ -78,7 +78,7 @@ export default function KalenderEvent() {
                     <div className="col-lg-12 ">
                         <div className="single-culture-news">
                             <div className="row align-items-center">
-                                <div className="col-lg-4">
+                                <div className="col-lg-3">
                                     <div className="culture-news-image">
                                         <Link href={`/News/DetailEvent?id=${item.rowid}`}>
                                             <img src={item.image} style={{ height: "170px", width : "300px" }} alt="image" />
