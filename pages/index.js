@@ -50,27 +50,37 @@ export default function Home() {
       })
   }
 
-  const NewEvent = () => {
-    Promise.resolve(StorageApi.getData("sm_master_data/jenis_event"))
-      .then(value => {
-        const list = value.data.data
-        var newEvent = ""
-        list.map(item => {
-          if (item.jenis_event == "New Event") {
-            newEvent = item.rowid
-          }
-        })
-        Promise.resolve(StorageApi.getData(`sm_portal/event?jenis_event_id=${newEvent}`))
-          .then(value => {
-            const dataNewEvent = value.data.data
-            const Listdata = dataNewEvent.sort((a, b) => moment(b.tgl_event).format("DD") - moment(a.tgl_event).format("DD"))
-            console.log(Listdata);
-            setListNewEvent(Listdata)
-          }).catch(error => {
-            setListNewEvent([])
-          })
-      }).catch(error => {
+  // const NewEvent = () => {
+  //   Promise.resolve(StorageApi.getData("sm_master_data/jenis_event"))
+  //     .then(value => {
+  //       const list = value.data.data
+  //       var newEvent = ""
+  //       list.map(item => {
+  //         if (item.jenis_event == "New Event") {
+  //           newEvent = item.rowid
+  //         }
+  //       })
+  //       Promise.resolve(StorageApi.getData(`sm_portal/event?jenis_event_id=${newEvent}`))
+  //         .then(value => {
+  //           const dataNewEvent = value.data.data
+  //           const Listdata = dataNewEvent.sort((a, b) => moment(b.tgl_event).format("DD") - moment(a.tgl_event).format("DD"))
+  //           console.log(Listdata);
+  //           setListNewEvent(Listdata)
+  //         }).catch(error => {
+  //           setListNewEvent([])
+  //         })
+  //     }).catch(error => {
 
+  //     })
+  // }
+
+  const NewEvent = () => {
+    Promise.resolve(StorageApi.getData(`sm_portal/event`))
+      .then(value => {
+        const data = value.data.data
+        setListNewEvent(data)
+      }).catch(error => {
+        setListNewEvent([])
       })
   }
 

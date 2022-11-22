@@ -58,27 +58,37 @@ export default function BreakingNews() {
     //LinkApi: "algors/periode_keselamatan",
   }
 
-  const NewEvent = () => {
-    Promise.resolve(StorageApi.getData("sm_master_data/jenis_event"))
-      .then(value => {
-        const list = value.data.data
-        var newEvent = ""
-        list.map(item => {
-          if (item.jenis_event == "New Event") {
-            newEvent = item.rowid
-          }
-        })
-        Promise.resolve(StorageApi.getData(`sm_portal/event?jenis_event_id=${newEvent}`))
-          .then(value => {
-            const dataNewEvent = value.data.data
-            const Listdata = dataNewEvent.sort((a, b) => moment(b.tgl_event).format("DD") - moment(a.tgl_event).format("DD"))
-            console.log(Listdata);
-            setListNewEvent(Listdata)
-          }).catch(error => {
-            setListNewEvent([])
-          })
-      }).catch(error => {
+  // const NewEvent = () => {
+  //   Promise.resolve(StorageApi.getData("sm_master_data/jenis_event"))
+  //     .then(value => {
+  //       const list = value.data.data
+  //       var newEvent = ""
+  //       list.map(item => {
+  //         if (item.jenis_event == "New Event") {
+  //           newEvent = item.rowid
+  //         }
+  //       })
+  //       Promise.resolve(StorageApi.getData(`sm_portal/event?jenis_event_id=${newEvent}`))
+  //         .then(value => {
+  //           const dataNewEvent = value.data.data
+  //           const Listdata = dataNewEvent.sort((a, b) => moment(b.tgl_event).format("DD") - moment(a.tgl_event).format("DD"))
+  //           console.log(Listdata);
+  //           setListNewEvent(Listdata)
+  //         }).catch(error => {
+  //           setListNewEvent([])
+  //         })
+  //     }).catch(error => {
 
+  //     })
+  // }
+
+  const NewEvent = () => {
+    Promise.resolve(StorageApi.getData(`sm_portal/event`))
+      .then(value => {
+        const data = value.data.data
+        setListNewEvent(data)
+      }).catch(error => {
+        setListNewEvent([])
       })
   }
 
@@ -715,44 +725,52 @@ export default function BreakingNews() {
                 <aside className="widget-area">
                   <section className="widget widget_latest_news_thumb">
                     <h3 className="widget-title">Latest news</h3>
-                    {listLatest.slice(0, 4).map((item, index) => {
-                      return (
-                        <article className="item" key={index}>
-                          <Link href={`/News/DetailNews?id=${item.rowid}`} className="thumb">
-                            <img className="fullimage cover bg1" role="img" src={`${item.image}`}></img>
-                          </Link>
-                          <div className="info">
-                            <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                              <h4 className="title usmall" style={{ fontSize: 12 }}>
-                                <a href="#">{item.judul_news}</a>
-                              </h4>
+                    <aside className='widget-area scroll-bar-vertical scrollbar-hide' style={{ height: "30rem" }}>
+                      <div className='scroll-bar-vertical scrollbar-hide' style={{ height: "60rem" }}>
+                      {listLatest.map((item, index) => {
+                        return (
+                          <article className="item" key={index}>
+                            <Link href={`/News/DetailNews?id=${item.rowid}`} className="thumb">
+                              <img className="fullimage cover bg1" role="img" src={`${item.image}`}></img>
                             </Link>
-                            <span style={{ fontSize: 12 }}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
-                          </div>
-                        </article>
-                      )
-                    })}
+                            <div className="info">
+                              <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                <h4 className="title usmall" style={{ fontSize: 12 }}>
+                                  <a href="#">{item.judul_news}</a>
+                                </h4>
+                              </Link>
+                              <span style={{ fontSize: 12 }}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
+                            </div>
+                          </article>
+                        )
+                      })}
+                      </div>
+                    </aside>
                   </section>
 
                   <section className="widget widget_popular_posts_thumb">
                     <h3 className="widget-title"><Image src="/images/Event.png" width={30} height={30} alt="image" /> Kalender Event</h3>
-                    {newEvent.slice(0, 4).map((item, index) => {
-                      return (
-                        <article className="item" key={index}>
-                          <Link href={`/News/DetailEvent?id=${item.rowid}`} className="thumb">
-                            <img className="fullimage cover bg1" role="img" src={`${item.image}`}></img>
-                          </Link>
-                          <div className="info">
-                            <h4 className="title usmall">
-                              <Link href={`/News/DetailEvent?id=${item.rowid}`}>
-                                {item.nama_event}
+                    <aside className='widget-area scroll-bar-vertical scrollbar-hide' style={{ height: "30rem" }}>
+                      <div className='scroll-bar-vertical scrollbar-hide' style={{ height: "60rem" }}>
+                        {newEvent.map((item, index) => {
+                          return (
+                            <article className="item" key={index}>
+                              <Link href={`/News/DetailEvent?id=${item.rowid}`} className="thumb">
+                                <img className="fullimage cover bg1" role="img" src={`${item.image}`}></img>
                               </Link>
-                            </h4>
-                            <span>{moment(item.tgl_event).format("DD MMMM, YYYY")}</span>
-                          </div>
-                        </article>
-                      )
-                    })}
+                              <div className="info">
+                                <h4 className="title usmall">
+                                  <Link href={`/News/DetailEvent?id=${item.rowid}`}>
+                                    {item.nama_event}
+                                  </Link>
+                                </h4>
+                                <span>{moment(item.tgl_event).format("DD MMMM, YYYY")}</span>
+                              </div>
+                            </article>
+                          )
+                        })}
+                      </div>
+                    </aside>
                   </section>
                 </aside>
               </div>
