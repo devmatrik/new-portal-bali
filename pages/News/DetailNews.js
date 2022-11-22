@@ -5,10 +5,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { StorageApi, BaseLayouts } from '../../components/MainCode/MainImport'
 
+
 export default function DetailNews() {
+    
     const router = useRouter()
     const query = router?.query;
-
     const [listTags, setListTags] = useState([]);
     const [listLatest, setListLatest] = useState([]);
     const [detail, setDetail] = useState([]);
@@ -19,11 +20,14 @@ export default function DetailNews() {
         getTags();
     }, [loading])
 
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    
+
     const GetDetailNews = (id) => {
         console.log(id);
-        Promise.resolve(StorageApi.getData(`sm_portal/news/${id}`))
+         Promise.resolve(StorageApi.getData(`sm_portal/news/${id}`))
             .then(value => {
-                setDetail(value.data.data)
+                setDetail  (value.data.data)
             }).catch(error => {
                 setDetail('')
             })
@@ -51,6 +55,7 @@ export default function DetailNews() {
     
           })
     }
+    
 
     return (
         <>
@@ -62,13 +67,14 @@ export default function DetailNews() {
                             <div className="col-lg-8 col-md-12 mt-0">
                                 <div className="blog-details-desc">
                                     <div className="article-content mt-0">
-                                        <span><a href="#">Hunt</a> / {moment(detail.tanggal_news).format("DD MMMM, YYYY")} /</span>
+                                        <span><a href="#"></a> / {moment(detail.tanggal_news).format("DD MMMM, YYYY")} /</span>
                                         <h3>{detail.judul_news}</h3>
                                         <div className="article-image">
                                             <img src={detail.image} alt="image" />
                                         </div> <br />
                                         <div>
-                                            <p style={{ textAlign: "justify" }}>{detail.isi_konten}</p>
+                                             {/* {(htmlspecialchars(detail.isi_konten))} */}
+                                             {renderHTML(detail.isi_konten)}
                                         </div>
                                     </div>
                                 </div>
