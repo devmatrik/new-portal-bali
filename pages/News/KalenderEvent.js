@@ -49,7 +49,7 @@ export default function KalenderEvent() {
         <section className="main-news-slider-area">
             <div className="container events">
                 <div className="section-title"> 
-                    <h2>Events</h2> 
+                    <h2><Image src="/images/Event.png" width={30} height={30} alt="image" /> Events</h2> 
                 </div>
                 <Carousel cols={4} rows={1} gap={40} loop>
                       {event.map((item, index) => (

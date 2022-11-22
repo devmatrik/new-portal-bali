@@ -351,7 +351,7 @@ export default function BreakingNews() {
             <div class="row">
               <div className="col-md-9">
                 <div className="section-title">
-                  <h3 className='widget-title'><Image className="p-2" src="/images/tag.svg" width={50} height={50} alt="image" />Kategori</h3>
+                  <h2 className='widget-title'><Image className="p-2" src="/images/tag.svg" width={45} height={45} alt="image" />Kategori</h2>
                 </div>
               </div>
               <div className="col-md-3">
@@ -396,10 +396,10 @@ export default function BreakingNews() {
                             {/* <div className="tag">World news</div> */}
                             <h3 className="bannews">
                               <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                {item.judul_news}
+                                <p style={{ fontSize: '13px', color: '#fff'}}>{item.judul_news}</p>
                               </Link>
                             </h3>
-                            <span>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
+                            <span style={{ fontSize: '11px', color: '#fff'}}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
                           </div>
                         </div>
                         {/* </div> */}
