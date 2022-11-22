@@ -285,7 +285,7 @@ export default function Home() {
                           style={{ borderRadius: 8 }}
                         >
                           <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                            <img src={`${item.image}`} alt="image" style={{ fontSize: '12px'}} />
+                            <img src={`${item.image}`} alt="image" style={{ fontSize: '12px', height: "170px", width : "300px" }} />
                           </Link>
                           <div className="news-content">
                             {/* <div class="tag">National</div> */}

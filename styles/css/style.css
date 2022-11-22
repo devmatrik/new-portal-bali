@@ -6096,11 +6096,11 @@ Contact Area CSS
 }
 
 .contact-form {
-  border-radius: 20px;
+  border-radius: 5px;
   margin-top: 25px;
   padding: 40px;
   -webkit-box-shadow: 0 0 20px rgba(158, 158, 158, 0.16);
-  box-shadow: 0 0 20px rgba(158, 158, 158, 0.16);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: #fff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   /* backdrop-filter: blur(25px);
@@ -7092,9 +7092,9 @@ Copy Right Area CSS
 .copyright-area {
   padding-top: 10px;
   background-color: #1f2937;
-  /* opacity: 90%; */
-  /* padding-bottom: 10px; */
+  opacity: 99%;
   border-top: 1px solid grey;
+  /* padding-bottom: 10px; */
 }
 
 .copyright-area .copyright-area-content {
