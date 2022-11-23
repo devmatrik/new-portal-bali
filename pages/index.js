@@ -299,12 +299,12 @@ export default function Home() {
                           </Link>
                           <div className="news-content">
                             {/* <div class="tag">National</div> */}
-                            <h3 style={{ fontSize: 12 }}>
+                            <h3 style={{ fontSize: 12, fontWeight: 'bold' }}>
                               <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                 {item.judul_news}
                               </Link>
                             </h3>
-                            <span>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
+                            <span style={{ fontSize: 11, fontWeight: '600'}}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
                           </div>
                         </div>
                       </Carousel.Item>

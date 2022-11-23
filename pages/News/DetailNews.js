@@ -73,7 +73,6 @@ export default function DetailNews() {
                                             <img src={detail.image} alt="image" />
                                         </div> <br />
                                         <div>
-                                             {/* {(htmlspecialchars(detail.isi_konten))} */}
                                              {renderHTML(detail.isi_konten)}
                                         </div>
                                     </div>
