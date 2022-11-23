@@ -71,7 +71,7 @@ export default function BreakingNews() {
     slidesToScroll: 1
   };
 
-    // API 
+  // API 
   const reset_elm = () => {
     setJenisBerita('')
   }
@@ -142,7 +142,7 @@ export default function BreakingNews() {
       })
   }
 
-   const Global = async () => {
+  const Global = async () => {
     let arr = []
     if (jenis_berita_id) { arr = [...arr, `jenis_news_id=${jenis_berita_id}`] }
     let param = '';
@@ -351,13 +351,13 @@ export default function BreakingNews() {
       })
   }
 
-   const LatestNews =  async (id = "") => {
+  const LatestNews = async (id = "") => {
     let arr = []
     if (jenis_berita_id) { arr = [...arr, `jenis_news_id=${jenis_berita_id}`] }
     if (id) { arr = [...arr, `jenis_news_id=${id}`] }
     let param = '';
     param = arr.length > 0 ? '?' + arr.join('&') : '';
-    Promise.resolve(StorageApi.getData('sm_portal/news'+ param))
+    Promise.resolve(StorageApi.getData('sm_portal/news' + param))
       .then(value => {
         const datag20 = value.data.data
         const Listdata = datag20.sort((a, b) => b.rowid - a.rowid)
@@ -367,7 +367,7 @@ export default function BreakingNews() {
       })
   }
 
-  const getTags =  () => {
+  const getTags = () => {
     Promise.resolve(StorageApi.getRelasi(`sm_master_data/jenis_berita`))
       .then(value => {
         const detail = value.data.data
@@ -407,7 +407,7 @@ export default function BreakingNews() {
     let arr = []
     let param = '';
     if (jenis_berita_id) { arr = [...arr, `jenis_news_id=${jenis_berita_id}`] }
-  
+
     param = arr.length > 0 ? '?' + arr.join('&') : '';
     Promise.resolve(StorageApi.getData(`${url}${param}`))
       .then(value => {
@@ -437,8 +437,8 @@ export default function BreakingNews() {
     Global()
   }
 
-  
- 
+
+
 
   return (
     <>
@@ -458,7 +458,7 @@ export default function BreakingNews() {
               </div>
             </div>
             <div className="col-md-12">
-               <FilterJenisBerita
+              <FilterJenisBerita
                 jenisBerita={
                   <SelectJenisBerita onChange={(e) => setJenisBerita(e.value)} value={jenis_berita_id} placeholder="Pilih Jenis Berita" />
                 } title={" "}
@@ -468,16 +468,17 @@ export default function BreakingNews() {
               <aside className="widget-area">
                 <section className="widget widget_tag_cloud">
                   {/* <h3 className="widget-title">Tags</h3> */}
-                    <div className='tagcloud'>
-                      {listTags.map(  (item, index) => {
-                      return (
-                        <a style={{ cursor: 'pointer' }}   variant="outline-dark" value={jenis_berita_id}  onClick={e => LatestNews(item.rowid)} >
-                           {item.jenis_berita}
+                  {listTags.map((item, index) => {
+                    return (
+                      <div className='tagcloud' key={index}>
+                        <a style={{ cursor: 'pointer' }} variant="outline-dark" value={jenis_berita_id} onClick={e => LatestNews(item.rowid)} >
+                          {item.jenis_berita}
                         </a>
-                      )})}
+                      </div>
+                    )
+                  })}
 
-                    </div>
-                    
+
                 </section>
               </aside>
             </div>
@@ -501,10 +502,10 @@ export default function BreakingNews() {
                             <div className="tag">{item.jenis_berita}</div>
                             <h3 className="bannews">
                               <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                <p style={{ fontSize: '13px', color: '#fff'}}>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 40)}...` : item.judul_news}</p>
+                                <p style={{ fontSize: '13px', color: '#fff' }}>{item.judul_news.length > 50 ? `${item.judul_news.substring(0, 40)}...` : item.judul_news}</p>
                               </Link>
                             </h3>
-                            <span style={{ fontSize: '11px', color: '#fff'}}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
+                            <span style={{ fontSize: '11px', color: '#fff' }}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
                           </div>
                         </div>
                         {/* </div> */}
@@ -512,7 +513,7 @@ export default function BreakingNews() {
                     )
                   })}
                 </Carousel>
-                                      {/* {listLatest.length < 0 ? (<>data kosong</>) : (<>Data kosong</>)} */}
+                {/* {listLatest.length < 0 ? (<>data kosong</>) : (<>Data kosong</>)} */}
 
               </div>
             </div>
@@ -525,7 +526,7 @@ export default function BreakingNews() {
               <div className="col-lg-8">
                 <div className="row">
                   <div className="col-lg-12">
-                    
+
                     {news.slice(0, 3).map((item, index) => {
                       return (
                         <div className="single-sports-news" key={index}>
@@ -545,7 +546,7 @@ export default function BreakingNews() {
                               <div className="sports-news-content">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3>
-                                    <a href="#">{item.judul_news.length > 150  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
+                                    <a href="#">{item.judul_news.length > 150 ? `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                   <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
                                 </Link>
@@ -578,7 +579,7 @@ export default function BreakingNews() {
                               <div className="tech-news-content">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3 >
-                                    <a>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
+                                    <a>{item.judul_news.length > 50 ? `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
                                 <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
@@ -612,7 +613,7 @@ export default function BreakingNews() {
                               <div className="tech-news-content">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3 >
-                                    <a>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
+                                    <a>{item.judul_news.length > 50 ? `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
                                 <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
@@ -646,7 +647,7 @@ export default function BreakingNews() {
                               <div className="tech-news-content">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3 >
-                                    <a>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
+                                    <a>{item.judul_news.length > 50 ? `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
                                 <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
@@ -679,7 +680,7 @@ export default function BreakingNews() {
                               <div className="tech-news-content">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3 >
-                                    <a>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
+                                    <a>{item.judul_news.length > 50 ? `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
                                 <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
@@ -714,7 +715,7 @@ export default function BreakingNews() {
                               <div className="tech-news-content">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3 >
-                                    <a>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
+                                    <a>{item.judul_news.length > 50 ? `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
                                 <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
@@ -747,7 +748,7 @@ export default function BreakingNews() {
                               <div className="tech-news-content">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3 >
-                                    <a>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
+                                    <a>{item.judul_news.length > 50 ? `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
                                 <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
@@ -782,7 +783,7 @@ export default function BreakingNews() {
                               <div className="tech-news-content">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3 >
-                                    <a>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
+                                    <a>{item.judul_news.length > 50 ? `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
                                 <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
@@ -815,7 +816,7 @@ export default function BreakingNews() {
                               <div className="tech-news-content">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3 >
-                                    <a>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
+                                    <a>{item.judul_news.length > 50 ? `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
                                 <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
@@ -826,7 +827,7 @@ export default function BreakingNews() {
                       )
                     })}
                   </div>
-                  
+
                 </div>
               </div>
 
@@ -836,23 +837,23 @@ export default function BreakingNews() {
                     <h3 className="widget-title">Latest news</h3>
                     <aside className='widget-area scroll-bar-vertical scrollbar-hide' style={{ height: "30rem" }}>
                       <div className='scroll-bar-vertical scrollbar-hide' style={{ height: "60rem" }}>
-                      {listLatest.map((item, index) => {
-                        return (
-                          <article className="item" key={index}>
-                            <Link href={`/News/DetailNews?id=${item.rowid}`} className="thumb">
-                              <img className="fullimage cover bg1" role="img" src={`${item.image}`}></img>
-                            </Link>
-                            <div className="info">
-                              <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                <h4 className="title usmall" style={{ fontSize: 12 }}>
-                                  <a href="#">{item.judul_news}</a>
-                                </h4>
+                        {listLatest.map((item, index) => {
+                          return (
+                            <article className="item" key={index}>
+                              <Link href={`/News/DetailNews?id=${item.rowid}`} className="thumb">
+                                <img className="fullimage cover bg1" role="img" src={`${item.image}`}></img>
                               </Link>
-                              <span style={{ fontSize: 12 }}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
-                            </div>
-                          </article>
-                        )
-                      })}
+                              <div className="info">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                  <h4 className="title usmall" style={{ fontSize: 12 }}>
+                                    <a href="#">{item.judul_news}</a>
+                                  </h4>
+                                </Link>
+                                <span style={{ fontSize: 12 }}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
+                              </div>
+                            </article>
+                          )
+                        })}
                       </div>
                     </aside>
                   </section>
