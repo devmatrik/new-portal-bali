@@ -298,7 +298,7 @@ export default function Home() {
                                 <div class="new-news-content">
                                     <span>{item.jenis_berita}</span>
                                     <h3>
-                                        <Link href={`/News/DetailEvent?id=${item.rowid}`} style={{ fontSize: 13 }}>{item.judul_news}</Link>
+                                        <Link href={`/News/DetailNews?id=${item.rowid}`} style={{ fontSize: 13 }}>{item.judul_news}</Link>
                                     </h3>
                                     <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
                                 </div>
