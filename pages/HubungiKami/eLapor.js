@@ -158,14 +158,14 @@ export default function ELapor() {
                 <div className="contact-form ">
                   <div className="title mb-5">
                     <h3>E-Lapor</h3>
-                    <p>People online aspiration and complaint service</p>
+                    <p>People online aspiration and complaint report</p>
                     <hr />
                   </div>
                   <Form>
                     <div className="row">
                       <div className="col-lg-4 col-md-4 mb-3">
                         <Form.Label for="exampleInputEmail1" className="form-label">Saluran Informasi</Form.Label>
-                        <SelectSaluranInformasi onChange={(e) => setSaluranInformasi(e.value)} value={saluran_informasi_id} placeholder="Pilih Status Jalan" />
+                        <SelectSaluranInformasi onChange={(e) => setSaluranInformasi(e.value)} value={saluran_informasi_id} placeholder="Pilih Saluran Informasi" />
                       </div>
 
                       <div className="col-lg-4 col-md-4 mb-3">
