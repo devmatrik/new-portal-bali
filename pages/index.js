@@ -9,6 +9,8 @@ import {
 import Slide from 'react-bootstrap/Carousel'
 import Carousel from 'react-grid-carousel';
 import Cuaca from './Cuaca';
+import Button from 'react-bootstrap/Button';
+// import { Button } from 'antd'
 
 
 export default function Home() {
@@ -302,6 +304,11 @@ export default function Home() {
                                     </h3>
                                     <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
                                 </div>
+                                <Link href={`/News/DetailNews?id=${item.rowid}`} style={{ fontSize: 13 }}>
+                                  <div className="d-grid gap-2">
+                                    <Button variant="outline-secondary" size="sm">Read More</Button>
+                                  </div>
+                                </Link>
                             </div>
                         </div>
                       </Carousel.Item>
