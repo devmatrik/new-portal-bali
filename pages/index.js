@@ -286,26 +286,23 @@ export default function Home() {
                 {/* <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
               </div>
               <div className="col-lg-9">
-                <Carousel cols={3} rows={3} gap={8} loop autoplay>
+                <Carousel cols={3} rows={2} gap={8} loop autoplay>
                   {listLatest.map((item, index) => {
                     return (
                       <Carousel.Item key={index}>
-                        <div
-                          className="single-main-news-inner mb-4"
-                          style={{ borderRadius: 8 }}
-                        >
-                          <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                            <img src={`${item.image}`} alt="image" style={{ fontSize: '12px', height: "170px", width : "300px" }} />
-                          </Link>
-                          <div className="news-content">
-                            {/* <div class="tag">National</div> */}
-                            <h3 style={{ fontSize: 12, fontWeight: 'bold' }}>
-                              <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                {item.judul_news}
-                              </Link>
-                            </h3>
-                            <span style={{ fontSize: 11, fontWeight: '600'}}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
-                          </div>
+                        <div class="single-new-news">
+                            <div class="new-news-image">
+                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                    <img src={`${item.image}`} style={{ width: '410px', height: '250px'}} alt="image" />
+                                </Link>
+                                <div class="new-news-content">
+                                    <span>{item.jenis_berita}</span>
+                                    <h3>
+                                        <Link href={`/News/DetailEvent?id=${item.rowid}`} style={{ fontSize: 13 }}>{item.judul_news}</Link>
+                                    </h3>
+                                    <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
+                                </div>
+                            </div>
                         </div>
                       </Carousel.Item>
                     )
