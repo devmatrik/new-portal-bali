@@ -67,7 +67,7 @@ export default function DetailNews() {
                             <div className="col-lg-8 col-md-12 mt-0">
                                 <div className="blog-details-desc">
                                     <div className="article-content mt-0">
-                                        <span><a href="#"></a> / {moment(detail.tanggal_news).format("DD MMMM, YYYY")} /</span>
+                                        <span><a href="#"></a> Denpasar / {moment(detail.tanggal_news).format("DD MMMM, YYYY")}</span>
                                         <h3>{detail.judul_news}</h3>
                                         <div className="article-image">
                                             <img src={detail.image} alt="image" />
