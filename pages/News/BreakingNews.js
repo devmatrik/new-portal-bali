@@ -10,7 +10,9 @@ import moment from 'moment/moment';
 import Carousel from 'react-grid-carousel'
 import Cuaca from '../Cuaca';
 import { FilterJenisBerita } from '../../components/Addons/FilterJenisBerita';
-import { Button } from 'antd';
+// import { Button } from 'antd';
+import Button from 'react-bootstrap/Button';
+
 // import Slide from 'react-bootstrap/Carousel'
 // import WisataAdat from '../Wisata/wisataAdat';
 // import Slider from "react-slick";
@@ -22,6 +24,7 @@ export default function BreakingNews() {
   const [global, setListGlobal] = useState([]);
   const [g20, setListG20] = useState([]);
   const [wisata, setListWisata] = useState([]);
+  const [dataBar, setApiData] = useState([]);
   const [kuliner, setListKuliner] = useState([]);
   const [olahraga, setListOlahraga] = useState([]);
   const [budaya, setListBudaya] = useState([]);
@@ -33,8 +36,15 @@ export default function BreakingNews() {
   const [loading, setLoading] = useState(false)
   const [jenis_news, setJenisNews] = useState('')
   const [jenis_berita_id, setJenisBerita] = useState('')
+  const [total, setTotal] = useState([]);
 
 
+
+  const [dataChart, setDataChart] = useState({
+    jenis_berita: [],
+    global: [],
+    g20: [],
+  });
 
   useEffect(() => {
     getTags();
@@ -50,6 +60,7 @@ export default function BreakingNews() {
     Budaya();
     Kuliner();
     getData();
+    GetAllData();
   }, [loading])
 
   const settings = {
@@ -104,7 +115,11 @@ export default function BreakingNews() {
       })
   }
 
-  const G20 = () => {
+  const G20 = async () => {
+    let arr = []
+    if (jenis_berita_id) { arr = [...arr, `jenis_news_id=${jenis_berita_id}`] }
+    let param = '';
+    param = arr.length > 0 ? '?' + arr.join('&') : '';
     Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
       .then(value => {
         const list = value.data.data
@@ -121,6 +136,33 @@ export default function BreakingNews() {
             setListG20(Listdata)
           }).catch(error => {
             setListG20([])
+          })
+      }).catch(error => {
+
+      })
+  }
+
+   const Global = async () => {
+    let arr = []
+    if (jenis_berita_id) { arr = [...arr, `jenis_news_id=${jenis_berita_id}`] }
+    let param = '';
+    param = arr.length > 0 ? '?' + arr.join('&') : '';
+    Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
+      .then(value => {
+        const list = value.data.data
+        var global = ""
+        list.map(item => {
+          if (item.jenis_berita == "Global") {
+            global = item.rowid
+          }
+        })
+        Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_news_id=${global}`))
+          .then(value => {
+            const dataglobal = value.data.data
+            const Listdata = dataglobal.sort((a, b) => moment(b.tanggal_news).format("DD") - moment(a.tanggal_news).format("DD"))
+            setListGlobal(Listdata)
+          }).catch(error => {
+            setListGlobal([])
           })
       }).catch(error => {
 
@@ -144,29 +186,6 @@ export default function BreakingNews() {
             setListNewFlash(Listdata)
           }).catch(error => {
             setListNewFlash([])
-          })
-      }).catch(error => {
-
-      })
-  }
-
-  const Global = () => {
-    Promise.resolve(StorageApi.getData("sm_master_data/jenis_berita"))
-      .then(value => {
-        const list = value.data.data
-        var global = ""
-        list.map(item => {
-          if (item.jenis_berita == "Global") {
-            global = item.rowid
-          }
-        })
-        Promise.resolve(StorageApi.getData(`sm_portal/news?jenis_news_id=${global}`))
-          .then(value => {
-            const dataglobal = value.data.data
-            const Listdata = dataglobal.sort((a, b) => moment(b.tanggal_news).format("DD") - moment(a.tanggal_news).format("DD"))
-            setListGlobal(Listdata)
-          }).catch(error => {
-            setListGlobal([])
           })
       }).catch(error => {
 
@@ -332,17 +351,10 @@ export default function BreakingNews() {
       })
   }
 
- const GetAllData = (param) => {
-    param == "filter" ? setDataChart({
-      periode_keamanan_grafik: [],
-
-    }) : ""
-    getChartKeamanan();
-  }
-  
-  const LatestNews =  async () => {
+   const LatestNews =  async (id = "") => {
     let arr = []
     if (jenis_berita_id) { arr = [...arr, `jenis_news_id=${jenis_berita_id}`] }
+    if (id) { arr = [...arr, `jenis_news_id=${id}`] }
     let param = '';
     param = arr.length > 0 ? '?' + arr.join('&') : '';
     Promise.resolve(StorageApi.getData('sm_portal/news'+ param))
@@ -355,25 +367,78 @@ export default function BreakingNews() {
       })
   }
 
-  const getTags = async () => {
-   
-    Promise.resolve(StorageApi.getData(`sm_master_data/jenis_berita`))
+  const getTags =  () => {
+    Promise.resolve(StorageApi.getRelasi(`sm_master_data/jenis_berita`))
       .then(value => {
-      //   const data = value.data.data
-      //   setListTags(data)
-      // }).catch(error => {
-      //   setListTags([])
-      // })
-       const lists = value.data.data;
-        var daftar = [];
-        lists.map(item => (
-          daftar.push({ label: item.jenis_berita, value: item.rowid })
-        ))
-        setDetail(lists)
-      }).catch(e => {
-        console.log(e);
-      });
+        const detail = value.data.data
+        setListTags(detail)
+        // console.log(daftar);
+      }).catch(error => {
+        setListTags([])
+        console.log(error);
+      })
   }
+
+  const GetAllData = (param) => {
+    param == "filter" ? setDataChart({
+      jenis_berita: [],
+      global: [],
+      g20: [],
+
+    }) : ""
+    getTagJenisBerita();
+    getGlobal();
+    getG20();
+  }
+
+  const getTagJenisBerita = () => {
+    getApiChart('jenis_berita', 'sm_portal/news');
+  }
+
+  const getGlobal = () => {
+    getApiChart('global', 'sm_portal/news?jenis_news_id=8');
+  }
+
+  const getG20 = () => {
+    getApiChart('g20', 'sm_portal/news?jenis_news_id=5');
+  }
+
+  const getApiChart = async (usestate_name = "", url = "") => {
+    let arr = []
+    let param = '';
+    if (jenis_berita_id) { arr = [...arr, `jenis_news_id=${jenis_berita_id}`] }
+  
+    param = arr.length > 0 ? '?' + arr.join('&') : '';
+    Promise.resolve(StorageApi.getData(`${url}${param}`))
+      .then(value => {
+        if (value.data.status) {
+          if (usestate_name == "jenis_berita") {
+            changeTotal(usestate_name, value.data.data);
+          }
+          if (usestate_name == "global") {
+            changeTotal(usestate_name, value.data.data);
+          }
+          if (usestate_name == "g20") {
+            changeTotal(usestate_name, value.data.data);
+          }
+        }
+      }).catch(error => {
+        console.log(error);
+      })
+  }
+
+  const changeTotal = (name = "", value = "") => {
+    setTotal((e) => ({ ...e, [name]: value }))
+  }
+
+  const AllFilter = () => {
+    LatestNews()
+    G20()
+    Global()
+  }
+
+  
+ 
 
   return (
     <>
@@ -396,22 +461,23 @@ export default function BreakingNews() {
                <FilterJenisBerita
                 jenisBerita={
                   <SelectJenisBerita onChange={(e) => setJenisBerita(e.value)} value={jenis_berita_id} placeholder="Pilih Jenis Berita" />
-                } title={"Jenis Berita : "}
-                filter={(e) => LatestNews()} reset={(e) => reset_elm()} />
+                } title={" "}
+                filter={(e) => AllFilter()} reset={(e) => reset_elm()} />
             </div>
             <div className="col-md-12">
               <aside className="widget-area">
                 <section className="widget widget_tag_cloud">
                   {/* <h3 className="widget-title">Tags</h3> */}
-                    
-                    {listTags.map(  (item, index) => {
-                                                                     
+                    <div className='tagcloud'>
+                      {listTags.map(  (item, index) => {
                       return (
-                        <Button className='tagcloud'  onClick={e => LatestNews()} >
+                        <a style={{ cursor: 'pointer' }}   variant="outline-dark" value={jenis_berita_id}  onClick={e => LatestNews(item.rowid)} >
                            {item.jenis_berita}
-                        </Button>
-                      )
-                    })}
+                        </a>
+                      )})}
+
+                    </div>
+                    
                 </section>
               </aside>
             </div>
@@ -435,7 +501,7 @@ export default function BreakingNews() {
                             <div className="tag">{item.jenis_berita}</div>
                             <h3 className="bannews">
                               <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                <p style={{ fontSize: '13px', color: '#fff'}}>{item.judul_news}</p>
+                                <p style={{ fontSize: '13px', color: '#fff'}}>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 40)}...` : item.judul_news}</p>
                               </Link>
                             </h3>
                             <span style={{ fontSize: '11px', color: '#fff'}}>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</span>
@@ -446,6 +512,8 @@ export default function BreakingNews() {
                     )
                   })}
                 </Carousel>
+                                      {/* {listLatest.length < 0 ? (<>data kosong</>) : (<>Data kosong</>)} */}
+
               </div>
             </div>
           </div>
@@ -456,13 +524,14 @@ export default function BreakingNews() {
             <div className="row">
               <div className="col-lg-8">
                 <div className="row">
-                  <div className="col-lg-6">
-                    <div className="section-title">
-                      <h2>Breaking News</h2>
-                    </div>
+                  <div className="col-lg-12">
+                    
                     {news.slice(0, 3).map((item, index) => {
                       return (
                         <div className="single-sports-news" key={index}>
+                          <div className="section-title">
+                            <h2>{item.jenis_berita}</h2>
+                          </div>
                           <div className="row align-items-center">
                             <div className="col-lg-4 col-sm-4">
                               <div className="sports-news-image">
@@ -476,7 +545,7 @@ export default function BreakingNews() {
                               <div className="sports-news-content">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3>
-                                    <a href="#">{item.judul_news}</a>
+                                    <a href="#">{item.judul_news.length > 150  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                   <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
                                 </Link>
@@ -509,7 +578,7 @@ export default function BreakingNews() {
                               <div className="tech-news-content">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3 >
-                                    <a>{item.judul_news}</a>
+                                    <a>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
                                 <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
@@ -543,7 +612,7 @@ export default function BreakingNews() {
                               <div className="tech-news-content">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3 >
-                                    <a>{item.judul_news}</a>
+                                    <a>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
                                 <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
@@ -577,7 +646,7 @@ export default function BreakingNews() {
                               <div className="tech-news-content">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3 >
-                                    <a>{item.judul_news}</a>
+                                    <a>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
                                 <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
@@ -610,7 +679,7 @@ export default function BreakingNews() {
                               <div className="tech-news-content">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3 >
-                                    <a>{item.judul_news}</a>
+                                    <a>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
                                 <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
@@ -645,7 +714,7 @@ export default function BreakingNews() {
                               <div className="tech-news-content">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3 >
-                                    <a>{item.judul_news}</a>
+                                    <a>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
                                 <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
@@ -678,7 +747,7 @@ export default function BreakingNews() {
                               <div className="tech-news-content">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3 >
-                                    <a>{item.judul_news}</a>
+                                    <a>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
                                 <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
@@ -713,7 +782,7 @@ export default function BreakingNews() {
                               <div className="tech-news-content">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3 >
-                                    <a>{item.judul_news}</a>
+                                    <a>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
                                 <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
@@ -746,7 +815,7 @@ export default function BreakingNews() {
                               <div className="tech-news-content">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3 >
-                                    <a>{item.judul_news}</a>
+                                    <a>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
                                 <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
@@ -757,6 +826,7 @@ export default function BreakingNews() {
                       )
                     })}
                   </div>
+                  
                 </div>
               </div>
 

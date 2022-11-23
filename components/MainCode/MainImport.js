@@ -10,10 +10,12 @@ export {
   SelectPolda,
   SelectCustom,
   SelectPolres,
+  SelectJenisBerita,
   InputCustom,
   Textarea
 } from "./MainForm"
 export { default as Map } from '../Map/Map';
 export { default as ModalBox } from "../Addons/ModalBox"
 export { default as Notifikasi } from "../Addons/Notifikasi"
+export { default as FilterJenisBerita } from "../Addons/FilterJenisBerita"
 

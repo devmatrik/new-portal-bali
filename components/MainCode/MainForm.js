@@ -162,6 +162,45 @@ export function SelectSituasiLalin(props) {
   )
 }
 
+export function SelectJenisBerita(props) {
+  const [list, setDetail] = useState([]);
+
+  useEffect(e => {
+    ListCategory();
+  }, [])
+
+  const ListCategory = async () => {
+    const a = Promise.resolve(StorageApi.getRelasi('sm_master_data/jenis_berita'));
+    a.then(value => {
+      const lists = value.data.data;
+      var daftar = [];
+      lists.map(item => (
+        daftar.push({ label: item.jenis_berita, value: item.rowid })
+      ))
+      setDetail(daftar)
+    }).catch(e => {
+      console.log(e);
+    });
+  }
+
+  return (
+    <>
+      <SelectSearch
+        className="w-full"
+        value={props.value ?
+          list.filter(option =>
+            option.value === props.value) : ""
+        }
+        onChange={props.onChange}
+        placeholder={props.placeholder}
+        options={list}
+        required
+        isDisabled={props.disabled ? true : false}
+        
+      />
+    </>
+  )
+}
 // export function SelectPolda(props) {
 //   const [list, setDetail] = useState([]);
 

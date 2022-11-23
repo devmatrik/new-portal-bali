@@ -4588,9 +4588,11 @@ New News Area CSS
 }
 
 .single-new-news {
-  margin-bottom: 30px;
-  border: 1px solid #1f2937;
-  padding: 15px;
+    margin-bottom: 30px;
+    border: 0.5px solid #1f2937;
+    padding: 15px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    border-radius: 5px;
 }
 
 .single-new-news .new-news-content {
@@ -4600,7 +4602,7 @@ New News Area CSS
 .single-new-news .new-news-content span {
   display: inline-block;
   font-size: 14px;
-  background-color: #09101f;
+  background-color: #ff661f;
   color: #ffffff;
   padding: 2px 10px;
   font-weight: 400;

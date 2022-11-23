@@ -300,13 +300,13 @@ export default function Home() {
                                 <div class="new-news-content">
                                     <span>{item.jenis_berita}</span>
                                     <h3>
-                                        <Link href={`/News/DetailNews?id=${item.rowid}`} style={{ fontSize: 13 }}>{item.judul_news}</Link>
+                                        <Link href={`/News/DetailNews?id=${item.rowid}`} style={{ fontSize: 13 }}>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</Link>
                                     </h3>
                                     <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
                                 </div>
                                 <Link href={`/News/DetailNews?id=${item.rowid}`} style={{ fontSize: 13 }}>
                                   <div className="d-grid gap-2">
-                                    <Button variant="outline-secondary" size="sm">Read More</Button>
+                                    <Button variant="outline-warning" size="sm">Read More</Button>
                                   </div>
                                 </Link>
                             </div>
