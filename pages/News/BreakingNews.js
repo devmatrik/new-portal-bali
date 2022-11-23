@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import BaseLayouts from '../../components/MainCode/BaseLayouts'
 import {
+  SelectJenisBerita,
   StorageApi
 } from '../../components/MainCode/MainImport'
 import Link from 'next/link';
 import moment from 'moment/moment';
 import Carousel from 'react-grid-carousel'
 import Cuaca from '../Cuaca';
+import { FilterJenisBerita } from '../../components/Addons/FilterJenisBerita';
+import { Button } from 'antd';
 // import Slide from 'react-bootstrap/Carousel'
 // import WisataAdat from '../Wisata/wisataAdat';
 // import Slider from "react-slick";
@@ -28,6 +31,10 @@ export default function BreakingNews() {
   const [newEvent, setListNewEvent] = useState([]);
   const [news, setNews] = useState([])
   const [loading, setLoading] = useState(false)
+  const [jenis_news, setJenisNews] = useState('')
+  const [jenis_berita_id, setJenisBerita] = useState('')
+
+
 
   useEffect(() => {
     getTags();
@@ -52,6 +59,11 @@ export default function BreakingNews() {
     slidesToShow: 4,
     slidesToScroll: 1
   };
+
+    // API 
+  const reset_elm = () => {
+    setJenisBerita('')
+  }
 
   const konten = {
     title: "All News",
@@ -111,7 +123,7 @@ export default function BreakingNews() {
         const list = value.data.data
         var newflash = ""
         list.map(item => {
-          if (item.jenis_berita == "NewFlash") {
+          if (item.jenis_berita == "News Flash") {
             newflash = item.rowid
           }
         })
@@ -249,7 +261,7 @@ export default function BreakingNews() {
         const list = value.data.data
         var it = ""
         list.map(item => {
-          if (item.jenis_berita == "IT") {
+          if (item.jenis_berita == "IT Goverment") {
             it = item.rowid
           }
         })
@@ -310,8 +322,20 @@ export default function BreakingNews() {
       })
   }
 
-  const LatestNews = () => {
-    Promise.resolve(StorageApi.getData(`sm_portal/news`))
+ const GetAllData = (param) => {
+    param == "filter" ? setDataChart({
+      periode_keamanan_grafik: [],
+
+    }) : ""
+    getChartKeamanan();
+  }
+  
+  const LatestNews =  async () => {
+    let arr = []
+    if (jenis_berita_id) { arr = [...arr, `jenis_news_id=${jenis_berita_id}`] }
+    let param = '';
+    param = arr.length > 0 ? '?' + arr.join('&') : '';
+    Promise.resolve(StorageApi.getData('sm_portal/news'+ param))
       .then(value => {
         const datag20 = value.data.data
         const Listdata = datag20.sort((a, b) => b.rowid - a.rowid)
@@ -321,16 +345,24 @@ export default function BreakingNews() {
       })
   }
 
-  const getTags = () => {
+  const getTags = async () => {
+   
     Promise.resolve(StorageApi.getData(`sm_master_data/jenis_berita`))
       .then(value => {
-        const data = value.data.data
-        setListTags(data)
-      }).catch(error => {
-        setListTags([])
-      }).catch(error => {
-
-      })
+      //   const data = value.data.data
+      //   setListTags(data)
+      // }).catch(error => {
+      //   setListTags([])
+      // })
+       const lists = value.data.data;
+        var daftar = [];
+        lists.map(item => (
+          daftar.push({ label: item.jenis_berita, value: item.rowid })
+        ))
+        setDetail(lists)
+      }).catch(e => {
+        console.log(e);
+      });
   }
 
   return (
@@ -351,18 +383,25 @@ export default function BreakingNews() {
               </div>
             </div>
             <div className="col-md-12">
+               <FilterJenisBerita
+                jenisBerita={
+                  <SelectJenisBerita onChange={(e) => setJenisBerita(e.value)} value={jenis_berita_id} placeholder="Pilih Jenis Berita" />
+                } title={"Jenis Berita : "}
+                filter={(e) => LatestNews()} reset={(e) => reset_elm()} />
+            </div>
+            <div className="col-md-12">
               <aside className="widget-area">
                 <section className="widget widget_tag_cloud">
                   {/* <h3 className="widget-title">Tags</h3> */}
-                  <div className="tagcloud" >
-                    {listTags.map((item, index) => {
+                    
+                    {listTags.map(  (item, index) => {
+                                                                     
                       return (
-                        <Link key={index} href={`sm_master_data/jenis_berita`}>
-                          {item.jenis_berita}
-                        </Link>
+                        <Button className='tagcloud'  onClick={e => LatestNews()} >
+                           {item.jenis_berita}
+                        </Button>
                       )
                     })}
-                  </div>
                 </section>
               </aside>
             </div>
@@ -372,18 +411,18 @@ export default function BreakingNews() {
                 <div className="section-title">
                   <h2><Image className="p-2" src="/images/News.png" width={50} height={50} alt="" />News</h2>
                 </div>
-                <Carousel cols={5} row={1} gap={10}>
+                <Carousel cols={4} row={1} gap={10}>
                   {listLatest.map((item, index) => {
 
                     return (
                       <Carousel.Item key={index}>
                         {/* <div className="row"> */}
-                        <div className="single-main-news" style={{ height: 250 }}>
+                        <div className="single-main-news" style={{ height: 250, width: 250, }}>
                           <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                            <img src={`${item.image}`} alt="image" style={{ height: "250px", width: "auto !important" }} />
+                            <img src={`${item.image}`} alt="image" style={{ height: "250px", width: "250px" }} />
                           </Link>
                           <div className="news-content">
-                            {/* <div className="tag">World news</div> */}
+                            <div className="tag">{item.jenis_berita}</div>
                             <h3 className="bannews">
                               <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                 {item.judul_news}
