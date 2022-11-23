@@ -468,17 +468,15 @@ export default function BreakingNews() {
               <aside className="widget-area">
                 <section className="widget widget_tag_cloud">
                   {/* <h3 className="widget-title">Tags</h3> */}
-                  {listTags.map((item, index) => {
-                    return (
-                      <div className='tagcloud' key={index}>
-                        <a style={{ cursor: 'pointer' }} variant="outline-dark" value={jenis_berita_id} onClick={e => LatestNews(item.rowid)} >
+                  <div className='tagcloud'>
+                    {listTags.map((item, index) => {
+                      return (
+                        <a key={index} style={{ cursor: 'pointer' }} variant="outline-dark" value={jenis_berita_id} onClick={e => LatestNews(item.rowid)} >
                           {item.jenis_berita}
                         </a>
-                      </div>
-                    )
-                  })}
-
-
+                      )
+                    })}
+                  </div>
                 </section>
               </aside>
             </div>
