@@ -10,9 +10,9 @@ import moment from 'moment/moment';
 import Carousel from 'react-grid-carousel'
 import Cuaca from '../Cuaca';
 import { FilterJenisBerita } from '../../components/Addons/FilterJenisBerita';
-// import { Button } from 'antd';
 import Button from 'react-bootstrap/Button';
 
+// import { Button } from 'antd';
 // import Slide from 'react-bootstrap/Carousel'
 // import WisataAdat from '../Wisata/wisataAdat';
 // import Slider from "react-slick";
@@ -38,6 +38,7 @@ export default function BreakingNews() {
   const [jenis_berita_id, setJenisBerita] = useState('')
   const [total, setTotal] = useState([]);
 
+  const renderHTML = (rawHTML) => React.createElement("p", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
 
   const [dataChart, setDataChart] = useState({
@@ -488,11 +489,10 @@ export default function BreakingNews() {
                 </div>
                 <Carousel cols={4} row={1} gap={10}>
                   {listLatest.map((item, index) => {
-
                     return (
                       <Carousel.Item key={index}>
                         {/* <div className="row"> */}
-                        <div className="single-main-news" style={{ height: 250, width: 250, }}>
+                        <div className="single-main-news" style={{ height: 250, width: 250}}>
                           <Link href={`/News/DetailNews?id=${item.rowid}`}>
                             <img src={`${item.image}`} alt="image" style={{ height: "250px", width: "250px" }} />
                           </Link>
@@ -512,7 +512,6 @@ export default function BreakingNews() {
                   })}
                 </Carousel>
                 {/* {listLatest.length < 0 ? (<>data kosong</>) : (<>Data kosong</>)} */}
-
               </div>
             </div>
           </div>
@@ -525,7 +524,7 @@ export default function BreakingNews() {
                 <div className="row">
                   <div className="col-lg-12">
 
-                    {news.slice(0, 3).map((item, index) => {
+                    {news.map((item, index) => {
                       return (
                         <div className="single-sports-news" key={index}>
                           <div className="section-title">
@@ -542,10 +541,12 @@ export default function BreakingNews() {
 
                             <div className="col-lg-8 col-sm-8">
                               <div className="sports-news-content">
+                                <span style={{color: '#ff661f', fontSize: 12, fontWeight: 500}}>{item.jenis_berita}</span>
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3>
                                     <a href="#">{item.judul_news.length > 150 ? `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
+                                  <p>{renderHTML(item.isi_konten.length > 200 ? `${item.isi_konten.substring(0, 200)}...` : item.isi_konten)}</p>
                                   <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
                                 </Link>
                               </div>
@@ -560,34 +561,34 @@ export default function BreakingNews() {
                     <div className="section-title">
                       <h2>News Flash</h2>
                     </div>
-
-                    {newflash.slice(0, 3).map((item, index) => {
-                      return (
-                        <div className="single-tech-news" key={index}>
-                          <div className="row align-items-center">
-                            <div className="col-lg-4 col-sm-4">
-                              <div className="tech-news-image">
-                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                  <img src={item.image} alt="image" />
-                                </Link>
+                    <Carousel>
+                        {newflash.map((item, index) => {
+                          return (
+                          <Carousel.Item key={index}>
+                            <div className="single-most-popular-news" >
+                              <div className="row align-items-center">
+                                  <div className="popular-news-image">
+                                    <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                      <img src={item.image} style={{ width: '410px', height: '250px'}} alt="image" />
+                                    </Link>
+                                  </div>
+                                
+                                  <div className="popular-news-content">
+                                  <span style={{color: '#ff661f', fontSize: 12, fontWeight: 500}}>{item.jenis_berita}</span>
+                                    <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                      <h3 >
+                                        <a>{item.judul_news.length > 50 ? `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
+                                      </h3>
+                                    </Link>
+                                    <p>{renderHTML(item.isi_konten.length > 200 ? `${item.isi_konten.substring(0, 200)}...` : item.isi_konten)}</p>
+                                    <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
+                                  </div>
                               </div>
                             </div>
-
-                            <div className="col-lg-8 col-sm-8">
-                              <div className="tech-news-content">
-                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                  <h3 >
-                                    <a>{item.judul_news.length > 50 ? `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
-                                  </h3>
-                                </Link>
-                                <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )
-                    })}
-
+                            </Carousel.Item>
+                          )
+                        })}
+                    </Carousel>
                   </div>
 
                   <div className="col-lg-6">
@@ -602,18 +603,20 @@ export default function BreakingNews() {
                             <div className="col-lg-4 col-sm-4">
                               <div className="tech-news-image">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
-                                  <img src={item.image} alt="image" />
+                                  <img src={item.image} style={{width: 200, height: 150}} alt="image" />
                                 </Link>
                               </div>
                             </div>
 
                             <div className="col-lg-8 col-sm-8">
                               <div className="tech-news-content">
+                              <span style={{color: '#ff661f', fontSize: 12, fontWeight: 500}}>{item.jenis_berita}</span>
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3 >
                                     <a>{item.judul_news.length > 50 ? `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
+                                <p>{renderHTML(item.isi_konten.length > 30 ? `${item.isi_konten.substring(0, 30)}...` : item.isi_konten)}</p>
                                 <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
                               </div>
                             </div>
@@ -657,7 +660,7 @@ export default function BreakingNews() {
                     })}
                   </div>
 
-                  <div className="col-lg-6">
+                  {/* <div className="col-lg-6">
                     <div className="section-title">
                       <h2>Wisata</h2>
                     </div>
@@ -690,7 +693,7 @@ export default function BreakingNews() {
                     })}
 
 
-                  </div>
+                  </div> */}
 
                   <div className="col-lg-6">
                     <div className="section-title">
@@ -793,37 +796,36 @@ export default function BreakingNews() {
                     })}
                   </div>
 
-                  <div className="col-lg-6">
+                  <div className="col-lg-12">
                     <div className="section-title">
                       <h2>IT Goverment</h2>
                     </div>
-
-                    {it.slice(0, 3).map((item, index) => {
-                      return (
-                        <div className="single-tech-news" key={index}>
-                          <div className="row align-items-center">
-                            <div className="col-lg-4 col-sm-4">
-                              <div className="tech-news-image">
+                    <Carousel cols={2} row={1} gap={12}>
+                      {it.map((item, index) => {
+                        return (
+                          <Carousel.Item key={index}>
+                            <div className="single-business-news">
+                              <div className="business-news-image">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <img src={item.image} alt="image" />
                                 </Link>
                               </div>
-                            </div>
 
-                            <div className="col-lg-8 col-sm-8">
-                              <div className="tech-news-content">
+                              <div className="business-news-content">
+                              <span style={{color: '#ff661f', fontSize: 12, fontWeight: 500}}>{item.jenis_berita}</span>
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                   <h3 >
-                                    <a>{item.judul_news.length > 50 ? `${item.judul_news.substring(0, 50)}...` : item.judul_news}</a>
+                                    <a>{item.judul_news.length > 30 ? `${item.judul_news.substring(0, 30)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
+                                <p>{renderHTML(item.isi_konten.length > 100 ? `${item.isi_konten.substring(0, 100)}...` : item.isi_konten)}</p>
                                 <p>{moment(item.tanggal_news).format("DD MMMM, YYYY")}</p>
                               </div>
                             </div>
-                          </div>
-                        </div>
-                      )
-                    })}
+                          </Carousel.Item>
+                        )
+                      })}
+                    </Carousel>
                   </div>
 
                 </div>

@@ -113,7 +113,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="col-lg-12">
-                <Slide autoplay loop>
+                <Slide>
                   <Slide.Item>
                     <div className="row">
                       <div className="col-lg-4">
@@ -262,16 +262,16 @@ export default function Home() {
                 {/* <h5 style={{ color: "#ffff", fontWeight: 300, opacity: "80%" }}>Rekomendasi Wisata Alam di Bali</h5> */}
               </div>
               <div className="col-lg-9">
-                <Carousel cols={3} rows={2} gap={8} loop autoplay>
+                <Carousel cols={3} rows={2} gap={8}>
                   {listLatest.map((item, index) => {
                     return (
                       <Carousel.Item key={index}>
-                        <div class="single-new-news">
-                            <div class="new-news-image">
+                        <div className="single-new-news">
+                            <div className="new-news-image">
                                 <Link href={`/News/DetailNews?id=${item.rowid}`}>
                                     <img src={`${item.image}`} style={{ width: '410px', height: '250px'}} alt="image" />
                                 </Link>
-                                <div class="new-news-content">
+                                <div className="new-news-content">
                                     <span>{item.jenis_berita}</span>
                                     <h3>
                                         <Link href={`/News/DetailNews?id=${item.rowid}`} style={{ fontSize: 13 }}>{item.judul_news.length > 50  ?  `${item.judul_news.substring(0, 50)}...` : item.judul_news}</Link>

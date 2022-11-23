@@ -56,7 +56,6 @@ export default function DetailNews() {
           })
     }
     
-
     return (
         <>
             <BaseLayouts>
