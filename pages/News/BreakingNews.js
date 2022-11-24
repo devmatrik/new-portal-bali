@@ -10,8 +10,8 @@ import moment from 'moment/moment';
 import Carousel from 'react-grid-carousel'
 import Cuaca from '../Cuaca';
 import { FilterJenisBerita } from '../../components/Addons/FilterJenisBerita';
-import Button from 'react-bootstrap/Button';
 
+// import Button from 'react-bootstrap/Button';
 // import { Button } from 'antd';
 // import Slide from 'react-bootstrap/Carousel'
 // import WisataAdat from '../Wisata/wisataAdat';
@@ -840,11 +840,11 @@ export default function BreakingNews() {
                         {listLatest.map((item, index) => {
                           return (
                             <article className="item" key={index}>
-                              <Link href={`/News/DetailNews?id=${item.rowid}`} className="thumb">
+                              <Link href={`DetailNews?id=${item.rowid}`} className="thumb">
                                 <img className="fullimage cover bg1" role="img" src={`${item.image}`}></img>
                               </Link>
                               <div className="info">
-                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                <Link href={`DetailNews?id=${item.rowid}`}>
                                   <h4 className="title usmall" style={{ fontSize: 12 }}>
                                     <a href="#">{item.judul_news}</a>
                                   </h4>
@@ -865,12 +865,12 @@ export default function BreakingNews() {
                         {newEvent.map((item, index) => {
                           return (
                             <article className="item" key={index}>
-                              <Link href={`/News/DetailEvent?id=${item.rowid}`} className="thumb">
+                              <Link href={`DetailEvent?id=${item.rowid}`} className="thumb">
                                 <img className="fullimage cover bg1" role="img" src={`${item.image}`}></img>
                               </Link>
                               <div className="info">
                                 <h4 className="title usmall">
-                                  <Link href={`/News/DetailEvent?id=${item.rowid}`}>
+                                  <Link href={`DetailEvent?id=${item.rowid}`}>
                                     {item.nama_event}
                                   </Link>
                                 </h4>

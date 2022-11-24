@@ -4,6 +4,10 @@ import moment from 'moment/moment'
 import Image from 'next/image'
 import Link from 'next/link'
 import { StorageApi, BaseLayouts } from '../../components/MainCode/MainImport'
+import {
+    WhatsappShareButton,
+    WhatsappIcon,
+  } from 'next-share'
 
 
 export default function DetailNews() {
@@ -74,6 +78,13 @@ export default function DetailNews() {
                                         <div>
                                              {renderHTML(detail.isi_konten)}
                                         </div>
+                                        <WhatsappShareButton
+                                            url={`https://elingbali.com/News/DetailNews?id=${detail.rowid}`}
+                                            title={detail.judul_news}
+                                            separator=""
+                                            >
+                                            <WhatsappIcon size={32} round />
+                                        </WhatsappShareButton>
                                     </div>
                                 </div>
                             </div>

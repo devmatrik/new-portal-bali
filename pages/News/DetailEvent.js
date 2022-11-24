@@ -37,7 +37,7 @@ export default function DetailEvent() {
                                         <img src={detail.image} width={1500} height={500} alt="image" />
                                     </div>
                                     <div className="article-content mt-0">
-                                        <span><a href="#">Hunt</a> / {moment(detail.tanggal_news).format("DD MMMM, YYYY")} /</span>
+                                        <span><a href="#" style={{ color: '#ff661f'}}>Event</a> / {moment(detail.tanggal_news).format("DD MMMM, YYYY")}</span>
                                         <h3>{detail.judul_news}</h3>
                                         
                                         <div>
