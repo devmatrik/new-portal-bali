@@ -487,7 +487,7 @@ export default function BreakingNews() {
                 <div className="section-title">
                   <h2><Image className="p-2" src="/images/News.png" width={50} height={50} alt="" />News</h2>
                 </div>
-                <Carousel cols={4} row={1} gap={10}>
+                <Carousel cols={5} row={1} gap={10}>
                   {listLatest.map((item, index) => {
                     return (
                       <Carousel.Item key={index}>
