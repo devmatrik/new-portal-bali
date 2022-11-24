@@ -14,12 +14,15 @@ export default function DetailNews() {
     
     const router = useRouter()
     const query = router?.query;
+    const link_akses = router.asPath.split('/')
+    const link_aktif = link_akses[link_akses.length - 1].substring(14)
+    
     const [listTags, setListTags] = useState([]);
     const [listLatest, setListLatest] = useState([]);
     const [detail, setDetail] = useState([]);
-    const [loading, setLoading] = useState('')
+    const [loading, setLoading] = useState(false)
     useEffect(() => {
-        GetDetailNews(query.id)
+        GetDetailNews(query?.id)
         LatestNews()
         getTags();
     }, [loading])
@@ -27,11 +30,12 @@ export default function DetailNews() {
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     
 
-    const GetDetailNews = (id) => {
-        console.log(id);
-         Promise.resolve(StorageApi.getData(`sm_portal/news/${id}`))
+    const GetDetailNews = async(id) => {
+        console.log(link_aktif);
+         await Promise.resolve(StorageApi.getData(`sm_portal/news/${link_aktif}`))
             .then(value => {
-                setDetail  (value.data.data)
+                setDetail(value.data.data)
+                console.log(setDetail);
             }).catch(error => {
                 setDetail('')
             })
@@ -78,20 +82,24 @@ export default function DetailNews() {
                                         <div>
                                              {renderHTML(detail.isi_konten)}
                                         </div>
-                                        <WhatsappShareButton
-                                            url={`https://elingbali.com/News/DetailNews?id=${detail.rowid}`}
-                                            title={detail.judul_news}
-                                            separator=""
-                                            >
-                                            <WhatsappIcon size={32} round />
-                                        </WhatsappShareButton>
+                                        <div style={{ marginTop: 10 }}>
+                                            <p>Share artikel :
+                                            <WhatsappShareButton
+                                                url={`https://elingbali.com/News/DetailNews?id=${detail.rowid}`}
+                                                title={detail.judul_news}
+                                                separator=""
+                                                style={{ marginLeft: 5 }}>
+                                                <WhatsappIcon size={32} round />
+                                            </WhatsappShareButton>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-lg-4">
                                 <aside className="widget-area">
                                     <section className="widget widget_latest_news_thumb">
-                                        <h3 className="widget-title">Latest News</h3>
+                                        <h3 className="widget-title"><Image className="p-2" src="/images/News.png" width={50} height={50} alt="" /> Latest News</h3>
                                         <aside className="widget-area scroll-bar-vertical scrollbar-hide" style={{ height: "30rem" }}>
                                             <div className='scroll-bar-vertical scrollbar-hide' style={{ height: "55rem" }}>
                                                 {listLatest.map((item, index) => {
@@ -116,7 +124,7 @@ export default function DetailNews() {
                                     </section>
 
                                     <section class="widget widget_tag_cloud">
-                                        <h3 class="widget-title">Tags</h3>
+                                        <h3 class="widget-title"><Image className="p-2" src="/images/tag.svg" width={45} height={45} alt="image" /> Tags</h3>
 
                                         <div class="tagcloud">
                                         {listTags.map((item, index) => {
