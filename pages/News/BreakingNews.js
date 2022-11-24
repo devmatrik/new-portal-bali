@@ -806,16 +806,16 @@ export default function BreakingNews() {
                           <Carousel.Item key={index}>
                             <div className="single-business-news">
                               <div className="business-news-image">
-                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                <Link href={`DetailNews?id=${item.rowid}`}>
                                   <img src={item.image} alt="image" />
                                 </Link>
                               </div>
 
                               <div className="business-news-content">
                               <span style={{color: '#ff661f', fontSize: 12, fontWeight: 500}}>{item.jenis_berita}</span>
-                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                <Link href={`DetailNews?id=${item.rowid}`}>
                                   <h3 >
-                                    <a>{item.judul_news.length > 30 ? `${item.judul_news.substring(0, 30)}...` : item.judul_news}</a>
+                                    <a>{item.judul_news.length > 40 ? `${item.judul_news.substring(0, 40)}...` : item.judul_news}</a>
                                   </h3>
                                 </Link>
                                 <p>{renderHTML(item.isi_konten.length > 100 ? `${item.isi_konten.substring(0, 100)}...` : item.isi_konten)}</p>

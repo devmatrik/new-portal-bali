@@ -66,7 +66,7 @@ export default function DetailNews() {
                             <div className="col-lg-8 col-md-12 mt-0">
                                 <div className="blog-details-desc">
                                     <div className="article-content mt-0">
-                                        <span><a href="#"></a> Denpasar / {moment(detail.tanggal_news).format("DD MMMM, YYYY")}</span>
+                                        <span><a href="#"></a> Eling Bali / {moment(detail.tanggal_news).format("DD MMMM, YYYY")}</span>
                                         <h3>{detail.judul_news}</h3>
                                         <div className="article-image">
                                             <img src={detail.image} alt="image" />
@@ -86,11 +86,11 @@ export default function DetailNews() {
                                                 {listLatest.map((item, index) => {
                                                     return (
                                                         <article className="item" key={index}>
-                                                            <Link href={`/News/DetailNews?id=${item.rowid}`} className="thumb">
+                                                            <Link href={`/News/BreakingNews`} className="thumb">
                                                                 <img src={`${item.image}`} alt="image" style={{ height: "80px", width : "100px" }} />
                                                             </Link>
                                                             <div className="info">
-                                                                <Link href={`/News/DetailNews?id=${item.rowid}`}>
+                                                                <Link href={`/News/BreakingNews`}>
                                                                     <h4 className="title usmall" style={{ fontSize: 12 }}>
                                                                         <a>{item.judul_news}</a>
                                                                     </h4>
