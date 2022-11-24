@@ -3,23 +3,30 @@ import { useRouter } from 'next/router'
 import moment from 'moment/moment'
 import Image from 'next/image'
 import { StorageApi, BaseLayouts } from '../../components/MainCode/MainImport'
+import {
+    WhatsappShareButton,
+    WhatsappIcon,
+  } from 'next-share'
 
 export default function DetailEvent() {
 
     const router = useRouter()
     const query = router?.query;
+    const link_akses = router.asPath.split('/')
+    const link_aktif = link_akses[link_akses.length - 1].substring(15)
 
     const [loading, setLoading] = useState('')
-    const [detail, setDetail] = useState('')
+    const [detail, setDetail] = useState([])
     useEffect(() => {
         GetDetailEvent(query.id)
     }, [loading])
 
-    const GetDetailEvent = (id) => {
-        console.log(id);
-        Promise.resolve(StorageApi.getData(`sm_portal/event/${id}`))
+    const GetDetailEvent = async(id) => {
+        console.log(link_aktif);
+        await Promise.resolve(StorageApi.getData(`sm_portal/event/${link_aktif}`))
             .then(value => {
                 setDetail(value.data.data)
+                console.log(setDetail);
             }).catch(error => {
                 setDetail('')
             })
@@ -37,11 +44,21 @@ export default function DetailEvent() {
                                         <img src={detail.image} width={1500} height={500} alt="image" />
                                     </div>
                                     <div className="article-content mt-0">
-                                        <span><a href="#" style={{ color: '#ff661f'}}>Event</a> / {moment(detail.tanggal_news).format("DD MMMM, YYYY")}</span>
-                                        <h3>{detail.judul_news}</h3>
-                                        
+                                        <span><a href="#" style={{ color: '#ff661f'}}>Event</a> / {moment(detail.tgl_event).format("DD MMMM, YYYY")} - {moment(detail.tgl_berakhir).format("DD MMMM, YYYY")}</span>
+                                        <h3>{detail.nama_event}</h3>
                                         <div>
                                             <p style={{ textAlign: "justify" }}>{detail.isi_konten}</p>
+                                        </div>
+                                        <div style={{ marginTop: 10 }}>
+                                            <p>Share artikel :
+                                            <WhatsappShareButton
+                                                url={`https://elingbali.com/News/DetailEvent?id=${detail.rowid}`}
+                                                title={detail.nama_event}
+                                                separator=""
+                                                style={{ marginLeft: 5 }}>
+                                                <WhatsappIcon size={32} round />
+                                            </WhatsappShareButton>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
