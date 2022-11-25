@@ -11,7 +11,8 @@ export {
   SelectCustom,
   SelectPolres,
   InputCustom,
-  Textarea
+  Textarea,
+  SelectJenisKendaraan
 } from "./MainForm"
 // export { default as Map } from '../Map/Map';
 export { default as ModalBox } from "../Addons/ModalBox"
