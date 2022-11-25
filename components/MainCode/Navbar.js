@@ -9,12 +9,13 @@ import {
   Notifikasi
 } from '../MainCode/MainImport';
 
-// import Container from 'react-bootstrap/Container';
-// import Nav from 'react-bootstrap/Nav';
-// import Navbar from 'react-bootstrap/Navbar';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
-
 export default function NavbarH(props) {
+
+  // const [show, setShow] = useState(false);
+  //   function toggle() {
+  //       setShow(!show);
+  //   }
+  // const [toogle, setToogle] = useState(false)
 
   const router = useRouter();
   const [openmenu, setOpenmenu] = useState([])
@@ -89,7 +90,7 @@ export default function NavbarH(props) {
     <>
       <Notifikasi onClose={e => setNotif(!notif)} show={notif} body={notif_body} />
       {/* <section id="main"> */}
-      <div className="navbar-area">
+        <div className="navbar-area">
           <div className="main-responsive-nav">
             <div className="container">
               <div className="main-responsive-menu">
@@ -103,6 +104,74 @@ export default function NavbarH(props) {
                       alt="image"
                     />
                   </Link>
+                  <div className="menu-bar">
+                    <Image src="/images/list.png" width={30} height={30} alt="" />
+                  </div>
+                  <div className="nav__menu-bar">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+
+                  <div class="nav__menu">
+                    
+                  </div>
+                  {/* <div>
+                   {brandcumb.map(item => {
+                      const page_count = item.link.split('/')
+                      const page = page_count[page_count.length - 1]
+                      if (item.level == 1 && item.link != "") {
+                        return (
+                          <>
+                            <li className={(link_aktif == page) ? menuaktif : menunonaktif}>
+                              <Link className="nav-link" href={`/${item.link}`}>
+                                {item.page}
+                                
+                              </Link>
+                            </li>
+                          </>
+                        )
+                      }
+
+                      if (item.link == "") {
+                        const page_count_sub = item.link.split('/')
+                        const pagesub = page_count_sub[page_count_sub.length - 2]
+                        var id = item.rowid
+                        
+                        return (
+                          <div onMouseLeave={() => subMenuOnMouseDown(item.rowid)} onMouseEnter={() => subMenuOnMouseEnter(item.rowid)} key={item.rowid}>
+                            <div className="items-center" >
+                             <li className={(link_aktif == pagesub) ? menuaktif : menunonaktif}>
+                            
+                                <a href="#" className="nav-link ">
+                                  {item.page}
+                                  <i className="bx bx-chevron-down" />
+                                </a>
+                                <ul className={`${openmenu[item.rowid] == false ? "dropdown-menu" : ""} `}>
+                                  {openmenu[item.rowid] == false && subbrandcumb.map(item => {
+                                    const sub_count = item.link.split('/')
+                                    const subpage = sub_count[sub_count.length - 1]
+                                    if (id == item.parent_menu) {
+                                      return (
+                                        <>
+                                          <li>
+                                            <Link className={(link_aktif == subpage) ? submenuaktif : submenunonaktif} href={`/${item.link}`} >
+                                              {item.page}
+                                            </Link>
+                                          </li>
+
+                                        </>
+                                      )
+                                    }
+                                  })}
+                                </ul>
+                              </li>
+                            </div>
+                          </div>
+                        )
+                      }
+                  })}
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -129,10 +198,7 @@ export default function NavbarH(props) {
                     </>)}
                   </li>
                 </ul>
-                <div
-                  className="collapse navbar-collapse mean-menu"
-                  id="navbarSupportedContent"
-                >
+                <div className="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                   <ul className="navbar-nav">
                     {/* <li className="nav-item">
                       <a href="/" className="nav-link">
@@ -182,6 +248,7 @@ export default function NavbarH(props) {
                                               {item.page}
                                             </Link>
                                           </li>
+
                                         </>
                                       )
                                     }
@@ -198,31 +265,6 @@ export default function NavbarH(props) {
               </nav>
             </div>
           </div>
-
-          <div class="others-option-for-responsive">
-                <div class="container">
-                    <div class="dot-menu">
-                        <div class="inner">
-                            <div class="circle circle-one"></div>
-                            <div class="circle circle-two"></div>
-                            <div class="circle circle-three"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="container">
-                        <div class="option-inner">
-                            <div class="others-options d-flex align-items-center">
-                                <div class="option-item">
-                                    <form class="search-box">
-                                        <input type="text" class="form-control" placeholder="Search for.." />
-                                        <button type="submit"><i class='bx bx-search'></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         {/* <video src="/images/video.mp4" muted autoPlay loop></video> */}
       {/* </section> */}

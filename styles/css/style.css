@@ -1779,7 +1779,7 @@ Navbar Area CSS
     max-width: 100px !important;
   }
   .navbar-area {
-    background-color: #ffffff;
+    background-color: #1f2937;
     -webkit-box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
     box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
     padding-top: 15px;
@@ -7454,4 +7454,10 @@ video {
 .iconfooter: hover {
   background-color: #ff661f;
 }
+.menu-bar {
+  float: right;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=style.css.map */
