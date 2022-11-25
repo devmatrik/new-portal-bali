@@ -67,6 +67,9 @@ export default function DetailNews() {
     return (
         <>
             <BaseLayouts>
+            <div>
+                <meta property="og:image" content="url_image" />
+            </div>
                 {/* <!-- Start News Details Area --> */}
                 <section className="news-details-area ptb-50">
                     <div className="container">
@@ -84,8 +87,12 @@ export default function DetailNews() {
                                         </div>
                                         <div style={{ marginTop: 10 }}>
                                             <p>Share artikel :
+                                                {/* <Link itemprop="thumbnailUrl" href="url_image">Test</Link>
+                                                <span itemprop="thumbnail" itemscope itemtype={`https://elingbali.com/News/DetailNews?id=${detail.rowid}`}> 
+                                                <Link itemprop="url" href="url_image" /> 
+                                                </span> */}
                                             <WhatsappShareButton
-                                                url={`https://elingbali.com/News/DetailNews?id=${detail.rowid}`}
+                                                url={`https://elingbali.com/News/DetailNews?id=${detail.rowid, detail.image}`}
                                                 title={detail.judul_news}
                                                 separator=""
                                                 style={{ marginLeft: 5 }}>

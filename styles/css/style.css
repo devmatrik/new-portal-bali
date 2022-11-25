@@ -4588,11 +4588,11 @@ New News Area CSS
 }
 
 .single-new-news {
-    margin-bottom: 30px;
-    border: 0.5px solid #1f2937;
-    padding: 15px;
-    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
-    border-radius: 5px;
+  margin-bottom: 30px;
+  border: 0.5px solid #1f2937;
+  padding: 15px;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+  border-radius: 5px;
 }
 
 .single-new-news .new-news-content {

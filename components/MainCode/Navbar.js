@@ -7,9 +7,13 @@ import { useEffect } from 'react';
 import {
   StorageApi,
   Notifikasi
-} from '../MainCode/MainImport'
+} from '../MainCode/MainImport';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
-export default function Navbar(props) {
+export default function NavbarH(props) {
 
   const router = useRouter();
   const [openmenu, setOpenmenu] = useState([])
@@ -31,7 +35,6 @@ export default function Navbar(props) {
   useEffect(() => {
     Menubrandchumb()
   }, [loading])
-
 
   const Menubrandchumb = () => {
     Promise.resolve(StorageApi.getData("sm_hrm/page_group?kode_sub_unit=SM_PORTAL_USER"))
@@ -80,41 +83,29 @@ export default function Navbar(props) {
     setNotifBody("Anda berhasil logout")
     router.push('/');
   }
+
   return (
     <>
       <Notifikasi onClose={e => setNotif(!notif)} show={notif} body={notif_body} />
-      <section id="main">
-        <div className="navbar-area">
-          <div className="main-responsive-nav">
-            <div className="container">
-              <div className="main-responsive-menu">
-                <div className="logo">
-                  <Link href="/">
-                    <Image
-                      src="/images/logo2.png"
-                      width={100}
-                      height={100}
-                      className="white-logo"
-                      alt="image"
-                    />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="main-navbar">
-            <div className="container">
-              <nav className="navbar navbar-expand-md navbar-light">
-                <Link className="navbar-brand" href="/">
-                  <Image
-                    src="/images/logo2.png"
-                    width={100}
-                    height={100}
-                    className="white-logo"
-                    alt="image"
-                  />
-                </Link>
-                <ul className="top-header-others">
+      {/* <section id="main"> */}
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Container>
+        <Navbar.Brand>
+          <Link href="/" className="navbar-brand">
+            <Image
+              src="/images/logo2.png"
+              width={100}
+              height={100}
+              className="white-logo"
+              alt="image"
+            />
+          </Link>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#features">
+              <ul className="top-header-others">
                   <li>
                     <i className='bx bx-user'></i>
                     {session ? (<>
@@ -123,44 +114,29 @@ export default function Navbar(props) {
                       <Link href="/Login">Login</Link>
                     </>)}
                   </li>
-                </ul>
-                <div
-                  className="collapse navbar-collapse mean-menu"
-                  id="navbarSupportedContent"
-                >
-                  <ul className="navbar-nav">
-                    {/* <li className="nav-item">
-                  <a href="/" className="nav-link">
-                    Home
-                  </a>
-                </li> */}
-                    {brandcumb.map(item => {
-                      const page_count = item.link.split('/')
-                      const page = page_count[page_count.length - 1]
-                      if (item.level == 1 && item.link != "") {
-                        return (
-                          <>
-                            <li className={(link_aktif == page) ? menuaktif : menunonaktif}>
-                              <Link className="nav-link" href={`/${item.link}`}>
-                                {item.page}
-                                {/* <a className="nav-link">
-                              </a> */}
-                              </Link>
-                            </li>
-                          </>
-                        )
-                      }
+              </ul>
+            </Nav.Link>
+            {brandcumb.map(item => {
+              const page_count = item.link.split('/')
+              const page = page_count[page_count.length - 1]
+              if (item.level == 1 && item.link != "") {
+                return (
+                  <>
+                    <Nav.Link className="nav-link" href={`/${item.link}`}>
+                      {item.page}
+                    </Nav.Link>
+                  </>
+                )
+              }
 
-                      if (item.link == "") {
-                        const page_count_sub = item.link.split('/')
-                        const pagesub = page_count_sub[page_count_sub.length - 2]
-                        var id = item.rowid
-                        
-                        return (
-                          <div onMouseLeave={() => subMenuOnMouseDown(item.rowid)} onMouseEnter={() => subMenuOnMouseEnter(item.rowid)} key={item.rowid}>
+              if (item.link == "") {
+                const page_count_sub = item.link.split('/')
+                const pagesub = page_count_sub[page_count_sub.length - 2]
+                var id = item.rowid
+                return (
+                  <div onMouseLeave={() => subMenuOnMouseDown(item.rowid)} onMouseEnter={() => subMenuOnMouseEnter(item.rowid)} key={item.rowid}>
                             <div className="items-center" >
                              <li className={(link_aktif == pagesub) ? menuaktif : menunonaktif}>
-                            {/* <li className={menuaktif}> */}
                                 <a href="#" className="nav-link ">
                                   {item.page}
                                   <i className="bx bx-chevron-down" />
@@ -172,12 +148,11 @@ export default function Navbar(props) {
                                     if (id == item.parent_menu) {
                                       return (
                                         <>
-                                          <li>
+                                          <Nav.Link>
                                             <Link className={(link_aktif == subpage) ? submenuaktif : submenunonaktif} href={`/${item.link}`} >
                                               {item.page}
                                             </Link>
-                                          </li>
-
+                                          </Nav.Link>
                                         </>
                                       )
                                     }
@@ -185,47 +160,27 @@ export default function Navbar(props) {
                                 </ul>
                               </li>
                             </div>
-                          </div>
-                        )
-                      }
-                    })}
-                  </ul>
-                </div>
-              </nav>
-            </div>
-          </div>
-          <div className="others-option-for-responsive">
-            <div className="container">
-              <div className="dot-menu">
-                <div className="inner">
-                  <div className="circle circle-one" />
-                  <div className="circle circle-two" />
-                  <div className="circle circle-three" />
-                </div>
-              </div>
-              <div className="container">
-                <div className="option-inner">
-                  <div className="others-options d-flex align-items-center">
-                    <div className="option-item">
-                      <form className="search-box">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="Search for.."
-                        />
-                        <button type="submit">
-                          <i className="bx bx-search" />
-                        </button>
-                      </form>
-                    </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                  )
+                }
+              })}
+              <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+               <NavDropdown.Item href="#action/3.2">
+                 Another action
+               </NavDropdown.Item>
+               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+               <NavDropdown.Divider />
+               <NavDropdown.Item href="#action/3.4">
+                 Separated link
+               </NavDropdown.Item>
+              </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
         {/* <video src="/images/video.mp4" muted autoPlay loop></video> */}
-      </section>
+      {/* </section> */}
       {props.children}
     </>
   )
