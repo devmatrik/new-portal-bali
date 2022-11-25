@@ -56,9 +56,13 @@ export function SelectKategori(props) {
       const lists = value.data.data;
       var daftar = [];
       lists.map(item => (
-        item.kategori == "Laporan" ? (
+        props.param ? (
+          item.kategori == props.param ? (
+            daftar.push({ label: item.kategori, value: item.rowid })
+          ) : ("")
+        ) : (
           daftar.push({ label: item.kategori, value: item.rowid })
-        ) : ("")
+        )
       ))
       setDetail(daftar)
     }).catch(e => {
