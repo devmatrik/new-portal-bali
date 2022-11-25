@@ -167,12 +167,11 @@ export default function ELapor() {
                         <Form.Label for="exampleInputEmail1" className="form-label">Saluran Informasi</Form.Label>
                         <SelectSaluranInformasi onChange={(e) => setSaluranInformasi(e.value)} value={saluran_informasi_id} placeholder="Pilih Saluran Informasi" />
                       </div>
-
                       <div className="col-lg-4 col-md-4 mb-3">
                         <Form.Label for="exampleInputEmail1" className="form-label">Kategori</Form.Label>
                         <SelectKategori onChange={(e) => {
                           setKategoriId(e.value)
-                        }} value={kategori_id} placeholder="Pilih Kategori" />
+                        }} value={kategori_id} placeholder="Pilih Kategori" param={"Laporan"} />
                       </div>
 
                       <div className="col-lg-4 col-md-4 mb-3">
@@ -199,7 +198,7 @@ export default function ELapor() {
                       </div>
                     </div>
 
-                    <div className="row border mb-3">
+                    <div className="row border mb-3 mt-3 p-2">
                       <div className="col-lg-6 col-md-6 mb-3">
                         <Form.Label for="exampleInputPassword1" className="form-label">Lokasi Kejadian</Form.Label>
                         <InputCustom className="" type="text" placeholder="Lokasi Kejadian" onChange={e => setNamaJalanId(e.target.value)} />
@@ -220,7 +219,7 @@ export default function ELapor() {
                       </div>
                     </div>
 
-                    <div className="row border mb-3">
+                    <div className="row border mb-3 p-2">
                       <div className="w-full">
                         <div className='row mt-2'>
                           <div className='col-lg-9 col-md-9 mb-3 object-center'>
@@ -298,7 +297,7 @@ export default function ELapor() {
 
 
 
-                    <div className="col-lg-12 col-md-12">
+                    <div className="col-lg-12 col-md-12 mt-3">
                       {session ? (<>
                         <Button variant="primary" onClick={e => Simpan(e)}>
                           Kirim
