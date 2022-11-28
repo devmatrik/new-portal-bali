@@ -56,9 +56,13 @@ export function SelectKategori(props) {
       const lists = value.data.data;
       var daftar = [];
       lists.map(item => (
-        item.kategori == "Laporan" ? (
+        props.param ? (
+          item.kategori == props.param ? (
+            daftar.push({ label: item.kategori, value: item.rowid })
+          ) : ("")
+        ) : (
           daftar.push({ label: item.kategori, value: item.rowid })
-        ) : ("")
+        )
       ))
       setDetail(daftar)
     }).catch(e => {
@@ -84,6 +88,44 @@ export function SelectKategori(props) {
   )
 }
 
+export function SelectJenisKendaraan(props) {
+  const [list, setDetail] = useState([]);
+
+  useEffect(e => {
+    ListCategory();
+  }, [])
+
+  const ListCategory = async () => {
+    const a = Promise.resolve(StorageApi.getRelasi('sm_master_data/jenis_kendaraan'));
+    a.then(value => {
+      const lists = value.data.data;
+      var daftar = [];
+      lists.map(item => (
+        daftar.push({ label: item.jenis_kendaraan, value: item.rowid })
+      ))
+      setDetail(daftar)
+    }).catch(e => {
+      console.log(e);
+    });
+  }
+
+  return (
+    <>
+      <SelectSearch
+        className="w-full"
+        value={props.value ?
+          list.filter(option =>
+            option.value === props.value) : ""
+        }
+        onChange={props.onChange}
+        placeholder={props.placeholder}
+        options={list}
+        required
+        isDisabled={props.disabled ? true : false}
+      />
+    </>
+  )
+}
 export function SelectSubKategori(props) {
   const [list, setDetail] = useState([]);
 

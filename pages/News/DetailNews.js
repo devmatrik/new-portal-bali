@@ -87,6 +87,9 @@ export default function DetailNews() {
            
         </div>
             <BaseLayouts>
+            <div>
+                <meta property="og:image" content="url_image" />
+            </div>
                 {/* <!-- Start News Details Area --> */}
                 <section className="news-details-area ptb-50">
                     <div className="container">

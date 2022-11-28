@@ -7,18 +7,13 @@ import {
   InputCustom,
   SelectKategoriPelapor,
   StorageApi
-  // SelectSituasiLalin,
-  // ModalBox,
-  // Map,
-  // Textarea,
 } from '../../components/MainCode/MainImport';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useSession } from "next-auth/react"
 import Link from 'next/link';
 
-export default function ELapor() {
-  const [show, setShow] = useState(false);
+export default function Eservice() {
   const { data: session, status } = useSession()
   const [tanggal, setTanggal] = useState('');
   const [saluran_informasi_id, setSaluranInformasi] = useState('')
@@ -27,24 +22,6 @@ export default function ELapor() {
   const [kategori_param, setKategoriparam] = useState('');
   const [sub_kategori_param, setSubKategoriparam] = useState('');
   const [kategori_pelapor_id, setKategoriPelapor] = useState('');
-  const [telp, setTelp] = useState('');
-  const [nama, setNamaPelapor] = useState('');
-  // const [nama_jalan_id, setNamaJalanId] = useState('');
-  // const [penjelasan_singkat, setPenjelasanSingkat] = useState('');
-
-  // const [situasi_lalin_id, setSituasiLalin] = useState('');
-  // const [korban, setJumlahKorban] = useState('');
-  // const [lat, setLat] = useState('');
-  // const [lng, setLng] = useState('');
-
-
-  const ShowModal = (param) => {
-    setShow(true)
-
-    if (param == "close") {
-      setShow(false)
-    }
-  }
 
   const KategoriPelayanan = (param) => {
     var table = ""
@@ -68,20 +45,17 @@ export default function ELapor() {
     formData.append('saluran_informasi_id', saluran_informasi_id)
     formData.append('kategori_id', kategori_id)
     formData.append('sub_kategori_id', sub_kategori_id)
-    formData.append('nama_pelapor', nama)
-    formData.append('telp_pelapor', telp)
+    formData.append('nama_pelapor', session?.nama)
+    formData.append('telp_pelapor', session?.telp)
     formData.append('kategori', kategori_param.toLowerCase())
     if (kategori_param == "Pelayanan") {
       const param = KategoriPelayanan(sub_kategori_param)
       formData.append('sub_kategori', param)
-    } else {
-      formData.append('sub_kategori', sub_kategori_param.toLowerCase().replace(" ", "_"))
     }
     formData.append('kategori_pelapor_id', kategori_pelapor_id)
     formData.append('ctdby', session?.kode_user_master)
     formData.append('polda_id', session?.polda_id)
     formData.append('polres_id', session?.polres_id)
-    debugger
     Promise.resolve(StorageApi.addData('public_service', formData))
       .then(value => {
         reset_elm()
@@ -90,32 +64,6 @@ export default function ELapor() {
       })
   }
 
-  const [fileAdd, setFileAdd] = useState([
-    { id: '', files: '', keterangan: '' },
-  ])
-
-  const addFileAdd = () => {
-    let object = {
-      files: '',
-      keterangan: ''
-    }
-    setFileAdd([...fileAdd, object])
-  }
-  const handleFileAdd = (event, index) => {
-    let data = [...fileAdd];
-    if (event.target.name == "files") {
-      data[index][event.target.name] = event.target.files[0];
-    } else {
-      data[index][event.target.name] = event.target.value;
-    }
-    setFileAdd(data);
-  }
-
-  const removeFileAdd = (index) => {
-    let data = [...fileAdd];
-    data.splice(index, 1)
-    setFileAdd(data);
-  }
 
 
   return (
@@ -143,7 +91,7 @@ export default function ELapor() {
                         <Form.Label for="exampleInputEmail1" className="form-label">Kategori</Form.Label>
                         <SelectKategori onChange={(e) => {
                           setKategoriId(e.value)
-                        }} value={kategori_id} placeholder="Pilih Kategori" />
+                        }} value={kategori_id} placeholder="Pilih Kategori" param={"Pelayanan"} />
                       </div>
 
                       <div className="col-lg-4 col-md-4 mb-3">

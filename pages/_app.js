@@ -10,6 +10,8 @@ import '../styles/css/style.css'
 import '../styles/css/dark.css'
 import '../styles/css/responsive.css'
 
+
+
 import { SessionProvider } from "next-auth/react"
 
 function MyApp({ Component, pageProps: {session, ...pageProps} }) {
