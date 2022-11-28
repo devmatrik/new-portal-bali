@@ -49,9 +49,10 @@ export default function Navbar(props) {
             <div className='col-md-4'>
                <div className="copyright-area-content">
                 <p>
-                  Copyright © , <a href="https://elingbali.com">
-                    Eling Bali Developer
+                  Copyright © 2022 <a href="https://elingbali.com">
+                    Eling Bali
                   </a>
+                  , All Rights reserved
                 </p>
               </div>
             </div>
