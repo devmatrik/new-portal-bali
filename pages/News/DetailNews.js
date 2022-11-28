@@ -3,14 +3,19 @@ import { useRouter } from 'next/router'
 import moment from 'moment/moment'
 import Image from 'next/image'
 import Link from 'next/link'
-import { StorageApi, BaseLayouts } from '../../components/MainCode/MainImport'
+
+import { StorageApi, BaseLayouts, ShareWhatsApp } from '../../components/MainCode/MainImport'
 import {
     WhatsappShareButton,
     WhatsappIcon,
   } from 'next-share'
+import Head from 'next/head';
 
 
 export default function DetailNews() {
+
+    
+
     
     const router = useRouter()
     const query = router?.query;
@@ -21,11 +26,15 @@ export default function DetailNews() {
     const [listLatest, setListLatest] = useState([]);
     const [detail, setDetail] = useState([]);
     const [loading, setLoading] = useState(false)
+
+
     useEffect(() => {
         GetDetailNews(query?.id)
         LatestNews()
         getTags();
     }, [loading])
+
+    
 
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     
@@ -63,9 +72,20 @@ export default function DetailNews() {
     
           })
     }
+
+    
     
     return (
         <>
+        <div>
+        <Head>
+            {/* <meta property="og:image" content={detail.image} />
+            <meta property="og:title" content={detail.title} />
+            <meta property="og:description" content={detail.isi_konten} /> */}
+
+        </Head>
+           
+        </div>
             <BaseLayouts>
                 {/* <!-- Start News Details Area --> */}
                 <section className="news-details-area ptb-50">
@@ -84,13 +104,26 @@ export default function DetailNews() {
                                         </div>
                                         <div style={{ marginTop: 10 }}>
                                             <p>Share artikel :
-                                            <WhatsappShareButton
-                                                url={`https://elingbali.com/News/DetailNews?id=${detail.rowid}`}
+                                            {/* <WhatsappShareButton
+                                                imgUrl={detail.image}
+                                                url={`http://localhost:3000/News/DetailNews?id=${detail.rowid}`}
                                                 title={detail.judul_news}
                                                 separator=""
                                                 style={{ marginLeft: 5 }}>
                                                 <WhatsappIcon size={32} round />
-                                            </WhatsappShareButton>
+                                            </WhatsappShareButton> */}
+                                            <a href={`whatsapp://send?text=https://elingbali.com/News/DetailNews?id=${detail.rowid}`}> <WhatsappIcon size={32} round /></a>
+                                            {/* <iframe
+                                            src="http://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button&size=large&width=91&height=28&appId"
+                                            width={91}
+                                            height={28}
+                                            style={{ border: "none", overflow: "hidden" }}
+                                            scrolling="no"
+                                            frameBorder={0}
+                                            allowFullScreen="true"
+                                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                                            /> */}
+
                                             </p>
                                         </div>
                                     </div>
