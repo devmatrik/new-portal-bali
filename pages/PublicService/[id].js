@@ -9,6 +9,8 @@ import {
 import { useRouter } from 'next/router'
 
 import moment from 'moment/moment';
+import MetaDecorator from '../../components/Meta/MetaDecorator'
+
 
 export default function DetailPublicService() {
     const [detail, setDetail] = useState([]);
@@ -39,6 +41,10 @@ export default function DetailPublicService() {
 
   return (
     <>
+
+    <div>
+        <MetaDecorator image={detail.image} title={detail.judul}   imagetw={detail.image} url="https://elingbali.com"/>
+    </div>
     <BaseLayouts>
         {/* <!-- Start News Details Area --> */}
         <section className="news-details-area ptb-50">

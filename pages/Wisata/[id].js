@@ -7,6 +7,8 @@ import {
   StorageApi
 } from '../../components/MainCode/MainImport'
 import { useRouter } from 'next/router'
+import MetaDecorator from '../../components/Meta/MetaDecorator'
+
 
 import moment from 'moment/moment';
 
@@ -41,6 +43,9 @@ export default function DetailNews() {
     <>
     <BaseLayouts>
         {/* <!-- Start News Details Area --> */}
+         <div>
+            <MetaDecorator image={detail.image} title={detail.judul}   imagetw={detail.image} url="https://elingbali.com"/>
+        </div>
         <section className="news-details-area ptb-50">
             <div className="container">
 
