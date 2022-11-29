@@ -8,9 +8,9 @@ import {
 import Slider from "react-slick";
 import Link from 'next/link';
 import Function from '../../components/Function';
-// import { Carousel, Card, Stack, Button } from "react-bootstrap";
-import moment from 'moment/moment';
 import Carousel from 'react-grid-carousel'
+import moment from 'moment/moment';
+// import { Carousel, Card, Stack, Button } from "react-bootstrap";
 
 export default function OlehOlehKhas() {
 
@@ -30,12 +30,12 @@ export default function OlehOlehKhas() {
     };
 
     const konten = {
-      title: "Oleh Oleh Khas",
+      title: "Oleh-oleh Khas Bali",
       //LinkApi: "algors/periode_keselamatan",
     }
 
   const getData = () => {
-    Promise.resolve(StorageApi.getData("sm_portal/wisata?jenis_wisata_id=6"))
+    Promise.resolve(StorageApi.getData("sm_master_data/jenis_wisata"))
       .then(value => {
         const list = value.data.data
         var param = ""
@@ -62,8 +62,8 @@ export default function OlehOlehKhas() {
         <div className="container">
           <div className="tech-news ptb-50">
             <div className="section-title"> 
-              <h2><Image className="p-2" src="/images/oleholehW.svg" width={50} height={50} alt="" /> Oleh Oleh Khas</h2>
-              <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Oleh Oleh Khas di Bali</h5>
+              <h2><Image className="p-2" src="/images/oleholehW.svg" width={50} height={50} alt="" /> Oleh Oleh Khas Bali</h2>
+              <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Oleh Oleh di Bali</h5>
             </div>
             <Carousel cols={4} rows={1} gap={20} loop>
                   {wisata.map((item, index) => (
@@ -97,7 +97,7 @@ export default function OlehOlehKhas() {
                   </div>
                     </Carousel.Item>
                   ))}
-              </Carousel>
+            </Carousel>
           </div>
         </div>
       </section>

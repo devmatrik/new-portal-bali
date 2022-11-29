@@ -9,10 +9,8 @@ import Slider from "react-slick";
 import Link from 'next/link';
 import Function from '../../components/Function';
 import Carousel from 'react-grid-carousel'
-
-// import { Carousel, Card, Stack, Button } from "react-bootstrap";
-
 import moment from 'moment/moment';
+// import { Carousel, Card, Stack, Button } from "react-bootstrap";
 
 export default function WisataAdat() {
 
@@ -37,7 +35,7 @@ export default function WisataAdat() {
     }
 
   const getData = () => {
-    Promise.resolve(StorageApi.getData("sm_portal/wisata"))
+    Promise.resolve(StorageApi.getData("sm_master_data/jenis_wisata"))
       .then(value => {
         const list = value.data.data
         var param = ""
@@ -54,7 +52,8 @@ export default function WisataAdat() {
             setWisata([])
           })
       }).catch(error => {
-      })  }
+      })
+  }
   return (
     <>
     <BaseLayouts>
@@ -69,7 +68,7 @@ export default function WisataAdat() {
             <Carousel cols={4} rows={1} gap={20} loop>
                   {wisata.map((item, index) => (
                     <Carousel.Item key={index}>
-                  <div className="row" key={item.rowid}>
+                                        <div className="row" key={item.rowid}>
                     <div className="col-lg-3 col-sm-3 ">
                       <div className="single-tech-news-box rounded-3" style={{ width: "16rem" }}>
                          <a href="">
@@ -98,7 +97,7 @@ export default function WisataAdat() {
                   </div>
                     </Carousel.Item>
                   ))}
-              </Carousel>
+            </Carousel>
           </div>
         </div>
       </section>

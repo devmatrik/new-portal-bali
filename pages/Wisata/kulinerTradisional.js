@@ -97,7 +97,7 @@ export default function KulinerTradisional() {
                   </div>
                     </Carousel.Item>
                   ))}
-              </Carousel>
+            </Carousel>
           </div>
         </div>
       </section>

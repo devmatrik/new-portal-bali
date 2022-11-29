@@ -36,7 +36,7 @@ export default function TempatRekreasi() {
     }
 
   const getData = () => {
-    Promise.resolve(StorageApi.getData("sm_portal/wisata?jenis_wisata_id=5"))
+    Promise.resolve(StorageApi.getData("sm_master_data/jenis_wisata"))
       .then(value => {
         const list = value.data.data
         var param = ""
@@ -66,20 +66,18 @@ export default function TempatRekreasi() {
               <h2><Image className="p-2" src="/images/rekreasiW.svg" width={50} height={50} alt="" /> Tempat Rekreasi</h2>
               <h5 style={{ color: "#ff661f", fontWeight: 600, opacity: "80%" }}>Rekomendasi Tempat Rekreasi di Bali</h5>
             </div>
-             <Slider {...settings}>
-              {wisata.map(item => {
-                return(
-                  <div className="row" key={item.rowid}>
+             <Carousel cols={4} rows={1} gap={20} loop>
+                  {wisata.map((item, index) => (
+                    <Carousel.Item key={index}>
+                                        <div className="row" key={item.rowid}>
                     <div className="col-lg-3 col-sm-3 ">
-                      <div className="single-tech-news-box" style={{ width: "18rem" }}>
+                      <div className="single-tech-news-box rounded-3" style={{ width: "16rem" }}>
                          <a href="">
                           {item.image == 0 ? (<>
                              <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
                             </>) :(<>
                             <img src={item.image} style={{ width: "450px", height:"350px" }}/>
                             </>)}
-                    
-                            
                         </a>
                       {/* <img className="card-img-top" src="/images/tech-news/tech-news-1.jpg" alt="Card image cap" /> */}
                        <div className="tech-news-content">
@@ -98,13 +96,9 @@ export default function TempatRekreasi() {
                       </div>
                     </div>
                   </div>
-                  )
-                })}
-
-               
-  
-
-            </Slider>
+                    </Carousel.Item>
+                  ))}
+            </Carousel>
 
             
           </div>
