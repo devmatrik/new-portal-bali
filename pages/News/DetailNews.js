@@ -16,9 +16,6 @@ import Head from 'next/head';
 
 export default function DetailNews() {
 
-    
-
-    
     const router = useRouter()
     const query = router?.query;
     const link_akses = router.asPath.split('/')
@@ -83,9 +80,10 @@ export default function DetailNews() {
       
            
         </div>
+
             <BaseLayouts>
             <div>
-              <MetaDecorator image={detail.image} title={detail.judul_news}  imagetw={detail.image} url={`https://elingbali.com/News/DetailNews?id=${detail.rowid}`}/>
+              <MetaDecorator image="https://backend.elingbali.com:8082/images/news/image16696291777076.png" title="ETLE Resmi Berlaku Di Bali"  imagetw="https://backend.elingbali.com:8082/images/news/image16696291777076.png" url="https://elingbali.com"/>
             </div>
                 {/* <!-- Start News Details Area --> */}
                 <section className="news-details-area ptb-50">
