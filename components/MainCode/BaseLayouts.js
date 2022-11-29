@@ -38,13 +38,11 @@ export default function BaseLayouts(props) {
   return (
     <div >
       <Head>
-        <title>Portal Smartcity Bali</title>
         <meta charSet="utf-8" />
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <title>Portal Smart City Bali</title>
         <link rel="icon" type="image/png" href="/images/icon-jepun.png" />
         <link rel="icon" href="/images/icon-jepun.png" />
       </Head>
