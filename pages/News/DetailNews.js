@@ -3,6 +3,8 @@ import { useRouter } from 'next/router'
 import moment from 'moment/moment'
 import Image from 'next/image'
 import Link from 'next/link'
+import MetaDecorator from '../../components/Meta/MetaDecorator'
+
 
 import { StorageApi, BaseLayouts, ShareWhatsApp } from '../../components/MainCode/MainImport'
 import {
@@ -78,17 +80,12 @@ export default function DetailNews() {
     return (
         <>
         <div>
-        <Head>
-            {/* <meta property="og:image" content={detail.image} />
-            <meta property="og:title" content={detail.title} />
-            <meta property="og:description" content={detail.isi_konten} /> */}
-
-        </Head>
+      
            
         </div>
             <BaseLayouts>
             <div>
-                <meta property="og:image" content="url_image" />
+              <MetaDecorator image={detail.image} title={detail.judul_news}  imagetw={detail.image} url={`https://elingbali.com/News/DetailNews?id=${detail.rowid}`}/>
             </div>
                 {/* <!-- Start News Details Area --> */}
                 <section className="news-details-area ptb-50">
@@ -116,6 +113,8 @@ export default function DetailNews() {
                                                 <WhatsappIcon size={32} round />
                                             </WhatsappShareButton> */}
                                             <a href={`whatsapp://send?text=https://elingbali.com/News/DetailNews?id=${detail.rowid}`}> <WhatsappIcon size={32} round /></a>
+                                            <a href={`http://www.twitter.com/share?url=https://elingbali.com/News/DetailNews?id=${detail.rowid}`}>Tweet</a>
+
                                             {/* <iframe
                                             src="http://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button&size=large&width=91&height=28&appId"
                                             width={91}
