@@ -121,7 +121,7 @@ function Profile() {
 
                                                     <li>
                                                         <span>Email</span><br />
-                                                        smartcitybali@mail.com
+                                                        support@elingbali.com
                                                     </li>
 
                                                     {/* <li>

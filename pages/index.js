@@ -292,6 +292,30 @@ export default function Home() {
               </div>
               <div className="col-lg-3">
                 <aside className="widget-area">
+                <section className="widget widget_popular_posts_thumb">
+                    <h3 className="widget-title"><Image src="/images/Event.png" width={30} height={30} alt="image" /> New Event</h3>
+                    <div className='scroll-bar-vertical scrollbar-hide' style={{ height: "20.8rem" }}>
+                      {newEvent.map((item, index) => {
+                        return (
+                          <article className="item" key={index}>
+                            <Link href={`/News/DetailEvent?id=${item.rowid}`} className="thumb">
+                              {/* <span className="fullimage cover bg1" role="img"></span> */}
+                              <img className="fullimage cover bg1" src={item.image} style={{ height: "80px", width : "100px" }} role="image" />
+                            </Link>
+                            <div className="info">
+                              <h4 className="title usmall">
+                                <Link href={`/News/DetailEvent?id=${item.rowid}`}>
+                                  {item.nama_event}
+                                </Link>
+                              </h4>
+                              <span style={{ color: '#ff661f', fontWeight: 'bold' }}>{moment(item.tgl_event).format("DD MMM, YYYY ")}- {moment(item.tgl_berakhir).format("DD MMM, YYYY ")}</span>
+                            </div>
+                          </article>
+                        )
+                      })}
+                    </div>
+                  </section>
+
                   <section className="widget widget_latest_news_thumb">
                     <h3 className="widget-title"><Image src="/images/News.png" width={40} height={40} alt="image" /> G20</h3>
                     <aside className='widget-area scroll-bar-vertical scrollbar-hide' style={{ height: "28rem" }}>
@@ -316,30 +340,6 @@ export default function Home() {
                         })}
                       </div>
                     </aside>
-                  </section>
-                  
-                  <section className="widget widget_popular_posts_thumb">
-                    <h3 className="widget-title"><Image src="/images/Event.png" width={30} height={30} alt="image" /> New Event</h3>
-                    <div className='scroll-bar-vertical scrollbar-hide' style={{ height: "20.8rem" }}>
-                      {newEvent.map((item, index) => {
-                        return (
-                          <article className="item" key={index}>
-                            <Link href={`/News/DetailEvent?id=${item.rowid}`} className="thumb">
-                              {/* <span className="fullimage cover bg1" role="img"></span> */}
-                              <img className="fullimage cover bg1" src={item.image} style={{ height: "80px", width : "100px" }} role="image" />
-                            </Link>
-                            <div className="info">
-                              <h4 className="title usmall">
-                                <Link href={`/News/DetailEvent?id=${item.rowid}`}>
-                                  {item.nama_event}
-                                </Link>
-                              </h4>
-                              <span style={{ color: '#ff661f', fontWeight: 'bold' }}>{moment(item.tgl_event).format("DD MMM, YYYY ")}- {moment(item.tgl_berakhir).format("DD MMM, YYYY ")}</span>
-                            </div>
-                          </article>
-                        )
-                      })}
-                    </div>
                   </section>
                 </aside>
               </div>
