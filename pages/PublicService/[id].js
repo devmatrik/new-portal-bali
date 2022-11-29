@@ -22,6 +22,8 @@ export default function DetailPublicService() {
 
     const [wisata, setWisata] = useState([])
 
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+
     const getData = () => {
          Promise.resolve(StorageApi.detailData("sm_portal/public_service", id))
         .then(value => {
@@ -52,7 +54,7 @@ export default function DetailPublicService() {
                                 <div className="article-image">
                                     <img src={detail.image} alt="image" />
                                 </div> <br />
-                                <p>{detail.isi_konten}</p>                                
+                                <p>{renderHTML(detail.isi_konten)}</p>                                
 
                             </div>
 
