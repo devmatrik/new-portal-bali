@@ -8,6 +8,10 @@ import {
   StorageApi,
   Notifikasi
 } from '../MainCode/MainImport';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function NavbarH(props) {
 
@@ -33,6 +37,9 @@ export default function NavbarH(props) {
 
   const submenuaktif = "nav-link active";
   const submenunonaktif = "nav-link ";
+
+  // const [navActive, setNavActive] = useState(false);
+  // const [activeIdx, setNavActiveIdx] = useState(0);
 
   useEffect(() => {
     Menubrandchumb()
@@ -94,8 +101,9 @@ export default function NavbarH(props) {
           <div className="main-responsive-nav">
             <div className="container">
               <div className="main-responsive-menu">
-                <div className="logo">
-                  <Link href="/">
+              <Navbar bg="light" expand="lg">
+                <Container>
+                  <Navbar.Brand href="/">
                     <Image
                       src="/images/logo2.png"
                       width={100}
@@ -103,76 +111,60 @@ export default function NavbarH(props) {
                       className="white-logo"
                       alt="image"
                     />
-                  </Link>
-                  <div className="menu-bar">
-                    <Image src="/images/list.png" width={30} height={30} alt="" />
-                  </div>
-                  <div className="nav__menu-bar">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-
-                  <div class="nav__menu">
-                    
-                  </div>
-                  {/* <div>
-                   {brandcumb.map(item => {
-                      const page_count = item.link.split('/')
-                      const page = page_count[page_count.length - 1]
-                      if (item.level == 1 && item.link != "") {
-                        return (
-                          <>
-                            <li className={(link_aktif == page) ? menuaktif : menunonaktif}>
-                              <Link className="nav-link" href={`/${item.link}`}>
-                                {item.page}
-                                
-                              </Link>
-                            </li>
-                          </>
-                        )
-                      }
-
-                      if (item.link == "") {
-                        const page_count_sub = item.link.split('/')
-                        const pagesub = page_count_sub[page_count_sub.length - 2]
-                        var id = item.rowid
-                        
-                        return (
-                          <div onMouseLeave={() => subMenuOnMouseDown(item.rowid)} onMouseEnter={() => subMenuOnMouseEnter(item.rowid)} key={item.rowid}>
-                            <div className="items-center" >
-                             <li className={(link_aktif == pagesub) ? menuaktif : menunonaktif}>
-                            
-                                <a href="#" className="nav-link ">
+                  </Navbar.Brand>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                  <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                      {brandcumb.map(item => {
+                        const page_count = item.link.split('/')
+                        const page = page_count[page_count.length -1]
+                        if (item.level == 1 && item.link != "") {
+                          return (
+                            <>
+                              <li className={(link_aktif == page) ? menuaktif : menunonaktif}>
+                                <Nav.Link href={`/${item.link}`}>
                                   {item.page}
-                                  <i className="bx bx-chevron-down" />
-                                </a>
-                                <ul className={`${openmenu[item.rowid] == false ? "dropdown-menu" : ""} `}>
-                                  {openmenu[item.rowid] == false && subbrandcumb.map(item => {
-                                    const sub_count = item.link.split('/')
-                                    const subpage = sub_count[sub_count.length - 1]
-                                    if (id == item.parent_menu) {
-                                      return (
-                                        <>
-                                          <li>
-                                            <Link className={(link_aktif == subpage) ? submenuaktif : submenunonaktif} href={`/${item.link}`} >
-                                              {item.page}
-                                            </Link>
-                                          </li>
-
-                                        </>
-                                      )
-                                    }
-                                  })}
-                                </ul>
+                                </Nav.Link>
                               </li>
-                            </div>
-                          </div>
-                        )
-                      }
-                  })}
-                  </div> */}
-                </div>
+                            </>
+                          )
+                        }
+
+                        if (item.link == "") {
+                          const page_count_sub = item.link.split('/')
+                          const pagesub = page_count_sub[page_count_sub.length - 2]
+                          var id = item.rowid
+                          
+                          return (
+                              <div className="items-center" key={item.rowid}>
+                               <NavDropdown title={item.page} id="basic-nav-dropdown" className={(link_aktif == pagesub) ? menuaktif : menunonaktif}>
+                                  <NavDropdown.Item className={`${openmenu[item.rowid] == false ? "dropdown-menu" : ""} `}>
+                                    {subbrandcumb.map(item => {
+                                      const sub_count = item.link.split('/')
+                                      const subpage = sub_count[sub_count.length - 1]
+                                      if (id == item.parent_menu) {
+                                        return (
+                                          <>
+                                            <li>
+                                              <Link className={(link_aktif == subpage) ? submenuaktif : submenunonaktif} href={`/${item.link}`} >
+                                                {item.page}
+                                              </Link>
+                                            </li>
+  
+                                          </>
+                                        )
+                                      }
+                                    })}
+                                  </NavDropdown.Item>
+                                </NavDropdown>
+                              </div>
+                          )
+                        }
+                      })}
+                    </Nav>
+                  </Navbar.Collapse>
+                </Container>
+              </Navbar>
               </div>
             </div>
           </div>
