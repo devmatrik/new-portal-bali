@@ -19,6 +19,8 @@ export default function Home() {
   const [g20, setListG20] = useState([]);
   const [newEvent, setListNewEvent] = useState([]);
   const [loading, setLoading] = useState(false);
+    const [wisata, setWisata] = useState([])
+
   const konten = {
     title: "Portal",
     // LinkApi: "algors/periode_keamanan",
@@ -27,6 +29,8 @@ export default function Home() {
     G20()
     NewEvent()
     LatestNews()
+    getData()
+
   }, [loading])
 
   const G20 = () => {
@@ -52,29 +56,16 @@ export default function Home() {
       })
   }
 
-  // const NewEvent = () => {
-  //   Promise.resolve(StorageApi.getData("sm_master_data/jenis_event"))
-  //     .then(value => {
-  //       const list = value.data.data
-  //       var newEvent = ""
-  //       list.map(item => {
-  //         if (item.jenis_event == "New Event") {
-  //           newEvent = item.rowid
-  //         }
-  //       })
-  //       Promise.resolve(StorageApi.getData(`sm_portal/event?jenis_event_id=${newEvent}`))
-  //         .then(value => {
-  //           const dataNewEvent = value.data.data
-  //           const Listdata = dataNewEvent.sort((a, b) => moment(b.tgl_event).format("DD") - moment(a.tgl_event).format("DD"))
-  //           console.log(Listdata);
-  //           setListNewEvent(Listdata)
-  //         }).catch(error => {
-  //           setListNewEvent([])
-  //         })
-  //     }).catch(error => {
-
-  //     })
-  // }
+  const getData = () => {
+    
+    Promise.resolve(StorageApi.getData("sm_master_data/jenis_wisata"))
+      .then(value => {
+        const data = value.data.data
+        setWisata(data)
+      }).catch(error => {
+        setWisata([])
+      })
+  }
 
   const NewEvent = () => {
     Promise.resolve(StorageApi.getData(`sm_portal/event`))
@@ -96,6 +87,7 @@ export default function Home() {
         setListLatest([])
       })
   }
+
   return (
     <>
       <BaseLayouts title={konten.title}>
@@ -112,148 +104,33 @@ export default function Home() {
                   <Cuaca></Cuaca>
                 </div>
               </div>
-              <div className="col-lg-12">
-                <Slide>
-                  <Slide.Item>
-                    <div className="row">
-                      <div className="col-lg-4">
+               <Carousel cols={3} rows={1} gap={20} loop>
+                {wisata.map((item, index) => (
+                  <Carousel.Item key={index}>
+                    <div className="row" key={item.rowid}>
+                      <div className="col-lg-12 col-sm-3 ">
                         <div className="single-team-box">
-                          <div className="image">
-                            <Link href="/Wisata/wisataAlam">
-                              <Image src="/images/_wisata-alam.png" width={550} height={550} alt="image" />
-                            </Link>
-                          </div>
+                          <a href="">
+                            {item.image == 0 ? (<>
+                              <img src="/images/tech-news/tech-news-1.jpg" alt="image" />
+                            </>) : (<>
+                              <img src={item.image} style={{ width: "450px", height: "350px" }} />
+                            </>)}
+                          </a>
                           <div className="content">
                             <h3 style={{ fontSize: 14 }}>
-                              <Link style={{ color: '#fff' }} href="/Wisata/wisataAlam">Wisata Alam</Link>
+                              <Link  style={{ color: '#fff' }}  href={`${item.jenis_wisata == "Oleh-oleh Khas Bali" ?"Wisata/olehOlehKhas" : item.jenis_wisata == "Tempat Rekreasi" ? "Wisata/tempatRekreasi" : item.jenis_wisata == "Adat & Budaya" ? "Wisata/wisataAdat" : item.jenis_wisata == "Kuliner" ? "Wisata/wisataKuliner" : item.jenis_wisata == "Kuliner Tradisional" ? "Wisata/kulinerTradisional" : item.jenis_wisata == "Wisata Alam" ? "Wisata/wisataAlam"  : item.jenis_wisata == "Penginapan" ? "PublicService/Penginapan" : item.jenis_wisata == "Travel Agensi" ? "PublicService/travelAgensi" :item.jenis_wisata == "Pelayanan Publik" ? "PublicService/lokasiPelayananPublic" : "" }`} key={item.rowid}>
+                                {item.jenis_wisata}
+                              </Link>
                             </h3>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-lg-4">
-                        <div className="single-team-box">
-                          <div className="image">
-                            <Link href="/Wisata/wisataKuliner">
-                              <Image src="/images/_wisata-kuliner.png" width={550} height={550} alt="image" />
-                            </Link>
-                          </div>
-                          <div className="content">
-                            <h3 style={{ fontSize: 14 }}>
-                              <Link style={{ color: '#fff' }} href="/Wisata/wisataKuliner">Wisata Kuliner</Link>
-                            </h3>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-lg-4">
-                        <div className="single-team-box">
-                          <div className="image">
-                            <Link href="/Wisata/kulinerTradisional">
-                              <Image src="/images/_kuliner-tradisional.png" width={550} height={550} alt="image" />
-                            </Link>
-                          </div>
-                          <div className="content">
-                            <h3 style={{ fontSize: 14 }}>
-                              <Link style={{ color: '#fff' }} href="/Wisata/kulinerTradisional">Kuliner Tradisional</Link>
-                            </h3>
+                            
                           </div>
                         </div>
                       </div>
                     </div>
-                  </Slide.Item>
-                  <Slide.Item>
-                    <div className="row">
-                      <div className="col-lg-4">
-                        <div className="single-team-box">
-                          <div className="image">
-                            <Link href="/Wisata/wisataAdat">
-                              <Image src="/images/_adat & budaya.png" width={550} height={550} alt="image" />
-                            </Link>
-                          </div>
-                          <div className="content">
-                            <h3 style={{ fontSize: 14 }}>
-                              <Link style={{ color: '#fff' }} href="/Wisata/wisataAdat">Adat & Budaya</Link>
-                            </h3>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-lg-4">
-                        <div className="single-team-box">
-                          <div className="image">
-                            <Link href="/Wisata/tempatRekreasi">
-                              <Image src="/images/_rekreasi.png" width={550} height={550} alt="image" />
-                            </Link>
-                          </div>
-                          <div className="content">
-                            <h3 style={{ fontSize: 14 }}>
-                              <Link style={{ color: '#fff' }} href="/Wisata/tempatRekreasi">Tempat Rekreasi</Link>
-                            </h3>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-lg-4">
-                        <div className="single-team-box">
-                          <div className="image">
-                            <Link href="/Wisata/olehOlehKhas">
-                              <Image src="/images/_oleholeh.png" width={550} height={550} alt="image" />
-                            </Link>
-                          </div>
-                          <div className="content">
-                            <h3 style={{ fontSize: 14 }}>
-                              <Link style={{ color: '#fff' }} href="/Wisata/olehOlehKhas">Oleh- Oleh Khas</Link>
-                            </h3>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </Slide.Item>
-                  <Slide.Item>
-                    <div className="row">
-                      <div className="col-lg-4">
-                        <div className="single-team-box">
-                          <div className="image">
-                            <Link href="/PublicService/travelAgensi">
-                              <Image src="/images/_travel.png" width={550} height={550} alt="image" />
-                            </Link>
-                          </div>
-                          <div className="content">
-                            <h3 style={{ fontSize: 14 }}>
-                              <Link style={{ color: '#fff' }} href="/PublicService/travelAgensi">Travel Agensi</Link>
-                            </h3>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-lg-4">
-                        <div className="single-team-box">
-                          <div className="image">
-                            <Link href="/PublicService/Penginapan">
-                              <Image src="/images/_penginapan.png" width={550} height={550} alt="image" />
-                            </Link>
-                          </div>
-                          <div className="content">
-                            <h3 style={{ fontSize: 14 }}>
-                              <Link style={{ color: '#fff' }} href="/PublicService/Penginapan">Penginapan</Link>
-                            </h3>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-lg-4">
-                        <div className="single-team-box">
-                          <div className="image">
-                            <Link href="/PublicService/lokasiPelayananPublic">
-                              <Image src="/images/_public.png" width={550} height={550} alt="image" />
-                            </Link>
-                          </div>
-                          <div className="content">
-                            <h3 style={{ fontSize: 14 }}>
-                              <Link style={{ color: '#fff' }} href="/PublicService/lokasiPelayananPublic">Pelayanan Publik</Link>
-                            </h3>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </Slide.Item>
-                </Slide>
-              </div>
+                  </Carousel.Item>
+                ))}
+              </Carousel>
               
             </div>
             <div className="row ">
