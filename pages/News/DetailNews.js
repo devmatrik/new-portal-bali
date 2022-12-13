@@ -5,7 +5,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import MetaDecorator from '../../components/Meta/MetaDecorator'
 
-
 import { StorageApi, BaseLayouts, ShareWhatsApp } from '../../components/MainCode/MainImport'
 import {
     WhatsappShareButton,
@@ -33,10 +32,7 @@ export default function DetailNews() {
         getTags();
     }, [loading])
 
-    
-
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
-    
 
     const GetDetailNews = async(id) => {
         console.log(link_aktif);
@@ -72,19 +68,14 @@ export default function DetailNews() {
           })
     }
 
-    
-    
     return (
         <>
         <div>
-      
-           
         </div>
-
             <BaseLayouts>
-            <div>
+            {/* <div>
               <MetaDecorator image="https://backend.elingbali.com:8082/images/news/image16696291777076.png" title="ETLE Resmi Berlaku Di Bali"  imagetw="https://backend.elingbali.com:8082/images/news/image16696291777076.png" url="https://elingbali.com"/>
-            </div>
+            </div> */}
                 {/* <!-- Start News Details Area --> */}
                 <section className="news-details-area ptb-50">
                     <div className="container">
@@ -110,7 +101,7 @@ export default function DetailNews() {
                                                 style={{ marginLeft: 5 }}>
                                                 <WhatsappIcon size={32} round />
                                             </WhatsappShareButton> */}
-                                            <a href={`whatsapp://send?text=https://elingbali.com/News/DetailNews?id=${detail.rowid}`}> <WhatsappIcon size={32} round /></a>
+                                            <a href={`whatsapp://send?text=https://elingbali.com/News/DetailNews?id=${detail.rowid}`}> test</a>
                                             <a href={`http://www.twitter.com/share?url=https://elingbali.com/News/DetailNews?id=${detail.rowid}`}>Tweet</a>
 
                                             {/* <iframe

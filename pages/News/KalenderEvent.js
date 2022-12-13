@@ -15,6 +15,8 @@ export default function KalenderEvent() {
   const [loading, setLoading] = useState(false)
   const [event, setEvent] = useState([])
 
+  const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+
   useEffect(() => {
     getData();
   }, [loading])
@@ -92,9 +94,9 @@ export default function KalenderEvent() {
                                         <h3>
                                             <Link href={`/News/DetailEvent?id=${item.rowid}`}>{item.nama_event}</Link>
                                         </h3>
-                                        <p>{item.isi_konten.length > 200 ?
-                                            `${item.isi_konten.substring(0, 200)}...` : item.isi_konten
-                                          }</p>
+                                        <p>{renderHTML(item.isi_konten.length > 150 ?
+                                            `${item.isi_konten.substring(0, 150)}...` : item.isi_konten
+                                          )}</p>
                                         {/* <span><i className="bx bx-map"></i>The Blanco Renaissance Meuseum </span>  */}
                                     <span>{moment(item.tgl_event).format("DD MMMM, YYYY ")}- {moment(item.tgl_berakhir).format("DD MMMM, YYYY ")}</span>
                                     </div>

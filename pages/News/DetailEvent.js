@@ -17,6 +17,9 @@ export default function DetailEvent() {
 
     const [loading, setLoading] = useState('')
     const [detail, setDetail] = useState([])
+
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+
     useEffect(() => {
         GetDetailEvent(query.id)
     }, [loading])
@@ -47,7 +50,7 @@ export default function DetailEvent() {
                                         <span><a href="#" style={{ color: '#ff661f'}}>Event</a> / {moment(detail.tgl_event).format("DD MMMM, YYYY")} - {moment(detail.tgl_berakhir).format("DD MMMM, YYYY")}</span>
                                         <h3>{detail.nama_event}</h3>
                                         <div>
-                                            <p style={{ textAlign: "justify" }}>{detail.isi_konten}</p>
+                                            <p style={{ textAlign: "justify" }}>{renderHTML(detail.isi_konten)}</p>
                                         </div>
                                         <div style={{ marginTop: 10 }}>
                                             <p>Share artikel :

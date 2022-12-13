@@ -134,7 +134,6 @@ export default function NavbarH(props) {
                           const page_count_sub = item.link.split('/')
                           const pagesub = page_count_sub[page_count_sub.length - 2]
                           var id = item.rowid
-                          
                           return (
                               <div className="items-center" key={item.rowid}>
                                <NavDropdown title={item.page} id="basic-nav-dropdown" className={(link_aktif == pagesub) ? menuaktif : menunonaktif}>
@@ -150,7 +149,6 @@ export default function NavbarH(props) {
                                                 {item.page}
                                               </Link>
                                             </li>
-  
                                           </>
                                         )
                                       }
