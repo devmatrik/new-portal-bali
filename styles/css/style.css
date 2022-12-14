@@ -705,8 +705,8 @@ Navbar Area CSS
   -webkit-backdrop-filter: blur(15px); */
   /* position: fixed; */
   /* opacity: 80%; */
-  background-color: #1f2937;
-  border-bottom: 1px solid #7f1d1d;
+  /* border-bottom: 1px solid #7f1d1d; */
+  background-color: #23395d;
 }
 
 .main-navbar .navbar {
@@ -5482,7 +5482,7 @@ Team Area CSS
 }
 
 .single-team-box .content {
-  background-color: #1f2937;
+  background-color: #23395d;
   padding: 30px 20px;
 }
 
@@ -7096,7 +7096,7 @@ Copy Right Area CSS
 =================================================*/
 .copyright-area {
   padding-top: 10px;
-  background-color: #1f2937;
+  background-color: #23395d;
   opacity: 99%;
   border-top: 1px solid grey;
   /* padding-bottom: 10px; */

@@ -111,6 +111,7 @@ export default function ELapor() {
       formData.append('images[]', item.files)
       formData.append('keterangan[]', item.keterangan)
     })
+    debugger;
     Promise.resolve(StorageApi.addData('public_service', formData))
       .then(value => {
         reset_elm()

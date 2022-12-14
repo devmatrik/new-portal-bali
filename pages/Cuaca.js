@@ -37,7 +37,7 @@ export default function Cuaca() {
                 <div className="col-md-12">
                   <div className="location">
                     <p className='hari'>
-                      <Image src="/images/map.png" width={20} height={20} alt="" />
+                      <Image src="/images/map.png" width={15} height={15} alt="" />
                       {weather.kota},
                       <span className='tanggal'>
                         {weather.hari}
