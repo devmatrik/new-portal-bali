@@ -887,7 +887,6 @@ export default function BreakingNews() {
             </div>
           </div>
         </section>
-
       </BaseLayouts>
     </>
   )

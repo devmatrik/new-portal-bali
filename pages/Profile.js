@@ -46,7 +46,7 @@ function Profile() {
 
                                     <div className="article-footer">
                                         <div className="article-share">
-                                            <ul className="social">
+                                            {/* <ul className="social">
                                                 <li><span>Share:</span></li>
                                                 <li>
                                                     <a href="#" target="_blank">
@@ -63,7 +63,7 @@ function Profile() {
                                                         <i className='bx bxl-instagram'></i>
                                                     </a>
                                                 </li>
-                                            </ul>
+                                            </ul> */}
                                         </div>
                                     </div>
                                 </div>

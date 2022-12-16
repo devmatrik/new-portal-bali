@@ -130,7 +130,7 @@ export default function NavbarH(props) {
                           )
                         }
 
-                        if (item.link == "") {
+                        if (item.link == !"") {
                           const page_count_sub = item.link.split('/')
                           const pagesub = page_count_sub[page_count_sub.length - 2]
                           var id = item.rowid
@@ -145,9 +145,9 @@ export default function NavbarH(props) {
                                         return (
                                           <>
                                             <li>
-                                              <Link className={(link_aktif == subpage) ? submenuaktif : submenunonaktif} href={`/${item.link}`} >
+                                              <Nav.Link className={(link_aktif == subpage) ? submenuaktif : submenunonaktif} href={`/${item.link}`} >
                                                 {item.page}
-                                              </Link>
+                                              </Nav.Link>
                                             </li>
                                           </>
                                         )
