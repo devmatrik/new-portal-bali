@@ -57,7 +57,6 @@ export default function Home() {
   }
 
   const getData = () => {
-    
     Promise.resolve(StorageApi.getData("sm_master_data/jenis_wisata"))
       .then(value => {
         const data = value.data.data
