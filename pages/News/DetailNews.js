@@ -93,16 +93,16 @@ export default function DetailNews() {
                                         </div>
                                         <div style={{ marginTop: 10 }}>
                                             <p>Share artikel :
-                                            {/* <WhatsappShareButton
+                                            <WhatsappShareButton
                                                 imgUrl={detail.image}
                                                 url={`http://localhost:3000/News/DetailNews?id=${detail.rowid}`}
                                                 title={detail.judul_news}
                                                 separator=""
                                                 style={{ marginLeft: 5 }}>
                                                 <WhatsappIcon size={32} round />
-                                            </WhatsappShareButton> */}
-                                            <a href={`whatsapp://send?text=https://elingbali.com/News/DetailNews?id=${detail.rowid}`}> test</a>
-                                            <a href={`http://www.twitter.com/share?url=https://elingbali.com/News/DetailNews?id=${detail.rowid}`}>Tweet</a>
+                                            </WhatsappShareButton>
+                                            {/* <a href={`whatsapp://send?text=https://elingbali.com/News/DetailNews?id=${detail.rowid}`}> test</a> */}
+                                            {/* <a href={`http://www.twitter.com/share?url=https://elingbali.com/News/DetailNews?id=${detail.rowid}`}>Tweet</a> */}
 
                                             {/* <iframe
                                             src="http://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button&size=large&width=91&height=28&appId"
