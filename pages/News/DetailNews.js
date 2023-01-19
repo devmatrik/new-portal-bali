@@ -73,10 +73,13 @@ export default function DetailNews() {
         <div>
         </div>
             <Head>
-                <title>Social Media Preview</title>
+                <title>{detail.judul_news}</title>
                 <meta property="og:url" content="https://elingbali.com/News/DetailNews?id=84"/>
                 <meta property="og:img" content={detail.image} />
                 <meta property="og:title" content={detail.judul_news} />
+                <meta property="og:image:type" content="image/png" />
+                <meta property="og:image:width" content="650" />
+                <meta property="og:image:height" content="366" />
                 <meta property="og:type" content="article" />
                 <meta property="fb:app_id" content="your fb id" />
                 <meta name="twitter:card" content="summary" />
@@ -88,7 +91,7 @@ export default function DetailNews() {
             </Head>
             <BaseLayouts>
             {/* <div>
-              <MetaDecorator image="https://backend.elingbali.com:8082/images/news/image16696291777076.png" title="ETLE Resmi Berlaku Di Bali"  imagetw="https://backend.elingbali.com:8082/images/news/image16696291777076.png" url="https://elingbali.com"/>
+            <MetaDecorator image="https://backend.elingbali.com:8082/images/news/image16696291777076.png" title="ETLE Resmi Berlaku Di Bali"  imagetw="https://backend.elingbali.com:8082/images/news/image16696291777076.png" url="https://elingbali.com"/>
             </div> */}
                 {/* <!-- Start News Details Area --> */}
                 <section className="news-details-area ptb-50">
@@ -107,15 +110,16 @@ export default function DetailNews() {
                                         </div>
                                         <div style={{ marginTop: 10 }}>
                                             <p>Share artikel :
-                                            {/* <WhatsappShareButton
+                                            <WhatsappShareButton
                                                 imgUrl={detail.image}
                                                 url={`http://localhost:3000/News/DetailNews?id=${detail.rowid}`}
                                                 title={detail.judul_news}
                                                 separator=""
                                                 style={{ marginLeft: 5 }}>
                                                 <WhatsappIcon size={32} round />
-                                            </WhatsappShareButton> */}
-                                            <a href={`whatsapp://send?text=https://elingbali.com/News/DetailNews?id=${detail.rowid}`}> test</a>
+                                            </WhatsappShareButton>
+
+                                            {/* <a href={`whatsapp://send?text=https://elingbali.com/News/DetailNews?id=${detail.rowid}`}> test</a> */}
                                             {/* <a href={`http://www.twitter.com/share?url=https://elingbali.com/News/DetailNews?id=${detail.rowid}`}>Tweet</a> */}
 
                                             {/* <iframe
