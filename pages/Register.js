@@ -100,8 +100,8 @@ export default function Login() {
                                     </div>
                                     <div className='row'>
                                         <div className="col-lg-4 col-md-4 mb-3">
-                                            <Form.Label for="exampleInputPassword1" className="form-label">Nik</Form.Label>
-                                            <InputCustom className="" type="number" placeholder="Nik" value={nik} onChange={e => setNik(e.target.value)} />
+                                            <Form.Label for="exampleInputPassword1" className="form-label">NIK</Form.Label>
+                                            <InputCustom className="" type="number" placeholder="NIK" value={nik} onChange={e => setNik(e.target.value)} />
                                         </div>
                                         <div className="col-lg-4 col-md-4 mb-3">
                                             <Form.Label for="exampleInputPassword1" className="form-label">Nama Lengkap</Form.Label>
@@ -119,8 +119,8 @@ export default function Login() {
                                             </SelectCustom>
                                         </div>
                                         <div className="col-lg-4 col-md-4 mb-3">
-                                            <Form.Label for="exampleInputPassword1" className="form-label">Telp</Form.Label>
-                                            <InputCustom className="" type="number" placeholder="Telp" onChange={e => setTelp(e.target.value)} />
+                                            <Form.Label for="exampleInputPassword1" className="form-label">No. Telp</Form.Label>
+                                            <InputCustom className="" type="number" placeholder="No. Telp" onChange={e => setTelp(e.target.value)} />
                                         </div>
                                         <div className="col-lg-4 col-md-4 mb-3">
                                             <Form.Label for="exampleInputPassword1" className="form-label">Tanggal Lahir</Form.Label>
@@ -132,7 +132,7 @@ export default function Login() {
                                         </div>
                                         <div className="col-lg-4 col-md-4 mb-3">
                                             <Form.Label for="exampleInputPassword1" className="form-label">Kota/Kabupaten</Form.Label>
-                                            <SelectPolres onChange={(e) => setPolresId(e.value)} value={polres_id} param={17} placeholder="Pilih kota/kabupaten" />
+                                            <SelectPolres onChange={(e) => setPolresId(e.value)} value={polres_id} param={17} placeholder="Pilih Kota/Kabupaten" />
                                         </div>
                                         <div className="col-lg-4 col-md-4 mb-3">
                                             <Form.Label for="exampleInputPassword1" className="form-label">Email</Form.Label>
@@ -146,22 +146,24 @@ export default function Login() {
                                             <Form.Label for="exampleInputPassword1" className="form-label">Password</Form.Label>
                                             <InputCustom className="" type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
                                         </div>
-                                        <Form.Label for="exampleInputPassword1" className="form-label">Alamat</Form.Label>
-                                        <Textarea
-                                            rows="4"
-                                            name="keterangan"
-                                            placeholder="Alamat"
-                                            value={alamat}
-                                            onChange={e => setAlamat(e.target.value)}
-                                        />
+                                        <div className="col-lg-8 col-md-4 mb-4">
+                                            <Form.Label for="exampleInputPassword1" className="form-label">Alamat</Form.Label>
+                                            <Textarea
+                                                rows="3"
+                                                name="keterangan"
+                                                placeholder="Alamat"
+                                                value={alamat}
+                                                onChange={e => setAlamat(e.target.value)}
+                                            />   
+                                        </div>
                                     </div>
-
-                                    <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
-                                    <Button variant="success" onClick={e => Simpan(e)}>
-                                        <p>Login</p>
+                                        
+                                    <Button className='col-lg-2 col-md-2 mb-4' variant="success" onClick={e => Simpan(e)}>
+                                        <p className='text-white'>Daftar</p>
                                     </Button>
+
                                     <div>
-                                        <p className="mb-0 text-center">Dont have an account ?
+                                        <p className="text-secondary mb-0 text-center">Dont have an account ?
                                             <Link href="/Login" className='text-white'> Sign In</Link>
                                             {/* <a href="#!" class="text-white-50 fw-bold"></a> */}
                                         </p>
