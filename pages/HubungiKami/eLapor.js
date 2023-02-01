@@ -215,7 +215,7 @@ export default function ELapor() {
                         <div className="input-group mb-3">
                           <InputCustom className="" type="text" placeholder="Latitude" onChange={e => setLat(e.target.value)} />
                           <InputCustom className="" type="text" placeholder="Longitude" onChange={e => setLng(e.target.value)} />
-                          <span className="input-group-text"><i className="bx bx-map"></i></span>
+                          <span className="input-group-text" type="button"><i className="bx bx-map"></i></span>
                         </div>
                       </div>
                     </div>

@@ -29,35 +29,35 @@ export default function Login() {
         setCfr(c)
     }
 
-    const Login = async (e) => {
-        e.preventDefault();
-        setOk(false)
-        await signOut({
-            redirect: false
-        });
+    // const Login = async (e) => {
+    //     e.preventDefault();
+    //     setOk(false)
+    //     await signOut({
+    //         redirect: false
+    //     });
 
 
-        const res = await signIn('credentials', {
-            redirect: false,
-            username: username,
-            password: password,
-            callbackUrl: `${window.location.origin}`,
-        });
-        if (res?.error) {
-            setNotif(true)
-            setNotifBody("Tidak dapat login, periksa kembali Nik dan Password anda!")
-            setOk(false)
-        } else {
-            setNotif(true)
-            setNotifBody("Selamat Anda berhasil Login")
-            router.push("/HubungiKami/eLapor")
-            setOk(true)
-        }
-    }
+    //     const res = await signIn('credentials', {
+    //         redirect: false,
+    //         username: username,
+    //         password: password,
+    //         callbackUrl: `${window.location.origin}`,
+    //     });
+    //     if (res?.error) {
+    //         setNotif(true)
+    //         setNotifBody("Tidak dapat login, periksa kembali Nik dan Password anda!")
+    //         setOk(false)
+    //     } else {
+    //         setNotif(true)
+    //         setNotifBody("Selamat Anda berhasil Login")
+    //         router.push("/HubungiKami/eLapor")
+    //         setOk(true)
+    //     }
+    // }
     return (
         <>
             <Head>
-                <title>Form Login</title>
+                <title>Forgot Password</title>
                
             </Head>
             <section id="main">
@@ -68,27 +68,26 @@ export default function Login() {
                         <div>
                             <div className='bg-biru text-white my-5 mx-auto' style={{ borderRadius: '1rem', width: '500px' }}>
                                 <div className='p-5 flex-column align-items-center mx-auto'>
-                                    <div className='text-center'>
-                                        <Image className="mb-4" src="/images/logo2.png" width={90} height={90} alt="" />
-                                        <h2 className="fw-bold mb-4 text-2xl text-white text-center">Form Login</h2>
-                                        <div className="mb-3">
-                                            <InputCustom className="" type="text" placeholder="NIK" onChange={e => setUsername(e.target.value)} />
+                                    <div>
+                                        <div className='text-center'>
+                                            <Image className="mb-4" src="/images/logo2.png" width={90} height={90} alt="" />
                                         </div>
+                                        <h2 className="fw-bold mb-4 text-0 text-white">Reset Your Password</h2>
+                                        <p className='text-white text-2sm'>Enter your E-Mail below. We'll send you instructions to reset your password</p>
                                         <div className="mb-3">
-                                            <InputCustom className="" type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                                            <Form.Label for="exampleInputPassword1" className="form-label">E-Mail *</Form.Label>
+                                            <InputCustom className="" type="email" placeholder="E-Mail"/>
                                         </div>
                                     </div>
-                                    <p className="small mb-3 pb-lg-2"><a class="text-abu" href="/Forgot_Password">Forgot password?</a></p>
-                                    <div className="mb-2">
-                                        <Button variant="success" onClick={e => Login(e)}>
-                                            <p className="login">Login</p>
+                                    <div className="mb-3">
+                                        <Button variant="success">
+                                            <p href="#!" className='text-white'>Send Reset Password Link</p>
                                         </Button>
                                     </div>
                                     <div>
-                                        <p className="mb-0 text-abu text-center">Dont have an account ?
-                                            <Link href="/Register" className='text-white'> Sign Up</Link>
-                                            {/* <a href="#!" class="text-white-50 fw-bold"></a> */}
-                                        </p>
+                                        <Button variant="success" href="/Login">
+                                            <p className='login'>Back</p>
+                                        </Button>
                                     </div>
                                 </div>
                             </div>

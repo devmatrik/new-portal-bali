@@ -92,7 +92,7 @@ export default function Login() {
                 <Form>
                     <div className='d-flex justify-content-center align-items-center'>
                         <div>
-                            <div className='bg-dark text-white my-5 mx-auto' style={{ borderRadius: '1rem', width: '900px' }}>
+                            <div className='bg-biru text-white my-5 mx-auto' style={{ borderRadius: '1rem', width: '900px' }}>
                                 <div className='p-5  flex-column align-items-center mx-auto'>
                                     <div className='text-center'>
                                         <Image className="mb-4" src="/images/logo2.png" width={90} height={90} alt="" />
@@ -163,7 +163,7 @@ export default function Login() {
                                     </Button>
 
                                     <div>
-                                        <p className="text-secondary mb-0 text-center">Dont have an account ?
+                                        <p className="text-abu mb-0 text-center">Dont have an account ?
                                             <Link href="/Login" className='text-white'> Sign In</Link>
                                             {/* <a href="#!" class="text-white-50 fw-bold"></a> */}
                                         </p>
