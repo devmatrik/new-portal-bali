@@ -48,6 +48,7 @@ export default function Eservice() {
     formData.append('nama_pelapor', session?.nama)
     formData.append('telp_pelapor', session?.telp)
     formData.append('kategori', kategori_param.toLowerCase())
+    console.log(kategori_param);
     if (kategori_param == "Pelayanan") {
       const param = KategoriPelayanan(sub_kategori_param)
       formData.append('sub_kategori', param)
@@ -91,6 +92,7 @@ export default function Eservice() {
                         <Form.Label for="exampleInputEmail1" className="form-label">Kategori</Form.Label>
                         <SelectKategori onChange={(e) => {
                           setKategoriId(e.value)
+                          setKategoriparam(e.label)
                         }} value={kategori_id} placeholder="Pilih Kategori" param={"Pelayanan"} />
                       </div>
 
