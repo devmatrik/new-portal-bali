@@ -112,7 +112,7 @@ export default function DetailNews() {
                                             <p>Share artikel :
                                             <WhatsappShareButton
                                                 imgUrl={detail.image}
-                                                url={`http://localhost:3000/News/DetailNews?id=${detail.rowid}`}
+                                                url={`https://elingbali.com/News/DetailNews?id=${detail.rowid}`}
                                                 title={detail.judul_news}
                                                 separator=""
                                                 style={{ marginLeft: 5 }}>
