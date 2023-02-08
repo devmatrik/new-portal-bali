@@ -73,7 +73,7 @@ export default function Login() {
                                             <Image className="mb-4" src="/images/logo2.png" width={90} height={90} alt="" />
                                         </div>
                                         <h2 className="fw-bold mb-4 text-0 text-white">Reset Your Password</h2>
-                                        <p className='text-white text-2sm'>Enter your E-Mail below. We'll send you instructions to reset your password</p>
+                                        <p className='text-white text-2sm'>Enter your E-Mail below. Well send you instructions to reset your password</p>
                                         <div className="mb-3">
                                             <Form.Label for="exampleInputPassword1" className="form-label">E-Mail *</Form.Label>
                                             <InputCustom className="" type="email" placeholder="E-Mail"/>
