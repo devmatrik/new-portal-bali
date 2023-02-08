@@ -78,7 +78,7 @@ export default function Login() {
                                             <InputCustom className="" type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
                                         </div>
                                     </div>
-                                    <p className="small mb-3 pb-lg-2"><a class="text-abu" href="/Forgot_Password">Forgot password?</a></p>
+                                    <p className="small mb-3 pb-lg-2"><Link class="text-abu" href="/Forgot_Password">Forgot password?</Link></p>
                                     <div className="mb-2">
                                         <Button variant="success" onClick={e => Login(e)}>
                                             <p className="login">Login</p>
