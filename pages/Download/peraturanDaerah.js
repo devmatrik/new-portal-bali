@@ -5,7 +5,6 @@ import {
   SelectJenisBerita,
   StorageApi
 } from '../../components/MainCode/MainImport'
-// import Slider from "react-slick";
 import Link from 'next/link';
 import moment from 'moment/moment';
 import Carousel from 'react-grid-carousel'
@@ -27,9 +26,9 @@ export default function PeraturanDaerah() {
 
   const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
-//   useEffect(() => {
-//     getData();
-//   }, [loading])
+  useEffect(() => {
+    getData();
+  }, [loading])
 
   const settings = {
     dots: true,
@@ -41,91 +40,69 @@ export default function PeraturanDaerah() {
 
   const konten = {
     title: "Peraturan Daerah",
-    //LinkApi: "algors/periode_keselamatan",
+    LinkApi: "sm_portal/perda",
   }
 
-//   const getData = () => {
-//     Promise.resolve(StorageApi.getData(`sm_portal/perda`))
-//       .then(value => {
-//         const data = value.data.data
-//         setEvent(data)
-//       }).catch(error => {
-//         setEvent([])
-//       })
-//   }
+  const getData = () => {
+    Promise.resolve(StorageApi.getData(`sm_portal/perda`))
+      .then(value => {
+        const data = value.data.data
+        setEvent(data)
+      }).catch(error => {
+        setEvent([])
+      })
+  }
 
   return (
     <>
-    {/* <BaseLayouts>
-      <iframe src="https://jdih.baliprov.go.id/produk-hukum/peraturan-perundang-undangan/perda" width="100%" height="400" name="iframe" />
-    </BaseLayouts> */}
     <BaseLayouts>
-              {/* <!-- Start News Details Area --> */}
-              <section className="news-details-area ptb-50">
-                  <div className="container">
+      {/* <!-- Start News Details Area --> */}
+      <section className="news-details-area ptb-50">
+        <div className="container">
                       <div className="row">
-                          <div className="col-lg-12 col-md-12 mt-0">
-                              <div className="blog-details-desc">
-                                  {/* <span><a href="#">Hunt</a> / 14 November 2022 /</span> */}
-                                  <h5>Peraturan Daerah</h5>
-                                  
-                                {/* <div className="col-md-12">
-                                  <FilterJenisBerita
-                                    jenisBerita={
-                                      <SelectJenisBerita onChange={(e) => setJenisBerita(e.value)} value={jenis_berita_id} placeholder="Pilih Peraturan Daerah" />
-                                    } title={" "}
-                                    filter={(e) => AllFilter()} reset={(e) => reset_elm()} />
-                                </div>    */}
-                                <div className="container events">
-                                      {/* {event.map((item, index) => ( */}
-                                          <div className="row mb-20" >
-                                            <div className="col-lg-12 ">
-                                                <div className="single-culture-news">
-                                                    <div className="row align-items-center">
-                                                        <div className="col-lg-3">
-                                                            <div className="culture-news-image">
-                                                                <Link href="#">
-                                                                    <img src="" style={{ height: "170px", width : "300px" }} alt="image" />
-                                                                </Link>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="col-lg-8">
-                                                            <div className="culture-news-content mt-0">
-                                                                <span>test</span>
-                                                                <h3>
-                                                                    <Link href="#">test</Link>
-                                                                </h3>
-                                                                {/* <p>{renderHTML(item.isi_konten.length > 150 ?
-                                                                    `${item.isi_konten.substring(0, 150)}...` : item.isi_konten
-                                                                  )}</p> */}
-                                                                {/* <span><i className="bx bx-map"></i>The Blanco Renaissance Meuseum </span>  */}
-                                                                {/* <span>{moment(item.tgl_event).format("DD MMMM, YYYY ")}- {moment(item.tgl_berakhir).format("DD MMMM, YYYY ")}</span> */}
-                                                                <span>test</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                            <div className="col-lg-8 col-md-12 mt-0">
+                                <div className="blog-details-desc">
+                                    <div className="article-content mt-0">
+                                        <h3>Peraturan Daerah</h3>
+                                        <div className="article-image">
+                                          {/* {event.map((item, index) => ( */}
+                                          <div className='container'>
+                                            <iframe src="https://docs.google.com/gview?url=https://path.com/to/your/pdf.pdf&embedded=true" style={{width: "650px", height: "500px"}} frameborder="0"></iframe>
                                           </div>
-                                    {/* ))} */}
+                                          {/* <span>{moment(item.tgl_event).format("DD MMMM, YYYY ")}- {moment(item.tgl_berakhir).format("DD MMMM, YYYY ")}</span> */}
+                                          {/* ))} */}
+                                        </div> <br />
+                                        <embed src="study/sample.pdf" type="application/pdf" height="300px" width="100%" class="responsive" />
+                                        <a href="study/sample.pdf">Download</a>
+                                    </div>
                                 </div>
-                                <br />             
-                                <div className="article-footer">
-                                      <div className="article-share">
+                            </div>
+                            <div class="col-lg-4">
+                                <aside class="widget-area contactprof">
 
-                                      </div>
-                                </div>
-                              </div>
-                          </div>
-                      </div>
-                      {/* <!-- Start Contact Area --> */}
-                      
-                      {/* <!-- End Contact Area --> */}
-                  </div>
-              </section>
-              {/* <!-- Start News Details Area --> */}
-          </BaseLayouts>
+                                    <section class="widget widget_latest_news_thumb">
+                                        <h3 class="widget-title">Wilayah Provinsi Bali</h3>
+
+                                        <div className="blog-details-desc">
+                                            <div className="article-content mt-0">
+                                                <div className="article-image">
+                                                    <div className='container'>
+                                                        <Image className="prof" src="/images/balimap.webp" width={768} height={240} alt="image" />
+                                                    </div>
+                                                    <div className='container'>
+                                                        <Image className="prof" src="/images/iconkabupaten.svg" width={900} height={320} alt="image" />
+                                                    </div>
+                                                </div> <br />
+                                            </div>
+                                        </div>
+                                    </section>
+                                </aside>
+                            </div>
+                        </div>
+                  </div>           
+      </section>
+      {/* <!-- Start News Details Area --> */}        
+    </BaseLayouts>
   </>
   )
 }
